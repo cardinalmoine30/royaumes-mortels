@@ -40,6 +40,11 @@ jobs:
           chmod +x gradlew
           ./gradlew build --stacktrace 2>&1 | tee ci-out/compilation.log
 
+      - name: Export des signatures d'API
+        if: always()
+        continue-on-error: true
+        run: bash ci/api.sh
+
       - name: Serveur Minecraft 26.3 de test
         id: serveur
         if: steps.build.outcome == 'success'

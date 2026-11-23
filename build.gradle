@@ -194,3 +194,9 @@ idea {
         downloadJavadoc = true
     }
 }
+
+// Utilisé par la CI pour exporter les signatures d'API (javap) dans les journaux.
+tasks.register('imprimerClasspath') {
+    def cp = sourceSets.main.compileClasspath
+    doLast { println "CLASSPATH=" + cp.asPath }
+}
