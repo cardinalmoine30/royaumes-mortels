@@ -657,8 +657,11 @@ def gen_dimension():
                 h = (-1.0, 0.0) if j == 0 else (0.0, 1.0)
                 tt = (t0, t1) if j == 0 else (-1.0 + 2.0 * ((k + 1) % n) / n, -1.0 + 2.0 * ((k + 1) % n + 1) / n)
                 res.append((i, tt, h, (-0.19 if not flottant else -1.2, 1.0), (-1.0, 1.0), (-1, 1)))
+        # avec des pics, les autres biomes reçoivent un léger décalage pour leur laisser les sommets
+        decal = 0.12 if any(_BIOME[i].get("special") == "pics" for i in ids) else 0.0
         return [{"biome": f"{NS}:{i}", "parameters": {"temperature": list(t), "humidity": list(hh), "continentalness": list(c),
-                 "erosion": list(e), "weirdness": list(wd), "depth": 0.0, "offset": 0.0}} for i, t, hh, c, e, wd in res]
+                 "erosion": list(e), "weirdness": list(wd), "depth": 0.0,
+                 "offset": 0.0 if _BIOME[i].get("special") in ("pics", "ocean") else decal}} for i, t, hh, c, e, wd in res]
 
     _BIOME = {b["id"]: b for b in BIOMES}
     w(f"data/{NS}/dimension/royaumes_mortels.json", {
