@@ -1,0 +1,280 @@
+{
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:brute"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Brute Ironjawz",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:megaboss"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Mégaboss Ironjawz",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:gutrippa"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Gutrippa Kruleboyz",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:grot"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Grot de la Mauvaise Lune",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:gutbuster"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Ogor Gutbuster",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:gargant"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Gargant Mangeur d'Hommes",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:nagash"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Nagash, Dieu de la Mort",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:archaon"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Archaon l'Élu Éternel",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:gordrakk"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Gordrakk, le Poing de Gork",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:skarbrand"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Skarbrand l'Exilé",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:thanquol"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Thanquol, Prophète Gris",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:rotigus"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Rotigus le Pluviomancien",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

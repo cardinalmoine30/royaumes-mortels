@@ -506,7 +506,7 @@ def main():
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w").write("\n".join(lignes) + "\n")
     open(f"{RACINE}/src/main/resources/data/royaumes/function/debug/nettoyer.mcfunction", "w").write(
-        "kill @e[type=#royaumes:mobs_du_mod]\n")
+        "kill @e[type=#royaumes:mobs_du_mod]\nkill @e[type=minecraft:text_display,tag=rm_debug]\n")
     tag = f"{RACINE}/src/main/resources/data/royaumes/tags/entity_type/mobs_du_mod.json"
     os.makedirs(os.path.dirname(tag), exist_ok=True)
     json.dump({"values": [f"royaumes:{e[0]}" for e in entrees]}, open(tag, "w"), indent=1)

@@ -1,0 +1,323 @@
+{
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Pierre de Royaume",
+         "color": "light_purple",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Clic droit : voyager entre ce monde",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "et les Royaumes Mortels.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:echo_shard",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "pierre"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Parchemin de Gloire",
+         "color": "yellow",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "+100 Gloire.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:item_model": "minecraft:paper",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "parchemin"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Sceau de Nagash",
+         "color": "dark_purple",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Invoque le Grand Nécromancien. Que Sigmar vous garde.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:wither_skeleton_skull",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "sceau_nagash"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Sceau d'Archaon",
+         "color": "dark_red",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Invoque l'Élu Éternel, Seigneur de la Fin des Temps.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:ender_eye",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "sceau_archaon"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Totem de Gordrakk",
+         "color": "gold",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Souffle dedans et le Poing de Gork arrive. WAAAGH !",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:goat_horn",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "sceau_gordrakk"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Crâne de Skarbrand",
+         "color": "red",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "La rage de l'Exilé y bouillonne encore.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:skeleton_skull",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "sceau_skarbrand"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Cloche de Thanquol",
+         "color": "green",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Son tintement attire le Grand Prophète et Boneripper.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:bell",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "sceau_thanquol"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Calice de Rotigus",
+         "color": "dark_green",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Grand-Père Nurgle envoie son plus généreux enfant.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Clic droit pour l'utiliser.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "minecraft:honey_bottle",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "sceau_rotigus"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

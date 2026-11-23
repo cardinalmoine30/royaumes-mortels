@@ -40,4 +40,9 @@ scoreboard objectives add rm_test dummy
 execute store result score #n rm_test if entity @e[type=#royaumes:mobs_du_mod]
 scoreboard players get #n rm_test
 team list rm_ordre
+execute in minecraft:overworld positioned 0 100 0 run function royaumes:debug/objets
+attendre 3
+data get block 2 100 2 Items[0]
+data get block 6 100 2 Items[0]
+data get block 14 100 2 Items[0].components
 function royaumes:debug/nettoyer
