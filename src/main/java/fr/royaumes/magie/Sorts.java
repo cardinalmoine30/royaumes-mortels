@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.UUID;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -78,6 +80,14 @@ public final class Sorts {
                 e -> ennemi(p, e) && e.position().distanceTo(centre) <= r + 1);
     }
 
+    private static EntityType<?> type(String nom) {
+        return BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace(nom));
+    }
+
+    private static boolean mortVivant(LivingEntity e) {
+        return BuiltInRegistries.ENTITY_TYPE.wrapAsHolder(e.getType()).is(EntityTypeTags.UNDEAD);
+    }
+
     private static HitResult vise(ServerPlayer p, double portee) {
         return ProjectileUtil.getHitResultOnViewVector(p, e -> e instanceof LivingEntity l && l.isAlive() && e != p && !e.isSpectator(), portee);
     }
@@ -111,7 +121,7 @@ public final class Sorts {
     }
 
     private static void foudreVisuelle(ServerLevel n, Vec3 pos) {
-        Entity e = EntityType.LIGHTNING_BOLT.create(n, EntitySpawnReason.TRIGGERED);
+        Entity e = type("lightning_bolt").create(n, EntitySpawnReason.TRIGGERED);
         if (e instanceof LightningBolt foudre) {
             foudre.setPos(pos.x, pos.y, pos.z);
             foudre.setVisualOnly(true);
@@ -214,8 +224,7 @@ public final class Sorts {
 
     private static boolean meute(ServerPlayer p, ServerLevel n) {
         for (int i = 0; i < 3; i++) {
-            Wolf loup = EntityType.WOLF.create(n, EntitySpawnReason.MOB_SUMMONED);
-            if (loup == null) {
+            if (!(type("wolf").create(n, EntitySpawnReason.MOB_SUMMONED) instanceof Wolf loup)) {
                 continue;
             }
             double a = i * 2 * Math.PI / 3;
@@ -260,7 +269,7 @@ public final class Sorts {
         HitResult h = vise(p, 24);
         trainee(n, ParticleTypes.END_ROD, p.getEyePosition().add(p.getLookAngle().scale(0.8)), h.getLocation(), 0.35);
         if (h instanceof EntityHitResult eh && eh.getEntity() instanceof LivingEntity l) {
-            blesser(p, n, l, l.getType().is(EntityTypeTags.UNDEAD) ? 14.0F : 9.0F);
+            blesser(p, n, l, mortVivant(l) ? 14.0F : 9.0F);
         }
         son(n, p, SoundEvents.BEACON_DEACTIVATE, 1.0F, 2.0F);
         return true;
@@ -271,7 +280,7 @@ public final class Sorts {
         for (LivingEntity e : ennemis(p, n, p.position(), 10)) {
             e.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 80, 0), p);
             e.addEffect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), p);
-            blesser(p, n, e, e.getType().is(EntityTypeTags.UNDEAD) ? 10.0F : 4.0F);
+            blesser(p, n, e, mortVivant(e) ? 10.0F : 4.0F);
         }
         son(n, p, SoundEvents.BEACON_ACTIVATE, 1.2F, 1.8F);
         return true;

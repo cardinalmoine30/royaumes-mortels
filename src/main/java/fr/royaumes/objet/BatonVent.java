@@ -39,7 +39,6 @@ public class BatonVent extends Item {
             int rang = joueur.isShiftKeyDown() ? 1 : 0;
             if (Magie.lancer(sp, serveur, vent, rang)) {
                 joueur.getCooldowns().addCooldown(pile, ContenuGenere.SORTS_RECHARGES[vent][rang]);
-                joueur.swing(main, true);
             }
         }
         return InteractionResult.SUCCESS;

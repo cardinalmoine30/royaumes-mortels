@@ -1,6 +1,5 @@
 package fr.royaumes.client;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import fr.royaumes.RoyaumesMortels;
 import fr.royaumes.reseau.BonjourModde;
 import fr.royaumes.reseau.DonneesHeros;
@@ -19,13 +18,12 @@ import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.minecraft.client.gui.screens.Screen;
-import org.lwjgl.glfw.GLFW;
 
 /** Client : touche J (écran de serment), HUD des Royaumes, poignée de main « j'ai le mod », skins de faction. */
 @EventBusSubscriber(modid = RoyaumesMortels.MODID, value = Dist.CLIENT)
 public final class ClientRoyaumes {
     static final KeyMapping.Category CATEGORIE = new KeyMapping.Category(Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID, "royaumes"));
-    static final KeyMapping TOUCHE_SERMENT = new KeyMapping("key.royaumes.serment", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_J, CATEGORIE);
+    static final KeyMapping TOUCHE_SERMENT = new KeyMapping("key.royaumes.serment", 74 /* J */, CATEGORIE);
     private static int attente = 60;
     private static int compteur = 0;
     /** Écran actuellement ouvert, suivi par les événements d'ouverture et de fermeture. */

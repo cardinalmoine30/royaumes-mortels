@@ -27,7 +27,7 @@ public class HudRoyaumes implements GuiLayer {
         Minecraft mc = Minecraft.getInstance();
         LocalPlayer joueur = mc.player;
         FicheHeros f = DonneesHeros.actuelle;
-        if (joueur == null || f == null || mc.options.hideGui || joueur.isSpectator()) {
+        if (joueur == null || f == null || joueur.isSpectator()) {
             return;
         }
         int w = g.guiWidth();
