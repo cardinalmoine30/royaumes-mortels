@@ -490,18 +490,22 @@ def main():
     os.makedirs(os.path.dirname(tag), exist_ok=True)
     json.dump({"values": [f"royaumes:{e['id']}" for e in entrees]}, open(tag, "w"), indent=1)
     json.dump([{k: e[k] for k in ("id", "nom", "fac")} for e in entrees], open(f"{ICI}/liste_mobs.json", "w"), ensure_ascii=False, indent=1)
+    import montures
+    pm = montures.generer(ICI, ASSETS, RACINE, boite, C1.animations_gen, apercu)
+    planche += [(nom, "montures", chemin, False, "") for nom, chemin in pm]
     faire_planches(planche)
-    print(len(entrees), "mobs générés")
+    print(len(entrees), "mobs générés,", len(pm), "montures")
 
 
 def faire_planches(planche):
-    COUL = {"ordre": (230, 190, 70), "chaos": (200, 60, 60), "mort": (170, 110, 220), "destruction": (100, 190, 90)}
+    COUL = {"ordre": (230, 190, 70), "chaos": (200, 60, 60), "mort": (170, 110, 220), "destruction": (100, 190, 90),
+            "montures": (110, 190, 230)}
     fb = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", 30)
     fs = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 14)
     for f in os.listdir(f"{ICI}/apercus"):
         if f.startswith("planche_"):
             os.remove(f"{ICI}/apercus/{f}")
-    for al, titre in (("ordre", "Ordre"), ("chaos", "Chaos"), ("mort", "Mort"), ("destruction", "Destruction")):
+    for al, titre in (("ordre", "Ordre"), ("chaos", "Chaos"), ("mort", "Mort"), ("destruction", "Destruction"), ("montures", "Montures")):
         items = [p for p in planche if p[1] == al]
         for page in range(0, len(items), 24):
             lot = items[page:page + 24]
@@ -510,7 +514,8 @@ def faire_planches(planche):
             W, H = cols * 260 + 20, rows * 290 + 80
             sh = Image.new("RGB", (W, H), (22, 24, 30))
             d = ImageDraw.Draw(sh)
-            d.text((20, 20), f"Bestiaire — {titre} ({page // 24 + 1})", fill=(240, 220, 150), font=fb)
+            d.text((20, 20), (f"Bestiaire — {titre}" if al != "montures" else "Montures des joueurs") + f" ({page // 24 + 1})",
+                   fill=(240, 220, 150), font=fb)
             for i, (nom, a, chemin, boss, fac) in enumerate(lot):
                 im = Image.open(chemin)
                 v = im.crop((0, 60, im.width, im.height))

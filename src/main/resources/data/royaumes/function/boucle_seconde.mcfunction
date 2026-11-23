@@ -30,3 +30,7 @@ function royaumes:rpg/boucle
 function royaumes:boss/boucle
 execute as @a at @s unless dimension minecraft:overworld unless dimension minecraft:the_nether unless dimension minecraft:the_end run function royaumes:rpg/decouvrir
 function royaumes:ambiance/boucle
+scoreboard players remove @a[scores={rm_cdm=1..}] rm_cdm 1
+execute as @a[tag=!rm_corne,scores={rm_faction=1..}] run function royaumes:monture/donner
+scoreboard players enable @a rm_blocs
+scoreboard players enable @a rm_codex

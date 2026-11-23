@@ -249,12 +249,16 @@ def navire(nom, s, fac):
         m.cube("body", (sx * W / 2 - (0.5 if sx < 0 else 0), 4.5 + H, -L / 2), (0.5, 1.5, L), "or")
     m.cube("body", (-W / 2 + 1, 4.5 + H, L / 2 - 6), (W - 2, 4, 5), "armure", north=f_cadre(A2))                 # timonerie
     m.cube("body", (-1, 4 + H, -2), (2, 10, 2), "metal")
-    m.bone("ballon", "body", (0, 14 + H, 0))
+    yb_ = s.get("ballon_y", 14)
+    m.bone("ballon", "body", (0, yb_ + H, 0))
     bw, bh, bl = s.get("ballon", (W + 2, 8, L - 4))
-    m.cube("ballon", (-bw / 2, 14 + H, -bl / 2), (bw, bh, bl), "tissu", east=f_bande(A2, "haut"), west=f_bande(A2, "haut"))
+    m.cube("ballon", (-bw / 2, yb_ + H, -bl / 2), (bw, bh, bl), "tissu", east=f_bande(A2, "haut"), west=f_bande(A2, "haut"))
     for k in range(3):
-        m.cube("ballon", (-bw / 2 - 0.5, 14 + H - 0.5, -bl / 2 + 1 + k * (bl - 2) / 2.2), (bw + 1, bh + 1, 1), "or")
-    m.cube("ballon", (-1.5, 14 + H + bh * 0.3, -bl / 2 - 1), (3, 3, 1), "lueur")
+        m.cube("ballon", (-bw / 2 - 0.5, yb_ + H - 0.5, -bl / 2 + 1 + k * (bl - 2) / 2.2), (bw + 1, bh + 1, 1), "or")
+    m.cube("ballon", (-1.5, yb_ + H + bh * 0.3, -bl / 2 - 1), (3, 3, 1), "lueur")
+    for sx in (-1, 1):                                                                     # haubans
+        m.cube("ballon", (sx * (bw / 2 - 1) - 0.25, 4.5 + H, -bl / 4), (0.5, yb_ - 4.5, 0.5), "metal")
+        m.cube("ballon", (sx * (bw / 2 - 1) - 0.25, 4.5 + H, bl / 4), (0.5, yb_ - 4.5, 0.5), "metal")
     m.bone("rotor", "body", (0, 4 + H / 2, L / 2 + 2))
     m.cube("rotor", (-5, 4 + H / 2 - 0.75, L / 2 + 1.5), (10, 1.5, 0.5), "metal")
     m.cube("rotor", (-0.75, 4 + H / 2 - 5, L / 2 + 1.5), (1.5, 10, 0.5), "metal")
@@ -263,7 +267,10 @@ def navire(nom, s, fac):
         x = -W / 2 + 2 + i * 3.5
         m.cube("body", (x, 5 + H, -L / 2 - 2), (2, 2, 7), "metal", north=f_cadre(LU))
         m.cube("body", (x - 0.25, 4.75 + H, -L / 2 - 2.5), (2.5, 2.5, 1), "or")
-    for x in (-W / 4, W / 4):
+    if s.get("selle"):
+        m.cube("body", (-2, 4.5 + H, 2), (4, 1, 4), "cuir")
+        m.selle = (5.5 + H, 3.5)
+    for x in ((-W / 4, W / 4) if not s.get("selle") else ()):
         m.cube("body", (x - 1.5, 4.5 + H, 1), (3, 4, 3), "armure", north=f_yeux(LU, (14, 14, 18), 0.4, 0.2))
         m.cube("body", (x - 1, 8.5 + H, 1.5), (2, 2.5, 2), "armure", north=lambda d, x, y, w, h, px: d.ellipse((x + 1, y + 1, x + w - 2, y + h - 2), fill=LU))
     return m, mats
@@ -351,6 +358,9 @@ def poisson(nom, s, fac):
     if s.get("lanternes"):
         m.cube("head", (-0.25, 6 + H - 1, -L / 2 - 8), (0.5, 0.5, 4), "corne", rot=(20, 0, 0), pivot=(0, 6 + H - 1, -L / 2 - 4))
         m.cube("head", (-1, 6 + H, -L / 2 - 10), (2, 2, 2), "lueur")
+    if s.get("selle"):
+        m.cube("body", (-W / 2 + 0.5, 6 + H - 0.2, -2.5), (W - 1, 1, 5), "cuir", toutes=f_bande(A2, "haut"))
+        m.selle = (6 + H + 0.8, 0)
     if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, 6 + H + 0.5, 0, s.get("arme_cavalier", "lance"))
     return m, mats

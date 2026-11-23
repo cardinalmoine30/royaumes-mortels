@@ -1,6 +1,7 @@
 package fr.royaumes;
 
 import fr.royaumes.entite.Combattant;
+import fr.royaumes.entite.Monture;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.core.registries.Registries;
@@ -23,6 +24,8 @@ public final class ModEntites {
 
     public static final Map<String, Profil> PROFILS = new LinkedHashMap<>();
     public static final Map<String, DeferredHolder<EntityType<?>, EntityType<Combattant>>> ENTITES = new LinkedHashMap<>();
+    public static final Map<String, ProfilMonture> PROFILS_MONTURES = new LinkedHashMap<>();
+    public static final Map<String, DeferredHolder<EntityType<?>, EntityType<Monture>>> MONTURES = new LinkedHashMap<>();
 
     static {
         for (Profil p : ProfilsGeneres.TOUS) {
@@ -32,6 +35,21 @@ public final class ModEntites {
                     .sized(p.largeur(), p.hauteur())
                     .clientTrackingRange(p.boss() ? 16 : 10)
                     .build(ResourceKey.create(Registries.ENTITY_TYPE, id))));
+        }
+        for (ProfilMonture p : MonturesGenerees.TOUTES) {
+            PROFILS_MONTURES.put(p.id(), p);
+            MONTURES.put(p.id(), TYPES.register(p.id(), id -> {
+                EntityType.Builder<Monture> b = EntityType.Builder
+                        .of(Monture::new, MobCategory.CREATURE)
+                        .sized(p.largeur(), p.hauteur())
+                        .passengerAttachments(p.selle())
+                        .clientTrackingRange(10)
+                        .noLootTable();
+                if (p.feu()) {
+                    b = b.fireImmune();
+                }
+                return b.build(ResourceKey.create(Registries.ENTITY_TYPE, id));
+            }));
         }
     }
 
@@ -45,6 +63,7 @@ public final class ModEntites {
 
     private static void attributs(EntityAttributeCreationEvent event) {
         ENTITES.forEach((id, type) -> event.put(type.get(), Combattant.creerAttributs(PROFILS.get(id)).build()));
+        MONTURES.forEach((id, type) -> event.put(type.get(), Monture.creerAttributs(PROFILS_MONTURES.get(id)).build()));
     }
 
     private static void placements(RegisterSpawnPlacementsEvent event) {

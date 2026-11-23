@@ -1,0 +1,175 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Blocs et ressources des Royaumes",
+    "color": "light_purple",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Blocs des Royaumes",
+    "color": "light_purple"
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 400,
+      "contents": [
+        {
+          "text": "Où trouver les ressources :\n\n",
+          "color": "gray"
+        },
+        {
+          "text": "• Éclat de Royaume",
+          "color": "light_purple"
+        },
+        {
+          "text": " — tous les guerriers de faction, améthyste des Royaumes\n",
+          "color": "white"
+        },
+        {
+          "text": "• Lingot de Sigmarite",
+          "color": "gold"
+        },
+        {
+          "text": " — Stormcast (Azyr) ; ou Forge : or + lapis + éclat\n",
+          "color": "white"
+        },
+        {
+          "text": "• Malepierre",
+          "color": "green"
+        },
+        {
+          "text": " — Skaven ; blocs de malepierre verts\n",
+          "color": "white"
+        },
+        {
+          "text": "• Ur-Or",
+          "color": "gold"
+        },
+        {
+          "text": " — Fyreslayers ; minerai d'or des Royaumes\n",
+          "color": "white"
+        },
+        {
+          "text": "• Aether-Or",
+          "color": "yellow"
+        },
+        {
+          "text": " — Kharadron ; or brut de Chamon\n",
+          "color": "white"
+        },
+        {
+          "text": "• Fragment d'Âme",
+          "color": "dark_aqua"
+        },
+        {
+          "text": " — morts-vivants de Shyish ; blocs d'os de Shyish\n",
+          "color": "white"
+        },
+        {
+          "text": "• Braise d'Aqshy",
+          "color": "red"
+        },
+        {
+          "text": " — Khorne et Hashut ; magma d'Aqshy\n",
+          "color": "white"
+        },
+        {
+          "text": "• Ambre de Ghur",
+          "color": "gold"
+        },
+        {
+          "text": " — Seraphon, Ogors, Gargants\n",
+          "color": "white"
+        },
+        {
+          "text": "• Graine de Vie",
+          "color": "green"
+        },
+        {
+          "text": " — Sylvaneth, Nurgle ; azalées de Ghyran\n",
+          "color": "white"
+        },
+        {
+          "text": "• Pierre-Ombre",
+          "color": "dark_gray"
+        },
+        {
+          "text": " — Filles de Khaine, Idoneth, Gitz\n",
+          "color": "white"
+        },
+        {
+          "text": "• Cristal de Hysh",
+          "color": "white"
+        },
+        {
+          "text": " — Lumineth ; calcite de Hysh\n",
+          "color": "white"
+        },
+        {
+          "text": "• Éclat du Chaos",
+          "color": "dark_red"
+        },
+        {
+          "text": " — Guerriers du Chaos ; obsidienne pleureuse\n",
+          "color": "white"
+        },
+        {
+          "text": "• Ferraille d'Orruk",
+          "color": "gray"
+        },
+        {
+          "text": " — Ironjawz et Kruleboyz\n",
+          "color": "white"
+        },
+        {
+          "text": "• Sigmarite Brute",
+          "color": "aqua"
+        },
+        {
+          "text": " — minerai de lapis des Cimes d'Azyr\n",
+          "color": "white"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": true,
+  "pause": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Forge des Royaumes",
+        "color": "gold"
+      },
+      "width": 150,
+      "tooltip": {
+        "text": "Ce que l'on fabrique avec ces ressources"
+      },
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_forge"
+      }
+    },
+    {
+      "label": {
+        "text": "Tout recevoir (créatif)",
+        "color": "aqua"
+      },
+      "width": 150,
+      "tooltip": {
+        "text": "Réservé aux opérateurs : tonneaux de tous les objets et blocs du mod"
+      },
+      "action": {
+        "type": "run_command",
+        "command": "function royaumes:debug/objets"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Fermer"
+    },
+    "width": 100
+  }
+}

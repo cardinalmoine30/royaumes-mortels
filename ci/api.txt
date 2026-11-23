@@ -46,3 +46,7 @@ net.minecraft.world.entity.animal.equine.AbstractHorse
 net.minecraft.world.InteractionResult
 net.minecraft.world.entity.ai.attributes.Attributes
 net.minecraft.world.entity.PlayerRideableJumping
+net.neoforged.neoforge.client.event.ScreenEvent$Opening
+net.neoforged.neoforge.client.event.ScreenEvent$Init
+net.neoforged.neoforge.client.event.ScreenEvent$Render
+net.neoforged.neoforge.event.tick.ServerTickEvent

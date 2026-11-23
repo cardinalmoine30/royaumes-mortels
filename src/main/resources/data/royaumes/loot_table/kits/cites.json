@@ -284,6 +284,55 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot_on_a_stick",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Corne d'appel",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Clic droit : appelle la monture de ta faction",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "et te met en selle. Sneak + clic droit sur",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "la monture : la laisser. Saut : barre de saut,",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "monture volante : regarde où tu veux aller.",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:unbreakable": {},
+                "minecraft:item_model": "minecraft:goat_horn",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                  "royaumes": "monture"
+                }
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

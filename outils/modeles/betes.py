@@ -282,12 +282,14 @@ def cheval(nom, s, fac):
         m.cube("body", (-W / 2 + 0.4, yb - 1.5, -L / 2 - 1.3), (W - 0.8, H - 0.5, 0.5), "armure",
                north=combine(f_cadre(A2), f_comete(A2)))                                      # bardes de poitrail
     zs = -L / 2 + L * 0.36
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         m.cube("body", (-W / 2 + 0.4, yb + H + 0.6, zs - 3), (W - 0.8, 1, 6), "cuir", toutes=f_bande(A2, "haut"))
         m.cube("body", (-W / 2 + 0.6, yb + H + 1.6, zs + 2), (W - 1.2, 1.4, 1), "cuir")
         for sx in (-1, 1):
             m.cube("body", (sx * W / 2 - (0.4 if sx < 0 else 0), yb + 1, zs), (0.4, H - 0.5, 0.8), "cuir")
             m.cube("body", (sx * W / 2 - (0.9 if sx < 0 else 0.1), yb + 0.2, zs - 0.6), (1, 1, 2), "metal")
+        m.selle = (yb + H + 1.6, zs)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, yb + H + 1.6, zs, s.get("arme_cavalier", "lance"), s.get("taille_cavalier", 1))
     return m, mats
 
@@ -367,9 +369,11 @@ def griffon(nom, s, fac):
     # ailes levées
     if s.get("ailes"):
         ailes_plumes(m, mats, (W / 2 - 1.2, yb + H, -L / 2 + L * 0.28), s["ailes"] * 1.15)
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         zs = -L / 2 + L * 0.45
         m.cube("body", (-W / 2 + 0.6, yb + H, zs - 3), (W - 1.2, 1, 6), "cuir", toutes=f_bande(A2, "haut"))
+        m.selle = (yb + H + 1, zs)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, yb + H + 1, zs, s.get("arme_cavalier", "lance"), s.get("taille_cavalier", 1))
     return m, mats
 
@@ -484,9 +488,11 @@ def dragon(nom, s, fac):
     if s.get("ailes"):
         ailes_membrane(m, mats, (W / 2 - 1.5, yb + H, -L / 2 + L * 0.3), s["ailes"] * 1.25,
                        dechire=nom in ("dragon_zombie", "terrorgheist"))
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         zs = -L / 2 + L * 0.38
         m.cube("body", (-W / 2 + 1.5, yb + H + 0.6, zs - 3), (W - 3, 1, 6.5), "cuir", toutes=f_bande(A2, "haut"))
+        m.selle = (yb + H + 1.6, zs)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, yb + H + 1.6, zs, s.get("arme_cavalier", "lance"), s.get("taille_cavalier", 1))
     return m, mats
 
@@ -546,9 +552,11 @@ def theropode(nom, s, fac):
     for k, a in enumerate((-8, -4, 2, 6, 4)):
         w_ = max(1.0, W * 0.5 * (1 - k / 5))
         q = ar(m, "tail", q, a, qn * 1.3 / 5 + 0.8, w_, w_ * 0.9, "corps", ext=1)
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         zs = -L / 2 + L * 0.42
         m.cube("body", (-W / 2 + 1, yb + H, zs - 3.5), (W - 2, 1.2, 7), "or", toutes=f_bande(A2, "haut"))
+        m.selle = (yb + H + 1.2, zs)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, yb + H + 1.2, zs, s.get("arme_cavalier", "lance"), s.get("taille_cavalier", 1))
     return m, mats
 
@@ -626,6 +634,12 @@ def fauve(nom, s, fac):
             pc = (sx * tw * 0.25, pc[1], pc[2])
             q = ar(m, "head", pc, 35, 2.4, 1.2, 1.2, "corne")
             ar(m, "head", q, 12, 1.8, 0.8, 0.8, "corne")
+    if s.get("defenses_haut"):                                                                # défenses de sanglier
+        for sx in (-1, 1):
+            pd_ = add(pm, (-th * 0.15, nor_av(ah)), (-0.6, dir_av(ah)))
+            pd_ = (sx * (tw * 0.31 + 0.3), pd_[1], pd_[2])
+            q = av(m, "head", pd_, 20, 1.8, 1.1, 1.1, "dent")
+            av(m, "head", q, 75, 2.2, 0.8, 0.8, "dent")
     if fac == "khorne":                                                                       # collier de laiton
         m.cube("neck", (-W * 0.34, p0[1] - H * 0.35, p0[2] - 2.6), (W * 0.68, 1.4, 2.4), "or", rot=(-22, 0, 0), pivot=p0)
     # queue
@@ -633,7 +647,7 @@ def fauve(nom, s, fac):
     if qn:
         m.bone("tail", "body", (0, yb + H - 1.5, L / 2))
         q = ar(m, "tail", (0, yb + H - 1.5, L / 2 - 0.5), 22 if not chat else -20, qn * 0.5, 1.4, 1.4, "corps", ext=0.5)
-        q = ar(m, "tail", q, -6 if not chat else 10, qn * 0.5, 1.2, 1.2, "poils" if chat or fac == "ogors" else "corps", ext=0.4)
+        q = ar(m, "tail", q, -6 if not chat else 10, qn * 0.5, 1.2, 1.2, "rose" if fac == "skaven" else ("poils" if chat or fac == "ogors" else "corps"), ext=0.4)
         if s.get("dard"):
             q = ar(m, "tail", q, 55, qn * 0.5, 1.1, 1.1, "corps")
             q = ar(m, "tail", q, 110, 2.4, 1.4, 1.4, "corne")
@@ -647,9 +661,11 @@ def fauve(nom, s, fac):
                 C.piece(m, nomb, (s["ailes"] * 0.32, -0.2, 2), 48, s["ailes"] * 0.35, 0.25, s["ailes"] * 0.6, "membrane", sx)
         else:
             ailes_membrane(m, mats, (W / 2 - 1, yb + H, -L / 2 + L * 0.3), s["ailes"] * 1.2)
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         zs = -L / 2 + L * 0.42
-        m.cube("body", (-W / 2 + 0.5, yb + H, zs - 2.5), (W - 1, 1, 5), "cuir", toutes=f_bande(A2, "haut"))
+        m.cube("body", (-W / 2 + 0.5, yb + H + (1.2 if voute else 0), zs - 2.5), (W - 1, 1, 5), "cuir", toutes=f_bande(A2, "haut"))
+        m.selle = (yb + H + 1 + (1.2 if voute else 0), zs)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, yb + H + 1, zs, s.get("arme_cavalier", "lance"), s.get("taille_cavalier", 1))
     return m, mats
 
@@ -758,9 +774,11 @@ def mastodonte(nom, s, fac):
         elif qn <= 6 and not s.get("criniere"):
             m.cube("tail", (-1.2, q[1] - 2, q[2] - 0.6), (2.4, 2.4, 1.6), "poils")
     # cavalier, nacelle, autel
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         zs = -L / 2 + L * 0.4
         m.cube("body", (-W / 2 + 1, yb + H + 1, zs - 3), (W - 2, 1.2, 6.5), "cuir", toutes=f_bande(A2, "haut"))
+        m.selle = (yb + H + 2.2, zs)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, yb + H + 2.2, zs, s.get("arme_cavalier", "lance"), s.get("taille_cavalier", 1))
     if s.get("nacelle"):
         y0 = yb + H + (3 if s.get("criniere") else 1)
@@ -849,9 +867,44 @@ def squig(nom, s, fac):
         m.cube(nomj, (x - 1.6, 0, Rr * 0.3 - 2.8), (3.2, 1.1, 4), "corps")
         for k in range(3):
             m.cube(nomj, (x - 1.4 + k * 1.1, 0, Rr * 0.3 - 3.5), (0.6, 0.7, 0.9), "corne")
-    if s.get("cavalier"):
+    if s.get("cavalier") or s.get("selle"):
         m.cube("body", (-Rr * 0.5, cy + Rr - 0.2, -1.5), (Rr, 1, 4), "cuir", toutes=f_bande(A2, "haut"))
+        m.selle = (cy + Rr + 0.8, 0.5)
+    if s.get("cavalier"):
         mini_cavalier(m, P, mats, fac, cy + Rr + 0.8, 0.5, s.get("arme_cavalier", "lance"), 0.8 if Rr < 6 else 1.0)
+    return m, mats
+
+
+# ------------------------------------------------------------------ disque de Tzeentch
+def disque(nom, s, fac):
+    P = s["pal"]
+    mats = mats_creature(nom, s, fac)
+    A2, LU = P["armure2"], P["lueur"]
+    mat(mats, "flamme", (120, 200, 255), "lueur")
+    mat(mats, "flamme_rose", (240, 120, 200), "lueur")
+    m = Modele(nom)
+    R_ = s.get("rayon", 8)
+    y0 = 7
+    m.bone("root", None, (0, 0, 0))
+    m.bone("body", "root", (0, y0, 0))
+    # plateau en anneaux : cuivre dessous, turquoise dessus
+    for (r, h, y, matr) in ((R_, 1.2, y0, "armure2"), (R_ * 0.86, 1.0, y0 + 1.2, "armure"), (R_ * 0.55, 0.8, y0 + 2.2, "armure2"),
+                            (R_ * 0.75, 1.0, y0 - 1.0, "armure2"), (R_ * 0.4, 1.2, y0 - 2.2, "armure")):
+        for (ax, az) in ((1.0, 0.62), (0.62, 1.0), (0.87, 0.87)):
+            m.cube("body", (-r * ax, y, -r * az), (2 * r * ax, h, 2 * r * az), matr)
+    # couronne de lames
+    for k in range(12):
+        an = k * math.pi / 6
+        x, z = math.sin(an) * (R_ + 0.4), math.cos(an) * (R_ + 0.4)
+        m.cube("body", (x - 0.5, y0 + 0.2, z - 0.5), (1, 0.8, 1), "lame")
+        m.cube("body", (x * 1.12 - 0.35, y0 + 0.35, z * 1.12 - 0.35), (0.7, 0.5, 0.7), "lame")
+    # œil changeant au centre, tourné vers l'avant
+    m.cube("body", (-1.6, y0 + 3.0, -R_ * 0.55 - 0.2), (3.2, 2.2, 1.2), "blanc")
+    m.cube("body", (-0.7, y0 + 3.4, -R_ * 0.55 - 0.4), (1.4, 1.4, 0.4), "lueur")
+    # traînée de feu magique sous le disque
+    for k, (r, matr) in enumerate(((R_ * 0.35, "flamme"), (R_ * 0.25, "flamme_rose"), (R_ * 0.15, "flamme"))):
+        m.cube("body", (-r, y0 - 3.4 - k * 1.4, -r + k * 0.6), (2 * r, 1.4, 2 * r), matr)
+    m.selle = (y0 + 3.0, 0.5)
     return m, mats
 
 

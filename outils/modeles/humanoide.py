@@ -81,6 +81,9 @@ def materiaux(P, st, s):
     pal["rose"] = (P.get("rose", (214, 150, 150)), "peau")
     pal["gemme"] = ((200, 30, 40), "lueur")
     pal["crete"] = (P.get("crete", (196, 40, 36)), "membrane")
+    pal["capuche"] = (P.get("capuche", P["tissu"]), "tissu")
+    pal["serpent"] = (P.get("serpent", P["peau"]), "ecaille")
+    pal["embleme"] = (P.get("embleme", (232, 214, 172)), "tissu")
     pal["oeil"] = (P.get("oeil", P["lueur"]), "lueur")
     fac = s.get("_fac")
     if fac == "ossiarch":
@@ -114,6 +117,18 @@ def f_comete(c, fond=None):
         d.ellipse((cx - 2, cy - 2, cx + 1, cy + 1), fill=c)
         d.line((cx - 1, cy + 1, x + 1, y + h - 2), fill=c, width=1)
         d.line((cx, cy + 1, x + w - 2, y + h - 2), fill=c, width=1)
+    return f
+
+
+def f_losange(c, icone=(40, 24, 20)):
+    """Losange héraldique des Cités de Sigmar, avec une petite figure sombre au centre."""
+    def f(d, x, y, w, h, px):
+        cx, cy = x + w // 2, y + h // 2
+        r = max(2, min(w, h) // 2 - 1)
+        d.polygon([(cx, cy - r), (cx + r, cy), (cx, cy + r), (cx - r, cy)], fill=c)
+        d.rectangle((cx - 1, cy - 1, cx, cy), fill=icone)
+        d.point((cx - 2, cy - 1), fill=icone)
+        d.point((cx + 1, cy - 1), fill=icone)
     return f
 
 
@@ -309,7 +324,7 @@ def humanoide(nom, s, fac):
         m.bone("tail", "root", (0, lh, 0))
         segs = [(-4.5, 4, -3.5, 9, 7, 7), (-3.5, 1.5, 2.5, 7, 5.5, 8), (-2.5, 0, 9.5, 5, 4, 7), (-1.5, 0, 15.5, 3, 3, 6), (-0.75, 0, 20.5, 1.5, 2, 4)]
         for x, y, z, w, h, d in segs:
-            m.cube("tail", (x, y, z), (w, h, d), "peau", up=f_bande(mul(A2, 0.9), "haut"))
+            m.cube("tail", (x, y, z), (w, h, d), "serpent", up=f_bande(mul(A2, 0.9), "haut"))
             m.cube("tail", (x + 0.5, y - 0.5, z + 0.5), (w - 1, 0.5, d - 1), "ventre")
     else:     # spectre : robe en lambeaux flottante
         m.cube("body", (-5, 4, -3.5), (10, 6, 7), "tissu")
@@ -336,7 +351,8 @@ def humanoide(nom, s, fac):
     em = {"comete": f_comete(LU if s.get("embleme_lueur") else mul(A2, 1.15)),
           "etoile": f_etoile(LU if s.get("embleme_lueur") else A2),
           "crane": f_crane(LU if s.get("embleme_lueur") else (226, 216, 190)),
-          "croc": f_croc(LU if s.get("embleme_lueur") else A2)}.get(s.get("embleme"), None)
+          "croc": f_croc(LU if s.get("embleme_lueur") else A2),
+          "losange": f_losange(P.get("embleme", (232, 214, 172)))}.get(s.get("embleme"), None)
     corps_mat = "peau" if not arm and fac in ("sylvaneth", "seraphon", "skaven", "fec", "ogors", "behemat", "gitz", "orruks", "khorne", "slaanesh", "nurgle", "tzeentch", "fyreslayers", "khaine") and not s.get("face") == "capuche" else mt
     if corps == "spectre":
         corps_mat = "tissu"
@@ -476,7 +492,7 @@ def humanoide(nom, s, fac):
     # ---------------- tête
     face = s.get("face", "visage")
     casque = st.get("casque") if face == "heaume" else None
-    tm = "armure" if face == "heaume" else ("tissu" if face == "capuche" else "peau")
+    tm = "armure" if face == "heaume" else ("capuche" if face == "capuche" else "peau")
     fn_face = {
         "visage": f_visage(P["peau"]),
         "bete": combine(f_yeux(LU, (12, 12, 14), 0.38, 0.25)),
@@ -485,6 +501,12 @@ def humanoide(nom, s, fac):
                                               f_yeux(LU, None, 0.5, 0.2)(d, x, y, w, h, px)),
         "heaume": f_fente_t((14, 14, 18), None),
     }[face]
+    if face == "capuche" and fac == "nighthaunt":
+        pale = P["peau"]
+        fn_face = lambda d, x, y, w, h, px: (d.rectangle((x + 2, y + 3, x + w - 3, y + h - 1), fill=pale),
+                                             d.rectangle((x + 3, y + int(h * 0.42), x + 4, y + int(h * 0.42) + 1), fill=(16, 30, 30)),
+                                             d.rectangle((x + w - 5, y + int(h * 0.42), x + w - 4, y + int(h * 0.42) + 1), fill=(16, 30, 30)),
+                                             d.line((x + 4, y + h - 3, x + w - 5, y + h - 3), fill=(40, 70, 66)))
     if "cyclope" in ex:
         oe = P.get("oeil", LU)
         fn_face = lambda d, x, y, w, h, px: (d.ellipse((x + w // 2 - 2, y + int(h * 0.3), x + w // 2 + 1, y + int(h * 0.3) + 3), fill=(230, 220, 150)),
@@ -511,10 +533,10 @@ def humanoide(nom, s, fac):
             m.cube("head", (hx - 1.5, yt + hs * 0.45, -0.5), (1.5, 1, 1), "peau", rot=(0, 0, -25), pivot=(hx, yt + hs * 0.5, 0))
             m.cube("head", (-hx, yt + hs * 0.45, -0.5), (1.5, 1, 1), "peau", rot=(0, 0, 25), pivot=(-hx, yt + hs * 0.5, 0))
     if face == "capuche":
-        m.cube("head", (hx - 0.5, yt - 0.5, hx - 0.5), (hs + 1, hs + 1, 1), "tissu",
+        m.cube("head", (hx - 0.5, yt - 0.5, hx - 0.5), (hs + 1, hs + 1, 1), "capuche",
                north=lambda d, x, y, w, h, px: d.rectangle((x + 3, y + 3, x + w - 4, y + h - 1), fill=(0, 0, 0, 0)))
-        m.cube("head", (-1, yt + hs, -hx - 2.5), (2, 2, 3), "tissu")                                         # pointe de capuche
-        m.cube("head", (hx - 1, yt - 2, hx), (hs + 2, 2.5, hs + 1), "tissu")                                 # pèlerine
+        m.cube("head", (-1, yt + hs, -hx - 2.5), (2, 2, 3), "capuche")                                       # pointe de capuche
+        m.cube("head", (hx - 1, yt - 2, hx), (hs + 2, 2.5, hs + 1), "capuche")                               # pèlerine
     if face == "bete" and "bec" in ex:
         m.cube("head", (-1.5, yt + 2, hx - 3.5), (3, 2.5, 3.5), "corne", north=f_dents((60, 50, 30)) if False else None)   # bec supérieur
         m.cube("head", (-1, yt + 0.5, hx - 4.8), (2, 3, 1.5), "corne", rot=(25, 0, 0), pivot=(0, yt + 3, hx - 4))          # pointe crochue

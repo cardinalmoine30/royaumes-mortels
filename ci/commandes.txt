@@ -46,3 +46,33 @@ data get block 4 100 2 Items[0]
 # Carte des Royaumes : choix du monde
 scoreboard players set #t rm_voyage 0
 function royaumes:voyage/aller
+# Montures de faction : chaque type doit exister et apparaître
+summon royaumes:monture_dracoth -36 101 20
+summon royaumes:monture_destrier -33 101 20
+summon royaumes:monture_magmadroth -30 101 20
+summon royaumes:monture_gunhauler -27 101 20
+summon royaumes:monture_coursier_ombre -24 101 20
+summon royaumes:monture_ishlaen -21 101 20
+summon royaumes:monture_destrier_aube -18 101 20
+summon royaumes:monture_aggradon -15 101 20
+summon royaumes:monture_cerf_wyldwood -12 101 20
+summon royaumes:monture_destrier_chaos -9 101 20
+summon royaumes:monture_juggernaut -6 101 20
+summon royaumes:monture_disque -3 101 20
+summon royaumes:monture_seeker 0 101 20
+summon royaumes:monture_pusgoyle 3 101 20
+summon royaumes:monture_gnaw_beast 6 101 20
+summon royaumes:monture_taurus 9 101 20
+summon royaumes:monture_dreadblade 12 101 20
+summon royaumes:monture_cauchemar 15 101 20
+summon royaumes:monture_kavalos 18 101 20
+summon royaumes:monture_morbheg 21 101 20
+summon royaumes:monture_gore_grunta 24 101 20
+summon royaumes:monture_gnashtoof 27 101 20
+summon royaumes:monture_squig 30 101 20
+summon royaumes:monture_mournfang 33 101 20
+summon royaumes:monture_mammouth 36 101 20
+attendre 5
+execute store result score #m rm_test if entity @e[type=#royaumes:montures]
+scoreboard players get #m rm_test
+kill @e[type=#royaumes:montures]

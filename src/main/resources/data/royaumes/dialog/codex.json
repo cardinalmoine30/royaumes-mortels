@@ -85,6 +85,24 @@
         {
           "text": "Les guerriers de ta Grande Alliance ne t'attaquent pas. Les boss attaquent tout le monde.\n\n",
           "color": "white"
+        },
+        {
+          "text": "Montures de faction\n",
+          "color": "aqua",
+          "bold": true
+        },
+        {
+          "text": "La Corne d'appel (clic droit) fait venir la monture de ta faction et te met en selle : Dracoth, Destrier, Magmadroth, Gunhauler, Ishlaen, Aggradon, Juggernaut, Disque de Tzeentch, Squig, Mournfang… Barre d'espace : sauter. Montures volantes : avance en regardant vers le haut ou le bas. Sneak + clic droit sur la monture : la laisser. Elles amortissent toutes les chutes.\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Inventaire de taverne\n",
+          "color": "gold",
+          "bold": true
+        },
+        {
+          "text": "Ouvre ton inventaire (E) : les onglets Codex, Forge, Blocs et Héros mènent aux menus du jeu, et le Carnet du Héros affiche ton niveau, ta gloire et tes compétences.\n\n",
+          "color": "white"
         }
       ]
     }

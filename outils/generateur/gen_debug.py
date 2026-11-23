@@ -25,7 +25,8 @@ for r in X.RES:
               open(f"{DATA}/loot_table/debug/res/{r}.json", "w"), ensure_ascii=False, indent=1)
 for s in ressources:
     s["n"] = 16
-divers = [B.PIERRE, X.PARCHEMIN] + list(X.SCEAUX.values())
+import v6gen
+divers = [B.PIERRE, X.PARCHEMIN, v6gen.CORNE] + list(X.SCEAUX.values())
 trophees = [t for l in X.TROPHEES.values() for t in l]
 
 # œufs d'apparition des mobs du mod

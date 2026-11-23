@@ -6,6 +6,7 @@ import com.geckolib.renderer.layer.builtin.AutoGlowingGeoLayer;
 import fr.royaumes.ModEntites;
 import fr.royaumes.RoyaumesMortels;
 import fr.royaumes.entite.Combattant;
+import fr.royaumes.entite.Monture;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.world.entity.EntityType;
@@ -22,6 +23,14 @@ public final class RoyaumesClient {
     @SubscribeEvent
     static void rendus(EntityRenderersEvent.RegisterRenderers event) {
         ModEntites.ENTITES.values().forEach(type -> event.registerEntityRenderer(type.get(), ctx -> rendu(ctx, type.get())));
+        ModEntites.MONTURES.values().forEach(type -> event.registerEntityRenderer(type.get(), ctx -> renduMonture(ctx, type.get())));
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static GeoEntityRenderer<Monture, LivingEntityRenderState> renduMonture(EntityRendererProvider.Context ctx, EntityType<Monture> type) {
+        GeoEntityRenderer<Monture, LivingEntityRenderState> r = new GeoEntityRenderer<>(ctx, type);
+        r.withRenderLayer((GeoRenderLayer) new AutoGlowingGeoLayer(r));
+        return r;
     }
 
     /** Rendu GeckoLib + couche lumineuse (texture *_glowmask.png). */
