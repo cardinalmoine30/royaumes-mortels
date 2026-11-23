@@ -647,7 +647,7 @@ def gen_dimension():
             if sp == "ocean" and not flottant:
                 res.append((i, (-1, 1), (-1, 1), (-1.2, -0.19), (-1, 1), (-1, 1)))
             elif sp == "pics":
-                res.append((i, (-1, 1), (-1, 1), (0.3, 1.0), (-1.0, -0.55), (-1, 1)))
+                res.append((i, (-1, 1), (-1, 1), (0.05, 1.0), (-1.0, -0.15), (-1, 1)))
         n = len(terres)
         for k, i in enumerate(terres):
             # bandes de température x humidité en damier pour bien mélanger
@@ -678,6 +678,8 @@ def gen_dimension():
     nf = charger("worldgen/noise_settings/floating_islands.json")
     nf["material_rule"] = DIM
     nf = json.loads(json.dumps(nf).replace('"minecraft:end/base_3d_noise"', f'"{NS}:hysh_iles"'))
+    for clim in ("temperature", "vegetation"):
+        nf["noise_router"][clim] = f"{NS}:{clim}"
     w(f"data/{NS}/worldgen/noise_settings/iles_flottantes.json", nf)
     ns = charger("worldgen/noise_settings/overworld.json")
     ns["material_rule"] = DIM

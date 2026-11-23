@@ -12,6 +12,7 @@ bossbar get royaumes:nagash max
 kill @e[type=royaumes:nagash]
 execute in royaumes:royaumes_mortels run forceload add 0 0
 attendre 8
+execute in royaumes:royaumes_mortels run locate biome royaumes:azyr_cimes
 execute in royaumes:royaumes_mortels run locate structure royaumes:forteresse_stormcast
 execute in royaumes:royaumes_mortels run locate structure royaumes:cite_sigmar
 execute in royaumes:ghyran run forceload add 0 0
@@ -24,6 +25,7 @@ execute in royaumes:shyish run forceload add 0 0
 attendre 15
 execute in royaumes:shyish run locate structure royaumes:ossuaire_ossiarch
 execute in royaumes:hysh run locate biome royaumes:hysh_plateaux
+execute in royaumes:hysh run locate structure royaumes:sanctuaire_lumineth
 # Créatures du mod
 execute in minecraft:overworld positioned 0 100 0 run function royaumes:debug/mobs
 summon royaumes:stardrake 0 110 0

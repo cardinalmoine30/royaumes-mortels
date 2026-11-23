@@ -111,8 +111,8 @@
       }
     },
     "ridges": 0.0,
-    "temperature": 0.0,
-    "vegetation": 0.0
+    "temperature": "royaumes:temperature",
+    "vegetation": "royaumes:vegetation"
   },
   "sea_level": -64,
   "spawn_target": []
