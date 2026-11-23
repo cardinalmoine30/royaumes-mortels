@@ -15,10 +15,16 @@
     {
       "type": "minecraft:offset",
       "x": 0,
+      "y": 14,
+      "z": 0
+    },
+    {
+      "type": "minecraft:offset",
+      "x": 0,
       "y": {
         "type": "minecraft:uniform",
-        "min_inclusive": 14,
-        "max_inclusive": 30
+        "min_inclusive": 0,
+        "max_inclusive": 16
       },
       "z": 0
     },

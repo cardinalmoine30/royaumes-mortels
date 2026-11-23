@@ -142,7 +142,8 @@
       "argument": [
         {
           "particle": {
-            "type": "minecraft:tinted_leaves"
+            "type": "minecraft:tinted_leaves",
+            "color": -3644374
           },
           "probability": 0.01
         },
