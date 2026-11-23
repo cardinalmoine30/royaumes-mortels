@@ -36,45 +36,45 @@ FAC = {
 OR, BLEU = (204, 158, 52), (40, 66, 150)
 P = {
     "sc": pal(OR, (60, 90, 170), BLEU, OR, (120, 220, 255), metal=(120, 130, 140), manche=(130, 40, 40), bouclier=BLEU, membrane=(230, 235, 245)),
-    "cites": pal((150, 150, 160), (200, 170, 60), (40, 70, 150), (215, 175, 140), (250, 220, 120)),
+    "cites": pal((158, 160, 168), (196, 150, 70), (178, 82, 40), (215, 175, 140), (250, 220, 120), bouclier=(150, 32, 30), plume=(178, 82, 40)),
     "griffon": pal((150, 120, 80), (240, 240, 235), (120, 90, 60), (170, 130, 80), (250, 220, 120), corne=(230, 190, 80), membrane=(235, 230, 220)),
     "dragon": pal((180, 50, 40), (230, 180, 70), (150, 40, 30), (170, 45, 35), (255, 150, 40), corne=(230, 210, 170), membrane=(130, 30, 25)),
-    "khaine": pal((60, 20, 30), (200, 170, 90), (130, 20, 40), (225, 190, 170), (255, 40, 60), poils=(20, 20, 24), membrane=(80, 20, 30)),
+    "khaine": pal((50, 22, 30), (196, 160, 90), (110, 18, 34), (232, 204, 188), (255, 40, 60), poils=(150, 24, 30), membrane=(80, 20, 30), cuir=(40, 24, 28)),
     "avatar": pal((70, 70, 76), (200, 160, 60), (60, 20, 20), (80, 80, 86), (255, 110, 30)),
-    "fyre": pal((200, 120, 60), (230, 180, 60), (120, 50, 30), (215, 150, 110), (255, 120, 30), poils=(240, 110, 30)),
+    "fyre": pal((214, 160, 60), (230, 186, 64), (100, 40, 26), (222, 160, 120), (255, 150, 40), poils=(246, 110, 24), cuir=(120, 56, 30)),
     "magma": pal((60, 40, 36), (230, 180, 60), (90, 40, 20), (90, 50, 40), (255, 120, 30), corne=(240, 200, 90)),
-    "idoneth": pal((40, 90, 110), (220, 210, 190), (30, 60, 90), (190, 210, 220), (120, 255, 230)),
+    "idoneth": pal((60, 140, 140), (204, 168, 76), (100, 170, 160), (214, 226, 232), (120, 255, 230), membrane=(110, 180, 180)),
     "abyss": pal((40, 80, 110), (220, 210, 190), (30, 60, 90), (60, 110, 140), (120, 255, 230), membrane=(70, 140, 160), ventre=(190, 210, 210)),
-    "khar": pal((60, 110, 140), (200, 170, 70), (60, 60, 70), (60, 110, 140), (120, 230, 255), metal=(160, 140, 90), bois=(90, 70, 50)),
-    "navire": pal((60, 110, 140), (200, 170, 70), (200, 200, 205), (60, 110, 140), (120, 230, 255), metal=(170, 140, 80), bois=(90, 64, 44)),
-    "lum": pal((235, 235, 240), (210, 180, 90), (230, 230, 240), (240, 220, 200), (255, 250, 200)),
+    "khar": pal((48, 92, 150), (194, 152, 70), (236, 232, 220), (220, 170, 140), (140, 230, 255), metal=(176, 140, 76), bois=(90, 70, 50), poils=(120, 80, 50)),
+    "navire": pal((48, 92, 150), (194, 152, 70), (236, 232, 220), (48, 92, 150), (140, 230, 255), metal=(176, 140, 76), bois=(90, 64, 44)),
+    "lum": pal((238, 238, 242), (212, 180, 92), (172, 112, 170), (240, 220, 200), (255, 250, 200), plume=(196, 120, 186)),
     "alarith": pal((180, 180, 175), (210, 180, 90), (150, 150, 145), (170, 170, 165), (255, 250, 200), corne=(230, 230, 220)),
-    "sera": pal((40, 120, 140), (210, 170, 60), (40, 120, 140), (60, 150, 110), (255, 230, 90), corne=(240, 200, 80), ventre=(220, 200, 140)),
-    "sylv": pal((110, 80, 50), (120, 160, 60), (90, 70, 45), (120, 90, 60), (150, 255, 90), corne=(90, 70, 45)),
+    "sera": pal((206, 160, 54), (226, 186, 70), (180, 40, 36), (36, 150, 160), (255, 220, 90), corne=(236, 220, 170), ventre=(226, 214, 160), crete=(200, 36, 34), oeil=(230, 40, 30)),
+    "sylv": pal((112, 86, 58), (120, 170, 60), (90, 70, 45), (126, 100, 70), (110, 255, 200), corne=(96, 74, 48)),
     "chaos": pal((60, 60, 66), (170, 140, 60), (110, 20, 20), (200, 170, 140), (230, 60, 40), metal=(90, 90, 96)),
     "chaos_cheval": pal((40, 40, 46), (170, 140, 60), (110, 20, 20), (50, 40, 40), (230, 60, 40), corne=(200, 190, 160)),
     "demon": pal((110, 30, 60), (200, 170, 70), (80, 20, 40), (120, 40, 70), (255, 80, 200), membrane=(70, 20, 40)),
     "rejeton": pal((150, 80, 110), (90, 60, 90), (120, 70, 100), (160, 90, 120), (255, 200, 80), membrane=(120, 60, 90)),
-    "tzeentch": pal((50, 90, 170), (220, 180, 60), (50, 120, 180), (90, 130, 200), (120, 230, 255), corne=(240, 220, 150), membrane=(60, 120, 200)),
+    "tzeentch": pal((204, 158, 52), (226, 186, 70), (40, 130, 170), (110, 150, 210), (120, 230, 255), corne=(240, 220, 150), membrane=(60, 120, 200), plume=(60, 140, 200)),
     "rose": pal((230, 120, 180), (240, 200, 90), (220, 110, 170), (235, 130, 190), (120, 230, 255)),
     "khorne": pal((150, 30, 26), (190, 160, 70), (60, 20, 18), (170, 40, 30), (255, 80, 40), metal=(70, 60, 60), corne=(50, 40, 36), membrane=(110, 20, 15)),
     "laiton": pal((180, 130, 60), (150, 30, 26), (60, 20, 18), (190, 140, 60), (255, 80, 40), corne=(60, 50, 40)),
-    "slaanesh": pal((200, 150, 200), (220, 210, 230), (170, 90, 170), (220, 180, 220), (255, 120, 220), poils=(240, 230, 250), corne=(240, 220, 240)),
-    "nurgle": pal((110, 120, 60), (150, 120, 60), (90, 80, 50), (150, 160, 100), (190, 230, 60), metal=(100, 90, 60), corne=(170, 160, 110)),
-    "skaven": pal((80, 66, 50), (120, 110, 90), (70, 50, 40), (110, 90, 70), (80, 255, 60), metal=(90, 86, 80), poils=(90, 70, 55)),
+    "slaanesh": pal((150, 90, 170), (220, 210, 230), (170, 90, 170), (226, 196, 228), (255, 120, 220), poils=(176, 50, 120), corne=(120, 60, 150)),
+    "nurgle": pal((110, 120, 60), (150, 110, 60), (90, 80, 50), (150, 170, 100), (190, 230, 60), metal=(120, 84, 50), corne=(200, 190, 140), oeil=(230, 200, 40)),
+    "skaven": pal((92, 80, 70), (130, 104, 70), (140, 30, 30), (84, 66, 52), (80, 255, 60), metal=(110, 92, 74), poils=(70, 56, 44), rose=(214, 140, 140)),
     "hashut": pal((40, 40, 44), (190, 140, 60), (90, 30, 20), (90, 90, 96), (255, 110, 30), poils=(30, 30, 34)),
     "fec": pal((150, 150, 140), (120, 60, 50), (90, 70, 60), (170, 170, 160), (220, 60, 60), membrane=(110, 90, 90), corne=(210, 200, 180)),
-    "nh": pal((60, 140, 130), (140, 200, 190), (70, 150, 140), (110, 200, 190), (160, 255, 230), membrane=(70, 150, 140)),
-    "ossi": pal((225, 215, 190), (60, 50, 80), (60, 50, 80), (230, 220, 200), (120, 230, 255), membrane=(200, 190, 170), corne=(230, 220, 200)),
-    "sb": pal((40, 40, 50), (180, 30, 40), (100, 10, 20), (230, 225, 230), (255, 40, 50), membrane=(60, 40, 50)),
+    "nh": pal((60, 140, 130), (150, 120, 70), (70, 150, 140), (110, 200, 190), (160, 255, 230), membrane=(70, 150, 140), metal=(70, 70, 76)),
+    "ossi": pal((226, 214, 186), (66, 50, 92), (66, 50, 92), (232, 222, 200), (130, 210, 255), membrane=(200, 190, 170), corne=(232, 222, 200)),
+    "sb": pal((120, 20, 30), (196, 152, 60), (30, 24, 30), (230, 225, 230), (255, 40, 50), membrane=(60, 40, 50)),
     "sbz": pal((120, 120, 110), (170, 150, 90), (60, 70, 60), (140, 150, 120), (90, 255, 160), membrane=(90, 100, 80), corne=(220, 215, 190)),
     "gitz": pal((40, 40, 50), (220, 210, 120), (34, 34, 46), (120, 160, 70), (230, 220, 120)),
     "squig": pal((40, 40, 50), (220, 210, 120), (34, 34, 46), (220, 70, 40), (255, 230, 90), ventre=(240, 200, 120)),
     "troll": pal((90, 110, 100), (120, 100, 70), (80, 70, 60), (100, 120, 110), (255, 220, 90)),
     "ogor": pal((120, 100, 80), (200, 160, 60), (110, 60, 40), (205, 170, 140), (255, 200, 60), corne=(230, 220, 200), poils=(90, 70, 50)),
     "givre": pal((200, 210, 225), (90, 120, 170), (150, 160, 180), (210, 220, 230), (160, 220, 255), corne=(240, 240, 240), poils=(220, 230, 240)),
-    "orruk": pal((90, 90, 96), (230, 200, 40), (90, 60, 40), (80, 130, 50), (255, 200, 40), metal=(110, 110, 116)),
-    "kb": pal((60, 70, 50), (150, 120, 70), (70, 80, 40), (90, 120, 60), (200, 255, 80), metal=(90, 96, 80)),
+    "orruk": pal((226, 184, 34), (112, 112, 118), (90, 60, 40), (80, 130, 50), (255, 200, 40), metal=(112, 112, 118)),
+    "kb": pal((60, 66, 56), (150, 40, 30), (140, 40, 30), (96, 118, 66), (200, 255, 80), metal=(90, 96, 80)),
     "pierre": pal((130, 125, 115), (200, 170, 60), (110, 105, 95), (130, 125, 115), (120, 255, 120)),
     "gargant": pal((120, 90, 60), (160, 120, 70), (110, 80, 50), (200, 160, 130), (255, 200, 60), poils=(110, 80, 50)),
 }
@@ -142,8 +142,8 @@ M("magmadroth", "Magmadroth", "fyreslayers", "bete", B("magma", corps=(14, 12, 2
 M("elementaire_magma", "Élémentaire de Magma", "fyreslayers", "h", H("geant", "magma", face="bete", embleme="point", embleme_lueur=True, extras=("cornes",)), (160, 12, 6, .22), 1.6, cap="feu", special="onde", butin=[("minecraft:magma_block", 1, 4)], poids=3)
 M("salamandre", "Salamandre", "fyreslayers", "bete", B("magma", corps=(6, 5, 12), jambe=(2, 5), tete=(5, 4, 6), cou=2, queue=8, crete_dos=True), (40, 5, 3, .3), cap="feu", mode="mage", butin=[("minecraft:blaze_powder", 1, 2)])
 # --- Abyssaux Idoneths (Ulgu : mer d'éther)
-M("namarti_thrall", "Namarti Thrall", "idoneth", "h", H("fin", "idoneth", armure=True, face="bete", arme="epee", embleme="point", extras=("cape",)), (30, 6, 3, .28), butin=[("minecraft:prismarine_shard", 1, 2)])
-M("namarti_reaver", "Namarti Reaver", "idoneth", "h", H("fin", "idoneth", face="bete", arme="fusil", embleme="point"), (24, 5, 2, .3), mode="tir", butin=[("minecraft:prismarine_shard", 1, 2)])
+M("namarti_thrall", "Namarti Thrall", "idoneth", "h", H("fin", "idoneth", armure=True, face="visage", arme="epee", embleme="point", extras=("cape", "sans_yeux")), (30, 6, 3, .28), butin=[("minecraft:prismarine_shard", 1, 2)])
+M("namarti_reaver", "Namarti Reaver", "idoneth", "h", H("fin", "idoneth", face="visage", arme="fusil", embleme="point", extras=("sans_yeux",)), (24, 5, 2, .3), mode="tir", butin=[("minecraft:prismarine_shard", 1, 2)])
 M("ishlaen", "Garde Ishlaen", "idoneth", "poisson", B("abyss", corps=(10, 6, 6), cavalier=True, lanternes=True), (60, 8, 6, .3), mode="vol", special="charge", butin=[("minecraft:prismarine_crystals", 1, 3)])
 M("leviadon", "Akhelian Leviadon", "idoneth", "poisson", B("abyss", corps=(22, 12, 9), carapace=True, cavalier=True, tex=256), (280, 14, 14, .22), 1.6, mode="vol", special="onde", butin=[("minecraft:turtle_scute", 2, 4), ("minecraft:nautilus_shell", 1, 2)], poids=2)
 M("allopex", "Akhelian Allopex", "idoneth", "poisson", B("abyss", corps=(18, 7, 7), lanternes=True, cavalier=True), (110, 12, 6, .3), 1.2, cap="saignee", mode="vol", butin=[("minecraft:cod", 2, 4), ("minecraft:prismarine_shard", 1, 3)])
@@ -186,10 +186,10 @@ M("warshrine", "Autel de Guerre du Chaos", "esclaves", "char", B("chaos", caisse
 M("prince_demon", "Prince Démon", "esclaves", "h", H("massif", "demon", armure=True, face="bete", arme="epee", epaulieres=(8, 8, 11), embleme="etoile", embleme_lueur=True, extras=("grandes_cornes", "ailes")), (260, 16, 10, .3), 1.8, cap="feu", mode="vol", special="onde", butin=[("minecraft:diamond", 1, 2)], poids=1)
 M("rejeton_chaos", "Rejeton du Chaos", "esclaves", "blob", B("rejeton", taille=12, tentacules=True, cornes=True), (70, 9, 2, .27), 1.2, special="regen", butin=[("minecraft:rotten_flesh", 2, 5)])
 # --- Disciples de Tzeentch
-M("tzaangor", "Tzaangor", "tzeentch", "h", H("normal", "tzeentch", face="bete", arme="lance", main_gauche="rondache", embleme="etoile", extras=("museau", "grandes_cornes")), (24, 5, 3, .28), cap="feu_magique", butin=[("minecraft:feather", 1, 2)])
+M("tzaangor", "Tzaangor", "tzeentch", "h", H("normal", "tzeentch", face="bete", arme="lance", main_gauche="rondache", embleme="etoile", extras=("bec", "grandes_cornes")), (24, 5, 3, .28), cap="feu_magique", butin=[("minecraft:feather", 1, 2)])
 M("acolyte", "Acolyte Kairique", "tzeentch", "h", H("normal", "tzeentch", face="capuche", arme="baton", embleme="etoile", embleme_lueur=True, extras=("cape",)), (20, 5, 1, .27), cap="feu_magique", mode="mage", butin=[("minecraft:lapis_lazuli", 1, 3)])
 M("horreur_rose", "Horreur Rose", "tzeentch", "h", H("normal", "rose", face="bete", embleme="point", embleme_lueur=True, extras=("griffes", "machoire"), main_gauche="griffe"), (26, 5, 2, .27), cap="feu_magique", mode="mage", butin=[("minecraft:pink_dye", 1, 2)])
-M("seigneur_changement", "Seigneur du Changement", "tzeentch", "h", H("geant", "tzeentch", face="bete", arme="baton", embleme="etoile", embleme_lueur=True, extras=("museau", "ailes", "grandes_cornes")), (320, 14, 10, .3), 2.0, cap="feu_magique", mode="vol_mage", special="onde", butin=[("minecraft:diamond", 1, 2), ("minecraft:feather", 4, 8)], poids=1)
+M("seigneur_changement", "Seigneur du Changement", "tzeentch", "h", H("geant", "tzeentch", face="bete", arme="baton", embleme="etoile", embleme_lueur=True, extras=("bec", "ailes", "grandes_cornes")), (320, 14, 10, .3), 2.0, cap="feu_magique", mode="vol_mage", special="onde", butin=[("minecraft:diamond", 1, 2), ("minecraft:feather", 4, 8)], poids=1)
 M("char_flammes", "Char Flamboyant de Tzeentch", "tzeentch", "char", B("tzeentch", caisse=(8, 8, 3), disque=True), (110, 9, 6, .3), 1.2, cap="feu_magique", mode="vol_mage", butin=[("minecraft:blaze_powder", 2, 4)], poids=3)
 M("mutalith", "Bête du Vortex Mutalith", "tzeentch", "blob", B("tzeentch", taille=16, tentacules=True, cornes=True, cavalier=True, tex=256), (240, 12, 8, .2), 1.6, cap="feu_magique", mode="mage", special="regen", butin=[("minecraft:ender_pearl", 1, 3)], poids=2)
 # --- Lames de Khorne
@@ -201,14 +201,14 @@ M("bloodthirster", "Bloodthirster", "khorne", "h", H("geant", "khorne", face="be
 M("chien_khorne", "Chien de Khorne", "khorne", "bete", B("khorne", corps=(6, 7, 14), jambe=(2, 8), tete=(5, 5, 6), cou=3, queue=6, cornes=True, crete_dos=True), (34, 7, 6, .38), cap="saignee", special="charge", butin=CUIR + [("minecraft:redstone", 1, 2)])
 M("juggernaut", "Juggernaut de Khorne", "khorne", "bete", B("laiton", corps=(12, 11, 20), jambe=(5, 11), tete=(7, 7, 7), cou=2, queue=4, cornes=True, sabots=True, cavalier=True, arme_cavalier="hache"), (160, 13, 16, .3), 1.3, special="charge", butin=[("minecraft:copper_ingot", 2, 6)], poids=3)
 # --- Hédonites de Slaanesh
-M("demonette", "Démonette", "slaanesh", "h", H("fin", "slaanesh", face="visage", embleme="point", extras=("griffes", "cornes", "crete"), main_gauche="griffe"), (20, 5, 1, .33), cap="saignee", butin=[("minecraft:pink_petals", 1, 3)])
+M("demonette", "Démonette", "slaanesh", "h", H("fin", "slaanesh", face="visage", embleme="point", extras=("pinces", "cornes", "crete")), (20, 5, 1, .33), cap="saignee", butin=[("minecraft:pink_petals", 1, 3)])
 M("seeker", "Seeker de Slaanesh", "slaanesh", "bete", B("slaanesh", corps=(6, 7, 14), jambe=(2, 12), tete=(4, 4, 6), cou=7, queue=6, cavalier=True, arme_cavalier="epee"), (40, 6, 2, .42), cap="saignee", special="charge", butin=CUIR)
 M("painbringer", "Myrmidesh Painbringer", "slaanesh", "h", H("fin", "slaanesh", armure=True, face="heaume", arme="epee", main_gauche="rondache", embleme="point", extras=("crete",)), (32, 7, 6, .3), cap="saignee", butin=FER)
 M("gardien_secrets", "Gardien des Secrets", "slaanesh", "h", H("geant", "slaanesh", face="bete", arme="epee", embleme="point", embleme_lueur=True, extras=("grandes_cornes", "griffes"), main_gauche="griffe"), (340, 16, 8, .32), 2.0, cap="saignee", special="onde", butin=[("minecraft:amethyst_shard", 4, 8), ("minecraft:diamond", 0, 2)], poids=1)
 M("syllesske", "Syll'Esske, la Concorde Vengeresse", "slaanesh", "h", H("spectre", "slaanesh", serpent=True, face="visage", arme="hache", main_gauche="dague", embleme="point", embleme_lueur=True, extras=("couronne", "crete")), (220, 13, 8, .3), 1.6, cap="saignee", mode="mage", butin=[("minecraft:amethyst_shard", 3, 6)], poids=1)
 M("demon_slaanesh", "Démon de Slaanesh (Fiend)", "slaanesh", "bete", B("slaanesh", corps=(8, 7, 12), jambe=(2, 8), tete=(5, 5, 5), cou=3, queue=10, dard=True, griffes_pattes=True), (60, 8, 4, .34), cap="poison", butin=[("minecraft:spider_eye", 1, 2)])
 # --- Maggotkin de Nurgle
-M("plaguebearer", "Porte-Peste", "nurgle", "h", H("normal", "nurgle", face="crane", arme="epee", embleme="crane", extras=("cornes",)), (30, 5, 3, .22), cap="poison", special="aura_peste", butin=[("minecraft:slime_ball", 1, 2)])
+M("plaguebearer", "Porte-Peste", "nurgle", "h", H("normal", "nurgle", face="bete", arme="epee", embleme="crane", extras=("corne_unique", "cyclope", "ventre_ouvert")), (30, 5, 3, .22), cap="poison", special="aura_peste", butin=[("minecraft:slime_ball", 1, 2)])
 M("blightking", "Putrid Blightking", "nurgle", "h", H("geant", "nurgle", armure=True, face="heaume", arme="hache", main_gauche="bouclier", embleme="crane", extras=("ventre", "cornes")), (70, 10, 8, .22), 1.1, cap="poison", butin=FER + [("minecraft:slime_ball", 1, 2)])
 M("pusgoyle", "Pusgoyle Blightlord", "nurgle", "bete", B("nurgle", corps=(10, 9, 14), jambe=(3, 8), tete=(6, 6, 6), cou=2, queue=6, ailes=14, dard=True, cavalier=True, arme_cavalier="lance"), (90, 10, 8, .28), 1.2, cap="poison", mode="vol", butin=[("minecraft:slime_ball", 2, 4)])
 M("grand_immonde", "Grand Immonde", "nurgle", "h", H("geant", "nurgle", face="crane", arme="baton", embleme="crane", embleme_lueur=True, extras=("ventre", "grandes_cornes")), (420, 15, 10, .18), 2.4, cap="poison", special="aura_peste", butin=[("minecraft:slime_block", 2, 4)], poids=1)

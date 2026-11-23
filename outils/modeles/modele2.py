@@ -212,7 +212,7 @@ def peindre_matiere(px, x0, y0, w, h, face, m, rng):
                     k *= 0.72
                 elif j % 2 == 0 and (i + (j // 2) * 2) % 4 == 2:
                     k *= 1.1
-                if c2 and face == "down":
+                if c2 and (face == "down" or (cote and j > h * 0.62)):
                     col = c2
             elif typ == "os":
                 n = rng.randint(-6, 6)

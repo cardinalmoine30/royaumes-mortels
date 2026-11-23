@@ -78,6 +78,15 @@ def materiaux(P, st, s):
         "malepierre": ((90, 255, 70), "lueur"),
         "blanc": ((240, 236, 228), "peau"),
     }
+    pal["rose"] = (P.get("rose", (214, 150, 150)), "peau")
+    pal["gemme"] = ((200, 30, 40), "lueur")
+    pal["crete"] = (P.get("crete", (196, 40, 36)), "membrane")
+    pal["oeil"] = (P.get("oeil", P["lueur"]), "lueur")
+    fac = s.get("_fac")
+    if fac == "ossiarch":
+        pal["lame"] = (P["lueur"], "lueur")                 # armes de nadirite
+    if fac == "khorne":
+        pal["lame"] = ((52, 30, 30), "metal")              # lames infernales noires
     m = {k: {"c": c, "type": t} for k, (c, t) in pal.items()}
     if peau_t == "ecaille":
         m["peau"]["c2"] = P.get("ventre", mul(P["peau"], 1.3))
@@ -202,6 +211,28 @@ def f_rayures(c1, c2):
     return f
 
 
+def f_damier(c, t=2, rangs=None):
+    """Damier (Ironjawz) : cases noires sur les bords hauts de la pièce."""
+    def f(d, x, y, w, h, px):
+        for i in range(w):
+            for j in range(h if rangs is None else min(h, rangs)):
+                if ((i // t) + (j // t)) % 2 == 0:
+                    px[x + i, y + j] = c + (255,)
+    return f
+
+
+def f_runes_or(c):
+    """Runes d'ur-or martelées dans la peau (Fyreslayers)."""
+    def f(d, x, y, w, h, px):
+        cx = x + w // 2
+        for k, yy in enumerate((y + 3, y + h // 2, y + h - 4)):
+            d.line((cx - 2, yy, cx + 1, yy), fill=c)
+            d.line((cx - 1 + (k % 2), yy - 1, cx - 1 + (k % 2), yy + 1), fill=c)
+        d.point((x + 2, y + 4), fill=c)
+        d.point((x + w - 3, y + 4), fill=c)
+    return f
+
+
 def f_anneau(c):
     def f(d, x, y, w, h, px):
         for i in range(w):
@@ -237,7 +268,7 @@ def combine(*fs):
 def humanoide(nom, s, fac):
     st = STYLE.get(fac, {})
     P = s["pal"]
-    mats = materiaux(P, st, s)
+    mats = materiaux(P, st, dict(s, _fac=fac))
     m = Modele(nom)
     corps = s["corps"]
     jambe, torse, bras, hs = CORPS[corps]
@@ -306,7 +337,7 @@ def humanoide(nom, s, fac):
           "etoile": f_etoile(LU if s.get("embleme_lueur") else A2),
           "crane": f_crane(LU if s.get("embleme_lueur") else (226, 216, 190)),
           "croc": f_croc(LU if s.get("embleme_lueur") else A2)}.get(s.get("embleme"), None)
-    corps_mat = "peau" if not arm and fac in ("sylvaneth", "seraphon", "skaven", "fec", "ogors", "behemat", "gitz", "orruks", "khorne", "slaanesh", "nurgle", "tzeentch") and not s.get("face") == "capuche" else mt
+    corps_mat = "peau" if not arm and fac in ("sylvaneth", "seraphon", "skaven", "fec", "ogors", "behemat", "gitz", "orruks", "khorne", "slaanesh", "nurgle", "tzeentch", "fyreslayers", "khaine") and not s.get("face") == "capuche" else mt
     if corps == "spectre":
         corps_mat = "tissu"
     m.cube("body", (-tw / 2, lh + 1.5, -td / 2), (tw, th - 1.5, td), corps_mat,
@@ -315,7 +346,7 @@ def humanoide(nom, s, fac):
     if arm:
         # plastron, plaques abdominales, dossière, gorgerin
         m.cube("body", (-tw / 2 + 1, lh + th * 0.45, -td / 2 - 0.5), (tw - 2, th * 0.55 - 0.5, 0.5), "armure",
-               north=combine(f_cadre(mul(A2, 0.95)), em))
+               north=combine(f_cadre(mul(A2, 0.95)), f_damier((22, 22, 24), 2, 4) if fac == "orruks" else None, em))
         for k in range(2):
             m.cube("body", (-tw / 2 + 1.5, lh + 2 + k * 2.2, -td / 2 - 0.5), (tw - 3, 1.8, 0.5), "armure2" if k == 0 else "armure")
         m.cube("body", (-tw / 2 + 1, lh + 3, td / 2), (tw - 2, th - 4, 0.5), "armure", south=f_cadre(A2))
@@ -327,6 +358,14 @@ def humanoide(nom, s, fac):
             # harnais de cuir en diagonale
             m.cube("body", (-0.5, lh + 2, -td / 2 - 0.5), (1, th * 0.95, 0.5), "cuir", rot=(0, 0, 32), pivot=(0, lh + th / 2, -td / 2))
             m.cube("body", (-0.5, lh + 2, td / 2), (1, th * 0.95, 0.5), "cuir", rot=(0, 0, -32), pivot=(0, lh + th / 2, td / 2))
+    if "runes" in ex and corps_mat == "peau":
+        m.cube("body", (-tw / 2 + 1, lh + 3, -td / 2 - 0.3), (tw - 2, th - 5, 0.3), "or", north=f_runes_or((255, 214, 90)))
+        for sx in (-1, 1):
+            m.cube("body", (sx * (tw / 2 - 1.5) - 0.5, yt - 3, -td / 2 - 0.6), (1, 1, 0.5), "or")
+    if "ventre_ouvert" in ex:      # plaie béante des Porte-Peste
+        m.cube("body", (-2, lh + 3, -td / 2 - 0.4), (4, 4, 0.5), "crete",
+               north=lambda d, x, y, w, h, px: (d.rectangle((x, y, x + w - 1, y + h - 1), fill=(120, 30, 30)),
+                                                d.rectangle((x + 2, y + 2, x + w - 3, y + h - 3), fill=(190, 160, 90))))
     if "ventre" in ex:
         m.cube("body", (-tw / 2 + 1.5, lh + 0.5, -td / 2 - 3), (tw - 3, th - 5, 3), "ventre",
                north=lambda d, x, y, w, h, px: (d.ellipse((x + w // 2 - 1, y + h // 2, x + w // 2, y + h // 2 + 1), fill=mul(P["peau"], 0.5)),
@@ -340,6 +379,10 @@ def humanoide(nom, s, fac):
     if "cranes" in ex:
         for x in (-tw / 2 + 0.5, tw / 2 - 3):
             m.cube("body", (x, lh - 2.5, -td / 2 - 1.5), (2.5, 2.5, 2), "os", north=f_crane((226, 216, 190)))
+    if "haillons" in ex and not arm:
+        # pagne et écharpe en haillons (rouge des Clans Verminus)
+        m.cube("body", (-tw / 4, max(1, lh - 5), -td / 2 - 0.8), (tw / 2, 6, 0.5), "tissu", north=f_bande(mul(P["tissu"], 0.6), "bas", 1))
+        m.cube("body", (-tw / 2 - 0.3, yt - 3, -td / 2 - 0.3), (tw + 0.6, 2.5, td + 0.6), "tissu")
     if "malepierre" in ex:
         m.cube("body", (tw / 2 - 2.5, lh - 2, -td / 2 - 1.5), (1.5, 2.5, 1.5), "malepierre", rot=(0, 0, 15), pivot=(tw / 2 - 2, lh, -td / 2))
     if "champignons" in ex:
@@ -358,7 +401,7 @@ def humanoide(nom, s, fac):
     if "queue" in ex:
         m.bone("tail", "body", (0, lh + 1, td / 2))
         for k, (w, h, d) in enumerate(((2.5, 2.5, 5), (2, 2, 5), (1.5, 1.5, 5), (1, 1, 4))):
-            m.cube("tail", (-w / 2, lh - 0.5 - k * 0.8, td / 2 + k * 4.5), (w, h, d), "peau")
+            m.cube("tail", (-w / 2, lh - 0.5 - k * 0.8, td / 2 + k * 4.5), (w, h, d), "rose" if fac == "skaven" else "peau")
     if "cape" in ex:
         m.bone("cape", "body", (0, yt - 1, td / 2))
         tat = fac in ("nighthaunt", "soulblight", "fec", "skaven")
@@ -421,6 +464,10 @@ def humanoide(nom, s, fac):
                north=f_bande(mul(A2, 0.75) if arm else (60, 40, 28), "haut"))
         if arm:
             m.cube(os_, (x + aw / 2 - 1 + (0 if sx < 0 else 0), yt - ah * 0.45, ad / 2 - 0.5), (2, 1.5, 1), "armure2")  # coude
+        if "pinces" in ex:
+            m.cube(os_, (x - 0.5, yt - ah - 2, -ad / 2 - 0.5), (aw + 1, 2.5, ad + 1), "corne")
+            m.cube(os_, (x + aw / 2 - 1.5, yt - ah - 6.5, -ad / 2 - 1.5), (1.2, 5, 1.5), "corne", rot=(-18, 0, 0), pivot=(x + aw / 2, yt - ah - 2, -ad / 2))
+            m.cube(os_, (x + aw / 2 + 0.3, yt - ah - 5.5, -ad / 2 + 0.5), (1.2, 4, 1.2), "corne", rot=(22, 0, 0), pivot=(x + aw / 2, yt - ah - 2, -ad / 2))
         if "griffes" in ex:
             for k in range(3):
                 m.cube(os_, (x + 0.5 + k * (aw - 1) / 2.5, yt - ah - 2.5, -ad / 2 - 0.5), (0.5, 3, 0.5), "corne",
@@ -438,6 +485,18 @@ def humanoide(nom, s, fac):
                                               f_yeux(LU, None, 0.5, 0.2)(d, x, y, w, h, px)),
         "heaume": f_fente_t((14, 14, 18), None),
     }[face]
+    if "cyclope" in ex:
+        oe = P.get("oeil", LU)
+        fn_face = lambda d, x, y, w, h, px: (d.ellipse((x + w // 2 - 2, y + int(h * 0.3), x + w // 2 + 1, y + int(h * 0.3) + 3), fill=(230, 220, 150)),
+                                             d.rectangle((x + w // 2 - 1, y + int(h * 0.3) + 1, x + w // 2, y + int(h * 0.3) + 2), fill=oe),
+                                             d.rectangle((x + 2, y + int(h * 0.68), x + w - 3, y + int(h * 0.68) + 1), fill=(40, 30, 20)),
+                                             [d.point((x + 2 + k * 2, y + int(h * 0.68) + 2), fill=(220, 210, 160)) for k in range((w - 4) // 2)])
+    elif "sans_yeux" in ex:
+        fn_face = lambda d, x, y, w, h, px: (d.line((x + 2, y + int(h * 0.42), x + w - 3, y + int(h * 0.42)), fill=mul(P["peau"], 0.8)),
+                                             d.point((x + w // 2 - 1, y + int(h * 0.62)), fill=mul(P["peau"], 0.7)),
+                                             d.line((x + w // 2 - 2, y + int(h * 0.8), x + w // 2 + 1, y + int(h * 0.8)), fill=mul(P["peau"], 0.5)))
+    elif "oeil" in P and face == "bete":
+        fn_face = combine(f_yeux(P["oeil"], (12, 12, 14), 0.38, 0.25))
     m.cube("head", (hx, yt, hx), (hs, hs, hs), tm, north=fn_face)
     if face == "crane":
         m.cube("head", (hx + 1, yt - 1.5, hx - 0.5), (hs - 2, 2, hs - 2), "os", north=f_dents((40, 36, 30)))    # mâchoire
@@ -456,14 +515,20 @@ def humanoide(nom, s, fac):
                north=lambda d, x, y, w, h, px: d.rectangle((x + 3, y + 3, x + w - 4, y + h - 1), fill=(0, 0, 0, 0)))
         m.cube("head", (-1, yt + hs, -hx - 2.5), (2, 2, 3), "tissu")                                         # pointe de capuche
         m.cube("head", (hx - 1, yt - 2, hx), (hs + 2, 2.5, hs + 1), "tissu")                                 # pèlerine
-    if face == "bete":
+    if face == "bete" and "bec" in ex:
+        m.cube("head", (-1.5, yt + 2, hx - 3.5), (3, 2.5, 3.5), "corne", north=f_dents((60, 50, 30)) if False else None)   # bec supérieur
+        m.cube("head", (-1, yt + 0.5, hx - 4.8), (2, 3, 1.5), "corne", rot=(25, 0, 0), pivot=(0, yt + 3, hx - 4))          # pointe crochue
+        m.cube("head", (-1.2, yt + 0.2, hx - 2.5), (2.4, 1.5, 2.5), "corne")                                               # bec inférieur
+        for sx in (-1, 1):
+            m.cube("head", (sx * hs / 2 - (0.5 if sx < 0 else 0), yt + 1, hx + 1), (0.5, hs - 2, hs - 1), "plume" if fac == "tzeentch" else "peau")
+    elif face == "bete":
         if fac in ("skaven",) or "museau" in ex:
             long_ = 4 if fac == "skaven" else 3.5
             m.cube("head", (-2, yt + 0.5, hx - long_), (4, 3, long_), "peau", north=f_dents())
             m.cube("head", (-1, yt + 1.5, hx - long_ - 1.5), (2, 1.5, 1.5), "peau" if fac != "skaven" else "sombre")
             if fac == "skaven":
                 for sx in (-1, 1):
-                    m.cube("head", (sx * 2.5 - 1, yt + hs - 1, -1), (2, 2.5, 0.5), "peau", rot=(0, 0, sx * 15), pivot=(sx * 2.5, yt + hs, -1))
+                    m.cube("head", (sx * 2.5 - 1, yt + hs - 1, -1), (2, 2.5, 0.5), "rose", rot=(0, 0, sx * 15), pivot=(sx * 2.5, yt + hs, -1))
         elif fac in ("orruks",) or "machoire" in ex:
             m.cube("head", (hx - 0.5, yt - 1.5, hx - 1.5), (hs + 1, 3, hs - 1), "peau", north=f_dents())
             for sx in (-1, 1):
@@ -472,6 +537,21 @@ def humanoide(nom, s, fac):
                        rot=(0, 0, sx * 30), pivot=(sx * hs / 2, yt + hs * 0.6, 0))                              # oreilles
         else:
             m.cube("head", (-hs / 2 + 1, yt, hx - 2.5), (hs - 2, hs / 2, 2.5), "peau", north=f_dents())
+    if fac == "seraphon" and face == "bete":
+        # crête rouge vif du crâne jusqu'à la nuque, pointes en dents de scie
+        for k in range(4):
+            m.cube("head", (-0.5, yt + hs - 0.5 - k * 0.8, hx + 1 + k * (hs - 1) / 3.5), (1, 2.5 + (1.2 if k % 2 == 0 else 0), 1.6), "crete")
+        for sx in (-1, 1):
+            m.cube("head", (sx * hs / 2 - (0.5 if sx < 0 else 0), yt + 1.5, hx + hs * 0.55), (0.5, 3, 2), "crete")      # collerette des joues
+    if "corne_unique" in ex:
+        m.cube("head", (-0.75, yt + hs - 1, hx - 0.5), (1.5, 3, 1.5), "corne", rot=(-20, 0, 0), pivot=(0, yt + hs - 1, hx))
+        m.cube("head", (-0.5, yt + hs + 1.5, hx - 1.5), (1, 2, 1), "corne", rot=(-40, 0, 0), pivot=(0, yt + hs + 1.5, hx - 1))
+    if fac == "ossiarch" and face == "crane" and arm:
+        # heaume d'os ciselé à haut cimier, crâne visible dessous
+        m.cube("head", (hx - 0.5, yt + hs * 0.6, hx - 0.5), (hs + 1, hs * 0.4 + 0.5, hs + 1), "armure", toutes=f_bande(A2, "bas"))
+        m.cube("head", (-0.5, yt + hs + 0.5, hx - 0.5), (1, 3.5, hs + 2), "os", rot=(-8, 0, 0), pivot=(0, yt + hs, hx))
+        for sx in (-1, 1):
+            m.cube("head", (sx * (hs / 2 + 0.5) - (0.5 if sx < 0 else 0), yt + 0.5, hx), (0.5, hs * 0.6, hs * 0.55), "armure")
     if "barbe" in ex:
         m.cube("head", (hx + 0.5, yt - 4, hx - 1), (hs - 1, 5, 2), "poils")
         m.cube("head", (-1.5, yt - 6.5, hx - 0.8), (3, 3, 1.5), "poils")
@@ -483,6 +563,7 @@ def humanoide(nom, s, fac):
     # casques de faction
     if casque == "sc":
         m.cube("head", (-0.75, yt + hs, hx + 0.5), (1.5, 1.5, hs - 1), "armure2")
+        m.cube("head", (-0.6, yt + hs - 1.8, hx - 0.35), (1.2, 1.2, 0.4), "gemme")
         for sx in (-1, 1):
             m.cube("head", (sx * hs / 2 - (0.5 if sx < 0 else 0), yt + 1, hx + 1), (0.5, hs - 2, hs - 2), "armure", toutes=f_bande(A2, "bas"))
     elif casque == "chaos":
@@ -497,6 +578,7 @@ def humanoide(nom, s, fac):
             m.cube("head", (sx * (hs / 2 + 0.5) - 0.5, yt + 1, -1), (1, 1, hs / 2 + 2), "or")                      # tuyaux
     elif casque == "lum":
         m.cube("head", (-0.75, yt + hs, hx), (1.5, 6, 2.5), "armure2", rot=(-12, 0, 0), pivot=(0, yt + hs, hx))
+        m.cube("head", (-0.5, yt + hs + 4.5, hx + 1.5), (1, 1.5, hs + 3), "plume", rot=(-20, 0, 0), pivot=(0, yt + hs + 5, hx + 2))
         for sx in (-1, 1):
             m.cube("head", (sx * hs / 2 - (2.5 if sx < 0 else 0), yt + hs - 2, 0), (2.5, 4, 0.5), "armure2",
                    rot=(0, 0, sx * 25), pivot=(sx * hs / 2, yt + hs - 2, 0))
