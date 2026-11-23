@@ -175,7 +175,7 @@ def carnet():
     d.polygon([(W - 18, 26), (W - 12, 26), (W - 15, 22)], fill=(0, 0, 0, 0))
     d.line((W - 17, 0, W - 17, 24), fill=(190, 60, 50))
     # sceau de cire
-    cx, cy = W - 18, H - 16
+    cx, cy = W - 18, H - 11
     d.ellipse((cx - 9, cy - 9, cx + 9, cy + 9), fill=(150, 26, 30))
     d.ellipse((cx - 7, cy - 7, cx + 7, cy + 7), outline=(110, 16, 20))
     d.line((cx - 3, cy + 4, cx, cy - 4), fill=(200, 70, 60))
