@@ -10,6 +10,7 @@ import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
@@ -58,7 +59,8 @@ public final class ClientRoyaumes {
         }
     }
 
-    @SubscribeEvent
+    /** Priorité la plus basse : on voit l'écran final (après le remplacement de l'inventaire par la taverne). */
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     static void ouverture(ScreenEvent.Opening event) {
         ecran = event.getNewScreen();
     }
