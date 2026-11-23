@@ -1,0 +1,11 @@
+execute as @e[type=minecraft:marker,tag=rm_amb_ames] at @s if entity @a[distance=..48] run function royaumes:ambiance/ames
+execute as @e[type=minecraft:marker,tag=rm_amb_peste] at @s if entity @a[distance=..48] run function royaumes:ambiance/peste
+execute as @e[type=minecraft:marker,tag=rm_amb_lueur] at @s if entity @a[distance=..48] run function royaumes:ambiance/lueur
+execute as @e[type=minecraft:marker,tag=rm_amb_braise] at @s if entity @a[distance=..48] run function royaumes:ambiance/braise
+execute as @e[type=minecraft:marker,tag=rm_amb_aether] at @s if entity @a[distance=..48] run function royaumes:ambiance/aether
+execute as @e[type=minecraft:marker,tag=rm_amb_lumiere] at @s if entity @a[distance=..48] run function royaumes:ambiance/lumiere
+execute as @e[type=minecraft:marker,tag=rm_amb_sang] at @s if entity @a[distance=..48] run function royaumes:ambiance/sang
+execute as @e[type=minecraft:marker,tag=rm_amb_celeste] at @s if entity @a[distance=..48] run function royaumes:ambiance/celeste
+execute as @e[type=minecraft:marker,tag=rm_amb_vie] at @s if entity @a[distance=..48] run function royaumes:ambiance/vie
+execute as @e[type=minecraft:marker,tag=rm_amb_malepierre] at @s if entity @a[distance=..48] run function royaumes:ambiance/malepierre
+execute as @e[type=minecraft:marker,tag=rm_foudre] at @s if entity @a[distance=..96] run function royaumes:ambiance/foudre

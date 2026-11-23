@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/arche_prismarine"
+      },
+      "weight": 1
+    }
+  ]
+}

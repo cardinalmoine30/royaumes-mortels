@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "salt": 972591
+  },
+  "structures": [
+    {
+      "structure": "royaumes:arene_gordrakk",
+      "weight": 1
+    }
+  ]
+}

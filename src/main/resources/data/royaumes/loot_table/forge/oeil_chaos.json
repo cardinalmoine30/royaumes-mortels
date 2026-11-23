@@ -1,0 +1,60 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Œil des Dieux Sombres",
+                  "color": "dark_red",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "+3 dégâts, -2 cœurs",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Tenir en main secondaire.",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:attack_damage",
+                    "amount": 3.0,
+                    "id": "royaumes:oeil_chaos_0",
+                    "operation": "add_value",
+                    "slot": "offhand"
+                  },
+                  {
+                    "type": "minecraft:max_health",
+                    "amount": -4.0,
+                    "id": "royaumes:oeil_chaos_1",
+                    "operation": "add_value",
+                    "slot": "offhand"
+                  }
+                ],
+                "minecraft:max_stack_size": 1,
+                "minecraft:item_model": "minecraft:ender_eye",
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:rarity": "epic",
+                "minecraft:custom_data": {
+                  "rm": "oeil_chaos"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

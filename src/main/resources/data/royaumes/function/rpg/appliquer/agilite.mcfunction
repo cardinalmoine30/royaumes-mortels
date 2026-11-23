@@ -1,0 +1,11 @@
+execute if score @s rm_agilite matches 0 run function royaumes:rpg/rang/agilite/0
+execute if score @s rm_agilite matches 1 run function royaumes:rpg/rang/agilite/1
+execute if score @s rm_agilite matches 2 run function royaumes:rpg/rang/agilite/2
+execute if score @s rm_agilite matches 3 run function royaumes:rpg/rang/agilite/3
+execute if score @s rm_agilite matches 4 run function royaumes:rpg/rang/agilite/4
+execute if score @s rm_agilite matches 5 run function royaumes:rpg/rang/agilite/5
+execute if score @s rm_agilite matches 6 run function royaumes:rpg/rang/agilite/6
+execute if score @s rm_agilite matches 7 run function royaumes:rpg/rang/agilite/7
+execute if score @s rm_agilite matches 8 run function royaumes:rpg/rang/agilite/8
+execute if score @s rm_agilite matches 9 run function royaumes:rpg/rang/agilite/9
+execute if score @s rm_agilite matches 10 run function royaumes:rpg/rang/agilite/10

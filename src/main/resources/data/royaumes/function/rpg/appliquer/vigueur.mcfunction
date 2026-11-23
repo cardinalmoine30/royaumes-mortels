@@ -1,0 +1,11 @@
+execute if score @s rm_vigueur matches 0 run function royaumes:rpg/rang/vigueur/0
+execute if score @s rm_vigueur matches 1 run function royaumes:rpg/rang/vigueur/1
+execute if score @s rm_vigueur matches 2 run function royaumes:rpg/rang/vigueur/2
+execute if score @s rm_vigueur matches 3 run function royaumes:rpg/rang/vigueur/3
+execute if score @s rm_vigueur matches 4 run function royaumes:rpg/rang/vigueur/4
+execute if score @s rm_vigueur matches 5 run function royaumes:rpg/rang/vigueur/5
+execute if score @s rm_vigueur matches 6 run function royaumes:rpg/rang/vigueur/6
+execute if score @s rm_vigueur matches 7 run function royaumes:rpg/rang/vigueur/7
+execute if score @s rm_vigueur matches 8 run function royaumes:rpg/rang/vigueur/8
+execute if score @s rm_vigueur matches 9 run function royaumes:rpg/rang/vigueur/9
+execute if score @s rm_vigueur matches 10 run function royaumes:rpg/rang/vigueur/10

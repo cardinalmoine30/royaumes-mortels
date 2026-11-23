@@ -1,0 +1,65 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "text": "Foudre de Sigmar",
+    "color": "gold"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "enchanted": "attacker",
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "minecraft:damage_entity",
+              "damage_type": "minecraft:lightning_bolt",
+              "min_damage": 3.0,
+              "max_damage": 6.0
+            },
+            {
+              "type": "minecraft:ignite",
+              "duration": 2.0
+            },
+            {
+              "type": "minecraft:play_sound",
+              "sound": "minecraft:item.trident.thunder",
+              "volume": 1.0,
+              "pitch": 1.4
+            }
+          ]
+        },
+        "requirements": {
+          "type": "minecraft:all_of",
+          "terms": [
+            {
+              "type": "minecraft:damage_source_properties",
+              "predicate": {
+                "is_direct": true
+              }
+            },
+            {
+              "type": "minecraft:random_chance",
+              "chance": 0.25
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 50,
+    "per_level_above_first": 10
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 20,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#royaumes:armes_des_royaumes",
+  "weight": 1
+}

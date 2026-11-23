@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/ruines_brumes"
+      },
+      "weight": 1
+    }
+  ]
+}

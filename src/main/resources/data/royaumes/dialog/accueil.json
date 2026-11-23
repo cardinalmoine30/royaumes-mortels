@@ -1,0 +1,92 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "⚔ Les Royaumes Mortels ⚔",
+    "color": "gold",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "L'Âge de Sigmar a commencé.\n\n",
+          "color": "yellow"
+        },
+        {
+          "text": "Les huit Royaumes Mortels sont déchirés par la guerre entre les quatre Grandes Alliances. Choisis ta Grande Alliance, puis ta faction : elle te donnera des dons, des faiblesses, un équipement de départ et des alliés.\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Attention : ce choix est définitif.",
+          "color": "red"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Ordre",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Les peuples civilisés unis derrière Sigmar contre les ténèbres."
+      },
+      "width": 140,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:alliance_ordre"
+      }
+    },
+    {
+      "label": {
+        "text": "Chaos",
+        "color": "dark_red",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Les serviteurs des Dieux Sombres et des puissances de la ruine."
+      },
+      "width": 140,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:alliance_chaos"
+      }
+    },
+    {
+      "label": {
+        "text": "Mort",
+        "color": "dark_purple",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Les légions de Nagash, Grand Nécromancien de Shyish."
+      },
+      "width": 140,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:alliance_mort"
+      }
+    },
+    {
+      "label": {
+        "text": "Destruction",
+        "color": "dark_green",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Orruks, grots, ogors et gargants : la loi du plus fort."
+      },
+      "width": 140,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:alliance_destruction"
+      }
+    }
+  ]
+}

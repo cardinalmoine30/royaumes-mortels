@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/menhir_orruk"
+      },
+      "weight": 1
+    }
+  ]
+}

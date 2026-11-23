@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/epave_kharadron"
+      },
+      "weight": 1
+    }
+  ]
+}

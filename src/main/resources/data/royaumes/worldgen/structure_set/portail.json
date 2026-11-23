@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 30,
+    "separation": 12,
+    "salt": 948834
+  },
+  "structures": [
+    {
+      "structure": "royaumes:portail",
+      "weight": 1
+    }
+  ]
+}

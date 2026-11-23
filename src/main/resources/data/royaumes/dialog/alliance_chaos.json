@@ -1,0 +1,206 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Grande Alliance : Chaos",
+    "color": "dark_red",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": {
+        "text": "Les serviteurs des Dieux Sombres et des puissances de la ruine."
+      }
+    }
+  ],
+  "can_close_with_escape": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Esclaves des Ténèbres",
+        "color": "dark_gray"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Les Huit-Points\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Taille +10 %, +2 cœurs, +2 armure, +1 dégât\n",
+          "color": "green"
+        },
+        {
+          "text": "- Chance -1 (marqués par le Chaos)",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/esclaves"
+      }
+    },
+    {
+      "label": {
+        "text": "Lames de Khorne",
+        "color": "dark_red"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Aqshy\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Force I, vitesse d'attaque +10 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- -2 armure (Khorne méprise la prudence)",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/khorne"
+      }
+    },
+    {
+      "label": {
+        "text": "Disciples de Tzeentch",
+        "color": "blue"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Hysh / Huit-Points\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Célérité, +2 chance\n",
+          "color": "green"
+        },
+        {
+          "text": "- -1 cœur",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/tzeentch"
+      }
+    },
+    {
+      "label": {
+        "text": "Hédonites de Slaanesh",
+        "color": "light_purple"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Les Huit-Points\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Vitesse +15 %, vitesse d'attaque +20 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- -2 cœurs",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/slaanesh"
+      }
+    },
+    {
+      "label": {
+        "text": "Maggotkin de Nurgle",
+        "color": "dark_green"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghyran (marais)\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ +4 cœurs, régénération, +1 armure\n",
+          "color": "green"
+        },
+        {
+          "text": "- Vitesse -10 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/nurgle"
+      }
+    },
+    {
+      "label": {
+        "text": "Skaven",
+        "color": "green"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Les Terres Rongées\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Vitesse +15 %, vision nocturne\n",
+          "color": "green"
+        },
+        {
+          "text": "- Taille -20 %, -2 cœurs",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/skaven"
+      }
+    },
+    {
+      "label": {
+        "text": "Forgerons de Hashut",
+        "color": "gold"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Aqshy\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Résistance au feu, +4 armure\n",
+          "color": "green"
+        },
+        {
+          "text": "- Taille -15 %, vitesse -5 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/hashut"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:accueil"
+    }
+  }
+}

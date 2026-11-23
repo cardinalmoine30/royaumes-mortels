@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "royaumes:codex",
+    "royaumes:fiche",
+    "royaumes:forge",
+    "royaumes:ressources"
+  ]
+}

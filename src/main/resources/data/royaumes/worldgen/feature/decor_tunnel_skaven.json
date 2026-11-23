@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/tunnel_skaven"
+      },
+      "weight": 1
+    }
+  ]
+}

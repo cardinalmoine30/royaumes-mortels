@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/cercle_pierres"
+      },
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 24,
+    "separation": 8,
+    "salt": 758778
+  },
+  "structures": [
+    {
+      "structure": "royaumes:fort_kruleboyz",
+      "weight": 1
+    }
+  ]
+}

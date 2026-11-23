@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/sanctuaire_alarielle"
+      },
+      "weight": 1
+    }
+  ]
+}

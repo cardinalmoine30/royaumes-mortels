@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 22,
+    "separation": 8,
+    "salt": 814211
+  },
+  "structures": [
+    {
+      "structure": "royaumes:repaire_skaven",
+      "weight": 1
+    }
+  ]
+}

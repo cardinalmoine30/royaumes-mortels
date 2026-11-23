@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 34,
+    "separation": 12,
+    "salt": 940915
+  },
+  "structures": [
+    {
+      "structure": "royaumes:repaire_skavenblight",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {
+    "text": "Cités de Sigmar",
+    "color": "aqua",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "Humains, aelfs et duardins des grandes cités libres, comme Hammerhal ou Excelsis.\n\n",
+          "color": "white",
+          "italic": true
+        },
+        {
+          "text": "Grande Alliance : ",
+          "color": "gray"
+        },
+        {
+          "text": "Ordre\n",
+          "color": "gold"
+        },
+        {
+          "text": "Royaume d'origine : ",
+          "color": "gray"
+        },
+        {
+          "text": "Ghyran\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Dons : ",
+          "color": "green",
+          "bold": true
+        },
+        {
+          "text": "Héros du village (rabais marchands), +1 chance, +1 cœur\n",
+          "color": "green"
+        },
+        {
+          "text": "Faiblesses : ",
+          "color": "red",
+          "bold": true
+        },
+        {
+          "text": "Aucun don surnaturel\n\n",
+          "color": "red"
+        },
+        {
+          "text": "Équipement : ",
+          "color": "gold"
+        },
+        {
+          "text": "Arquebuse de la Garde Franche, arrow, Épée de Hammerhal, Tunique de la Garde Franche, emerald, Pierre de Royaume",
+          "color": "yellow"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": false,
+  "yes": {
+    "label": {
+      "text": "Rejoindre",
+      "color": "green",
+      "bold": true
+    },
+    "width": 120,
+    "action": {
+      "type": "run_command",
+      "command": "trigger rm_choix set 2"
+    }
+  },
+  "no": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:alliance_ordre"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "salt": 956753
+  },
+  "structures": [
+    {
+      "structure": "royaumes:necropole_nagash",
+      "weight": 1
+    }
+  ]
+}

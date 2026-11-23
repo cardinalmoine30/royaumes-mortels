@@ -1,0 +1,25 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_chestplate",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:dyed_color": 1986472,
+                "minecraft:trim": {
+                  "material": "minecraft:gold",
+                  "pattern": "minecraft:coast"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

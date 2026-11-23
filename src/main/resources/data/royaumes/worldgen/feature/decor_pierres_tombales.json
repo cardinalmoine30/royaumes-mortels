@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/pierres_tombales"
+      },
+      "weight": 1
+    }
+  ]
+}

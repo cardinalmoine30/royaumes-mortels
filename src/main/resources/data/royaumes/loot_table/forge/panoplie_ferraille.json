@@ -1,0 +1,256 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_helmet",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Casque de Kasse-Tête",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Plus y a de fer, plus c'est solide",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:armor",
+                    "amount": 3.0,
+                    "id": "royaumes:ferraille_helmet_0",
+                    "operation": "add_value",
+                    "slot": "head"
+                  },
+                  {
+                    "type": "minecraft:armor_toughness",
+                    "amount": 3.0,
+                    "id": "royaumes:ferraille_helmet_1",
+                    "operation": "add_value",
+                    "slot": "head"
+                  },
+                  {
+                    "type": "minecraft:knockback_resistance",
+                    "amount": 0.15,
+                    "id": "royaumes:ferraille_helmet_2",
+                    "operation": "add_value",
+                    "slot": "head"
+                  },
+                  {
+                    "type": "minecraft:movement_speed",
+                    "amount": -0.02,
+                    "id": "royaumes:ferraille_helmet_3",
+                    "operation": "add_multiplied_base",
+                    "slot": "head"
+                  }
+                ],
+                "minecraft:trim": {
+                  "material": "minecraft:copper",
+                  "pattern": "minecraft:wild"
+                },
+                "minecraft:rarity": "epic"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_chestplate",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Plastron de Ferraille",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Plus y a de fer, plus c'est solide",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:armor",
+                    "amount": 8.0,
+                    "id": "royaumes:ferraille_chestplate_0",
+                    "operation": "add_value",
+                    "slot": "chest"
+                  },
+                  {
+                    "type": "minecraft:armor_toughness",
+                    "amount": 3.0,
+                    "id": "royaumes:ferraille_chestplate_1",
+                    "operation": "add_value",
+                    "slot": "chest"
+                  },
+                  {
+                    "type": "minecraft:knockback_resistance",
+                    "amount": 0.15,
+                    "id": "royaumes:ferraille_chestplate_2",
+                    "operation": "add_value",
+                    "slot": "chest"
+                  },
+                  {
+                    "type": "minecraft:movement_speed",
+                    "amount": -0.02,
+                    "id": "royaumes:ferraille_chestplate_3",
+                    "operation": "add_multiplied_base",
+                    "slot": "chest"
+                  }
+                ],
+                "minecraft:trim": {
+                  "material": "minecraft:copper",
+                  "pattern": "minecraft:wild"
+                },
+                "minecraft:rarity": "epic"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_leggings",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Jambières Kabossées",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Plus y a de fer, plus c'est solide",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:armor",
+                    "amount": 6.0,
+                    "id": "royaumes:ferraille_leggings_0",
+                    "operation": "add_value",
+                    "slot": "legs"
+                  },
+                  {
+                    "type": "minecraft:armor_toughness",
+                    "amount": 3.0,
+                    "id": "royaumes:ferraille_leggings_1",
+                    "operation": "add_value",
+                    "slot": "legs"
+                  },
+                  {
+                    "type": "minecraft:knockback_resistance",
+                    "amount": 0.15,
+                    "id": "royaumes:ferraille_leggings_2",
+                    "operation": "add_value",
+                    "slot": "legs"
+                  },
+                  {
+                    "type": "minecraft:movement_speed",
+                    "amount": -0.02,
+                    "id": "royaumes:ferraille_leggings_3",
+                    "operation": "add_multiplied_base",
+                    "slot": "legs"
+                  }
+                ],
+                "minecraft:trim": {
+                  "material": "minecraft:copper",
+                  "pattern": "minecraft:wild"
+                },
+                "minecraft:rarity": "epic"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_boots",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Bottes de Krusheur",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Plus y a de fer, plus c'est solide",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:armor",
+                    "amount": 3.0,
+                    "id": "royaumes:ferraille_boots_0",
+                    "operation": "add_value",
+                    "slot": "feet"
+                  },
+                  {
+                    "type": "minecraft:armor_toughness",
+                    "amount": 3.0,
+                    "id": "royaumes:ferraille_boots_1",
+                    "operation": "add_value",
+                    "slot": "feet"
+                  },
+                  {
+                    "type": "minecraft:knockback_resistance",
+                    "amount": 0.15,
+                    "id": "royaumes:ferraille_boots_2",
+                    "operation": "add_value",
+                    "slot": "feet"
+                  },
+                  {
+                    "type": "minecraft:movement_speed",
+                    "amount": -0.02,
+                    "id": "royaumes:ferraille_boots_3",
+                    "operation": "add_multiplied_base",
+                    "slot": "feet"
+                  }
+                ],
+                "minecraft:trim": {
+                  "material": "minecraft:copper",
+                  "pattern": "minecraft:wild"
+                },
+                "minecraft:rarity": "epic"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

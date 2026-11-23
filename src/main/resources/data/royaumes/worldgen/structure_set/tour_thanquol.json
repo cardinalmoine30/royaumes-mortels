@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "salt": 988429
+  },
+  "structures": [
+    {
+      "structure": "royaumes:tour_thanquol",
+      "weight": 1
+    }
+  ]
+}

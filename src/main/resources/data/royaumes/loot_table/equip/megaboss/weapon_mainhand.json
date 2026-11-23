@@ -1,0 +1,24 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_axe",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:enchantments": {
+                  "minecraft:sharpness": 3,
+                  "royaumes:waaagh": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

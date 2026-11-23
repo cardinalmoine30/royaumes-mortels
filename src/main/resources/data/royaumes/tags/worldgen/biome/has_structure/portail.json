@@ -1,0 +1,29 @@
+{
+  "values": [
+    "royaumes:azyr_cimes",
+    "royaumes:hysh_plateaux",
+    "royaumes:ghyran_jade",
+    "royaumes:ghur_terres",
+    "royaumes:ghur_jungle",
+    "royaumes:aqshy_cendres",
+    "royaumes:chamon_desert",
+    "royaumes:shyish_terres",
+    "royaumes:ulgu_brumes",
+    "royaumes:chaos_desolation",
+    "royaumes:terres_rongees",
+    "royaumes:ghyran_marais",
+    "royaumes:aqshy_volcans",
+    "royaumes:ghyran_wyldwood",
+    "royaumes:ulgu_marais_lune",
+    "royaumes:hysh_iles",
+    "minecraft:plains",
+    "minecraft:meadow",
+    "minecraft:savanna",
+    "minecraft:forest",
+    "minecraft:desert",
+    "minecraft:taiga",
+    "minecraft:sunflower_plains",
+    "minecraft:cherry_grove",
+    "minecraft:snowy_plains"
+  ]
+}

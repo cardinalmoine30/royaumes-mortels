@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {
+    "text": "Seraphon",
+    "color": "green",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "Hommes-lézards célestes guidés par les Slann, forces de l'ordre cosmique.\n\n",
+          "color": "white",
+          "italic": true
+        },
+        {
+          "text": "Grande Alliance : ",
+          "color": "gray"
+        },
+        {
+          "text": "Ordre\n",
+          "color": "gold"
+        },
+        {
+          "text": "Royaume d'origine : ",
+          "color": "gray"
+        },
+        {
+          "text": "Ghur (jungles)\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Dons : ",
+          "color": "green",
+          "bold": true
+        },
+        {
+          "text": "Taille +20 %, +2 cœurs, +4 armure, nage +30 %\n",
+          "color": "green"
+        },
+        {
+          "text": "Faiblesses : ",
+          "color": "red",
+          "bold": true
+        },
+        {
+          "text": "Vitesse -5 %\n\n",
+          "color": "red"
+        },
+        {
+          "text": "Équipement : ",
+          "color": "gold"
+        },
+        {
+          "text": "Gourdin de Saurus, Écailles de Saurus, gold nugget, Pierre de Royaume",
+          "color": "yellow"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": false,
+  "yes": {
+    "label": {
+      "text": "Rejoindre",
+      "color": "green",
+      "bold": true
+    },
+    "width": 120,
+    "action": {
+      "type": "run_command",
+      "command": "trigger rm_choix set 8"
+    }
+  },
+  "no": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:alliance_ordre"
+    }
+  }
+}

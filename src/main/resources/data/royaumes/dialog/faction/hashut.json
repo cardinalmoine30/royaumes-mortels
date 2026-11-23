@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {
+    "text": "Forgerons de Hashut",
+    "color": "gold",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "Duardins du Chaos, serviteurs du Père des Ténèbres, maîtres des forges infernales.\n\n",
+          "color": "white",
+          "italic": true
+        },
+        {
+          "text": "Grande Alliance : ",
+          "color": "gray"
+        },
+        {
+          "text": "Chaos\n",
+          "color": "dark_red"
+        },
+        {
+          "text": "Royaume d'origine : ",
+          "color": "gray"
+        },
+        {
+          "text": "Aqshy\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Dons : ",
+          "color": "green",
+          "bold": true
+        },
+        {
+          "text": "Résistance au feu, +4 armure\n",
+          "color": "green"
+        },
+        {
+          "text": "Faiblesses : ",
+          "color": "red",
+          "bold": true
+        },
+        {
+          "text": "Taille -15 %, vitesse -5 %\n\n",
+          "color": "red"
+        },
+        {
+          "text": "Équipement : ",
+          "color": "gold"
+        },
+        {
+          "text": "Pic de Forge Infernale, flint and steel, Plastron de Daemonsmith, coal, Pierre de Royaume",
+          "color": "yellow"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": false,
+  "yes": {
+    "label": {
+      "text": "Rejoindre",
+      "color": "green",
+      "bold": true
+    },
+    "width": 120,
+    "action": {
+      "type": "run_command",
+      "command": "trigger rm_choix set 16"
+    }
+  },
+  "no": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:alliance_chaos"
+    }
+  }
+}

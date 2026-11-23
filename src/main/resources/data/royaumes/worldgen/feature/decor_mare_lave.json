@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/mare_lave"
+      },
+      "weight": 1
+    }
+  ]
+}

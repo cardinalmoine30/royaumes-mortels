@@ -1,0 +1,62 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Élixir de Malepierre",
+                  "color": "green",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Force démesurée… et quelques effets secondaires.",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:consumable": {
+                  "animation": "drink",
+                  "consume_seconds": 1.6,
+                  "sound": "minecraft:entity.generic.drink",
+                  "has_consume_particles": false,
+                  "on_consume_effects": [
+                    {
+                      "type": "minecraft:apply_effects",
+                      "effects": [
+                        {
+                          "id": "minecraft:strength",
+                          "duration": 600,
+                          "amplifier": 1,
+                          "show_icon": true
+                        },
+                        {
+                          "id": "minecraft:wither",
+                          "duration": 60,
+                          "amplifier": 0,
+                          "show_icon": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "minecraft:max_stack_size": 16,
+                "minecraft:item_model": "minecraft:experience_bottle",
+                "minecraft:custom_data": {
+                  "rm": "elixir_malepierre"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

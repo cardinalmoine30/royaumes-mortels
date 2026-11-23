@@ -1,0 +1,131 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Grande Alliance : Mort",
+    "color": "dark_purple",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": {
+        "text": "Les légions de Nagash, Grand Nécromancien de Shyish."
+      }
+    }
+  ],
+  "can_close_with_escape": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Nighthaunt",
+        "color": "dark_aqua"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Shyish\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Gravité réduite, chute sûre +10, vitesse +5 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- -2 cœurs",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/nighthaunt"
+      }
+    },
+    {
+      "label": {
+        "text": "Seigneurs Sanguinaires",
+        "color": "dark_red"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Shyish\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ +2 cœurs, +1 dégât, vision nocturne\n",
+          "color": "green"
+        },
+        {
+          "text": "- Faiblesse en plein soleil",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/soulblight"
+      }
+    },
+    {
+      "label": {
+        "text": "Ossiarch Bonereapers",
+        "color": "white"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Shyish\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ +6 armure, recul -40 %, +1 cœur\n",
+          "color": "green"
+        },
+        {
+          "text": "- Vitesse -10 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/ossiarch"
+      }
+    },
+    {
+      "label": {
+        "text": "Cours Cannibales",
+        "color": "dark_purple"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Shyish / Ulgu\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Vitesse +10 %, saut +, +1 dégât\n",
+          "color": "green"
+        },
+        {
+          "text": "- Leur « festin » est de la chair pourrie",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/fec"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:accueil"
+    }
+  }
+}

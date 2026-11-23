@@ -1,0 +1,81 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone_block"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:location_check",
+            "predicate": {
+              "biomes": "royaumes:shyish_terres"
+            }
+          },
+          {
+            "type": "minecraft:survives_explosion"
+          },
+          {
+            "type": "minecraft:random_chance",
+            "chance": 0.35
+          }
+        ]
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Fragment d'Âme",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Un murmure de Shyish emprisonné.",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Ressource des Royaumes",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:item_model": "minecraft:echo_shard",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                  "rm": "ame"
+                }
+              }
+            },
+            {
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

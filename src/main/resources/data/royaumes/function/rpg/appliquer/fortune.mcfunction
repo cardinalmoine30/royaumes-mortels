@@ -1,0 +1,11 @@
+execute if score @s rm_fortune matches 0 run function royaumes:rpg/rang/fortune/0
+execute if score @s rm_fortune matches 1 run function royaumes:rpg/rang/fortune/1
+execute if score @s rm_fortune matches 2 run function royaumes:rpg/rang/fortune/2
+execute if score @s rm_fortune matches 3 run function royaumes:rpg/rang/fortune/3
+execute if score @s rm_fortune matches 4 run function royaumes:rpg/rang/fortune/4
+execute if score @s rm_fortune matches 5 run function royaumes:rpg/rang/fortune/5
+execute if score @s rm_fortune matches 6 run function royaumes:rpg/rang/fortune/6
+execute if score @s rm_fortune matches 7 run function royaumes:rpg/rang/fortune/7
+execute if score @s rm_fortune matches 8 run function royaumes:rpg/rang/fortune/8
+execute if score @s rm_fortune matches 9 run function royaumes:rpg/rang/fortune/9
+execute if score @s rm_fortune matches 10 run function royaumes:rpg/rang/fortune/10

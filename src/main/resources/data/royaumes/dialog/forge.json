@@ -1,0 +1,302 @@
+{
+  "type": "minecraft:notice",
+  "title": {
+    "text": "⚒ Forge des Royaumes",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Forge des Royaumes",
+    "color": "gold"
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 400,
+      "contents": [
+        {
+          "text": "Posez une Table de forgeron, puis lâchez-y (touche Q) les ingrédients. Ils fusionnent automatiquement.\n\n",
+          "color": "gray"
+        },
+        {
+          "text": "• Raffinage de Sigmarite",
+          "color": "gold"
+        },
+        {
+          "text": " : 3 Sigmarite Brute, 1 gold ingot\n",
+          "color": "white"
+        },
+        {
+          "text": "• Lingot de Sigmarite",
+          "color": "gold"
+        },
+        {
+          "text": " : 3 gold ingot, 2 lapis lazuli, 1 Éclat de Royaume\n",
+          "color": "white"
+        },
+        {
+          "text": "• Pierre de Royaume",
+          "color": "gold"
+        },
+        {
+          "text": " : 4 Éclat de Royaume, 1 ender pearl\n",
+          "color": "white"
+        },
+        {
+          "text": "• Parchemin de Gloire",
+          "color": "gold"
+        },
+        {
+          "text": " : 3 Éclat de Royaume, 1 paper\n",
+          "color": "white"
+        },
+        {
+          "text": "• Panoplie de Sigmarite (Ordre)",
+          "color": "gold"
+        },
+        {
+          "text": " : 16 Lingot de Sigmarite, 2 diamond\n",
+          "color": "white"
+        },
+        {
+          "text": "• Armure du Fléau Noir (Chaos)",
+          "color": "gold"
+        },
+        {
+          "text": " : 16 Éclat du Chaos, 2 netherite scrap\n",
+          "color": "white"
+        },
+        {
+          "text": "• Armure de Nadirite (Mort)",
+          "color": "gold"
+        },
+        {
+          "text": " : 16 Fragment d'Âme, 2 diamond\n",
+          "color": "white"
+        },
+        {
+          "text": "• Armure de Ferraille Ironjawz (Destruction)",
+          "color": "gold"
+        },
+        {
+          "text": " : 16 Ferraille d'Orruk, 4 Ambre de Ghur\n",
+          "color": "white"
+        },
+        {
+          "text": "• Marteau de Sigmar",
+          "color": "gold"
+        },
+        {
+          "text": " : 8 Lingot de Sigmarite, 2 Cristal de Hysh, 1 iron block\n",
+          "color": "white"
+        },
+        {
+          "text": "• Lame Démoniaque",
+          "color": "gold"
+        },
+        {
+          "text": " : 8 Éclat du Chaos, 2 Braise d'Aqshy, 1 iron block\n",
+          "color": "white"
+        },
+        {
+          "text": "• Faux des Âmes",
+          "color": "gold"
+        },
+        {
+          "text": " : 8 Fragment d'Âme, 2 Pierre-Ombre, 1 iron block\n",
+          "color": "white"
+        },
+        {
+          "text": "• Choppa de Gork",
+          "color": "gold"
+        },
+        {
+          "text": " : 10 Ferraille d'Orruk, 3 Ambre de Ghur, 1 iron block\n",
+          "color": "white"
+        },
+        {
+          "text": "• Lame de Malepierre",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Malepierre, 1 iron sword\n",
+          "color": "white"
+        },
+        {
+          "text": "• Arc de Lumière de Hysh",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Cristal de Hysh, 1 bow\n",
+          "color": "white"
+        },
+        {
+          "text": "• Hache d'Ur-Or",
+          "color": "gold"
+        },
+        {
+          "text": " : 8 Ur-Or, 1 gold block\n",
+          "color": "white"
+        },
+        {
+          "text": "• Fusil à Aether",
+          "color": "gold"
+        },
+        {
+          "text": " : 8 Aether-Or, 1 crossbow\n",
+          "color": "white"
+        },
+        {
+          "text": "• Élixir de Ghyran ×2",
+          "color": "gold"
+        },
+        {
+          "text": " : 2 Graine de Vie, 2 glass bottle\n",
+          "color": "white"
+        },
+        {
+          "text": "• Élixir de Malepierre",
+          "color": "gold"
+        },
+        {
+          "text": " : 1 Malepierre, 1 glass bottle\n",
+          "color": "white"
+        },
+        {
+          "text": "• Tonique d'Aqshy",
+          "color": "gold"
+        },
+        {
+          "text": " : 2 Braise d'Aqshy, 1 glass bottle\n",
+          "color": "white"
+        },
+        {
+          "text": "• Brume d'Ulgu",
+          "color": "gold"
+        },
+        {
+          "text": " : 2 Pierre-Ombre, 1 glass bottle\n",
+          "color": "white"
+        },
+        {
+          "text": "• Lumière de Hysh",
+          "color": "gold"
+        },
+        {
+          "text": " : 2 Cristal de Hysh, 1 glass bottle\n",
+          "color": "white"
+        },
+        {
+          "text": "• Festin d'Ogor ×2",
+          "color": "gold"
+        },
+        {
+          "text": " : 1 Ambre de Ghur, 4 cooked beef\n",
+          "color": "white"
+        },
+        {
+          "text": "• Talisman de Grimnir",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Ur-Or, 2 gold ingot\n",
+          "color": "white"
+        },
+        {
+          "text": "• Amulette d'Ambre",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Ambre de Ghur, 2 gold ingot\n",
+          "color": "white"
+        },
+        {
+          "text": "• Pendentif d'Ombre",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Pierre-Ombre, 2 gold ingot\n",
+          "color": "white"
+        },
+        {
+          "text": "• Cœur de Cristal de Hysh",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Cristal de Hysh, 2 gold ingot\n",
+          "color": "white"
+        },
+        {
+          "text": "• Comète de Sigmar",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Lingot de Sigmarite, 2 Cristal de Hysh\n",
+          "color": "white"
+        },
+        {
+          "text": "• Œil des Dieux Sombres",
+          "color": "gold"
+        },
+        {
+          "text": " : 6 Éclat du Chaos, 2 Malepierre\n",
+          "color": "white"
+        },
+        {
+          "text": "• Sceau de Nagash (boss)",
+          "color": "gold"
+        },
+        {
+          "text": " : 24 Fragment d'Âme, 4 Éclat de Royaume\n",
+          "color": "white"
+        },
+        {
+          "text": "• Sceau d'Archaon (boss)",
+          "color": "gold"
+        },
+        {
+          "text": " : 24 Éclat du Chaos, 4 Éclat de Royaume\n",
+          "color": "white"
+        },
+        {
+          "text": "• Totem de Gordrakk (boss)",
+          "color": "gold"
+        },
+        {
+          "text": " : 24 Ferraille d'Orruk, 8 Ambre de Ghur\n",
+          "color": "white"
+        },
+        {
+          "text": "• Crâne de Skarbrand (boss)",
+          "color": "gold"
+        },
+        {
+          "text": " : 24 Braise d'Aqshy, 4 Éclat du Chaos\n",
+          "color": "white"
+        },
+        {
+          "text": "• Cloche de Thanquol (boss)",
+          "color": "gold"
+        },
+        {
+          "text": " : 24 Malepierre, 4 Éclat de Royaume\n",
+          "color": "white"
+        },
+        {
+          "text": "• Calice de Rotigus (boss)",
+          "color": "gold"
+        },
+        {
+          "text": " : 16 Graine de Vie, 8 Éclat du Chaos\n",
+          "color": "white"
+        }
+      ]
+    }
+  ],
+  "action": {
+    "label": {
+      "text": "Fermer"
+    },
+    "width": 100
+  }
+}

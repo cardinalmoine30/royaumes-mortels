@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "salt": 980510
+  },
+  "structures": [
+    {
+      "structure": "royaumes:autel_skarbrand",
+      "weight": 1
+    }
+  ]
+}

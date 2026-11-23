@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 30,
+    "separation": 10,
+    "salt": 806292
+  },
+  "structures": [
+    {
+      "structure": "royaumes:citadelle_chaos",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/champignon_geant"
+      },
+      "weight": 1
+    }
+  ]
+}

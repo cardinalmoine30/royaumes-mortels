@@ -1,0 +1,256 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Grande Alliance : Ordre",
+    "color": "gold",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": {
+        "text": "Les peuples civilisés unis derrière Sigmar contre les ténèbres."
+      }
+    }
+  ],
+  "can_close_with_escape": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Stormcast Eternals",
+        "color": "gold"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Azyr\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Taille +15 %, +3 cœurs, +2 armure\n",
+          "color": "green"
+        },
+        {
+          "text": "- Vitesse -5 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/stormcast"
+      }
+    },
+    {
+      "label": {
+        "text": "Cités de Sigmar",
+        "color": "aqua"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghyran\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Héros du village (rabais marchands), +1 chance, +1 cœur\n",
+          "color": "green"
+        },
+        {
+          "text": "- Aucun don surnaturel",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/cites"
+      }
+    },
+    {
+      "label": {
+        "text": "Fyreslayers",
+        "color": "gold"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Aqshy\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Résistance au feu, +1 dégât\n",
+          "color": "green"
+        },
+        {
+          "text": "- Taille -15 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/fyreslayers"
+      }
+    },
+    {
+      "label": {
+        "text": "Kharadron Overlords",
+        "color": "gold"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Chamon\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Dégâts de chute -50 %, chute sûre +6 blocs\n",
+          "color": "green"
+        },
+        {
+          "text": "- Taille -15 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/kharadron"
+      }
+    },
+    {
+      "label": {
+        "text": "Filles de Khaine",
+        "color": "red"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ulgu\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Vitesse +10 %, vitesse d'attaque +15 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- -1 cœur",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/khaine"
+      }
+    },
+    {
+      "label": {
+        "text": "Idoneth Deepkin",
+        "color": "dark_aqua"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ulgu (océans)\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Respiration aquatique, nage +60 %, minage sous l'eau\n",
+          "color": "green"
+        },
+        {
+          "text": "- Lent hors de l'eau (aucun bonus terrestre)",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/idoneth"
+      }
+    },
+    {
+      "label": {
+        "text": "Seigneurs Lumineth",
+        "color": "white"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Hysh\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Vision nocturne, vitesse +5 %, +1 chance, portée +1\n",
+          "color": "green"
+        },
+        {
+          "text": "- Aucun",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/lumineth"
+      }
+    },
+    {
+      "label": {
+        "text": "Seraphon",
+        "color": "green"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghur (jungles)\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Taille +20 %, +2 cœurs, +4 armure, nage +30 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- Vitesse -5 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/seraphon"
+      }
+    },
+    {
+      "label": {
+        "text": "Sylvaneth",
+        "color": "dark_green"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghyran\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Régénération permanente, +2 cœurs\n",
+          "color": "green"
+        },
+        {
+          "text": "- Brûle 2× plus longtemps, vitesse -5 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/sylvaneth"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:accueil"
+    }
+  }
+}

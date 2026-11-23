@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/squelette_bete"
+      },
+      "weight": 1
+    }
+  ]
+}

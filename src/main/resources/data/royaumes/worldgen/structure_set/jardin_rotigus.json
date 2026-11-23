@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 24,
+    "salt": 996348
+  },
+  "structures": [
+    {
+      "structure": "royaumes:jardin_rotigus",
+      "weight": 1
+    }
+  ]
+}

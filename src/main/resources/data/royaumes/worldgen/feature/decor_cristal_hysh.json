@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/cristal_hysh"
+      },
+      "weight": 1
+    }
+  ]
+}

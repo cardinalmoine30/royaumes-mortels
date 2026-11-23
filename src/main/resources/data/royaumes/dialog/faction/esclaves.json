@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {
+    "text": "Esclaves des Ténèbres",
+    "color": "dark_gray",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "Guerriers du Chaos Absolu, cuirassés de fer noir, qui cherchent la faveur des Dieux Sombres.\n\n",
+          "color": "white",
+          "italic": true
+        },
+        {
+          "text": "Grande Alliance : ",
+          "color": "gray"
+        },
+        {
+          "text": "Chaos\n",
+          "color": "dark_red"
+        },
+        {
+          "text": "Royaume d'origine : ",
+          "color": "gray"
+        },
+        {
+          "text": "Les Huit-Points\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Dons : ",
+          "color": "green",
+          "bold": true
+        },
+        {
+          "text": "Taille +10 %, +2 cœurs, +2 armure, +1 dégât\n",
+          "color": "green"
+        },
+        {
+          "text": "Faiblesses : ",
+          "color": "red",
+          "bold": true
+        },
+        {
+          "text": "Chance -1 (marqués par le Chaos)\n\n",
+          "color": "red"
+        },
+        {
+          "text": "Équipement : ",
+          "color": "gold"
+        },
+        {
+          "text": "Lame du Fléau Noir, Heaume de l'Élu, cooked beef, Pierre de Royaume",
+          "color": "yellow"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": false,
+  "yes": {
+    "label": {
+      "text": "Rejoindre",
+      "color": "green",
+      "bold": true
+    },
+    "width": 120,
+    "action": {
+      "type": "run_command",
+      "command": "trigger rm_choix set 10"
+    }
+  },
+  "no": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:alliance_chaos"
+    }
+  }
+}

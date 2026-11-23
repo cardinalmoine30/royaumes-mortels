@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/tour_guet_quartz"
+      },
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+execute if score @s rm_mineur matches 0 run function royaumes:rpg/rang/mineur/0
+execute if score @s rm_mineur matches 1 run function royaumes:rpg/rang/mineur/1
+execute if score @s rm_mineur matches 2 run function royaumes:rpg/rang/mineur/2
+execute if score @s rm_mineur matches 3 run function royaumes:rpg/rang/mineur/3
+execute if score @s rm_mineur matches 4 run function royaumes:rpg/rang/mineur/4
+execute if score @s rm_mineur matches 5 run function royaumes:rpg/rang/mineur/5
+execute if score @s rm_mineur matches 6 run function royaumes:rpg/rang/mineur/6
+execute if score @s rm_mineur matches 7 run function royaumes:rpg/rang/mineur/7
+execute if score @s rm_mineur matches 8 run function royaumes:rpg/rang/mineur/8
+execute if score @s rm_mineur matches 9 run function royaumes:rpg/rang/mineur/9
+execute if score @s rm_mineur matches 10 run function royaumes:rpg/rang/mineur/10

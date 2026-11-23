@@ -1,0 +1,11 @@
+execute if score @s rm_endurance matches 0 run function royaumes:rpg/rang/endurance/0
+execute if score @s rm_endurance matches 1 run function royaumes:rpg/rang/endurance/1
+execute if score @s rm_endurance matches 2 run function royaumes:rpg/rang/endurance/2
+execute if score @s rm_endurance matches 3 run function royaumes:rpg/rang/endurance/3
+execute if score @s rm_endurance matches 4 run function royaumes:rpg/rang/endurance/4
+execute if score @s rm_endurance matches 5 run function royaumes:rpg/rang/endurance/5
+execute if score @s rm_endurance matches 6 run function royaumes:rpg/rang/endurance/6
+execute if score @s rm_endurance matches 7 run function royaumes:rpg/rang/endurance/7
+execute if score @s rm_endurance matches 8 run function royaumes:rpg/rang/endurance/8
+execute if score @s rm_endurance matches 9 run function royaumes:rpg/rang/endurance/9
+execute if score @s rm_endurance matches 10 run function royaumes:rpg/rang/endurance/10

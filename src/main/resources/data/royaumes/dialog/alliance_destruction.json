@@ -1,0 +1,156 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Grande Alliance : Destruction",
+    "color": "dark_green",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": {
+        "text": "Orruks, grots, ogors et gargants : la loi du plus fort."
+      }
+    }
+  ],
+  "can_close_with_escape": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Ironjawz",
+        "color": "gold"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghur\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Taille +15 %, +2 cœurs, +2 dégâts, recul -30 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- Vitesse -5 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/ironjawz"
+      }
+    },
+    {
+      "label": {
+        "text": "Kruleboyz",
+        "color": "dark_green"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghyran (marais)\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ +1 cœur, déplacement accroupi +30 %\n",
+          "color": "green"
+        },
+        {
+          "text": "- Aucun",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/kruleboyz"
+      }
+    },
+    {
+      "label": {
+        "text": "Gloomspite Gitz",
+        "color": "yellow"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ulgu\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Vitesse +10 %, vision nocturne, saut amélioré\n",
+          "color": "green"
+        },
+        {
+          "text": "- Taille -30 %, -3 cœurs",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/gitz"
+      }
+    },
+    {
+      "label": {
+        "text": "Ogor Mawtribes",
+        "color": "gold"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghur\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Taille +40 %, +5 cœurs, +2 dégâts\n",
+          "color": "green"
+        },
+        {
+          "text": "- Faim permanente, vitesse -10 %",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/ogors"
+      }
+    },
+    {
+      "label": {
+        "text": "Fils de Behemat",
+        "color": "dark_green"
+      },
+      "tooltip": [
+        {
+          "text": "Royaume : Ghur\n",
+          "color": "gray"
+        },
+        {
+          "text": "+ Taille ×2, +10 cœurs, +4 dégâts, grande portée, enjambe les blocs\n",
+          "color": "green"
+        },
+        {
+          "text": "- Faim II permanente, ne passe pas les portes",
+          "color": "red"
+        }
+      ],
+      "width": 150,
+      "action": {
+        "type": "show_dialog",
+        "dialog": "royaumes:faction/behemat"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:accueil"
+    }
+  }
+}

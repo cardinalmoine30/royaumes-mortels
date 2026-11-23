@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:confirmation",
+  "title": {
+    "text": "Gloomspite Gitz",
+    "color": "yellow",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "Grots fous de la Mauvaise Lune, chevaucheurs d'araignées et cultivateurs de champignons.\n\n",
+          "color": "white",
+          "italic": true
+        },
+        {
+          "text": "Grande Alliance : ",
+          "color": "gray"
+        },
+        {
+          "text": "Destruction\n",
+          "color": "dark_green"
+        },
+        {
+          "text": "Royaume d'origine : ",
+          "color": "gray"
+        },
+        {
+          "text": "Ulgu\n\n",
+          "color": "white"
+        },
+        {
+          "text": "Dons : ",
+          "color": "green",
+          "bold": true
+        },
+        {
+          "text": "Vitesse +10 %, vision nocturne, saut amélioré\n",
+          "color": "green"
+        },
+        {
+          "text": "Faiblesses : ",
+          "color": "red",
+          "bold": true
+        },
+        {
+          "text": "Taille -30 %, -3 cœurs\n\n",
+          "color": "red"
+        },
+        {
+          "text": "Équipement : ",
+          "color": "gold"
+        },
+        {
+          "text": "Coupe-Tronche, red mushroom, brown mushroom, Bouillon de la Mauvaise Lune, Pierre de Royaume",
+          "color": "yellow"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": false,
+  "yes": {
+    "label": {
+      "text": "Rejoindre",
+      "color": "green",
+      "bold": true
+    },
+    "width": 120,
+    "action": {
+      "type": "run_command",
+      "command": "trigger rm_choix set 23"
+    }
+  },
+  "no": {
+    "label": {
+      "text": "← Retour"
+    },
+    "width": 120,
+    "action": {
+      "type": "show_dialog",
+      "dialog": "royaumes:alliance_destruction"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/autel_khaine"
+      },
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 28,
+    "separation": 10,
+    "salt": 766697
+  },
+  "structures": [
+    {
+      "structure": "royaumes:temple_seraphon",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/statue_stormcast"
+      },
+      "weight": 1
+    }
+  ]
+}

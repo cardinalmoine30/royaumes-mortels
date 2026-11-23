@@ -1,0 +1,17 @@
+execute if score @s rm_bnow matches 1 unless score @s rm_bd1 matches 1 run function royaumes:rpg/decouverte {i:1}
+execute if score @s rm_bnow matches 2 unless score @s rm_bd2 matches 1 run function royaumes:rpg/decouverte {i:2}
+execute if score @s rm_bnow matches 3 unless score @s rm_bd3 matches 1 run function royaumes:rpg/decouverte {i:3}
+execute if score @s rm_bnow matches 4 unless score @s rm_bd4 matches 1 run function royaumes:rpg/decouverte {i:4}
+execute if score @s rm_bnow matches 5 unless score @s rm_bd5 matches 1 run function royaumes:rpg/decouverte {i:5}
+execute if score @s rm_bnow matches 6 unless score @s rm_bd6 matches 1 run function royaumes:rpg/decouverte {i:6}
+execute if score @s rm_bnow matches 7 unless score @s rm_bd7 matches 1 run function royaumes:rpg/decouverte {i:7}
+execute if score @s rm_bnow matches 8 unless score @s rm_bd8 matches 1 run function royaumes:rpg/decouverte {i:8}
+execute if score @s rm_bnow matches 9 unless score @s rm_bd9 matches 1 run function royaumes:rpg/decouverte {i:9}
+execute if score @s rm_bnow matches 10 unless score @s rm_bd10 matches 1 run function royaumes:rpg/decouverte {i:10}
+execute if score @s rm_bnow matches 11 unless score @s rm_bd11 matches 1 run function royaumes:rpg/decouverte {i:11}
+execute if score @s rm_bnow matches 12 unless score @s rm_bd12 matches 1 run function royaumes:rpg/decouverte {i:12}
+execute if score @s rm_bnow matches 13 unless score @s rm_bd13 matches 1 run function royaumes:rpg/decouverte {i:13}
+execute if score @s rm_bnow matches 14 unless score @s rm_bd14 matches 1 run function royaumes:rpg/decouverte {i:14}
+execute if score @s rm_bnow matches 15 unless score @s rm_bd15 matches 1 run function royaumes:rpg/decouverte {i:15}
+execute if score @s rm_bnow matches 16 unless score @s rm_bd16 matches 1 run function royaumes:rpg/decouverte {i:16}
+execute if score @s rm_bnow matches 17 unless score @s rm_bd17 matches 1 run function royaumes:rpg/decouverte {i:17}

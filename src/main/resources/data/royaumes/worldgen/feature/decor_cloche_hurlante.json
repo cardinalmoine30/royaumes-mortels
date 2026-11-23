@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/cloche_hurlante"
+      },
+      "weight": 1
+    }
+  ]
+}

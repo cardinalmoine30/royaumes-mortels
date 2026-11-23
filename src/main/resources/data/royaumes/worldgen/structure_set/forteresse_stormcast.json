@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 36,
+    "separation": 14,
+    "salt": 735021
+  },
+  "structures": [
+    {
+      "structure": "royaumes:forteresse_stormcast",
+      "weight": 1
+    }
+  ]
+}

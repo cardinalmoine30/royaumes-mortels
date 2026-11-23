@@ -1,0 +1,21 @@
+attribute @s minecraft:armor modifier remove royaumes:faction
+attribute @s minecraft:attack_damage modifier remove royaumes:faction
+attribute @s minecraft:attack_speed modifier remove royaumes:faction
+attribute @s minecraft:block_interaction_range modifier remove royaumes:faction
+attribute @s minecraft:burning_time modifier remove royaumes:faction
+attribute @s minecraft:entity_interaction_range modifier remove royaumes:faction
+attribute @s minecraft:fall_damage_multiplier modifier remove royaumes:faction
+attribute @s minecraft:gravity modifier remove royaumes:faction
+attribute @s minecraft:jump_strength modifier remove royaumes:faction
+attribute @s minecraft:knockback_resistance modifier remove royaumes:faction
+attribute @s minecraft:luck modifier remove royaumes:faction
+attribute @s minecraft:max_health modifier remove royaumes:faction
+attribute @s minecraft:movement_speed modifier remove royaumes:faction
+attribute @s minecraft:oxygen_bonus modifier remove royaumes:faction
+attribute @s minecraft:safe_fall_distance modifier remove royaumes:faction
+attribute @s minecraft:scale modifier remove royaumes:faction
+attribute @s minecraft:sneaking_speed modifier remove royaumes:faction
+attribute @s minecraft:step_height modifier remove royaumes:faction
+attribute @s minecraft:submerged_mining_speed modifier remove royaumes:faction
+attribute @s minecraft:water_movement_efficiency modifier remove royaumes:faction
+effect clear @s

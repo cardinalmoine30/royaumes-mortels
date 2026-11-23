@@ -1,0 +1,11 @@
+execute if score @s rm_force matches 0 run function royaumes:rpg/rang/force/0
+execute if score @s rm_force matches 1 run function royaumes:rpg/rang/force/1
+execute if score @s rm_force matches 2 run function royaumes:rpg/rang/force/2
+execute if score @s rm_force matches 3 run function royaumes:rpg/rang/force/3
+execute if score @s rm_force matches 4 run function royaumes:rpg/rang/force/4
+execute if score @s rm_force matches 5 run function royaumes:rpg/rang/force/5
+execute if score @s rm_force matches 6 run function royaumes:rpg/rang/force/6
+execute if score @s rm_force matches 7 run function royaumes:rpg/rang/force/7
+execute if score @s rm_force matches 8 run function royaumes:rpg/rang/force/8
+execute if score @s rm_force matches 9 run function royaumes:rpg/rang/force/9
+execute if score @s rm_force matches 10 run function royaumes:rpg/rang/force/10

@@ -1,0 +1,30 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:crossbow",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Grand Fusil à Aether",
+                  "color": "yellow",
+                  "italic": false
+                },
+                "minecraft:enchantments": {
+                  "minecraft:quick_charge": 2,
+                  "minecraft:piercing": 3
+                },
+                "minecraft:rarity": "epic"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

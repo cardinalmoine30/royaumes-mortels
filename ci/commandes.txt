@@ -2,4 +2,29 @@
 # "attendre N" fait une pause de N secondes.
 list
 datapack list
+reload
+attendre 10
+function royaumes:load
+forceload add -48 -48 48 48
+attendre 10
+place structure royaumes:temple_seraphon 0 90 0
 attendre 5
+place structure royaumes:forteresse_stormcast 0 90 0
+attendre 5
+execute positioned 0 120 0 run function royaumes:boss/nagash/invoquer
+attendre 10
+execute as @e[tag=rm_boss] run say boss present
+kill @e[tag=rm_boss]
+execute in royaumes:royaumes_mortels run forceload add 0 0
+attendre 10
+execute in royaumes:royaumes_mortels run locate biome royaumes:azyr_cimes
+execute in royaumes:royaumes_mortels run locate structure royaumes:cite_sigmar
+execute in royaumes:aqshy run forceload add 0 0
+attendre 8
+execute in royaumes:aqshy run locate biome royaumes:aqshy_volcans
+execute in royaumes:hysh run forceload add 0 0
+attendre 8
+execute in royaumes:shyish run forceload add 0 0
+execute in royaumes:ghur run forceload add 0 0
+execute in royaumes:huit_points run forceload add 0 0
+attendre 15

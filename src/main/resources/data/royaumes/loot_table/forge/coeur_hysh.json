@@ -1,0 +1,60 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Cœur de Cristal de Hysh",
+                  "color": "white",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "+3 chance, +30 % minage",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Tenir en main secondaire.",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:luck",
+                    "amount": 3.0,
+                    "id": "royaumes:coeur_hysh_0",
+                    "operation": "add_value",
+                    "slot": "offhand"
+                  },
+                  {
+                    "type": "minecraft:block_break_speed",
+                    "amount": 0.3,
+                    "id": "royaumes:coeur_hysh_1",
+                    "operation": "add_multiplied_base",
+                    "slot": "offhand"
+                  }
+                ],
+                "minecraft:max_stack_size": 1,
+                "minecraft:item_model": "minecraft:heart_of_the_sea",
+                "minecraft:enchantment_glint_override": true,
+                "minecraft:rarity": "epic",
+                "minecraft:custom_data": {
+                  "rm": "coeur_hysh"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

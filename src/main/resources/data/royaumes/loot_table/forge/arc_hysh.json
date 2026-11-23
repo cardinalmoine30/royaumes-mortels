@@ -1,0 +1,30 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Arc de Lumière de Hysh",
+                  "color": "white",
+                  "italic": false
+                },
+                "minecraft:enchantments": {
+                  "minecraft:power": 4,
+                  "minecraft:infinity": 1
+                },
+                "minecraft:rarity": "epic"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

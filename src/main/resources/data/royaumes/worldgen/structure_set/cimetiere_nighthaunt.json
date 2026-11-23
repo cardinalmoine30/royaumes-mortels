@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 22,
+    "separation": 8,
+    "salt": 837968
+  },
+  "structures": [
+    {
+      "structure": "royaumes:cimetiere_nighthaunt",
+      "weight": 1
+    }
+  ]
+}

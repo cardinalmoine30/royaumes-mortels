@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:template",
+  "templates": [
+    {
+      "data": {
+        "id": "royaumes:decor/obelisque_or"
+      },
+      "weight": 1
+    }
+  ]
+}

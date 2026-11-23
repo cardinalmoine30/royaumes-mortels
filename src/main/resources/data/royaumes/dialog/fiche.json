@@ -1,0 +1,125 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "Fiche du Héros — Compétences",
+    "color": "gold",
+    "bold": true
+  },
+  "external_title": {
+    "text": "Fiche du Héros",
+    "color": "gold"
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 320,
+      "contents": [
+        {
+          "text": "Chaque niveau donne 1 point de compétence (max. 10 rangs par compétence).\nTa Gloire vient des combats, des boss, du minage, de la forge et de l'exploration.\nTes statistiques actuelles sont affichées dans le tchat.",
+          "color": "gray"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": true,
+  "pause": false,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Vigueur",
+        "color": "red",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "+1 cœur par rang"
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_comp set 1"
+      }
+    },
+    {
+      "label": {
+        "text": "Force",
+        "color": "dark_red",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "+0,6 dégât par rang"
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_comp set 2"
+      }
+    },
+    {
+      "label": {
+        "text": "Agilité",
+        "color": "aqua",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "+2,5 % vitesse, +3 % vitesse d'attaque"
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_comp set 3"
+      }
+    },
+    {
+      "label": {
+        "text": "Mineur",
+        "color": "gray",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "+15 % vitesse de minage par rang"
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_comp set 4"
+      }
+    },
+    {
+      "label": {
+        "text": "Endurance",
+        "color": "dark_green",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "+1 armure, +0,5 robustesse, +3 % anti-recul"
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_comp set 5"
+      }
+    },
+    {
+      "label": {
+        "text": "Fortune",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "+0,5 chance (meilleur butin)"
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_comp set 6"
+      }
+    }
+  ],
+  "exit_action": {
+    "label": {
+      "text": "Fermer"
+    },
+    "width": 100
+  }
+}
