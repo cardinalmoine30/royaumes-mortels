@@ -15,3 +15,7 @@ execute if score @s rm_bnow matches 14 unless score @s rm_bd14 matches 1 run fun
 execute if score @s rm_bnow matches 15 unless score @s rm_bd15 matches 1 run function royaumes:rpg/decouverte {i:15}
 execute if score @s rm_bnow matches 16 unless score @s rm_bd16 matches 1 run function royaumes:rpg/decouverte {i:16}
 execute if score @s rm_bnow matches 17 unless score @s rm_bd17 matches 1 run function royaumes:rpg/decouverte {i:17}
+execute if score @s rm_bnow matches 18 unless score @s rm_bd18 matches 1 run function royaumes:rpg/decouverte {i:18}
+execute if score @s rm_bnow matches 19 unless score @s rm_bd19 matches 1 run function royaumes:rpg/decouverte {i:19}
+execute if score @s rm_bnow matches 20 unless score @s rm_bd20 matches 1 run function royaumes:rpg/decouverte {i:20}
+execute if score @s rm_bnow matches 21 unless score @s rm_bd21 matches 1 run function royaumes:rpg/decouverte {i:21}

@@ -1,0 +1,248 @@
+{
+ "format_version": "1.12.0",
+ "minecraft:geometry": [
+  {
+   "description": {
+    "identifier": "geometry.hurakan",
+    "texture_width": 128,
+    "texture_height": 128,
+    "visible_bounds_width": 4,
+    "visible_bounds_height": 4,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "root",
+     "pivot": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "body",
+     "pivot": [
+      0,
+      10,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -5,
+        2,
+        -3
+       ],
+       "size": [
+        10,
+        8,
+        6
+       ],
+       "uv": [
+        12,
+        29
+       ]
+      },
+      {
+       "origin": [
+        -4,
+        10,
+        -3
+       ],
+       "size": [
+        8,
+        12,
+        5
+       ],
+       "uv": [
+        4,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "head",
+     "pivot": [
+      0,
+      22,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -4,
+        22,
+        -4
+       ],
+       "size": [
+        8,
+        8,
+        8
+       ],
+       "uv": [
+        82,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "right_arm",
+     "pivot": [
+      -5,
+      21,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -7,
+        10,
+        -2
+       ],
+       "size": [
+        3,
+        12,
+        3
+       ],
+       "uv": [
+        114,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "left_arm",
+     "pivot": [
+      5,
+      21,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        4,
+        10,
+        -2
+       ],
+       "size": [
+        3,
+        12,
+        3
+       ],
+       "uv": [
+        0,
+        29
+       ]
+      }
+     ]
+    },
+    {
+     "name": "weapon",
+     "pivot": [
+      -5,
+      10,
+      0
+     ],
+     "parent": "right_arm",
+     "cubes": [
+      {
+       "origin": [
+        -6,
+        -2,
+        -4
+       ],
+       "size": [
+        1,
+        28,
+        1
+       ],
+       "uv": [
+        0,
+        0
+       ]
+      },
+      {
+       "origin": [
+        -7,
+        26,
+        -5
+       ],
+       "size": [
+        3,
+        5,
+        3
+       ],
+       "uv": [
+        44,
+        29
+       ]
+      }
+     ]
+    },
+    {
+     "name": "offhand",
+     "pivot": [
+      5,
+      10,
+      0
+     ],
+     "parent": "left_arm"
+    },
+    {
+     "name": "wings",
+     "pivot": [
+      0,
+      19,
+      2
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -16,
+        8,
+        3
+       ],
+       "size": [
+        12,
+        16,
+        1
+       ],
+       "uv": [
+        30,
+        0
+       ]
+      },
+      {
+       "origin": [
+        4,
+        8,
+        3
+       ],
+       "size": [
+        12,
+        16,
+        1
+       ],
+       "uv": [
+        56,
+        0
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

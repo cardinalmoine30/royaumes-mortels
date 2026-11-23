@@ -53,3 +53,15 @@ summon minecraft:text_display ~12.5 ~1.3 ~2.5 {text:"Œufs des mobs (1)",billboa
 setblock ~14 ~ ~2 minecraft:barrel[facing=up]{CustomName:"Œufs des mobs (2)"} replace
 loot insert ~14 ~ ~2 loot royaumes:debug/oeufs_1
 summon minecraft:text_display ~14.5 ~1.3 ~2.5 {text:"Œufs des mobs (2)",billboard:"center",Tags:["rm_debug"]}
+setblock ~16 ~ ~2 minecraft:barrel[facing=up]{CustomName:"Œufs des mobs (3)"} replace
+loot insert ~16 ~ ~2 loot royaumes:debug/oeufs_2
+summon minecraft:text_display ~16.5 ~1.3 ~2.5 {text:"Œufs des mobs (3)",billboard:"center",Tags:["rm_debug"]}
+setblock ~18 ~ ~2 minecraft:barrel[facing=up]{CustomName:"Œufs des mobs (4)"} replace
+loot insert ~18 ~ ~2 loot royaumes:debug/oeufs_3
+summon minecraft:text_display ~18.5 ~1.3 ~2.5 {text:"Œufs des mobs (4)",billboard:"center",Tags:["rm_debug"]}
+setblock ~20 ~ ~2 minecraft:barrel[facing=up]{CustomName:"Œufs des mobs (5)"} replace
+loot insert ~20 ~ ~2 loot royaumes:debug/oeufs_4
+summon minecraft:text_display ~20.5 ~1.3 ~2.5 {text:"Œufs des mobs (5)",billboard:"center",Tags:["rm_debug"]}
+setblock ~22 ~ ~2 minecraft:barrel[facing=up]{CustomName:"Œufs des mobs (6)"} replace
+loot insert ~22 ~ ~2 loot royaumes:debug/oeufs_5
+summon minecraft:text_display ~22.5 ~1.3 ~2.5 {text:"Œufs des mobs (6)",billboard:"center",Tags:["rm_debug"]}

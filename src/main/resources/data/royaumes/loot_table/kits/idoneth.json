@@ -33,20 +33,42 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:leather_chestplate",
+          "name": "minecraft:cooked_cod",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_helmet",
           "modifier": [
             {
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Écailles d'Idoneth",
+                  "text": "Heaume — Idoneth Deepkin",
                   "color": "dark_aqua",
                   "italic": false
                 },
-                "minecraft:dyed_color": 2060152,
-                "minecraft:trim": {
-                  "material": "minecraft:diamond",
-                  "pattern": "minecraft:tide"
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "head",
+                  "asset_id": "royaumes:idoneth",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
                 }
               }
             }
@@ -59,11 +81,95 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:cooked_cod",
+          "name": "minecraft:chainmail_chestplate",
           "modifier": [
             {
-              "type": "minecraft:set_count",
-              "count": 16
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Écailles d'Idoneth",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "chest",
+                  "asset_id": "royaumes:idoneth",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Jambières — Idoneth Deepkin",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "legs",
+                  "asset_id": "royaumes:idoneth",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Bottes — Idoneth Deepkin",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "feet",
+                  "asset_id": "royaumes:idoneth",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
             }
           ]
         }

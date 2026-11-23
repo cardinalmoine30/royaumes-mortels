@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:nighthaunt"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:nighthaunt"
+   }
+  ]
+ }
+}

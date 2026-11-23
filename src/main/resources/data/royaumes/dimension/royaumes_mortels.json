@@ -23,443 +23,65 @@
             ],
             "erosion": [
               -1.0,
-              -0.6
+              -0.55
             ],
             "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:hysh_plateaux",
-          "parameters": {
-            "temperature": [
-              -1.0,
-              -0.45
-            ],
-            "humidity": [
-              -0.35,
-              0.3
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ghyran_jade",
-          "parameters": {
-            "temperature": [
-              -0.45,
-              0.0
-            ],
-            "humidity": [
-              0.3,
-              1.0
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              0.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ghyran_marais",
-          "parameters": {
-            "temperature": [
-              0.45,
-              1.0
-            ],
-            "humidity": [
-              0.3,
-              1.0
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ghur_terres",
-          "parameters": {
-            "temperature": [
-              -0.45,
-              0.0
-            ],
-            "humidity": [
-              -0.35,
-              0.3
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ghur_terres",
-          "parameters": {
-            "temperature": [
-              0.0,
-              0.45
-            ],
-            "humidity": [
-              -0.35,
-              0.3
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ghur_jungle",
-          "parameters": {
-            "temperature": [
-              0.0,
-              0.45
-            ],
-            "humidity": [
-              0.3,
-              1.0
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:aqshy_cendres",
-          "parameters": {
-            "temperature": [
-              0.45,
-              1.0
-            ],
-            "humidity": [
-              -1.0,
-              -0.35
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              0.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:chamon_desert",
-          "parameters": {
-            "temperature": [
-              0.0,
-              0.45
-            ],
-            "humidity": [
-              -1.0,
-              -0.35
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:shyish_terres",
-          "parameters": {
-            "temperature": [
-              -1.0,
-              -0.45
-            ],
-            "humidity": [
-              -1.0,
-              -0.35
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ulgu_brumes",
-          "parameters": {
-            "temperature": [
-              -1.0,
-              -0.45
-            ],
-            "humidity": [
-              0.3,
-              1.0
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              0.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ulgu_mer",
-          "parameters": {
-            "temperature": [
               -1,
               1
             ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "royaumes:azyr_vallees",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
             "humidity": [
+              -1.0,
+              0.0
+            ],
+            "continentalness": [
+              -0.19,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
               -1,
               1
             ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "royaumes:azyr_vallees",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              0.0,
+              1.0
+            ],
             "continentalness": [
-              -1.2,
-              -0.19
+              -0.19,
+              1.0
             ],
             "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
               -1,
               1
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:chaos_desolation",
-          "parameters": {
-            "temperature": [
-              -0.45,
-              0.0
-            ],
-            "humidity": [
-              -1.0,
-              -0.35
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:terres_rongees",
-          "parameters": {
-            "temperature": [
-              0.45,
-              1.0
-            ],
-            "humidity": [
-              -0.35,
-              0.3
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:aqshy_volcans",
-          "parameters": {
-            "temperature": [
-              0.45,
-              1.0
-            ],
-            "humidity": [
-              -1.0,
-              -0.35
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              0.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ghyran_wyldwood",
-          "parameters": {
-            "temperature": [
-              -0.45,
-              0.0
-            ],
-            "humidity": [
-              0.3,
-              1.0
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              0.0,
-              1.0
-            ],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "royaumes:ulgu_marais_lune",
-          "parameters": {
-            "temperature": [
-              -1.0,
-              -0.45
-            ],
-            "humidity": [
-              0.3,
-              1.0
-            ],
-            "continentalness": [
-              -0.19,
-              1.0
-            ],
-            "erosion": [
-              -0.6,
-              1.0
-            ],
-            "weirdness": [
-              0.0,
-              1.0
             ],
             "depth": 0.0,
             "offset": 0.0

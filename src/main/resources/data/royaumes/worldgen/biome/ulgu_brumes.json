@@ -69,44 +69,45 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
+       "type": "royaumes:furie",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 95
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 80
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
+        "max_inclusive": 3
        },
        "weight": 40
       },
       {
-       "type": "minecraft:witch",
+       "type": "royaumes:khinerai",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:melusai",
        "count": 1,
-       "weight": 10
+       "weight": 15
       },
       {
-       "type": "minecraft:enderman",
+       "type": "royaumes:avatar_khaine",
        "count": 1,
-       "weight": 10
+       "weight": 1
       },
       {
-       "type": "royaumes:tzaangor",
+       "type": "royaumes:medusa",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:ombre_khaine",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:namarti_thrall",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
@@ -115,7 +116,7 @@
        "weight": 40
       },
       {
-       "type": "royaumes:chainrasp",
+       "type": "royaumes:namarti_reaver",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
@@ -124,22 +125,62 @@
        "weight": 40
       },
       {
-       "type": "royaumes:vampire",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
+       "type": "royaumes:ishlaen",
+       "count": 1,
+       "weight": 15
       },
       {
-       "type": "royaumes:grot",
+       "type": "royaumes:leviadon",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:allopex",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:morrsarr",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:demonette",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:seeker",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:painbringer",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:gardien_secrets",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:syllesske",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:demon_slaanesh",
+       "count": 1,
+       "weight": 15
       }
      ],
      "underground_water_creature": [

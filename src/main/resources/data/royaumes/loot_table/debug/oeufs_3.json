@@ -1,0 +1,625 @@
+{
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:plaguebearer"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Porte-Peste",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:blightking"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Putrid Blightking",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:pusgoyle"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Pusgoyle Blightlord",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:grand_immonde"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Grand Immonde",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:bete_nurgle"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Bête de Nurgle",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:clanrat"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Guerrier des Clans",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:stormvermin"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Vermine de Choc",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:jezzail"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Tireur de Jezzail",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:abomination"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Abomination du Puits Infernal",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:rat_ogre"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Rat-Ogre",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:doomwheel"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Roue Infernale",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:hashut"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Garde Infernale de Hashut",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:goule"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Goule des Cryptes",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:horreur_crypte"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Horreur des Cryptes",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:morbheg"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Chevalier Morbheg",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:terrorgheist"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Terrorgheist",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:dragon_zombie"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Dragon Zombie",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:varghulf"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Varghulf",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:chainrasp"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Chainrasp",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:grimghast"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Grimghast Reaper",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:hote_spirite"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Hôte Spirite",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:carrosse_noir"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Carrosse Noir",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:dreadblade"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Dreadblade Harrow",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:mourngul"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Mourngul",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:mortek"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Garde Mortek",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:kavalos"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Kavalos Deathrider",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:zombie_spawn_egg",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:entity_data": {
+         "id": "royaumes:immortis"
+        },
+        "minecraft:item_name": {
+         "text": "Œuf : Garde Immortis",
+         "color": "gold"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

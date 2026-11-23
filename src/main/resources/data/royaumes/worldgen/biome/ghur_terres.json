@@ -130,48 +130,41 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 95
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 90
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:enderman",
+       "type": "royaumes:glutton",
        "count": 1,
-       "weight": 10
+       "weight": 15
       },
       {
-       "type": "royaumes:soeur_khaine",
+       "type": "royaumes:irongut",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:leadbelcher",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:stonehorn",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:thundertusk",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:sabre_givre",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:ardboy",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
@@ -181,39 +174,53 @@
       },
       {
        "type": "royaumes:brute",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "count": 1,
+       "weight": 15
       },
       {
        "type": "royaumes:megaboss",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
+       "count": 1,
+       "weight": 3
       },
       {
-       "type": "royaumes:gutbuster",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
+       "type": "royaumes:maw_krusha",
+       "count": 1,
+       "weight": 1
       },
       {
-       "type": "royaumes:gargant",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
+       "type": "royaumes:idole_rogue",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:mancrusher",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:mega_gargant",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:gatebreaker",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:kraken_eater",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:warstomper",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:beast_smasher",
+       "count": 1,
+       "weight": 1
       }
      ],
      "underground_water_creature": [

@@ -205,9 +205,104 @@
                   "color": "white",
                   "italic": false
                 },
-                "minecraft:trim": {
-                  "material": "minecraft:quartz",
-                  "pattern": "minecraft:rib"
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "head",
+                  "asset_id": "royaumes:ossiarch",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ],
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_chestplate",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Cuirasse — Ossiarch Bonereapers",
+                  "color": "white",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "chest",
+                  "asset_id": "royaumes:ossiarch",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ],
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Jambières — Ossiarch Bonereapers",
+                  "color": "white",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "legs",
+                  "asset_id": "royaumes:ossiarch",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ],
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Bottes — Ossiarch Bonereapers",
+                  "color": "white",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "feet",
+                  "asset_id": "royaumes:ossiarch",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
                 }
               }
             }
@@ -216,7 +311,7 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 2
+          "weight": 3
         }
       ]
     },

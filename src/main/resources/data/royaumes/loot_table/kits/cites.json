@@ -88,20 +88,42 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:leather_chestplate",
+          "name": "minecraft:emerald",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_helmet",
           "modifier": [
             {
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Tunique de la Garde Franche",
+                  "text": "Heaume — Cités de Sigmar",
                   "color": "aqua",
                   "italic": false
                 },
-                "minecraft:dyed_color": 1986472,
-                "minecraft:trim": {
-                  "material": "minecraft:gold",
-                  "pattern": "minecraft:coast"
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "head",
+                  "asset_id": "royaumes:cites",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
                 }
               }
             }
@@ -114,11 +136,95 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:emerald",
+          "name": "minecraft:chainmail_chestplate",
           "modifier": [
             {
-              "type": "minecraft:set_count",
-              "count": 8
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Tunique de la Garde Franche",
+                  "color": "aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "chest",
+                  "asset_id": "royaumes:cites",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Jambières — Cités de Sigmar",
+                  "color": "aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "legs",
+                  "asset_id": "royaumes:cites",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Bottes — Cités de Sigmar",
+                  "color": "aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "feet",
+                  "asset_id": "royaumes:cites",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
             }
           ]
         }

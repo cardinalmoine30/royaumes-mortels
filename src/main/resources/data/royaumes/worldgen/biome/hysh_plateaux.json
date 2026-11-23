@@ -85,63 +85,46 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
+       "type": "royaumes:sentinelle_vanari",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
-        "max_inclusive": 4
+        "max_inclusive": 3
        },
-       "weight": 95
+       "weight": 40
       },
       {
-       "type": "minecraft:skeleton",
+       "type": "royaumes:garde_vanari",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
-        "max_inclusive": 4
+        "max_inclusive": 3
        },
-       "weight": 90
+       "weight": 40
       },
       {
-       "type": "minecraft:spider",
+       "type": "royaumes:bladelord",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
-        "max_inclusive": 4
+        "max_inclusive": 3
        },
-       "weight": 60
+       "weight": 40
       },
       {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:enderman",
+       "type": "royaumes:alarith",
        "count": 1,
-       "weight": 10
+       "weight": 2
       },
       {
-       "type": "royaumes:liberator",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "type": "royaumes:hurakan",
+       "count": 1,
+       "weight": 3
       },
       {
-       "type": "royaumes:lumineth",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "type": "royaumes:scinari",
+       "count": 1,
+       "weight": 15
       }
      ],
      "underground_water_creature": [

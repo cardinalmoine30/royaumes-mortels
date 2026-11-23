@@ -66,6 +66,21 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:copper_ingot",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "minecraft:iron_helmet",
           "modifier": [
             {
@@ -76,9 +91,17 @@
                   "color": "gold",
                   "italic": false
                 },
-                "minecraft:trim": {
-                  "material": "minecraft:copper",
-                  "pattern": "minecraft:wayfinder"
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "head",
+                  "asset_id": "royaumes:kharadron",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
                 }
               }
             }
@@ -91,11 +114,95 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_ingot",
+          "name": "minecraft:chainmail_chestplate",
           "modifier": [
             {
-              "type": "minecraft:set_count",
-              "count": 16
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Cuirasse — Kharadron Overlords",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "chest",
+                  "asset_id": "royaumes:kharadron",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Jambières — Kharadron Overlords",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "legs",
+                  "asset_id": "royaumes:kharadron",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Bottes — Kharadron Overlords",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "feet",
+                  "asset_id": "royaumes:kharadron",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
             }
           ]
         }

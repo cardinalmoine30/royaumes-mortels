@@ -15,10 +15,10 @@
             ],
             "humidity": [
               -1.0,
-              1.0
+              0.0
             ],
             "continentalness": [
-              -1.2,
+              -0.19,
               1.0
             ],
             "erosion": [
@@ -26,8 +26,35 @@
               1.0
             ],
             "weirdness": [
+              -1,
+              1
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "royaumes:chaos_desolation",
+          "parameters": {
+            "temperature": [
+              0.0,
+              1.0
+            ],
+            "humidity": [
+              0.0,
+              1.0
+            ],
+            "continentalness": [
+              -0.19,
+              1.0
+            ],
+            "erosion": [
               -1.0,
               1.0
+            ],
+            "weirdness": [
+              -1,
+              1
             ],
             "depth": 0.0,
             "offset": 0.0
@@ -42,10 +69,10 @@
             ],
             "humidity": [
               -1.0,
-              1.0
+              0.0
             ],
             "continentalness": [
-              -1.2,
+              -0.19,
               1.0
             ],
             "erosion": [
@@ -53,8 +80,35 @@
               1.0
             ],
             "weirdness": [
+              -1,
+              1
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "royaumes:terres_rongees",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              0.0
+            ],
+            "humidity": [
+              0.0,
+              1.0
+            ],
+            "continentalness": [
+              -0.19,
+              1.0
+            ],
+            "erosion": [
               -1.0,
               1.0
+            ],
+            "weirdness": [
+              -1,
+              1
             ],
             "depth": 0.0,
             "offset": 0.0

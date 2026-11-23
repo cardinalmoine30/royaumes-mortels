@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:skaven"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:skaven"
+   }
+  ]
+ }
+}

@@ -10,8 +10,8 @@ execute if score @s rm_bnow matches 4 run title @s subtitle {"text": "Terres cor
 execute if score @s rm_bnow matches 4 run title @s title {"text": "Marais Putrides de Ghyran", "color": "dark_green", "bold": true}
 execute if score @s rm_bnow matches 5 run title @s subtitle {"text": "Royaume des Bêtes", "color": "gray", "italic": true}
 execute if score @s rm_bnow matches 5 run title @s title {"text": "Terres Sauvages de Ghur", "color": "gold", "bold": true}
-execute if score @s rm_bnow matches 6 run title @s subtitle {"text": "Royaume des Bêtes", "color": "gray", "italic": true}
-execute if score @s rm_bnow matches 6 run title @s title {"text": "Jungles Primordiales de Ghur", "color": "green", "bold": true}
+execute if score @s rm_bnow matches 6 run title @s subtitle {"text": "Royaume de la Vie — cités-temples des Seraphon", "color": "gray", "italic": true}
+execute if score @s rm_bnow matches 6 run title @s title {"text": "Jungles de Ghyran", "color": "green", "bold": true}
 execute if score @s rm_bnow matches 7 run title @s subtitle {"text": "Royaume du Feu", "color": "gray", "italic": true}
 execute if score @s rm_bnow matches 7 run title @s title {"text": "Plaines de Cendres d'Aqshy", "color": "red", "bold": true}
 execute if score @s rm_bnow matches 8 run title @s subtitle {"text": "Royaume du Métal", "color": "gray", "italic": true}
@@ -34,3 +34,11 @@ execute if score @s rm_bnow matches 16 run title @s subtitle {"text": "Royaume d
 execute if score @s rm_bnow matches 16 run title @s title {"text": "Marais de la Mauvaise Lune", "color": "yellow", "bold": true}
 execute if score @s rm_bnow matches 17 run title @s subtitle {"text": "Royaume de la Lumière — sanctuaires Lumineth", "color": "gray", "italic": true}
 execute if score @s rm_bnow matches 17 run title @s title {"text": "Îles Célestes de Hysh", "color": "white", "bold": true}
+execute if score @s rm_bnow matches 18 run title @s subtitle {"text": "Royaume des Cieux — terres de Sigmar", "color": "gray", "italic": true}
+execute if score @s rm_bnow matches 18 run title @s title {"text": "Vallées d'Azyrheim", "color": "aqua", "bold": true}
+execute if score @s rm_bnow matches 19 run title @s subtitle {"text": "Royaume des Bêtes — terrains de chasse des Ogors", "color": "gray", "italic": true}
+execute if score @s rm_bnow matches 19 run title @s title {"text": "Plaines des Mégafaunes", "color": "gold", "bold": true}
+execute if score @s rm_bnow matches 20 run title @s subtitle {"text": "Royaume du Métal — mines des Kharadron", "color": "gray", "italic": true}
+execute if score @s rm_bnow matches 20 run title @s title {"text": "Collines de Métal de Chamon", "color": "yellow", "bold": true}
+execute if score @s rm_bnow matches 21 run title @s subtitle {"text": "Royaume de la Mort — déserts des Ossiarch", "color": "gray", "italic": true}
+execute if score @s rm_bnow matches 21 run title @s title {"text": "Sables d'Améthyste de Shyish", "color": "yellow", "bold": true}

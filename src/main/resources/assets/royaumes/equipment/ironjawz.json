@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:ironjawz"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:ironjawz"
+   }
+  ]
+ }
+}

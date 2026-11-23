@@ -16,3 +16,7 @@ execute if biome ~ ~ ~ royaumes:aqshy_volcans run return run function royaumes:m
 execute if biome ~ ~ ~ royaumes:ghyran_wyldwood run return run function royaumes:mobs/biome/ghyran_wyldwood
 execute if biome ~ ~ ~ royaumes:ulgu_marais_lune run return run function royaumes:mobs/biome/ulgu_marais_lune
 execute if biome ~ ~ ~ royaumes:hysh_iles run return run function royaumes:mobs/biome/hysh_iles
+execute if biome ~ ~ ~ royaumes:azyr_vallees run return run function royaumes:mobs/biome/azyr_vallees
+execute if biome ~ ~ ~ royaumes:ghur_savane run return run function royaumes:mobs/biome/ghur_savane
+execute if biome ~ ~ ~ royaumes:chamon_collines run return run function royaumes:mobs/biome/chamon_collines
+execute if biome ~ ~ ~ royaumes:shyish_sables run return run function royaumes:mobs/biome/shyish_sables

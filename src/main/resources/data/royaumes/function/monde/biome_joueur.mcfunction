@@ -16,4 +16,8 @@ execute if biome ~ ~ ~ royaumes:aqshy_volcans run scoreboard players set @s rm_b
 execute if biome ~ ~ ~ royaumes:ghyran_wyldwood run scoreboard players set @s rm_bnow 15
 execute if biome ~ ~ ~ royaumes:ulgu_marais_lune run scoreboard players set @s rm_bnow 16
 execute if biome ~ ~ ~ royaumes:hysh_iles run scoreboard players set @s rm_bnow 17
+execute if biome ~ ~ ~ royaumes:azyr_vallees run scoreboard players set @s rm_bnow 18
+execute if biome ~ ~ ~ royaumes:ghur_savane run scoreboard players set @s rm_bnow 19
+execute if biome ~ ~ ~ royaumes:chamon_collines run scoreboard players set @s rm_bnow 20
+execute if biome ~ ~ ~ royaumes:shyish_sables run scoreboard players set @s rm_bnow 21
 execute unless score @s rm_bnow = @s rm_biome run function royaumes:monde/biome_titre

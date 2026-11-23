@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:idoneth"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:idoneth"
+   }
+  ]
+ }
+}

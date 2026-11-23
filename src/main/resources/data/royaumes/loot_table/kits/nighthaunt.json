@@ -52,20 +52,42 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:leather_chestplate",
+          "name": "minecraft:soul_lantern",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_helmet",
           "modifier": [
             {
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Linceul Spectral",
+                  "text": "Heaume — Nighthaunt",
                   "color": "dark_aqua",
                   "italic": false
                 },
-                "minecraft:dyed_color": 10475209,
-                "minecraft:trim": {
-                  "material": "minecraft:diamond",
-                  "pattern": "minecraft:silence"
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "head",
+                  "asset_id": "royaumes:nighthaunt",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
                 }
               }
             }
@@ -78,11 +100,95 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:soul_lantern",
+          "name": "minecraft:chainmail_chestplate",
           "modifier": [
             {
-              "type": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Linceul Spectral",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "chest",
+                  "asset_id": "royaumes:nighthaunt",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Jambières — Nighthaunt",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "legs",
+                  "asset_id": "royaumes:nighthaunt",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Bottes — Nighthaunt",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Apparence de faction",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:equippable": {
+                  "slot": "feet",
+                  "asset_id": "royaumes:nighthaunt",
+                  "equip_sound": "minecraft:item.armor.equip_iron"
+                }
+              }
             }
           ]
         }

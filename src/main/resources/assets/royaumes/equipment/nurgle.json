@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:nurgle"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:nurgle"
+   }
+  ]
+ }
+}

@@ -61,58 +61,42 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 70
-      },
-      {
-       "type": "minecraft:husk",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:magma_cube",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 2
-       },
-       "weight": 30
-      },
-      {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 2
-       },
-       "weight": 30
-      },
-      {
-       "type": "royaumes:fyreslayer",
+       "type": "royaumes:vulkite",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:hearthguard",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:auric_hearthguard",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:magmadroth",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:elementaire_magma",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:salamandre",
+       "count": 1,
+       "weight": 15
       },
       {
        "type": "royaumes:hashut",

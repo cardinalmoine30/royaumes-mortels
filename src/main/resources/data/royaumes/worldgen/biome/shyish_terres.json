@@ -15,36 +15,38 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
+       "type": "royaumes:goule",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
-        "max_inclusive": 4
+        "max_inclusive": 3
        },
-       "weight": 90
+       "weight": 40
       },
       {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 110
-      },
-      {
-       "type": "minecraft:wither_skeleton",
+       "type": "royaumes:horreur_crypte",
        "count": 1,
-       "weight": 8
+       "weight": 15
       },
       {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 2
-       },
-       "weight": 30
+       "type": "royaumes:morbheg",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:terrorgheist",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:dragon_zombie",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:varghulf",
+       "count": 1,
+       "weight": 3
       },
       {
        "type": "royaumes:chainrasp",
@@ -56,13 +58,33 @@
        "weight": 40
       },
       {
-       "type": "royaumes:glaivewraith",
+       "type": "royaumes:grimghast",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:hote_spirite",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:carrosse_noir",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:dreadblade",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:mourngul",
+       "count": 1,
+       "weight": 2
       },
       {
        "type": "royaumes:deathrattle",
@@ -74,31 +96,37 @@
        "weight": 40
       },
       {
+       "type": "royaumes:grave_guard",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:blood_knight",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:vargheist",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:bete_zombie",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
        "type": "royaumes:vampire",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
-      },
-      {
-       "type": "royaumes:mortek",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
-      },
-      {
-       "type": "royaumes:goule",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "count": 1,
+       "weight": 4
       }
      ],
      "underground_water_creature": [

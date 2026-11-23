@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:fec"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:fec"
+   }
+  ]
+ }
+}

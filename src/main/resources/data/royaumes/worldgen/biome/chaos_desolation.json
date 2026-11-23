@@ -52,59 +52,34 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 110
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:blaze",
-       "count": 1,
-       "weight": 5
-      },
-      {
-       "type": "minecraft:enderman",
+       "type": "royaumes:guerrier_chaos",
        "count": 1,
        "weight": 15
       },
       {
-       "type": "royaumes:guerrier_chaos",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "type": "royaumes:chevalier_chaos",
+       "count": 1,
+       "weight": 15
       },
       {
-       "type": "royaumes:seigneur_chaos",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
+       "type": "royaumes:chosen",
+       "count": 1,
+       "weight": 15
       },
       {
-       "type": "royaumes:bloodreaver",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "type": "royaumes:warshrine",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:prince_demon",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:rejeton_chaos",
+       "count": 1,
+       "weight": 15
       },
       {
        "type": "royaumes:tzaangor",
@@ -116,6 +91,86 @@
        "weight": 40
       },
       {
+       "type": "royaumes:acolyte",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:horreur_rose",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:seigneur_changement",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:char_flammes",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:mutalith",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:bloodletter",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:blood_warrior",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:bloodreaver",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:skullreaper",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:bloodthirster",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:chien_khorne",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:juggernaut",
+       "count": 1,
+       "weight": 3
+      },
+      {
        "type": "royaumes:demonette",
        "count": {
         "type": "minecraft:uniform",
@@ -125,7 +180,12 @@
        "weight": 40
       },
       {
-       "type": "royaumes:pestigor",
+       "type": "royaumes:seeker",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:painbringer",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
@@ -134,13 +194,48 @@
        "weight": 40
       },
       {
-       "type": "royaumes:hashut",
+       "type": "royaumes:gardien_secrets",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:syllesske",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:demon_slaanesh",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:plaguebearer",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:blightking",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:pusgoyle",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:grand_immonde",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:bete_nurgle",
+       "count": 1,
+       "weight": 15
       }
      ],
      "underground_water_creature": [

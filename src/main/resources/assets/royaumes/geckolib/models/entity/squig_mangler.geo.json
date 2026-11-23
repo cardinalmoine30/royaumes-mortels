@@ -1,0 +1,303 @@
+{
+ "format_version": "1.12.0",
+ "minecraft:geometry": [
+  {
+   "description": {
+    "identifier": "geometry.squig_mangler",
+    "texture_width": 128,
+    "texture_height": 128,
+    "visible_bounds_width": 4,
+    "visible_bounds_height": 4,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "root",
+     "pivot": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "body",
+     "pivot": [
+      0,
+      10,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -8,
+        3,
+        -8
+       ],
+       "size": [
+        16,
+        14,
+        16
+       ],
+       "uv": [
+        0,
+        0
+       ]
+      },
+      {
+       "origin": [
+        -7,
+        17,
+        -7
+       ],
+       "size": [
+        14,
+        2,
+        14
+       ],
+       "uv": [
+        56,
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "name": "jaw",
+     "pivot": [
+      0,
+      4,
+      -8
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -7,
+        2,
+        -9
+       ],
+       "size": [
+        14,
+        3,
+        14
+       ],
+       "uv": [
+        0,
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "name": "leg_l",
+     "pivot": [
+      -6,
+      3,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -7,
+        0,
+        -1
+       ],
+       "size": [
+        2,
+        3,
+        3
+       ],
+       "uv": [
+        76,
+        47
+       ]
+      }
+     ]
+    },
+    {
+     "name": "leg_r",
+     "pivot": [
+      6,
+      3,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        5,
+        0,
+        -1
+       ],
+       "size": [
+        2,
+        3,
+        3
+       ],
+       "uv": [
+        86,
+        47
+       ]
+      }
+     ]
+    },
+    {
+     "name": "rider",
+     "pivot": [
+      0,
+      17,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -3,
+        17,
+        -2
+       ],
+       "size": [
+        6,
+        9,
+        4
+       ],
+       "uv": [
+        0,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -2,
+        26,
+        -2
+       ],
+       "size": [
+        4,
+        4,
+        4
+       ],
+       "uv": [
+        20,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -5,
+        15,
+        -2
+       ],
+       "size": [
+        2,
+        4,
+        4
+       ],
+       "uv": [
+        36,
+        47
+       ]
+      },
+      {
+       "origin": [
+        3,
+        15,
+        -2
+       ],
+       "size": [
+        2,
+        4,
+        4
+       ],
+       "uv": [
+        48,
+        47
+       ]
+      },
+      {
+       "origin": [
+        3,
+        20,
+        -1
+       ],
+       "size": [
+        2,
+        6,
+        2
+       ],
+       "uv": [
+        60,
+        47
+       ]
+      }
+     ]
+    },
+    {
+     "name": "rider_arm",
+     "pivot": [
+      -4,
+      26,
+      0
+     ],
+     "parent": "rider",
+     "cubes": [
+      {
+       "origin": [
+        -5,
+        20,
+        -1
+       ],
+       "size": [
+        2,
+        6,
+        2
+       ],
+       "uv": [
+        68,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -5,
+        21,
+        -18
+       ],
+       "size": [
+        1,
+        1,
+        18
+       ],
+       "uv": [
+        64,
+        0
+       ]
+      },
+      {
+       "origin": [
+        -6,
+        20,
+        -21
+       ],
+       "size": [
+        3,
+        3,
+        3
+       ],
+       "uv": [
+        96,
+        47
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

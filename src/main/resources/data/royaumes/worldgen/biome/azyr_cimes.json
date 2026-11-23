@@ -76,54 +76,9 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 95
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 90
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:enderman",
-       "count": 1,
-       "weight": 10
-      },
-      {
        "type": "royaumes:liberator",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "count": 1,
+       "weight": 15
       },
       {
        "type": "royaumes:judicator",
@@ -135,22 +90,38 @@
        "weight": 40
       },
       {
-       "type": "royaumes:lord_celestant",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
-      },
-      {
-       "type": "royaumes:garde_franche",
+       "type": "royaumes:prosecutor",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:vindictor",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:lord_celestant",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:stardrake",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:dracoth",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:gryph_charger",
+       "count": 1,
+       "weight": 15
       }
      ],
      "underground_water_creature": [

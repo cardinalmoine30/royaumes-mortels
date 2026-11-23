@@ -65,6 +65,10 @@ scoreboard objectives add rm_bd14 dummy
 scoreboard objectives add rm_bd15 dummy
 scoreboard objectives add rm_bd16 dummy
 scoreboard objectives add rm_bd17 dummy
+scoreboard objectives add rm_bd18 dummy
+scoreboard objectives add rm_bd19 dummy
+scoreboard objectives add rm_bd20 dummy
+scoreboard objectives add rm_bd21 dummy
 bossbar add royaumes:nagash {"text": "Nagash, Dieu de la Mort", "color": "dark_purple", "bold": true}
 bossbar set royaumes:nagash color purple
 bossbar set royaumes:nagash style notched_10

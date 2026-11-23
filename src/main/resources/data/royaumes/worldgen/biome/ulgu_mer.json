@@ -30,22 +30,42 @@
      ],
      "monster": [
       {
-       "type": "minecraft:drowned",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 100
-      },
-      {
-       "type": "royaumes:idoneth",
+       "type": "royaumes:namarti_thrall",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:namarti_reaver",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:ishlaen",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:leviadon",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:allopex",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:morrsarr",
+       "count": 1,
+       "weight": 15
       }
      ],
      "underground_water_creature": [

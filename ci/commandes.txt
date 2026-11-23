@@ -1,48 +1,43 @@
 # Commandes envoyées au serveur de test une fois démarré.
 # "attendre N" fait une pause de N secondes.
-list
 datapack list
-reload
-attendre 10
 function royaumes:load
 forceload add -48 -48 48 48
 attendre 10
 place structure royaumes:temple_seraphon 0 90 0
-attendre 5
-place structure royaumes:forteresse_stormcast 0 90 0
-attendre 5
 execute positioned 0 120 0 run function royaumes:boss/nagash/invoquer
-attendre 10
-execute as @e[tag=rm_boss] run say boss present
-kill @e[tag=rm_boss]
+attendre 5
+execute if entity @e[type=royaumes:nagash] run say Nagash OK
+bossbar get royaumes:nagash max
+kill @e[type=royaumes:nagash]
 execute in royaumes:royaumes_mortels run forceload add 0 0
-attendre 10
-execute in royaumes:royaumes_mortels run locate biome royaumes:azyr_cimes
+attendre 8
+execute in royaumes:royaumes_mortels run locate structure royaumes:forteresse_stormcast
 execute in royaumes:royaumes_mortels run locate structure royaumes:cite_sigmar
-execute in royaumes:aqshy run forceload add 0 0
+execute in royaumes:ghyran run forceload add 0 0
 attendre 8
-execute in royaumes:aqshy run locate biome royaumes:aqshy_volcans
+execute in royaumes:ghyran run locate structure royaumes:temple_seraphon
+execute in royaumes:chamon run forceload add 0 0
+execute in royaumes:ulgu run forceload add 0 0
 execute in royaumes:hysh run forceload add 0 0
-attendre 8
 execute in royaumes:shyish run forceload add 0 0
-execute in royaumes:ghur run forceload add 0 0
-execute in royaumes:huit_points run forceload add 0 0
 attendre 15
+execute in royaumes:shyish run locate structure royaumes:ossuaire_ossiarch
+execute in royaumes:hysh run locate biome royaumes:hysh_plateaux
 # Créatures du mod
 execute in minecraft:overworld positioned 0 100 0 run function royaumes:debug/mobs
-summon royaumes:liberator 2 100 2
-summon royaumes:guerrier_chaos 6 100 2
-summon royaumes:nagash 0 100 20
+summon royaumes:stardrake 0 110 0
+summon royaumes:judicator 4 100 4
+summon royaumes:guerrier_chaos 8 100 4
+summon royaumes:gunhauler 0 115 8
+summon royaumes:vampire 2 100 10
+summon royaumes:liberator 3 100 10
 attendre 25
-execute if entity @e[type=royaumes:liberator] run say Liberator OK
-execute if entity @e[type=royaumes:nagash] run say Nagash OK
 scoreboard objectives add rm_test dummy
 execute store result score #n rm_test if entity @e[type=#royaumes:mobs_du_mod]
 scoreboard players get #n rm_test
-team list rm_ordre
+function royaumes:debug/nettoyer
 execute in minecraft:overworld positioned 0 100 0 run function royaumes:debug/objets
 attendre 3
 data get block 2 100 2 Items[0]
-data get block 6 100 2 Items[0]
-data get block 14 100 2 Items[0].components
-function royaumes:debug/nettoyer
+data get block 4 100 2 Items[0]

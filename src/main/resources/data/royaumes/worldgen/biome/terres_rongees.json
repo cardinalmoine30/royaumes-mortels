@@ -70,48 +70,16 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 95
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 90
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:enderman",
-       "count": 1,
-       "weight": 10
-      },
-      {
        "type": "royaumes:clanrat",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:stormvermin",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
@@ -127,6 +95,21 @@
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:abomination",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:rat_ogre",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:doomwheel",
+       "count": 1,
+       "weight": 3
       }
      ],
      "underground_water_creature": [

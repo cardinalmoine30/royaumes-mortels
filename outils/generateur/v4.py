@@ -89,7 +89,7 @@ def gen_failles():
     fn("faille/repousser", [
         "execute at @e[type=minecraft:marker,tag=rm_faille,sort=nearest,limit=1] facing entity @s feet run tp @s ^ ^ ^2.5"])
     # Destinations aléatoires
-    dests = [(f"{NS}:royaumes_mortels", "Les Royaumes Mortels", "gold", 4)]
+    dests = [(f"{NS}:royaumes_mortels", "Azyr, Royaume des Cieux", "aqua", 2)]
     for did, dd in data_v4.DIMENSIONS.items():
         dests.append((f"{NS}:{did}", dd["nom"], dd["c"], 1 if did != "hysh" else 2))
     total = sum(p for *_, p in dests)

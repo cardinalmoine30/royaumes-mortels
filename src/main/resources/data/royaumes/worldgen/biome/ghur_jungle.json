@@ -102,47 +102,6 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 95
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 90
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:enderman",
-       "count": 1,
-       "weight": 10
-      },
-      {
        "type": "royaumes:saurus",
        "count": {
         "type": "minecraft:uniform",
@@ -161,22 +120,24 @@
        "weight": 40
       },
       {
-       "type": "royaumes:brute",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
+       "type": "royaumes:kroxigor",
+       "count": 1,
+       "weight": 4
       },
       {
-       "type": "royaumes:gargant",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 1
-       },
-       "weight": 8
+       "type": "royaumes:carnosaur",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:stegadon",
+       "count": 1,
+       "weight": 2
+      },
+      {
+       "type": "royaumes:bastiladon",
+       "count": 1,
+       "weight": 2
       }
      ],
      "underground_water_creature": [

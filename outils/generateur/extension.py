@@ -641,9 +641,11 @@ def gen_boss():
             f"execute if entity @s[tag=rm_phase2] if score @s rm_bt matches 4.. run function {NS}:boss/{bid}/attaque",
             f"execute if score @s rm_bt matches 6.. run function {NS}:boss/{bid}/attaque"])
         inv1, inv2 = b["invoc"], b["invoc2"]
-        invoc = [f'summon minecraft:{inv1[0]} ~2 ~ ~2 {{Tags:["rm_spawn","rm_p_{inv1[1]}"]}}',
-                 f'summon minecraft:{inv1[0]} ~-2 ~ ~-2 {{Tags:["rm_spawn","rm_p_{inv1[1]}"]}}',
-                 f'summon minecraft:{inv2[0]} ~2 ~ ~-2 {{Tags:["rm_spawn","rm_p_{inv2[1]}"]}}']
+        sbire = {"deathrattle": "deathrattle", "chainrasp": "chainrasp", "chaos_guerrier": "guerrier_chaos",
+                 "brute": "brute", "bloodreaver": "bloodreaver", "clanrat": "clanrat", "pestigor": "plaguebearer",
+                 "chaos_seigneur": "chosen", "gutrippa": "gutrippa", "jezzail": "jezzail", "tzaangor": "tzaangor"}
+        m1, m2 = sbire.get(inv1[1], "guerrier_chaos"), sbire.get(inv2[1], "guerrier_chaos")
+        invoc = [f'summon {NS}:{m1} ~2 ~ ~2', f'summon {NS}:{m1} ~-2 ~ ~-2', f'summon {NS}:{m2} ~2 ~ ~-2']
         cap = {  # 3 capacités par boss
             "nagash": [
                 ("Invocation des Morts", invoc + ["particle minecraft:soul ~ ~1 ~ 3 1 3 0.05 120",
@@ -723,7 +725,10 @@ def gen_boss():
         pred = f'minecraft:carrot_on_a_stick[minecraft:custom_data~{{royaumes:"sceau_{bid}"}}]'
         fn(f"boss/{bid}/invoquer", [
             f"clear @s {pred} 1",
-            f'summon minecraft:{base_s[bid]} ^ ^1 ^7 {{Tags:["rm_spawn","rm_p_boss_{bid}"],PersistenceRequired:1b}}',
+            f'summon {NS}:{bid} ^ ^1 ^7 {{Tags:["rm_boss","rm_boss_{bid}"],PersistenceRequired:1b}}',
+            f'bossbar add {NS}:{bid} {jtxt(txt(BOSS[bid]["nom"], BOSS[bid]["c"]))}',
+            f'bossbar set {NS}:{bid} max {BOSS[bid]["hp"]}', f'bossbar set {NS}:{bid} color {BOSS[bid]["barre"]}',
+            f'bossbar set {NS}:{bid} visible true',
             "particle minecraft:explosion_emitter ^ ^1 ^7 0 0 0 0 1",
             "playsound minecraft:entity.lightning_bolt.thunder hostile @a[distance=..60] ~ ~ ~ 2 0.6", "return 1"])
         L.append(f"execute if items entity @s weapon.mainhand {pred} run return run function {NS}:boss/{bid}/invoquer")

@@ -61,38 +61,6 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 100
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 90
-      },
-      {
-       "type": "minecraft:slime",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 2
-       },
-       "weight": 20
-      },
-      {
-       "type": "minecraft:witch",
-       "count": 1,
-       "weight": 6
-      },
-      {
        "type": "royaumes:goule",
        "count": {
         "type": "minecraft:uniform",
@@ -102,7 +70,22 @@
        "weight": 40
       },
       {
-       "type": "royaumes:gutrippa",
+       "type": "royaumes:horreur_crypte",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:morbheg",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:varghulf",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:shoota",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
@@ -111,7 +94,40 @@
        "weight": 40
       },
       {
-       "type": "royaumes:grot",
+       "type": "royaumes:squig_hopper",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:stabba",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:squig_mangler",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:squig_colossal",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:troggoth_dankhold",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:gutrippa",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,

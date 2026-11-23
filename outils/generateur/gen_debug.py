@@ -19,6 +19,10 @@ def table(nom, specs):
 
 
 ressources = [X.res_spec(r, 16) for r in X.RES]
+os.makedirs(f"{DATA}/loot_table/debug/res", exist_ok=True)
+for r in X.RES:
+    json.dump({"pools": [{"rolls": 1, "entries": [B.entry(X.res_spec(r, 1), n=1)]}]},
+              open(f"{DATA}/loot_table/debug/res/{r}.json", "w"), ensure_ascii=False, indent=1)
 for s in ressources:
     s["n"] = 16
 divers = [B.PIERRE, X.PARCHEMIN] + list(X.SCEAUX.values())

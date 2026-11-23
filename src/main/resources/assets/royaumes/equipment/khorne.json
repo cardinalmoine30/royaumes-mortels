@@ -1,0 +1,14 @@
+{
+ "layers": {
+  "humanoid": [
+   {
+    "texture": "royaumes:khorne"
+   }
+  ],
+  "humanoid_leggings": [
+   {
+    "texture": "royaumes:khorne"
+   }
+  ]
+ }
+}

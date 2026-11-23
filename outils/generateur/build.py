@@ -12,6 +12,7 @@ BUILDERS.update(BUILDERS3)
 START_Y.update(START3)
 STRUCTURES.extend(NOUVELLES_STRUCTURES)
 import data_v4
+import data_v5
 from structures4 import BUILDERS4, START4
 BUILDERS.update(BUILDERS4)
 START_Y.update(START4)
@@ -99,6 +100,11 @@ def components(spec):
         c["minecraft:custom_data"] = spec["custom_data"]
     if spec.get("cmd"):
         c["minecraft:custom_model_data"] = {"strings": [spec["cmd"]]}
+    if spec.get("apparence"):
+        slot = {"helmet": "head", "chestplate": "chest", "leggings": "legs", "boots": "feet"}[spec["id"].rsplit("_", 1)[1]]
+        c["minecraft:equippable"] = {"slot": slot, "asset_id": f"royaumes:{spec['apparence']}",
+                                     "equip_sound": "minecraft:item.armor.equip_iron"}
+        c.pop("minecraft:trim", None)
     return c
 
 
@@ -632,27 +638,46 @@ def gen_dimension():
             cells = b["grille"] if isinstance(b["grille"], list) else [b["grille"]]
             for (t, h) in cells:
                 pt(b["id"], T[t - 1], H[h - 1], (-0.19, 1.0), (-0.6, 1.0), weird=b.get("weird", (-1.0, 1.0)))
+    def points_royaume(ids, flottant=False):
+        """Points multi-bruit d'un Royaume : océans, pics, puis grille climatique partagée."""
+        res = []
+        terres = [i for i in ids if _BIOME[i].get("special") not in ("ocean", "pics")]
+        for i in ids:
+            sp = _BIOME[i].get("special")
+            if sp == "ocean" and not flottant:
+                res.append((i, (-1, 1), (-1, 1), (-1.2, -0.19), (-1, 1), (-1, 1)))
+            elif sp == "pics":
+                res.append((i, (-1, 1), (-1, 1), (0.3, 1.0), (-1.0, -0.55), (-1, 1)))
+        n = len(terres)
+        for k, i in enumerate(terres):
+            # bandes de température x humidité en damier pour bien mélanger
+            for j in range(2):
+                t0 = -1.0 + 2.0 * k / n
+                t1 = -1.0 + 2.0 * (k + 1) / n
+                h = (-1.0, 0.0) if j == 0 else (0.0, 1.0)
+                tt = (t0, t1) if j == 0 else (-1.0 + 2.0 * ((k + 1) % n) / n, -1.0 + 2.0 * ((k + 1) % n + 1) / n)
+                res.append((i, tt, h, (-0.19 if not flottant else -1.2, 1.0), (-1.0, 1.0), (-1, 1)))
+        return [{"biome": f"{NS}:{i}", "parameters": {"temperature": list(t), "humidity": list(hh), "continentalness": list(c),
+                 "erosion": list(e), "weirdness": list(wd), "depth": 0.0, "offset": 0.0}} for i, t, hh, c, e, wd in res]
+
+    _BIOME = {b["id"]: b for b in BIOMES}
     w(f"data/{NS}/dimension/royaumes_mortels.json", {
         "type": "minecraft:overworld",
         "generator": {"type": "minecraft:noise", "settings": DIM,
-                      "biome_source": {"type": "minecraft:multi_noise", "biomes": pts}}})
-    # Dimensions de royaume supplémentaires
+                      "biome_source": {"type": "minecraft:multi_noise", "biomes": points_royaume(data_v5.AZYR)}}})
+    # Un monde par Royaume
     for did, dd in data_v4.DIMENSIONS.items():
-        if dd.get("flottant"):
-            src = {"type": "minecraft:fixed", "biome": f"{NS}:{dd['biomes'][0]}"}
-            reglages = f"{NS}:iles_flottantes"
-        else:
-            bl = dd["biomes"]
-            pas = 2.0 / len(bl)
-            src = {"type": "minecraft:multi_noise", "biomes": [
-                {"biome": f"{NS}:{b}", "parameters": {"temperature": [-1.0 + i * pas, -1.0 + (i + 1) * pas], "humidity": [-1.0, 1.0],
-                                                     "continentalness": [-1.2, 1.0], "erosion": [-1.0, 1.0], "weirdness": [-1.0, 1.0],
-                                                     "depth": 0.0, "offset": 0.0}} for i, b in enumerate(bl)]}
-            reglages = DIM
+        fl = bool(dd.get("flottant"))
+        src = {"type": "minecraft:multi_noise", "biomes": points_royaume(dd["biomes"], fl)}
+        reglages = f"{NS}:iles_flottantes" if fl else DIM
         w(f"data/{NS}/dimension/{did}.json", {"type": "minecraft:overworld",
                                               "generator": {"type": "minecraft:noise", "settings": reglages, "biome_source": src}})
+    base = charger("worldgen/density_function/end/base_3d_noise.json")
+    base["xz_scale"] = data_v5.HYSH_XZ_SCALE
+    w(f"data/{NS}/worldgen/density_function/hysh_iles.json", base)
     nf = charger("worldgen/noise_settings/floating_islands.json")
     nf["material_rule"] = DIM
+    nf = json.loads(json.dumps(nf).replace('"minecraft:end/base_3d_noise"', f'"{NS}:hysh_iles"'))
     w(f"data/{NS}/worldgen/noise_settings/iles_flottantes.json", nf)
     ns = charger("worldgen/noise_settings/overworld.json")
     ns["material_rule"] = DIM

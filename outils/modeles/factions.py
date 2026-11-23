@@ -143,6 +143,12 @@ def construire(nom, s):
         ecart = 0 if s["corps"] in ("normal", "squelette", "fin", "petit") else 0
         m.cube("right_leg", (-jw - ecart, 0, -jd // 2), (jw, jh, jd), "jambes", north=bande(P["armure2"], "haut") if s.get("armure") else None)
         m.cube("left_leg", (ecart, 0, -jd // 2), (jw, jh, jd), "jambes", north=bande(P["armure2"], "haut") if s.get("armure") else None)
+    elif s.get("serpent"):   # Melusai, Medusa, Syll'Esske : queue de serpent
+        m.bone("tail", "root", (0, lh, 0))
+        m.cube("tail", (-4, 4, -3), (8, 7, 6), "peau", north=bande(P["armure2"], "haut"))
+        m.cube("tail", (-3, 1, 2), (6, 5, 8), "peau")
+        m.cube("tail", (-2, 0, 9), (4, 3, 8), "peau")
+        m.cube("tail", (-1, 0, 16), (2, 2, 6), "peau")
     else:   # robe spectrale flottante
         m.cube("body", (-5, 2, -3), (10, 8, 6), "tissu", north=bande(sombre(P["tissu"]), "bas", 2))
     # torse
@@ -343,91 +349,6 @@ P_ORRUK = pal((90, 90, 96), (230, 200, 40), (90, 60, 40), (80, 130, 50), (255, 2
 P_KB = pal((60, 70, 50), (150, 120, 70), (70, 80, 40), (90, 120, 60), (200, 255, 80), metal=(90, 96, 80))
 P_GITZ = pal((40, 40, 50), (220, 210, 120), (34, 34, 46), (120, 160, 70), (230, 220, 120), metal=(100, 100, 110))
 
-MOBS = [
-    # id, nom, alliance, corps, spec, stats(pv, degats, armure, vitesse), echelle, capacite, biomes
-    ("liberator", "Liberator Stormcast", "ordre", dict(corps="massif", pal=P_SC, armure=True, face="heaume", arme="marteau", main_gauche="bouclier",
-        epaulieres=(7, 6, 10), embleme="comete", extras=("cape", "halo")), (40, 6, 8, .27), 1.0, "foudre", ["azyr_cimes", "hysh_plateaux"]),
-    ("judicator", "Judicator Stormcast", "ordre", dict(corps="massif", pal=P_SC, armure=True, face="heaume", arme="lance", epaulieres=(7, 6, 10),
-        embleme="comete", extras=("cape", "haut_heaume")), (32, 5, 6, .27), 1.0, "foudre", ["azyr_cimes"]),
-    ("lord_celestant", "Lord-Celestant", "ordre", dict(corps="massif", pal=pal((230, 190, 70), (240, 240, 250), (30, 50, 130), OR, (150, 230, 255)), armure=True,
-        face="heaume", arme="epee", main_gauche="bouclier", epaulieres=(8, 7, 11), embleme="comete", extras=("cape", "halo", "haut_heaume")), (80, 10, 10, .28), 1.15, "foudre", ["azyr_cimes"]),
-    ("garde_franche", "Soldat de la Garde Franche", "ordre", dict(corps="normal", pal=pal((150, 150, 160), (200, 170, 60), (40, 70, 150), (215, 175, 140), (250, 220, 120)),
-        armure=False, face="visage", arme="lance", main_gauche="rondache", embleme="comete", extras=("tabard",)), (26, 5, 4, .26), 1.0, "aucune", ["azyr_cimes", "ghyran_jade"]),
-    ("fyreslayer", "Vulkite Berzerker", "ordre", dict(corps="nain", pal=pal((200, 120, 60), (230, 180, 60), (120, 50, 30), (215, 150, 110), (255, 120, 30), poils=(240, 110, 30)),
-        face="visage", arme="hache", main_gauche="rondache", embleme="croc", extras=("barbe", "crete")), (30, 6, 3, .28), 1.0, "feu", ["aqshy_cendres", "aqshy_volcans"]),
-    ("kharadron", "Arkanaut Kharadron", "ordre", dict(corps="nain", pal=pal((60, 110, 140), (200, 170, 70), (60, 60, 70), (60, 110, 140), (120, 230, 255), metal=(160, 140, 90)),
-        armure=True, face="heaume", arme="fusil", embleme="point", extras=("sac", "barbe")), (26, 5, 6, .25), 1.0, "aucune", ["chamon_desert"]),
-    ("soeur_khaine", "Sœur du Massacre", "ordre", dict(corps="fin", pal=pal((60, 20, 30), (200, 170, 90), (130, 20, 40), (225, 190, 170), (255, 40, 60), poils=(20, 20, 24)),
-        face="visage", arme="dague", main_gauche="dague", embleme="croc", extras=("crete",)), (22, 5, 2, .31), 1.0, "saignee", ["ghur_terres"]),
-    ("idoneth", "Namarti Thrall", "ordre", dict(corps="fin", pal=pal((40, 90, 110), (220, 210, 190), (30, 60, 90), (190, 210, 220), (120, 255, 230)),
-        armure=True, face="bete", arme="epee", embleme="point", extras=("cape",)), (30, 6, 3, .28), 1.0, "aucune", ["ulgu_mer"]),
-    ("lumineth", "Gardien du Temple Lumineth", "ordre", dict(corps="fin", pal=pal((235, 235, 240), (210, 180, 90), (230, 230, 240), (240, 220, 200), (255, 250, 200)),
-        armure=True, face="heaume", arme="lance", embleme="comete", embleme_lueur=True, extras=("haut_heaume", "cape")), (28, 5, 5, .27), 1.0, "lumiere", ["hysh_plateaux", "hysh_iles"]),
-    ("saurus", "Guerrier Saurus", "ordre", dict(corps="massif", pal=pal((40, 120, 140), (210, 170, 60), (40, 120, 140), (60, 150, 110), (255, 230, 90), corne=(240, 200, 80)),
-        face="bete", arme="massue", main_gauche="rondache", embleme="point", extras=("queue", "museau")), (34, 6, 4, .26), 1.1, "aucune", ["ghur_jungle"]),
-    ("skink", "Skink", "ordre", dict(corps="petit", pal=pal((60, 160, 200), (230, 190, 60), (60, 160, 200), (70, 170, 210), (255, 230, 90)),
-        face="bete", arme="lance", embleme="point", extras=("queue", "museau")), (16, 3, 1, .31), 1.0, "poison", ["ghur_jungle"]),
-    ("dryade", "Dryade Sylvaneth", "ordre", dict(corps="fin", pal=pal((110, 80, 50), (120, 160, 60), (90, 70, 45), (120, 90, 60), (150, 255, 90), corne=(90, 70, 45)),
-        face="bete", embleme="point", embleme_lueur=True, extras=("branches", "griffes"), main_gauche="griffe"), (30, 5, 4, .27), 1.0, "aucune", ["ghyran_jade", "ghyran_wyldwood", "ghyran_marais"]),
-    ("guerrier_chaos", "Guerrier du Chaos", "chaos", dict(corps="massif", pal=P_CHAOS, armure=True, face="heaume", arme="hache", main_gauche="bouclier",
-        epaulieres=(7, 7, 10), embleme="etoile", extras=("cornes", "cape")), (40, 7, 8, .25), 1.0, "aucune", ["chaos_desolation"]),
-    ("seigneur_chaos", "Seigneur du Chaos", "chaos", dict(corps="massif", pal=pal((40, 40, 46), (200, 160, 60), (120, 10, 10), (200, 170, 140), (255, 60, 30), metal=(60, 60, 66)),
-        armure=True, face="heaume", arme="epee", main_gauche="bouclier", epaulieres=(8, 8, 11), embleme="etoile", embleme_lueur=True, extras=("grandes_cornes", "cape")), (90, 11, 10, .27), 1.2, "feu", ["chaos_desolation"]),
-    ("bloodreaver", "Bloodreaver de Khorne", "chaos", dict(corps="normal", pal=P_KHORNE, face="visage", arme="hache", main_gauche="hache", embleme="croc",
-        extras=("cornes",)), (26, 6, 3, .29), 1.0, "saignee", ["chaos_desolation", "aqshy_cendres"]),
-    ("tzaangor", "Tzaangor", "chaos", dict(corps="normal", pal=pal((50, 90, 170), (220, 180, 60), (50, 120, 180), (90, 130, 200), (120, 230, 255), corne=(240, 220, 150)),
-        face="bete", arme="lance", main_gauche="rondache", embleme="etoile", extras=("museau", "grandes_cornes")), (24, 5, 3, .28), 1.0, "feu_magique", ["chaos_desolation", "ulgu_brumes"]),
-    ("demonette", "Démonette de Slaanesh", "chaos", dict(corps="fin", pal=pal((200, 150, 200), (220, 210, 230), (170, 90, 170), (220, 180, 220), (255, 120, 220), poils=(240, 230, 250)),
-        face="visage", embleme="point", extras=("griffes", "cornes", "crete"), main_gauche="griffe"), (20, 5, 1, .33), 1.0, "aucune", ["chaos_desolation"]),
-    ("pestigor", "Porte-Peste de Nurgle", "chaos", dict(corps="geant", pal=P_NURGLE, face="crane", arme="epee", embleme="crane", extras=("ventre", "cornes")),
-        (40, 5, 4, .19), 0.85, "poison", ["ghyran_marais", "chaos_desolation"]),
-    ("clanrat", "Guerrier des Clans Skaven", "chaos", dict(corps="petit", pal=P_SKAVEN, face="bete", arme="epee", main_gauche="rondache", embleme="point",
-        embleme_lueur=True, extras=("museau", "queue")), (16, 4, 2, .31), 1.0, "poison", ["terres_rongees"]),
-    ("jezzail", "Tireur de Jezzail Skaven", "chaos", dict(corps="petit", pal=P_SKAVEN, face="bete", arme="fusil", embleme="point", embleme_lueur=True,
-        extras=("museau", "queue", "sac")), (18, 4, 2, .3), 1.0, "poison", ["terres_rongees"]),
-    ("hashut", "Garde Infernale de Hashut", "chaos", dict(corps="nain", pal=pal((40, 40, 44), (190, 140, 60), (90, 30, 20), (90, 90, 96), (255, 110, 30), poils=(30, 30, 34)),
-        armure=True, face="heaume", arme="hache", main_gauche="bouclier", embleme="etoile", embleme_lueur=True, extras=("barbe", "haut_heaume")), (32, 6, 6, .25), 1.0, "feu", ["aqshy_volcans", "chaos_desolation"]),
-    ("chainrasp", "Chainrasp Nighthaunt", "mort", dict(corps="spectre", pal=pal((60, 140, 130), (140, 200, 190), (70, 150, 140), (110, 200, 190), (160, 255, 230)),
-        face="capuche", arme="epee", embleme="crane", embleme_lueur=True), (20, 5, 0, .28), 1.0, "drain", ["shyish_terres", "ulgu_brumes"]),
-    ("glaivewraith", "Glaivewraith Nighthaunt", "mort", dict(corps="spectre", pal=pal((50, 110, 120), (170, 220, 210), (40, 100, 110), (100, 190, 190), (160, 255, 230)),
-        face="capuche", arme="faux", embleme="crane", embleme_lueur=True), (24, 6, 0, .28), 1.0, "drain", ["shyish_terres"]),
-    ("deathrattle", "Squelette Deathrattle", "mort", dict(corps="squelette", pal=pal((210, 205, 185), (160, 120, 60), (80, 40, 40), (215, 210, 190), (90, 255, 200)),
-        face="crane", arme="epee", main_gauche="rondache", embleme="crane"), (22, 5, 3, .26), 1.0, "aucune", ["shyish_terres", "chamon_desert"]),
-    ("vampire", "Seigneur Vampire", "mort", dict(corps="normal", pal=pal((40, 40, 50), (180, 30, 40), (100, 10, 20), (230, 225, 230), (255, 40, 50)),
-        armure=True, face="visage", arme="epee", embleme="crane", extras=("cape", "couronne")), (70, 9, 6, .3), 1.05, "drain", ["shyish_terres", "ulgu_brumes"]),
-    ("mortek", "Garde Mortek Ossiarch", "mort", dict(corps="massif", pal=pal((225, 215, 190), (60, 50, 80), (60, 50, 80), (230, 220, 200), (120, 230, 255)),
-        armure=True, face="crane", arme="lance", main_gauche="bouclier", epaulieres=(6, 5, 9), embleme="crane", embleme_lueur=True), (36, 6, 6, .25), 1.0, "drain", ["shyish_terres"]),
-    ("goule", "Goule des Cryptes", "mort", dict(corps="fin", pal=pal((150, 150, 140), (120, 60, 50), (90, 70, 60), (170, 170, 160), (220, 60, 60)),
-        face="bete", embleme="point", extras=("griffes",), main_gauche="griffe"), (22, 5, 1, .32), 1.0, "saignee", ["shyish_terres", "ulgu_marais_lune"]),
-    ("brute", "Brute Ironjawz", "destruction", dict(corps="massif", pal=P_ORRUK, armure=True, face="bete", arme="couperet", embleme="croc",
-        epaulieres=(7, 6, 9), extras=("machoire",)), (45, 8, 7, .25), 1.15, "waaagh", ["ghur_terres", "ghur_jungle"]),
-    ("megaboss", "Mégaboss Ironjawz", "destruction", dict(corps="massif", pal=pal((80, 80, 86), (240, 200, 30), (120, 40, 30), (70, 120, 45), (255, 200, 40)),
-        armure=True, face="bete", arme="couperet", main_gauche="hache", epaulieres=(9, 8, 11), embleme="croc", extras=("machoire", "cornes")), (100, 12, 10, .25), 1.35, "waaagh", ["ghur_terres"]),
-    ("gutrippa", "Gutrippa Kruleboyz", "destruction", dict(corps="normal", pal=P_KB, face="bete", arme="epee", main_gauche="rondache", embleme="croc",
-        extras=("machoire",)), (28, 5, 4, .27), 1.1, "poison", ["ulgu_marais_lune", "ghyran_marais"]),
-    ("grot", "Grot de la Mauvaise Lune", "destruction", dict(corps="petit", pal=P_GITZ, face="bete", arme="lance", embleme="point", extras=("chapeau",)),
-        (10, 3, 0, .3), 1.0, "aucune", ["ulgu_marais_lune", "ulgu_brumes"]),
-    ("gutbuster", "Ogor Gutbuster", "destruction", dict(corps="geant", pal=pal((120, 100, 80), (200, 160, 60), (110, 60, 40), (205, 170, 140), (255, 200, 60)),
-        face="visage", arme="massue", embleme="croc", extras=("ventre",)), (60, 9, 4, .21), 1.35, "waaagh", ["ghur_terres"]),
-    ("gargant", "Gargant Mangeur d'Hommes", "destruction", dict(corps="geant", pal=pal((120, 90, 60), (160, 120, 70), (110, 80, 50), (200, 160, 130), (255, 200, 60)),
-        face="visage", arme="massue", embleme="point", extras=("ventre", "barbe")), (160, 14, 4, .22), 2.6, "seisme", ["ghur_terres", "ghur_jungle"]),
-]
-
-BOSS = [
-    ("nagash", "Nagash, Dieu de la Mort", "mort", dict(corps="squelette", pal=pal((40, 50, 60), (220, 190, 80), (30, 30, 40), (220, 215, 195), (90, 255, 220)),
-        armure=True, face="crane", arme="baton", embleme="crane", embleme_lueur=True, extras=("ailes", "couronne", "cape")), (900, 16, 14, .26), 3.0, "drain", []),
-    ("archaon", "Archaon l'Élu Éternel", "chaos", dict(corps="massif", pal=pal((30, 30, 36), (210, 170, 60), (110, 10, 10), (190, 160, 130), (255, 60, 30), metal=(50, 50, 56)),
-        armure=True, face="heaume", arme="epee", main_gauche="bouclier", epaulieres=(9, 9, 12), embleme="etoile", embleme_lueur=True, extras=("grandes_cornes", "cape", "couronne")), (1000, 18, 16, .27), 1.9, "feu", []),
-    ("gordrakk", "Gordrakk, le Poing de Gork", "destruction", dict(corps="massif", pal=pal((90, 90, 96), (240, 200, 30), (130, 30, 20), (70, 125, 45), (255, 210, 40)),
-        armure=True, face="bete", arme="couperet", main_gauche="hache", epaulieres=(10, 9, 12), embleme="croc", extras=("machoire", "cornes", "cape")), (800, 17, 12, .28), 1.9, "waaagh", []),
-    ("skarbrand", "Skarbrand l'Exilé", "chaos", dict(corps="geant", pal=pal((150, 30, 26), (60, 50, 40), (100, 20, 15), (170, 40, 30), (255, 90, 30), corne=(60, 50, 40)),
-        face="bete", arme="double_hache", main_gauche="hache", embleme="croc", embleme_lueur=True, extras=("grandes_cornes", "ailes")), (850, 18, 8, .27), 2.2, "feu", []),
-    ("thanquol", "Thanquol, Prophète Gris", "chaos", dict(corps="petit", pal=pal((90, 90, 96), (120, 110, 90), (110, 110, 116), (140, 140, 140), (80, 255, 60), poils=(150, 150, 150)),
-        face="bete", arme="baton", embleme="point", embleme_lueur=True, extras=("museau", "queue", "grandes_cornes", "cape")), (750, 14, 8, .3), 2.4, "foudre_verte", []),
-    ("rotigus", "Rotigus le Pluviomancien", "chaos", dict(corps="geant", pal=pal((100, 120, 60), (140, 110, 60), (80, 90, 50), (130, 150, 80), (190, 230, 60), corne=(170, 160, 110)),
-        face="crane", arme="baton", embleme="crane", embleme_lueur=True, extras=("ventre", "grandes_cornes")), (950, 15, 10, .2), 2.2, "poison", []),
-]
-
 EQUIPES = {"ordre": "rm_ordre", "chaos": "rm_chaos", "mort": "rm_mort", "destruction": "rm_destruction"}
 
 
@@ -442,8 +363,11 @@ def largeur_modele(m):
 
 def java(entrees):
     l = []
-    for mid, nom, al, spec, (pv, deg, arm, vit), ech, cap, biomes, boss, h, w in entrees:
-        l.append(f'        new Profil("{mid}", "{EQUIPES[al]}", {pv}f, {deg}f, {arm}f, {vit}f, {ech}f, {w:.2f}f, {h:.2f}f, Capacite.{cap.upper()}, {str(boss).lower()})')
+    for e in entrees:
+        pv, deg, arm, vit = e["stats"]
+        l.append(f'        new Profil("{e["id"]}", "{EQUIPES[e["alliance"]]}", {pv}f, {deg}f, {arm}f, {vit}f, {e["ech"]}f, '
+                 f'{e["w"]:.2f}f, {e["h"]:.2f}f, Capacite.{e["cap"].upper()}, Mode.{e["mode"].upper()}, '
+                 f'Special.{e["special"].upper()}, "{e["sbire"]}", {str(e["boss"]).lower()})')
     return """package fr.royaumes;
 
 import java.util.List;
@@ -459,58 +383,103 @@ public final class ProfilsGeneres {
 """
 
 
+def boite(m):
+    xs = [c.o[0] for c in m.cubes] + [c.o[0] + c.t[0] for c in m.cubes]
+    zs = [c.o[2] for c in m.cubes] + [c.o[2] + c.t[2] for c in m.cubes]
+    h = max(c.o[1] + c.t[1] for c in m.cubes) / 16.0
+    return h, max(max(xs) - min(xs), max(zs) - min(zs)) / 16.0
+
+
 def main():
-    entrees = []
-    planche = []
+    import math
+    from bestiaire import TOUS, FAC
+    import creatures as C
+    GAB = {"bete": C.bete, "navire": C.navire, "blob": C.blob, "poisson": C.poisson, "char": C.char}
+    entrees, planche = [], []
     os.makedirs(f"{ICI}/apercus", exist_ok=True)
-    for groupe, boss in ((MOBS, False), (BOSS, True)):
-        for mid, nom, al, spec, stats, ech, cap, biomes in groupe:
-            m, palettes = construire(mid, spec)
-            tex = m.exporter(palettes, animations(m))
-            h, w = hauteur_modele(m), max(0.5, min(largeur_modele(m), 1.4))
-            entrees.append((mid, nom, al, spec, stats, ech, cap, biomes, boss, round(h * 0.95, 2), round(w * 0.8, 2)))
-            sortie = f"{ICI}/apercus/{mid}.png"
-            apercu_vues(m, tex, sortie, nom)
-            planche.append((nom, al, sortie, boss))
-    # Java
+    for e in TOUS:
+        if e["gabarit"] == "h":
+            m, palettes = construire(e["id"], e["spec"])
+            anims = C.animations_gen(m, e["mode"].startswith("vol") and "wings" in {b[0] for b in m.bones})
+        else:
+            m, palettes = GAB[e["gabarit"]](e["id"], e["spec"])
+            anims = C.animations_gen(m, e["mode"].startswith("vol"))
+        tex = m.exporter(palettes, anims)
+        h, w = boite(m)
+        if e["gabarit"] == "h":
+            w = max(0.5, min(w * 0.6, 1.4))
+        else:
+            w = max(0.6, min(w * 0.75, 3.0 / e["ech"]))
+        e["h"], e["w"] = round(h * 0.95, 2), round(w, 2)
+        e["alliance"] = FAC[e["fac"]][0]
+        entrees.append(e)
+        sortie = f"{ICI}/apercus/{e['id']}.png"
+        apercu_vues(m, tex, sortie, e["nom"])
+        planche.append((e["nom"], e["alliance"], sortie, e["boss"], e["fac"]))
     open(f"{RACINE}/src/main/java/fr/royaumes/ProfilsGeneres.java", "w").write(java(entrees))
     # traductions
     for lang in ("fr_fr", "en_us"):
         p = f"{ASSETS}/lang/{lang}.json"
-        d = json.load(open(p)) if os.path.exists(p) else {}
+        d = {k: v for k, v in (json.load(open(p)) if os.path.exists(p) else {}).items() if not k.startswith("entity.royaumes.")}
         for e in entrees:
-            d[f"entity.royaumes.{e[0]}"] = e[1]
+            d[f"entity.royaumes.{e['id']}"] = e["nom"]
         json.dump(d, open(p, "w"), ensure_ascii=False, indent=1)
-    # apparitions dans les biomes
+    # apparitions : seulement les mobs du mod dans les Royaumes
     dossier = f"{RACINE}/src/main/resources/data/royaumes/worldgen/biome"
     for f in os.listdir(dossier):
         b = f[:-5]
         p = f"{dossier}/{f}"
         d = json.load(open(p))
         cat = d["attributes"]["minecraft:gameplay/natural_mob_spawns"]["argument"]["spawns_by_category"].setdefault("monster", [])
-        cat[:] = [x for x in cat if not x["type"].startswith("royaumes:")]
+        cat[:] = [x for x in cat if not x["type"].startswith("minecraft:")]
+        cat[:] = []
         for e in entrees:
-            if b in e[7]:
-                cat.append({"type": f"royaumes:{e[0]}", "count": {"type": "minecraft:uniform", "min_inclusive": 1, "max_inclusive": 3 if e[4][0] < 60 else 1},
-                            "weight": 40 if e[4][0] < 60 else 8})
+            if b in e["biomes"] and e["poids"] > 0:
+                n = 3 if e["stats"][0] < 40 else 1
+                cat.append({"type": f"royaumes:{e['id']}", "count": {"type": "minecraft:uniform", "min_inclusive": 1, "max_inclusive": n} if n > 1 else 1,
+                            "weight": e["poids"]})
         json.dump(d, open(p, "w"), indent=1)
-    # fonction de test : tous les mobs en cercle autour du joueur
-    lignes = ["# Fait apparaître tous les mobs du mod autour de toi (sans IA, pour les regarder)", "tellraw @s {\"text\":\"Bestiaire du mod : tous les mobs autour de toi\",\"color\":\"gold\"}"]
-    import math
+    # butin
+    for e in entrees:
+        pools = []
+        for item, a, bmax in e["butin"]:
+            ent = {"type": "minecraft:item", "name": item, "modifier": [
+                {"type": "minecraft:set_count", "count": {"type": "minecraft:uniform", "min": a, "max": bmax}},
+                {"type": "minecraft:enchanted_count_increase", "enchantment": "minecraft:looting", "count": {"type": "minecraft:uniform", "min": 0.0, "max": 1.0}}]}
+            pools.append({"rolls": 1, "entries": [ent]})
+        res = FAC[e["fac"]][1]
+        chance = 1.0 if e["boss"] or e["stats"][0] >= 150 else 0.35
+        pools.append({"rolls": 1, "condition": {"type": "minecraft:all_of", "terms": [{"type": "minecraft:killed_by_player"},
+                                                  {"type": "minecraft:random_chance_with_enchanted_bonus", "enchantment": "minecraft:looting",
+                                                   "unenchanted_chance": chance, "enchanted_chance": {"type": "minecraft:linear", "base": min(1.0, chance + 0.1), "per_level_above_first": 0.1}}]},
+                      "entries": [{"type": "minecraft:loot_table", "value": f"royaumes:debug/res/{res}"}]})
+        if e["boss"]:
+            pools.append({"rolls": 1, "entries": [{"type": "minecraft:loot_table", "value": f"royaumes:boss/{e['id']}"}]})
+        p = f"{RACINE}/src/main/resources/data/royaumes/loot_table/entities/{e['id']}.json"
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        json.dump({"type": "minecraft:entity", "pools": pools}, open(p, "w"), indent=1)
+    # fonctions de test
+    lignes = ["# Fait apparaître tous les mobs du mod autour de toi (immobiles, pour les regarder)",
+              "tellraw @s {\"text\":\"Bestiaire du mod : tous les mobs autour de toi\",\"color\":\"gold\"}"]
     n = len(entrees)
     for i, e in enumerate(entrees):
         a = 2 * math.pi * i / n
-        r = 14
-        lignes.append(f"summon royaumes:{e[0]} ~{r * math.cos(a):.1f} ~ ~{r * math.sin(a):.1f} {{NoAI:1b,PersistenceRequired:1b,CustomNameVisible:1b}}")
-    p = f"{RACINE}/src/main/resources/data/royaumes/function/debug/mobs.mcfunction"
-    os.makedirs(os.path.dirname(p), exist_ok=True)
-    open(p, "w").write("\n".join(lignes) + "\n")
-    open(f"{RACINE}/src/main/resources/data/royaumes/function/debug/nettoyer.mcfunction", "w").write(
+        r = 28 + 6 * (i % 3)
+        lignes.append(f"summon royaumes:{e['id']} ~{r * math.cos(a):.1f} ~ ~{r * math.sin(a):.1f} {{NoAI:1b,PersistenceRequired:1b,CustomNameVisible:1b}}")
+    base = f"{RACINE}/src/main/resources/data/royaumes"
+    os.makedirs(f"{base}/function/debug", exist_ok=True)
+    open(f"{base}/function/debug/mobs.mcfunction", "w").write("\n".join(lignes) + "\n")
+    open(f"{base}/function/debug/nettoyer.mcfunction", "w").write(
         "kill @e[type=#royaumes:mobs_du_mod]\nkill @e[type=minecraft:text_display,tag=rm_debug]\n")
-    tag = f"{RACINE}/src/main/resources/data/royaumes/tags/entity_type/mobs_du_mod.json"
+    for fac in FAC:
+        L = [f"summon royaumes:{e['id']} ~{3 + 4 * k} ~ ~3 {{NoAI:1b,PersistenceRequired:1b,CustomNameVisible:1b}}"
+             for k, e in enumerate([x for x in entrees if x["fac"] == fac])]
+        os.makedirs(f"{base}/function/debug/faction", exist_ok=True)
+        open(f"{base}/function/debug/faction/{fac}.mcfunction", "w").write("\n".join(L) + "\n")
+    tag = f"{base}/tags/entity_type/mobs_du_mod.json"
     os.makedirs(os.path.dirname(tag), exist_ok=True)
-    json.dump({"values": [f"royaumes:{e[0]}" for e in entrees]}, open(tag, "w"), indent=1)
-    # planches d'aperçu
+    json.dump({"values": [f"royaumes:{e['id']}" for e in entrees]}, open(tag, "w"), indent=1)
+    json.dump([{k: e[k] for k in ("id", "nom", "fac")} for e in entrees], open(f"{ICI}/liste_mobs.json", "w"), ensure_ascii=False, indent=1)
     faire_planches(planche)
     print(len(entrees), "mobs générés")
 
@@ -518,32 +487,29 @@ def main():
 def faire_planches(planche):
     COUL = {"ordre": (230, 190, 70), "chaos": (200, 60, 60), "mort": (170, 110, 220), "destruction": (100, 190, 90)}
     fb = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", 30)
-    fs = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 15)
-    groupes = [("Ordre", [p for p in planche if p[1] == "ordre" and not p[3]]),
-               ("Chaos", [p for p in planche if p[1] == "chaos" and not p[3]]),
-               ("Mort & Destruction", [p for p in planche if p[1] in ("mort", "destruction") and not p[3]]),
-               ("Boss", [p for p in planche if p[3]])]
-    for titre, items in groupes:
-        vignettes = []
-        for nom, al, chemin, boss in items:
-            im = Image.open(chemin)
-            # garde seulement les 2 premières vues (face + profil)
-            w = im.width - 300
-            v = im.crop((0, 60, int(w * 0.62), im.height - 30))
-            v.thumbnail((300, 300))
-            vignettes.append((nom, al, v))
-        cols = 4
-        rows = (len(vignettes) + cols - 1) // cols
-        W, H = cols * 320 + 20, rows * 350 + 80
-        sh = Image.new("RGB", (W, H), (22, 24, 30))
-        d = ImageDraw.Draw(sh)
-        d.text((20, 20), f"Mobs du mod — {titre}", fill=(240, 220, 150), font=fb)
-        for i, (nom, al, v) in enumerate(vignettes):
-            x, y = 20 + (i % cols) * 320, 80 + (i // cols) * 350
-            d.rectangle((x, y, x + 300, y + 335), outline=COUL[al], width=2)
-            sh.paste(v, (x + (300 - v.width) // 2, y + 8 + (300 - v.height)))
-            d.text((x + 8, y + 312), nom[:34], fill=COUL[al], font=fs)
-        sh.save(f"{ICI}/apercus/planche_{titre.split()[0].lower()}.png")
+    fs = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 14)
+    for f in os.listdir(f"{ICI}/apercus"):
+        if f.startswith("planche_"):
+            os.remove(f"{ICI}/apercus/{f}")
+    for al, titre in (("ordre", "Ordre"), ("chaos", "Chaos"), ("mort", "Mort"), ("destruction", "Destruction")):
+        items = [p for p in planche if p[1] == al]
+        for page in range(0, len(items), 24):
+            lot = items[page:page + 24]
+            cols = 6
+            rows = (len(lot) + cols - 1) // cols
+            W, H = cols * 260 + 20, rows * 290 + 80
+            sh = Image.new("RGB", (W, H), (22, 24, 30))
+            d = ImageDraw.Draw(sh)
+            d.text((20, 20), f"Bestiaire — {titre} ({page // 24 + 1})", fill=(240, 220, 150), font=fb)
+            for i, (nom, a, chemin, boss, fac) in enumerate(lot):
+                im = Image.open(chemin)
+                v = im.crop((0, 60, int((im.width - 300) * 0.62), im.height - 30))
+                v.thumbnail((240, 240))
+                x, y = 20 + (i % cols) * 260, 80 + (i // cols) * 290
+                d.rectangle((x, y, x + 245, y + 278), outline=(255, 80, 80) if boss else COUL[a], width=2)
+                sh.paste(v, (x + (245 - v.width) // 2, y + 6 + (240 - v.height)))
+                d.text((x + 6, y + 256), nom[:30], fill=COUL[a], font=fs)
+            sh.save(f"{ICI}/apercus/planche_{al}_{page // 24 + 1}.png")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,318 @@
+{
+ "format_version": "1.12.0",
+ "minecraft:geometry": [
+  {
+   "description": {
+    "identifier": "geometry.vargheist",
+    "texture_width": 128,
+    "texture_height": 128,
+    "visible_bounds_width": 4,
+    "visible_bounds_height": 4,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "root",
+     "pivot": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "body",
+     "pivot": [
+      0,
+      14,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -4,
+        14,
+        -2
+       ],
+       "size": [
+        8,
+        12,
+        4
+       ],
+       "uv": [
+        76,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "head",
+     "pivot": [
+      0,
+      26,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -4,
+        26,
+        -4
+       ],
+       "size": [
+        7,
+        7,
+        7
+       ],
+       "uv": [
+        0,
+        17
+       ]
+      },
+      {
+       "origin": [
+        -5,
+        25,
+        -6
+       ],
+       "size": [
+        9,
+        3,
+        4
+       ],
+       "uv": [
+        28,
+        17
+       ]
+      }
+     ]
+    },
+    {
+     "name": "right_arm",
+     "pivot": [
+      -5,
+      25,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -7,
+        13,
+        -2
+       ],
+       "size": [
+        3,
+        13,
+        3
+       ],
+       "uv": [
+        100,
+        0
+       ]
+      },
+      {
+       "origin": [
+        -7,
+        11,
+        -3
+       ],
+       "size": [
+        3,
+        2,
+        2
+       ],
+       "uv": [
+        66,
+        17
+       ]
+      }
+     ]
+    },
+    {
+     "name": "left_arm",
+     "pivot": [
+      5,
+      25,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        4,
+        13,
+        -2
+       ],
+       "size": [
+        3,
+        13,
+        3
+       ],
+       "uv": [
+        112,
+        0
+       ]
+      },
+      {
+       "origin": [
+        4,
+        11,
+        -3
+       ],
+       "size": [
+        3,
+        2,
+        2
+       ],
+       "uv": [
+        76,
+        17
+       ]
+      }
+     ]
+    },
+    {
+     "name": "weapon",
+     "pivot": [
+      -5,
+      13,
+      0
+     ],
+     "parent": "right_arm"
+    },
+    {
+     "name": "offhand",
+     "pivot": [
+      5,
+      13,
+      0
+     ],
+     "parent": "left_arm",
+     "cubes": [
+      {
+       "origin": [
+        4,
+        10,
+        -4
+       ],
+       "size": [
+        3,
+        3,
+        3
+       ],
+       "uv": [
+        54,
+        17
+       ]
+      }
+     ]
+    },
+    {
+     "name": "right_leg",
+     "pivot": [
+      -3,
+      14,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -3,
+        0,
+        -2
+       ],
+       "size": [
+        3,
+        14,
+        3
+       ],
+       "uv": [
+        0,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "left_leg",
+     "pivot": [
+      2,
+      14,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        0,
+        0,
+        -2
+       ],
+       "size": [
+        3,
+        14,
+        3
+       ],
+       "uv": [
+        12,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "wings",
+     "pivot": [
+      0,
+      23,
+      2
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -16,
+        12,
+        3
+       ],
+       "size": [
+        12,
+        16,
+        1
+       ],
+       "uv": [
+        24,
+        0
+       ]
+      },
+      {
+       "origin": [
+        4,
+        12,
+        3
+       ],
+       "size": [
+        12,
+        16,
+        1
+       ],
+       "uv": [
+        50,
+        0
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

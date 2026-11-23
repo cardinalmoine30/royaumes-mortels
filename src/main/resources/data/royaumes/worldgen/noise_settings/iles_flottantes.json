@@ -35,7 +35,7 @@
                       "to_value": 0.0
                     },
                     "first": -23.4375,
-                    "second": "minecraft:end/base_3d_noise"
+                    "second": "royaumes:hysh_iles"
                   }
                 }
               },
@@ -98,7 +98,7 @@
                     "to_value": 0.0
                   },
                   "first": -23.4375,
-                  "second": "minecraft:end/base_3d_noise"
+                  "second": "royaumes:hysh_iles"
                 }
               }
             },

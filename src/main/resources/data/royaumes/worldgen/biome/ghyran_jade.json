@@ -96,54 +96,42 @@
      ],
      "monster": [
       {
-       "type": "minecraft:zombie",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 95
-      },
-      {
-       "type": "minecraft:skeleton",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 90
-      },
-      {
-       "type": "minecraft:spider",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:creeper",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 4
-       },
-       "weight": 60
-      },
-      {
-       "type": "minecraft:enderman",
-       "count": 1,
-       "weight": 10
-      },
-      {
-       "type": "royaumes:garde_franche",
+       "type": "royaumes:heaumefer",
        "count": {
         "type": "minecraft:uniform",
         "min_inclusive": 1,
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:cavalier_franc",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:fusilier",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:griffon",
+       "count": 1,
+       "weight": 4
+      },
+      {
+       "type": "royaumes:demigryph",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:dragon",
+       "count": 1,
+       "weight": 1
       },
       {
        "type": "royaumes:dryade",
@@ -153,6 +141,35 @@
         "max_inclusive": 3
        },
        "weight": 40
+      },
+      {
+       "type": "royaumes:revenant",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:kurnoth",
+       "count": 1,
+       "weight": 15
+      },
+      {
+       "type": "royaumes:treelord",
+       "count": 1,
+       "weight": 3
+      },
+      {
+       "type": "royaumes:durthu",
+       "count": 1,
+       "weight": 1
+      },
+      {
+       "type": "royaumes:treelord_ancien",
+       "count": 1,
+       "weight": 2
       }
      ],
      "underground_water_creature": [

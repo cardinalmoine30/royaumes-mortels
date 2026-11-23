@@ -1,7 +1,7 @@
 {
   "values": [
-    "royaumes:hysh_plateaux",
     "royaumes:hysh_iles",
+    "royaumes:hysh_plateaux",
     "minecraft:cherry_grove",
     "minecraft:meadow"
   ]
