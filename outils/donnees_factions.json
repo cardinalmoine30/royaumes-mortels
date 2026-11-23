@@ -1,0 +1,252 @@
+[
+ {
+  "num": 1,
+  "id": "stormcast",
+  "nom": "Stormcast Eternals",
+  "alliance": "ordre",
+  "royaume": "Azyr",
+  "desc": "Héros mortels forgés à nouveau par Sigmar et lancés au combat par la foudre.",
+  "bonus": "Taille +15 %, +3 cœurs, +2 armure",
+  "malus": "Vitesse -5 %"
+ },
+ {
+  "num": 2,
+  "id": "cites",
+  "nom": "Cités de Sigmar",
+  "alliance": "ordre",
+  "royaume": "Ghyran",
+  "desc": "Humains, aelfs et duardins des grandes cités libres, comme Hammerhal ou Excelsis.",
+  "bonus": "Héros du village (rabais marchands), +1 chance, +1 cœur",
+  "malus": "Aucun don surnaturel"
+ },
+ {
+  "num": 3,
+  "id": "fyreslayers",
+  "nom": "Fyreslayers",
+  "alliance": "ordre",
+  "royaume": "Aqshy",
+  "desc": "Duardins berserkers qui puisent leur rage dans l'ur-or incrusté dans leur chair.",
+  "bonus": "Résistance au feu, +1 dégât",
+  "malus": "Taille -15 %"
+ },
+ {
+  "num": 4,
+  "id": "kharadron",
+  "nom": "Kharadron Overlords",
+  "alliance": "ordre",
+  "royaume": "Chamon",
+  "desc": "Duardins du ciel, marchands et pilotes de navires volants propulsés à l'aether-or.",
+  "bonus": "Dégâts de chute -50 %, chute sûre +6 blocs",
+  "malus": "Taille -15 %"
+ },
+ {
+  "num": 5,
+  "id": "khaine",
+  "nom": "Filles de Khaine",
+  "alliance": "ordre",
+  "royaume": "Ulgu",
+  "desc": "Aelfs fanatiques vouées au dieu du meurtre, guidées par Morathi-Khaine.",
+  "bonus": "Vitesse +10 %, vitesse d'attaque +15 %",
+  "malus": "-1 cœur"
+ },
+ {
+  "num": 6,
+  "id": "idoneth",
+  "nom": "Idoneth Deepkin",
+  "alliance": "ordre",
+  "royaume": "Ulgu (océans)",
+  "desc": "Aelfs sans âme des profondeurs, qui chassent les âmes des vivants lors de leurs raids.",
+  "bonus": "Respiration aquatique, nage +60 %, minage sous l'eau",
+  "malus": "Lent hors de l'eau (aucun bonus terrestre)"
+ },
+ {
+  "num": 7,
+  "id": "lumineth",
+  "nom": "Seigneurs Lumineth",
+  "alliance": "ordre",
+  "royaume": "Hysh",
+  "desc": "Aelfs de la lumière, maîtres des arts élémentaires et de la perfection.",
+  "bonus": "Vision nocturne, vitesse +5 %, +1 chance, portée +1",
+  "malus": "Aucun"
+ },
+ {
+  "num": 8,
+  "id": "seraphon",
+  "nom": "Seraphon",
+  "alliance": "ordre",
+  "royaume": "Ghur (jungles)",
+  "desc": "Hommes-lézards célestes guidés par les Slann, forces de l'ordre cosmique.",
+  "bonus": "Taille +20 %, +2 cœurs, +4 armure, nage +30 %",
+  "malus": "Vitesse -5 %"
+ },
+ {
+  "num": 9,
+  "id": "sylvaneth",
+  "nom": "Sylvaneth",
+  "alliance": "ordre",
+  "royaume": "Ghyran",
+  "desc": "Esprits-arbres enfants d'Alarielle, la Reine Éternelle.",
+  "bonus": "Régénération permanente, +2 cœurs",
+  "malus": "Brûle 2× plus longtemps, vitesse -5 %"
+ },
+ {
+  "num": 10,
+  "id": "esclaves",
+  "nom": "Esclaves des Ténèbres",
+  "alliance": "chaos",
+  "royaume": "Les Huit-Points",
+  "desc": "Guerriers du Chaos Absolu, cuirassés de fer noir, qui cherchent la faveur des Dieux Sombres.",
+  "bonus": "Taille +10 %, +2 cœurs, +2 armure, +1 dégât",
+  "malus": "Chance -1 (marqués par le Chaos)"
+ },
+ {
+  "num": 11,
+  "id": "khorne",
+  "nom": "Lames de Khorne",
+  "alliance": "chaos",
+  "royaume": "Aqshy",
+  "desc": "« Du sang pour le Dieu du Sang ! » Berserkers dévoués au carnage.",
+  "bonus": "Force I, vitesse d'attaque +10 %",
+  "malus": "-2 armure (Khorne méprise la prudence)"
+ },
+ {
+  "num": 12,
+  "id": "tzeentch",
+  "nom": "Disciples de Tzeentch",
+  "alliance": "chaos",
+  "royaume": "Hysh / Huit-Points",
+  "desc": "Sorciers et tzaangors du Grand Manipulateur, maître du changement.",
+  "bonus": "Célérité, +2 chance",
+  "malus": "-1 cœur"
+ },
+ {
+  "num": 13,
+  "id": "slaanesh",
+  "nom": "Hédonites de Slaanesh",
+  "alliance": "chaos",
+  "royaume": "Les Huit-Points",
+  "desc": "Adorateurs du Prince des Plaisirs, en quête d'excès et de perfection.",
+  "bonus": "Vitesse +15 %, vitesse d'attaque +20 %",
+  "malus": "-2 cœurs"
+ },
+ {
+  "num": 14,
+  "id": "nurgle",
+  "nom": "Maggotkin de Nurgle",
+  "alliance": "chaos",
+  "royaume": "Ghyran (marais)",
+  "desc": "Enfants du Grand-Père Nurgle, porteurs de pestes joyeuses et d'une endurance infinie.",
+  "bonus": "+4 cœurs, régénération, +1 armure",
+  "malus": "Vitesse -10 %"
+ },
+ {
+  "num": 15,
+  "id": "skaven",
+  "nom": "Skaven",
+  "alliance": "chaos",
+  "royaume": "Les Terres Rongées",
+  "desc": "Hommes-rats du Grand Rat Cornu, maîtres de la malepierre et des tunnels.",
+  "bonus": "Vitesse +15 %, vision nocturne",
+  "malus": "Taille -20 %, -2 cœurs"
+ },
+ {
+  "num": 16,
+  "id": "hashut",
+  "nom": "Forgerons de Hashut",
+  "alliance": "chaos",
+  "royaume": "Aqshy",
+  "desc": "Duardins du Chaos, serviteurs du Père des Ténèbres, maîtres des forges infernales.",
+  "bonus": "Résistance au feu, +4 armure",
+  "malus": "Taille -15 %, vitesse -5 %"
+ },
+ {
+  "num": 17,
+  "id": "nighthaunt",
+  "nom": "Nighthaunt",
+  "alliance": "mort",
+  "royaume": "Shyish",
+  "desc": "Spectres condamnés par Nagash, hurlant à travers les Royaumes.",
+  "bonus": "Gravité réduite, chute sûre +10, vitesse +5 %",
+  "malus": "-2 cœurs"
+ },
+ {
+  "num": 18,
+  "id": "soulblight",
+  "nom": "Seigneurs Sanguinaires",
+  "alliance": "mort",
+  "royaume": "Shyish",
+  "desc": "Vampires de la lignée de Soulblight et leurs armées de morts relevés.",
+  "bonus": "+2 cœurs, +1 dégât, vision nocturne",
+  "malus": "Faiblesse en plein soleil"
+ },
+ {
+  "num": 19,
+  "id": "ossiarch",
+  "nom": "Ossiarch Bonereapers",
+  "alliance": "mort",
+  "royaume": "Shyish",
+  "desc": "Légions d'os façonnées par Nagash, la plus disciplinée des armées.",
+  "bonus": "+6 armure, recul -40 %, +1 cœur",
+  "malus": "Vitesse -10 %"
+ },
+ {
+  "num": 20,
+  "id": "fec",
+  "nom": "Cours Cannibales",
+  "alliance": "mort",
+  "royaume": "Shyish / Ulgu",
+  "desc": "Goules folles qui se croient nobles chevaliers d'une cour glorieuse.",
+  "bonus": "Vitesse +10 %, saut +, +1 dégât",
+  "malus": "Leur « festin » est de la chair pourrie"
+ },
+ {
+  "num": 21,
+  "id": "ironjawz",
+  "nom": "Ironjawz",
+  "alliance": "destruction",
+  "royaume": "Ghur",
+  "desc": "Les plus grands et les plus brutaux des orruks, couverts de ferraille. WAAAGH !",
+  "bonus": "Taille +15 %, +2 cœurs, +2 dégâts, recul -30 %",
+  "malus": "Vitesse -5 %"
+ },
+ {
+  "num": 22,
+  "id": "kruleboyz",
+  "nom": "Kruleboyz",
+  "alliance": "destruction",
+  "royaume": "Ghyran (marais)",
+  "desc": "Orruks des marais, rusés et cruels, adeptes des lames empoisonnées et des pièges.",
+  "bonus": "+1 cœur, déplacement accroupi +30 %",
+  "malus": "Aucun"
+ },
+ {
+  "num": 23,
+  "id": "gitz",
+  "nom": "Gloomspite Gitz",
+  "alliance": "destruction",
+  "royaume": "Ulgu",
+  "desc": "Grots fous de la Mauvaise Lune, chevaucheurs d'araignées et cultivateurs de champignons.",
+  "bonus": "Vitesse +10 %, vision nocturne, saut amélioré",
+  "malus": "Taille -30 %, -3 cœurs"
+ },
+ {
+  "num": 24,
+  "id": "ogors",
+  "nom": "Ogor Mawtribes",
+  "alliance": "destruction",
+  "royaume": "Ghur",
+  "desc": "Ogors gloutons et géants, pour qui tout ce qui bouge est un repas.",
+  "bonus": "Taille +40 %, +5 cœurs, +2 dégâts",
+  "malus": "Faim permanente, vitesse -10 %"
+ },
+ {
+  "num": 25,
+  "id": "behemat",
+  "nom": "Fils de Behemat",
+  "alliance": "destruction",
+  "royaume": "Ghur",
+  "desc": "Gargants colossaux, enfants du dieu-titan Behemat. Ils écrasent tout sur leur passage.",
+  "bonus": "Taille ×2, +10 cœurs, +4 dégâts, grande portée, enjambe les blocs",
+  "malus": "Faim II permanente, ne passe pas les portes"
+ }
+]
