@@ -4,7 +4,7 @@ execute as @a[scores={rm_quitte=1..}] run scoreboard players set @s rm_menu 0
 scoreboard players set @a[scores={rm_quitte=1..}] rm_quitte 0
 scoreboard players enable @a rm_codex
 scoreboard players remove @a[scores={rm_menu=1..}] rm_menu 1
-execute as @a unless score @s rm_faction matches 1.. unless score @s rm_menu matches 1.. run function royaumes:choix/ouvrir
+execute as @a[tag=!rm_modde] unless score @s rm_faction matches 1.. unless score @s rm_menu matches 1.. run function royaumes:choix/ouvrir
 scoreboard players remove @a[scores={rm_cd=1..}] rm_cd 1
 # Dons toutes les 5 secondes
 scoreboard players add #cycle rm_tmp 1

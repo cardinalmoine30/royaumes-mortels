@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:marbre_celeste"
+  },
+  "result": {
+    "id": "royaumes:marbre_celeste_grave",
+    "count": 4
+  }
+}

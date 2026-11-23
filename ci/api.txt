@@ -60,3 +60,12 @@ net.minecraft.world.item.TooltipFlag
 net.minecraft.world.item.Item$TooltipContext
 net.minecraft.world.item.SpawnEggItem
 net.minecraft.world.level.Level
+net.minecraft.client.gui.Gui
+net.neoforged.neoforge.client.event.ScreenEvent$Closing
+net.neoforged.neoforge.client.event.ScreenEvent$Opening
+net.minecraft.world.entity.player.PlayerModelType
+net.minecraft.client.MouseHandler
+net.minecraft.world.entity.TamableAnimal
+net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$LoggingIn
+net.minecraft.sounds.SoundEvents
+net.minecraft.resources.ResourceKey

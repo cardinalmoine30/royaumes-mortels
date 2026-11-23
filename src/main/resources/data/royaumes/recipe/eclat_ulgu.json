@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "royaumes:pierre_royaumes_brute",
+    "minecraft:ink_sac"
+  ],
+  "result": {
+    "id": "royaumes:eclat_ulgu",
+    "count": 2
+  }
+}

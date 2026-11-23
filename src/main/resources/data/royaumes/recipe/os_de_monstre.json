@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:bone_block",
+    "E": "royaumes:eclat_ghur"
+  },
+  "result": {
+    "id": "royaumes:os_de_monstre",
+    "count": 8
+  }
+}

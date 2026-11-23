@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:cuivre_alchimique"
+  },
+  "result": {
+    "id": "royaumes:or_vif",
+    "count": 4
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "royaumes:bloc_pierre_royaumes"
+  ],
+  "result": {
+    "id": "royaumes:pierre_royaumes_brute",
+    "count": 9
+  }
+}

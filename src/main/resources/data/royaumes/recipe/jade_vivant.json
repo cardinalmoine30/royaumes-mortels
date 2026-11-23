@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:bois_de_vie"
+  },
+  "result": {
+    "id": "royaumes:jade_vivant",
+    "count": 4
+  }
+}

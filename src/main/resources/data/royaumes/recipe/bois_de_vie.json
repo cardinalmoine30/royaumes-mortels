@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:oak_planks",
+    "E": "royaumes:eclat_ghyran"
+  },
+  "result": {
+    "id": "royaumes:bois_de_vie",
+    "count": 8
+  }
+}

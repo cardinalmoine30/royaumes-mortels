@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:pierre_funeraire"
+  },
+  "result": {
+    "id": "royaumes:dalle_des_ames",
+    "count": 4
+  }
+}

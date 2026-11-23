@@ -1,0 +1,71 @@
+[
+  {
+    "id": "minecraft:carrot_on_a_stick",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Pierre de Royaume",
+        "color": "light_purple",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Clic droit : voyager entre ce monde",
+          "color": "gray",
+          "italic": true
+        },
+        {
+          "text": "et les Royaumes Mortels.",
+          "color": "gray",
+          "italic": true
+        }
+      ],
+      "minecraft:unbreakable": {},
+      "minecraft:item_model": "minecraft:echo_shard",
+      "minecraft:enchantment_glint_override": true,
+      "minecraft:rarity": "epic",
+      "minecraft:custom_data": {
+        "royaumes": "pierre"
+      }
+    }
+  },
+  {
+    "id": "minecraft:carrot_on_a_stick",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Corne d'appel",
+        "color": "gold",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {
+          "text": "Clic droit : appelle la monture de ta faction",
+          "color": "gray",
+          "italic": true
+        },
+        {
+          "text": "et te met en selle. Sneak + clic droit sur",
+          "color": "gray",
+          "italic": true
+        },
+        {
+          "text": "la monture : la laisser. Saut : barre de saut,",
+          "color": "gray",
+          "italic": true
+        },
+        {
+          "text": "monture volante : regarde où tu veux aller.",
+          "color": "gray",
+          "italic": true
+        }
+      ],
+      "minecraft:unbreakable": {},
+      "minecraft:item_model": "minecraft:goat_horn",
+      "minecraft:rarity": "rare",
+      "minecraft:custom_data": {
+        "royaumes": "monture"
+      }
+    }
+  }
+]

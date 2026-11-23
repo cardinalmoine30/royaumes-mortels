@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "royaumes:pierre_royaumes_brute",
+    "royaumes:pierre_royaumes_brute",
+    "minecraft:amethyst_shard"
+  ],
+  "result": {
+    "id": "royaumes:cristal_arcanique",
+    "count": 1
+  }
+}

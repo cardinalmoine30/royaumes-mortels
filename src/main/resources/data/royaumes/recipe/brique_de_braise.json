@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:basalte_ardent"
+  },
+  "result": {
+    "id": "royaumes:brique_de_braise",
+    "count": 4
+  }
+}

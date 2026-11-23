@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:obsidienne_corrompue"
+  },
+  "result": {
+    "id": "royaumes:pierre_du_chaos",
+    "count": 4
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "royaumes:minerai_pierre_royaumes",
+    "royaumes:minerai_pierre_royaumes_profond",
+    "royaumes:bloc_pierre_royaumes"
+  ]
+}

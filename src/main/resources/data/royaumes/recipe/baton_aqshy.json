@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " GE",
+    " SG",
+    "S  "
+  ],
+  "key": {
+    "E": "royaumes:eclat_aqshy",
+    "G": "minecraft:gold_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "royaumes:baton_aqshy",
+    "count": 1
+  }
+}

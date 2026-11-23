@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": "royaumes:pierre_royaumes_brute"
+  },
+  "result": {
+    "id": "royaumes:bloc_pierre_royaumes",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:basalt",
+    "E": "royaumes:eclat_aqshy"
+  },
+  "result": {
+    "id": "royaumes:basalte_ardent",
+    "count": 8
+  }
+}

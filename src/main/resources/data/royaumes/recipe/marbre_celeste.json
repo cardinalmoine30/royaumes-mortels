@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:calcite",
+    "E": "royaumes:eclat_azyr"
+  },
+  "result": {
+    "id": "royaumes:marbre_celeste",
+    "count": 8
+  }
+}

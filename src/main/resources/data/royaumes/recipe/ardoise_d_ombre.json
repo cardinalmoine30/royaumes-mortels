@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:cobbled_deepslate",
+    "E": "royaumes:eclat_ulgu"
+  },
+  "result": {
+    "id": "royaumes:ardoise_d_ombre",
+    "count": 8
+  }
+}

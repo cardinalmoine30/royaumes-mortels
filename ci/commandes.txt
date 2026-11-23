@@ -76,3 +76,18 @@ attendre 5
 execute store result score #m rm_test if entity @e[type=#royaumes:montures]
 scoreboard players get #m rm_test
 kill @e[type=#royaumes:montures]
+# Refonte : blocs et objets Java, énergie arcanique
+setblock 2 100 2 royaumes:portail_des_royaumes
+setblock 3 100 2 royaumes:autel_arcanique
+setblock 4 100 2 royaumes:minerai_pierre_royaumes
+setblock 5 100 2 royaumes:marbre_celeste_grave
+execute if block 2 100 2 royaumes:portail_des_royaumes run say Portail OK
+execute if block 3 100 2 royaumes:autel_arcanique run say Autel OK
+execute if block 5 100 2 royaumes:marbre_celeste_grave run say Marbre OK
+summon item 2 102 2 {Item:{id:"royaumes:baton_azyr",count:1}}
+summon item 2 102 3 {Item:{id:"royaumes:oeuf_liberator",count:1}}
+summon item 2 102 4 {Item:{id:"royaumes:marteau_tempete",count:1}}
+attendre 2
+execute store result score #o rm_test if entity @e[type=item,x=2,y=100,z=2,distance=..5]
+scoreboard players get #o rm_test
+kill @e[type=item]

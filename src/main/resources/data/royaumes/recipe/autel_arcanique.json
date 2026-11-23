@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "GBG",
+    "OOO"
+  ],
+  "key": {
+    "C": "royaumes:cristal_arcanique",
+    "G": "minecraft:gold_ingot",
+    "B": "royaumes:bloc_pierre_royaumes",
+    "O": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "royaumes:autel_arcanique",
+    "count": 1
+  }
+}

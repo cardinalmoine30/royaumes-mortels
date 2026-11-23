@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:quartz_block",
+    "E": "royaumes:eclat_hysh"
+  },
+  "result": {
+    "id": "royaumes:pierre_de_lumiere",
+    "count": 8
+  }
+}

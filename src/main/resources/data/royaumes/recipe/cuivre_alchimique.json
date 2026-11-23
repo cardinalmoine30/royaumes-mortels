@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:copper_block",
+    "E": "royaumes:eclat_chamon"
+  },
+  "result": {
+    "id": "royaumes:cuivre_alchimique",
+    "count": 8
+  }
+}

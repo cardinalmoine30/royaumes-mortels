@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:book",
+    "royaumes:pierre_royaumes_brute"
+  ],
+  "result": {
+    "id": "royaumes:grimoire_des_vents",
+    "count": 1
+  }
+}

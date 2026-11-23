@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:tuff",
+    "E": "royaumes:eclat_shyish"
+  },
+  "result": {
+    "id": "royaumes:pierre_funeraire",
+    "count": 8
+  }
+}

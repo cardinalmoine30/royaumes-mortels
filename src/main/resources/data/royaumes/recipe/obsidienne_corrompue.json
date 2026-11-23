@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BEB",
+    "BBB"
+  ],
+  "key": {
+    "B": "minecraft:obsidian",
+    "E": "royaumes:pierre_royaumes_brute"
+  },
+  "result": {
+    "id": "royaumes:obsidienne_corrompue",
+    "count": 8
+  }
+}

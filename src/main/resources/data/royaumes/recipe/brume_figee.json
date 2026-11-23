@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:ardoise_d_ombre"
+  },
+  "result": {
+    "id": "royaumes:brume_figee",
+    "count": 4
+  }
+}

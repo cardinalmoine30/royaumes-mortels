@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GEG",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "G": "minecraft:gold_block",
+    "E": "royaumes:eclat_azyr",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "royaumes:marteau_tempete",
+    "count": 1
+  }
+}

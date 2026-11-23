@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": "royaumes:pierre_de_lumiere"
+  },
+  "result": {
+    "id": "royaumes:cristal_de_hysh",
+    "count": 4
+  }
+}

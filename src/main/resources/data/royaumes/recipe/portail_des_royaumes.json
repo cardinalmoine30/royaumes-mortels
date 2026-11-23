@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "OEO",
+    "EBE",
+    "OEO"
+  ],
+  "key": {
+    "O": "minecraft:crying_obsidian",
+    "E": "minecraft:ender_eye",
+    "B": "royaumes:bloc_pierre_royaumes"
+  },
+  "result": {
+    "id": "royaumes:portail_des_royaumes",
+    "count": 1
+  }
+}

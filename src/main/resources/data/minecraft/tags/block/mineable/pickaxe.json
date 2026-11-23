@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "royaumes:marbre_celeste",
+    "royaumes:marbre_celeste_grave",
+    "royaumes:basalte_ardent",
+    "royaumes:brique_de_braise",
+    "royaumes:os_de_monstre",
+    "royaumes:pierre_de_croc",
+    "royaumes:jade_vivant",
+    "royaumes:pierre_de_lumiere",
+    "royaumes:cristal_de_hysh",
+    "royaumes:ardoise_d_ombre",
+    "royaumes:brume_figee",
+    "royaumes:pierre_funeraire",
+    "royaumes:dalle_des_ames",
+    "royaumes:cuivre_alchimique",
+    "royaumes:or_vif",
+    "royaumes:obsidienne_corrompue",
+    "royaumes:pierre_du_chaos",
+    "royaumes:minerai_pierre_royaumes",
+    "royaumes:minerai_pierre_royaumes_profond",
+    "royaumes:bloc_pierre_royaumes",
+    "royaumes:autel_arcanique",
+    "royaumes:portail_des_royaumes"
+  ]
+}

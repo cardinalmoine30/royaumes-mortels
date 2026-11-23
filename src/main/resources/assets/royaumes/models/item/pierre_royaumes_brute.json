@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "royaumes:item/pierre_royaumes_brute"
+  }
+}

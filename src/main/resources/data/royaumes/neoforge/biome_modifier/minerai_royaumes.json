@@ -1,0 +1,28 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:aqshy_cendres",
+    "royaumes:aqshy_volcans",
+    "royaumes:azyr_cimes",
+    "royaumes:azyr_vallees",
+    "royaumes:chamon_collines",
+    "royaumes:chamon_desert",
+    "royaumes:chaos_desolation",
+    "royaumes:ghur_jungle",
+    "royaumes:ghur_savane",
+    "royaumes:ghur_terres",
+    "royaumes:ghyran_jade",
+    "royaumes:ghyran_marais",
+    "royaumes:ghyran_wyldwood",
+    "royaumes:hysh_iles",
+    "royaumes:hysh_plateaux",
+    "royaumes:shyish_sables",
+    "royaumes:shyish_terres",
+    "royaumes:terres_rongees",
+    "royaumes:ulgu_brumes",
+    "royaumes:ulgu_marais_lune",
+    "royaumes:ulgu_mer"
+  ],
+  "features": "royaumes:minerai_pierre_royaumes",
+  "step": "underground_ores"
+}
