@@ -3,6 +3,8 @@ package fr.royaumes.entite;
 import com.geckolib.animatable.GeoEntity;
 import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.object.PlayState;
 import com.geckolib.constant.DefaultAnimations;
 import com.geckolib.util.GeckoLibUtil;
 import fr.royaumes.Capacite;
@@ -186,7 +188,7 @@ public class Combattant extends PathfinderMob implements GeoEntity {
             double h = p.distance() ? 7.0 : cible.getBbHeight() * 0.5;
             but = cible.position().add(0, h, 0);
             if (!p.distance() && rechargeAttaque == 0 && this.distanceToSqr(cible) < Math.pow(this.getBbWidth() + cible.getBbWidth() + 1.5, 2)) {
-                this.swing(net.minecraft.world.InteractionHand.MAIN_HAND);
+                this.triggerAnim("Coups", "attaque");
                 this.doHurtTarget(niveau, cible);
                 rechargeAttaque = 20;
             }
@@ -216,7 +218,7 @@ public class Combattant extends PathfinderMob implements GeoEntity {
 
     private void tirer(ServerLevel niveau, LivingEntity cible) {
         Profil p = profil();
-        this.swing(net.minecraft.world.InteractionHand.MAIN_HAND);
+        this.triggerAnim("Coups", "attaque");
         Vec3 a = this.getEyePosition();
         Vec3 b = cible.getEyePosition();
         ParticleOptions trace = p.magique() ? particuleMagie() : ParticleTypes.CRIT;
@@ -426,6 +428,8 @@ public class Combattant extends PathfinderMob implements GeoEntity {
         controllers.add(DefaultAnimations.genericWalkIdleController());
         controllers.add(DefaultAnimations.genericAttackAnimation(DefaultAnimations.ATTACK_SWING));
         controllers.add(DefaultAnimations.genericDeathController());
+        controllers.add(new AnimationController<>("Coups", etat -> PlayState.STOP)
+                .triggerableAnim("attaque", DefaultAnimations.ATTACK_SWING));
     }
 
     @Override

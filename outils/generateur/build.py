@@ -829,6 +829,8 @@ if __name__ == "__main__":
     stats = gen_structures()
     extension.generer()
     v4.generer()
+    import v5gen
+    v5gen.generer()
     for k, v in stats.items():
         print(f"{k:24s} taille={v[0]} blocs={v[1]} mobs={v[2]}")
     n = sum(len(f) for _, _, f in os.walk(OUT))

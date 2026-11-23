@@ -29,6 +29,23 @@ def parse_state(s):
     return bid, full
 
 
+# Profils du datapack -> mobs du mod (v5 : plus de mobs vanilla dans les structures)
+MOB_DU_MOD = {
+    "sc_liberator": "liberator", "sc_judicator": "judicator", "sc_lord": "lord_celestant", "cites_garde": "heaumefer",
+    "cites_arbaletrier": "fusilier", "fyreslayer": "vulkite", "kharadron": "arkanaute", "khaine_aelf": "melusai",
+    "idoneth": "namarti_thrall", "lumineth": "sentinelle_vanari", "lumineth_garde": "garde_vanari", "saurus": "saurus",
+    "skink": "skink", "dryade": "dryade", "chaos_guerrier": "guerrier_chaos", "chaos_seigneur": "chosen",
+    "bloodreaver": "bloodreaver", "tzaangor": "tzaangor", "demonette": "demonette", "pestigor": "plaguebearer",
+    "clanrat": "clanrat", "jezzail": "jezzail", "hashut": "hashut", "hashut_tireur": "hashut", "chainrasp": "chainrasp",
+    "glaivewraith": "grimghast", "deathrattle": "deathrattle", "mort_sylvanie": "grave_guard", "vampire": "vampire",
+    "mortek": "mortek", "goule": "goule", "brute": "brute", "megaboss": "megaboss", "gutrippa": "gutrippa",
+    "kb_archer": "gutrippa", "grot": "stabba", "arachnarok": "squig_mangler", "gutbuster": "glutton",
+    "ogor_chasseur": "leadbelcher", "gargant": "mancrusher",
+    "boss_nagash": "nagash", "boss_archaon": "archaon", "boss_gordrakk": "gordrakk", "boss_skarbrand": "skarbrand",
+    "boss_thanquol": "thanquol", "boss_rotigus": "rotigus",
+}
+
+
 class Struct:
     def __init__(self, sx, sy, sz, seed=0):
         self.size = (sx, sy, sz)
@@ -168,7 +185,11 @@ class Struct:
         for i in range(n):
             ox = x + 0.5 + (i % 3) * 0.3
             oz = z + 0.5 + (i // 3) * 0.3
-            nbt = {"id": f"minecraft:{base}", "Tags": ["rm_spawn", f"rm_p_{profil}"], "PersistenceRequired": True}
+            mod = MOB_DU_MOD.get(profil)
+            if mod:
+                nbt = {"id": f"royaumes:{mod}", "PersistenceRequired": True}
+            else:
+                nbt = {"id": f"minecraft:{base}", "Tags": ["rm_spawn", f"rm_p_{profil}"], "PersistenceRequired": True}
             self.entities.append(((ox, y, oz), (x, y, z), nbt))
 
     def banner_pole(self, x, y, z, h, banner_color, pole="minecraft:oak_fence"):

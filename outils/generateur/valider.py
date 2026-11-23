@@ -15,6 +15,11 @@ def reg(name):
 
 
 ITEMS, BLOCKS, ENTS, EFFECTS = reg("item"), reg("block"), reg("entity_type"), reg("mob_effect")
+# Mobs du mod (bestiaire généré)
+import json as _j, os as _o
+_l = "/home/claude/royaumes-mortels/outils/modeles/liste_mobs.json"
+if _o.path.exists(_l):
+    ENTS = set(ENTS) | {"royaumes:" + m["id"] for m in _j.load(open(_l))} | {m["id"] for m in _j.load(open(_l))}
 ATTRS, COMPS, PARTS, SOUNDS = reg("attribute"), reg("data_component_type"), reg("particle_type"), reg("sound_event")
 TRIM_M = {os.path.basename(p)[:-5] for p in glob.glob(f"{VAN}/trim_material/*.json")}
 TRIM_P = {os.path.basename(p)[:-5] for p in glob.glob(f"{VAN}/trim_pattern/*.json")}

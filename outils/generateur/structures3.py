@@ -1011,7 +1011,7 @@ def tour_thanquol():
     c = W // 2
     for (x, z) in cercle(c, c, 15, 20):
         s.fill(x, F + 1, z, x, F + 3, z, "minecraft:verdant_froglight" if (x + z) % 4 == 0 else "minecraft:spruce_fence")
-    s.entities = [e for e in s.entities if "rm_p_jezzail" not in e[2]["Tags"]]
+    s.entities = [e for e in s.entities if "rm_p_jezzail" not in e[2].get("Tags", []) and e[2]["id"] != "royaumes:jezzail"]
     s.mob(c - 8, F + 1, c - 8, "ravager", "boss_thanquol")
     return s
 

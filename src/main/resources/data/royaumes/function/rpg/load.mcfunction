@@ -95,3 +95,4 @@ bossbar set royaumes:rotigus style notched_10
 bossbar set royaumes:rotigus max 950
 schedule function royaumes:forge/boucle 10t replace
 scoreboard objectives add rm_tyt dummy
+scoreboard objectives add rm_voyage trigger

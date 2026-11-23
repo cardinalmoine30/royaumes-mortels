@@ -1,0 +1,177 @@
+{
+  "type": "minecraft:multi_action",
+  "title": {
+    "text": "✦ Carte des Royaumes Mortels ✦",
+    "color": "light_purple",
+    "bold": true
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "width": 300,
+      "contents": [
+        {
+          "text": "Où veux-tu aller ?\n",
+          "color": "yellow"
+        },
+        {
+          "text": "Survole un Royaume pour voir ce qu'on y trouve.",
+          "color": "gray"
+        }
+      ]
+    }
+  ],
+  "can_close_with_escape": true,
+  "columns": 2,
+  "actions": [
+    {
+      "label": {
+        "text": "Azyr",
+        "color": "aqua",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Azyr : pics foudroyés des forteresses Stormcast et Azyrheim, la cité de Sigmar."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 1"
+      }
+    },
+    {
+      "label": {
+        "text": "Ghyran",
+        "color": "green",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Ghyran : jungles des Seraphon, bois Sylvaneth, marais convoités par Nurgle."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 2"
+      }
+    },
+    {
+      "label": {
+        "text": "Aqshy",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Aqshy : volcans des Fyreslayers, cendres de Khorne et ziggurats de Hashut."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 3"
+      }
+    },
+    {
+      "label": {
+        "text": "Shyish",
+        "color": "dark_purple",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Shyish : terres de Nagash, nécropoles Soulblight et déserts d'os Ossiarch."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 4"
+      }
+    },
+    {
+      "label": {
+        "text": "Ghur",
+        "color": "gold",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Ghur : savanes des mégafaunes, Orruks, Ogors et Gargants."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 5"
+      }
+    },
+    {
+      "label": {
+        "text": "Chamon",
+        "color": "gray",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Chamon : collines de métal et ports volants Kharadron."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 6"
+      }
+    },
+    {
+      "label": {
+        "text": "Ulgu",
+        "color": "dark_gray",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Ulgu : brumes des Filles de Khaine, mer des Idoneth, marais Gitz."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 7"
+      }
+    },
+    {
+      "label": {
+        "text": "Hysh",
+        "color": "white",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Hysh : îles célestes et sanctuaires Lumineth."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 8"
+      }
+    },
+    {
+      "label": {
+        "text": "Les Huit-Points du Chaos",
+        "color": "dark_red",
+        "bold": true
+      },
+      "tooltip": {
+        "text": "Les Huit-Points : désolation du Chaos et Terres Rongées des Skavens."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 9"
+      }
+    },
+    {
+      "label": {
+        "text": "Monde-Pont (retour)",
+        "color": "white"
+      },
+      "tooltip": {
+        "text": "Revenir dans le monde de départ."
+      },
+      "width": 150,
+      "action": {
+        "type": "run_command",
+        "command": "trigger rm_voyage set 99"
+      }
+    }
+  ]
+}
