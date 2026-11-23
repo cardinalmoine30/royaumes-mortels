@@ -12,6 +12,10 @@ concurrency:
   group: build-${{ github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -65,13 +69,30 @@ jobs:
           git commit -q -m "Journaux ${GITHUB_SHA::7} (${GITHUB_REF_NAME})"
           git push -q -f "https://x-access-token:${JETON}@github.com/${GITHUB_REPOSITORY}.git" ci-logs
 
+      - name: Fabrication du modpack (.mrpack)
+        id: modpack
+        if: steps.build.outcome == 'success' && steps.serveur.outcome == 'success'
+        run: |
+          VER=$(grep '^neo_version=' gradle.properties | cut -d= -f2)
+          MC=$(grep '^minecraft_version=' gradle.properties | cut -d= -f2)
+          MV=$(grep '^mod_version=' gradle.properties | cut -d= -f2)
+          mkdir -p mrpack/overrides/mods
+          cp build/libs/royaumes-*.jar mrpack/overrides/mods/
+          cat > mrpack/modrinth.index.json <<EOF
+          {"formatVersion": 1, "game": "minecraft", "versionId": "$MV", "name": "Royaumes Mortels",
+           "summary": "RPG Warhammer Age of Sigmar pour Minecraft",
+           "files": [], "dependencies": {"minecraft": "$MC", "neoforge": "$VER"}}
+          EOF
+          (cd mrpack && zip -qr ../RoyaumesMortels.mrpack .)
+          ls -la RoyaumesMortels.mrpack
+
       - name: Publication du .jar (version de développement)
         if: steps.build.outcome == 'success' && steps.serveur.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete dev -y --cleanup-tag || true
-          gh release create dev build/libs/royaumes-*.jar --prerelease \
+          gh release create dev build/libs/royaumes-*.jar RoyaumesMortels.mrpack --prerelease \
             --target "${GITHUB_SHA}" \
             --title "Royaumes Mortels — version de développement" \
             --notes "Compilé automatiquement depuis ${GITHUB_REF_NAME} (${GITHUB_SHA::7}). Nécessite NeoForge 26.3."

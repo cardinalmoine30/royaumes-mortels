@@ -1,35 +1,55 @@
 package fr.royaumes;
 
-import fr.royaumes.entite.Liberator;
+import fr.royaumes.entite.Combattant;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-/** Créatures du mod. */
+/** Enregistre un type de créature par profil de ProfilsGeneres. */
 public final class ModEntites {
     public static final DeferredRegister<EntityType<?>> TYPES =
             DeferredRegister.create(Registries.ENTITY_TYPE, RoyaumesMortels.MODID);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<Liberator>> LIBERATOR = TYPES.register("liberator",
-            id -> EntityType.Builder.of(Liberator::new, MobCategory.MONSTER)
-                    .sized(0.8F, 2.4F)
-                    .eyeHeight(2.1F)
-                    .clientTrackingRange(10)
-                    .build(ResourceKey.create(Registries.ENTITY_TYPE, id)));
+    public static final Map<String, Profil> PROFILS = new LinkedHashMap<>();
+    public static final Map<String, DeferredHolder<EntityType<?>, EntityType<Combattant>>> ENTITES = new LinkedHashMap<>();
+
+    static {
+        for (Profil p : ProfilsGeneres.TOUS) {
+            PROFILS.put(p.id(), p);
+            ENTITES.put(p.id(), TYPES.register(p.id(), id -> EntityType.Builder
+                    .of(Combattant::new, MobCategory.MONSTER)
+                    .sized(p.largeur(), p.hauteur())
+                    .clientTrackingRange(p.boss() ? 16 : 10)
+                    .build(ResourceKey.create(Registries.ENTITY_TYPE, id))));
+        }
+    }
 
     private ModEntites() {}
 
     public static void enregistrer(IEventBus modBus) {
         TYPES.register(modBus);
         modBus.addListener(ModEntites::attributs);
+        modBus.addListener(ModEntites::placements);
     }
 
     private static void attributs(EntityAttributeCreationEvent event) {
-        event.put(LIBERATOR.get(), Liberator.creerAttributs().build());
+        ENTITES.forEach((id, type) -> event.put(type.get(), Combattant.creerAttributs(PROFILS.get(id)).build()));
+    }
+
+    private static void placements(RegisterSpawnPlacementsEvent event) {
+        ENTITES.values().forEach(type -> event.register(type.get(), SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.REPLACE));
     }
 }

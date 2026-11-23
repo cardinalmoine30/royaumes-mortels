@@ -1,0 +1,368 @@
+{
+ "format_version": "1.12.0",
+ "minecraft:geometry": [
+  {
+   "description": {
+    "identifier": "geometry.lord_celestant",
+    "texture_width": 128,
+    "texture_height": 128,
+    "visible_bounds_width": 4,
+    "visible_bounds_height": 4,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "root",
+     "pivot": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "body",
+     "pivot": [
+      0,
+      13,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -7,
+        13,
+        -4
+       ],
+       "size": [
+        14,
+        12,
+        8
+       ],
+       "uv": [
+        32,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "head",
+     "pivot": [
+      0,
+      25,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -4,
+        25,
+        -4
+       ],
+       "size": [
+        8,
+        8,
+        8
+       ],
+       "uv": [
+        22,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -1,
+        33,
+        -4
+       ],
+       "size": [
+        2,
+        5,
+        3
+       ],
+       "uv": [
+        86,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -6,
+        26,
+        5
+       ],
+       "size": [
+        12,
+        12,
+        1
+       ],
+       "uv": [
+        60,
+        47
+       ]
+      }
+     ]
+    },
+    {
+     "name": "right_arm",
+     "pivot": [
+      -9,
+      24,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -14,
+        21,
+        -6
+       ],
+       "size": [
+        8,
+        7,
+        11
+       ],
+       "uv": [
+        26,
+        29
+       ]
+      },
+      {
+       "origin": [
+        -12,
+        14,
+        -3
+       ],
+       "size": [
+        5,
+        11,
+        6
+       ],
+       "uv": [
+        102,
+        29
+       ]
+      }
+     ]
+    },
+    {
+     "name": "left_arm",
+     "pivot": [
+      9,
+      24,
+      0
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        6,
+        21,
+        -6
+       ],
+       "size": [
+        8,
+        7,
+        11
+       ],
+       "uv": [
+        64,
+        29
+       ]
+      },
+      {
+       "origin": [
+        7,
+        14,
+        -3
+       ],
+       "size": [
+        5,
+        11,
+        6
+       ],
+       "uv": [
+        0,
+        47
+       ]
+      }
+     ]
+    },
+    {
+     "name": "weapon",
+     "pivot": [
+      -9,
+      14,
+      0
+     ],
+     "parent": "right_arm",
+     "cubes": [
+      {
+       "origin": [
+        -10,
+        12,
+        -5
+       ],
+       "size": [
+        2,
+        3,
+        2
+       ],
+       "uv": [
+        96,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -12,
+        15,
+        -5
+       ],
+       "size": [
+        6,
+        1,
+        2
+       ],
+       "uv": [
+        104,
+        47
+       ]
+      },
+      {
+       "origin": [
+        -10,
+        16,
+        -5
+       ],
+       "size": [
+        2,
+        15,
+        1
+       ],
+       "uv": [
+        54,
+        47
+       ]
+      }
+     ]
+    },
+    {
+     "name": "offhand",
+     "pivot": [
+      9,
+      14,
+      0
+     ],
+     "parent": "left_arm",
+     "cubes": [
+      {
+       "origin": [
+        12,
+        10,
+        -7
+       ],
+       "size": [
+        2,
+        15,
+        14
+       ],
+       "uv": [
+        0,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "right_leg",
+     "pivot": [
+      -4,
+      13,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        -5,
+        0,
+        -3
+       ],
+       "size": [
+        5,
+        13,
+        6
+       ],
+       "uv": [
+        76,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "left_leg",
+     "pivot": [
+      3,
+      13,
+      0
+     ],
+     "parent": "root",
+     "cubes": [
+      {
+       "origin": [
+        0,
+        0,
+        -3
+       ],
+       "size": [
+        5,
+        13,
+        6
+       ],
+       "uv": [
+        98,
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "name": "cape",
+     "pivot": [
+      0,
+      24,
+      4
+     ],
+     "parent": "body",
+     "cubes": [
+      {
+       "origin": [
+        -6,
+        7,
+        4
+       ],
+       "size": [
+        12,
+        17,
+        1
+       ],
+       "uv": [
+        0,
+        29
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

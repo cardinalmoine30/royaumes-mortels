@@ -1,242 +1,260 @@
 {
-  "attributes": {
-    "minecraft:audio/background_music": {
-      "default": {
-        "max_delay": 24000,
-        "min_delay": 12000,
-        "sound": "minecraft:music.overworld.swamp"
+ "attributes": {
+  "minecraft:audio/background_music": {
+   "default": {
+    "max_delay": 24000,
+    "min_delay": 12000,
+    "sound": "minecraft:music.overworld.swamp"
+   }
+  },
+  "minecraft:gameplay/increased_fire_burnout": true,
+  "minecraft:gameplay/natural_mob_spawns": {
+   "argument": {
+    "spawn_costs": {},
+    "spawns_by_category": {
+     "ambient": [
+      {
+       "type": "minecraft:bat",
+       "count": 8,
+       "weight": 10
       }
-    },
-    "minecraft:gameplay/increased_fire_burnout": true,
-    "minecraft:gameplay/natural_mob_spawns": {
-      "argument": {
-        "spawn_costs": {},
-        "spawns_by_category": {
-          "ambient": [
-            {
-              "type": "minecraft:bat",
-              "count": 8,
-              "weight": 10
-            }
-          ],
-          "creature": [
-            {
-              "type": "minecraft:sheep",
-              "count": 4,
-              "weight": 12
-            },
-            {
-              "type": "minecraft:pig",
-              "count": 4,
-              "weight": 10
-            },
-            {
-              "type": "minecraft:chicken",
-              "count": 4,
-              "weight": 10
-            },
-            {
-              "type": "minecraft:cow",
-              "count": 4,
-              "weight": 8
-            },
-            {
-              "type": "minecraft:frog",
-              "count": {
-                "type": "minecraft:uniform",
-                "max_inclusive": 5,
-                "min_inclusive": 2
-              },
-              "weight": 10
-            },
-            {
-              "type": "minecraft:chicken",
-              "count": {
-                "type": "minecraft:uniform",
-                "min_inclusive": 1,
-                "max_inclusive": 3
-              },
-              "weight": 6
-            },
-            {
-              "type": "minecraft:frog",
-              "count": {
-                "type": "minecraft:uniform",
-                "min_inclusive": 1,
-                "max_inclusive": 3
-              },
-              "weight": 6
-            }
-          ],
-          "monster": [
-            {
-              "type": "minecraft:zombie",
-              "count": {
-                "type": "minecraft:uniform",
-                "min_inclusive": 1,
-                "max_inclusive": 4
-              },
-              "weight": 95
-            },
-            {
-              "type": "minecraft:skeleton",
-              "count": {
-                "type": "minecraft:uniform",
-                "min_inclusive": 1,
-                "max_inclusive": 4
-              },
-              "weight": 90
-            },
-            {
-              "type": "minecraft:spider",
-              "count": {
-                "type": "minecraft:uniform",
-                "min_inclusive": 1,
-                "max_inclusive": 4
-              },
-              "weight": 60
-            },
-            {
-              "type": "minecraft:creeper",
-              "count": {
-                "type": "minecraft:uniform",
-                "min_inclusive": 1,
-                "max_inclusive": 4
-              },
-              "weight": 60
-            },
-            {
-              "type": "minecraft:enderman",
-              "count": 1,
-              "weight": 10
-            }
-          ],
-          "underground_water_creature": [
-            {
-              "type": "minecraft:glow_squid",
-              "count": {
-                "type": "minecraft:uniform",
-                "max_inclusive": 6,
-                "min_inclusive": 4
-              },
-              "weight": 10
-            }
-          ]
-        }
+     ],
+     "creature": [
+      {
+       "type": "minecraft:sheep",
+       "count": 4,
+       "weight": 12
       },
-      "modifier": "overlay"
-    },
-    "minecraft:visual/sky_color": "#6a7a3a",
-    "minecraft:visual/water_fog_color": "#1a2a00",
-    "minecraft:visual/water_fog_end_distance": {
-      "argument": 0.85,
-      "modifier": "multiply"
-    },
-    "minecraft:visual/fog_color": "#5a6a2a",
-    "minecraft:gameplay/monsters_burn": false,
-    "minecraft:visual/ambient_particles": {
-      "argument": [
-        {
-          "particle": {
-            "type": "minecraft:mycelium"
-          },
-          "probability": 0.015
-        }
-      ],
-      "modifier": "append"
+      {
+       "type": "minecraft:pig",
+       "count": 4,
+       "weight": 10
+      },
+      {
+       "type": "minecraft:chicken",
+       "count": 4,
+       "weight": 10
+      },
+      {
+       "type": "minecraft:cow",
+       "count": 4,
+       "weight": 8
+      },
+      {
+       "type": "minecraft:frog",
+       "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 5,
+        "min_inclusive": 2
+       },
+       "weight": 10
+      },
+      {
+       "type": "minecraft:chicken",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 6
+      },
+      {
+       "type": "minecraft:frog",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 6
+      }
+     ],
+     "monster": [
+      {
+       "type": "minecraft:zombie",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 4
+       },
+       "weight": 95
+      },
+      {
+       "type": "minecraft:skeleton",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 4
+       },
+       "weight": 90
+      },
+      {
+       "type": "minecraft:spider",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 4
+       },
+       "weight": 60
+      },
+      {
+       "type": "minecraft:creeper",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 4
+       },
+       "weight": 60
+      },
+      {
+       "type": "minecraft:enderman",
+       "count": 1,
+       "weight": 10
+      },
+      {
+       "type": "royaumes:clanrat",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      },
+      {
+       "type": "royaumes:jezzail",
+       "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+       },
+       "weight": 40
+      }
+     ],
+     "underground_water_creature": [
+      {
+       "type": "minecraft:glow_squid",
+       "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 6,
+        "min_inclusive": 4
+       },
+       "weight": 10
+      }
+     ]
     }
+   },
+   "modifier": "overlay"
   },
-  "carvers": [
-    "minecraft:cave",
-    "minecraft:cave_extra_underground",
-    "minecraft:canyon"
-  ],
-  "downfall": 0.7,
-  "effects": {
-    "dry_foliage_color": "#6a6a2a",
-    "foliage_color": "#6a6a2a",
-    "grass_color_modifier": "swamp",
-    "water_color": "#4a6a1a",
-    "grass_color": "#7a7a3a"
+  "minecraft:visual/sky_color": "#6a7a3a",
+  "minecraft:visual/water_fog_color": "#1a2a00",
+  "minecraft:visual/water_fog_end_distance": {
+   "argument": 0.85,
+   "modifier": "multiply"
   },
-  "features": [
-    [],
-    [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
-    ],
-    [
-      "minecraft:amethyst_geode"
-    ],
-    [
-      "minecraft:fossil_upper",
-      "minecraft:fossil_lower",
-      "minecraft:monster_room",
-      "minecraft:monster_room_deep"
-    ],
-    [
-      "royaumes:decor_cristaux_malepierre",
-      "royaumes:decor_cloche_hurlante",
-      "royaumes:decor_tunnel_skaven",
-      "royaumes:rocher_terres_rongees"
-    ],
-    [],
-    [
-      "minecraft:ore_dirt",
-      "minecraft:ore_gravel",
-      "minecraft:ore_granite_upper",
-      "minecraft:ore_granite_lower",
-      "minecraft:ore_diorite_upper",
-      "minecraft:ore_diorite_lower",
-      "minecraft:ore_andesite_upper",
-      "minecraft:ore_andesite_lower",
-      "minecraft:ore_tuff",
-      "minecraft:ore_coal_upper",
-      "minecraft:ore_coal_lower",
-      "minecraft:ore_iron_upper",
-      "minecraft:ore_iron_middle",
-      "minecraft:ore_iron_small",
-      "minecraft:ore_gold",
-      "minecraft:ore_gold_lower",
-      "minecraft:ore_redstone",
-      "minecraft:ore_redstone_lower",
-      "minecraft:ore_diamond",
-      "minecraft:ore_diamond_medium",
-      "minecraft:ore_diamond_large",
-      "minecraft:ore_diamond_buried",
-      "minecraft:ore_lapis",
-      "minecraft:ore_lapis_buried",
-      "minecraft:ore_copper",
-      "minecraft:underwater_magma",
-      "minecraft:disk_clay",
-      "royaumes:malepierre"
-    ],
-    [],
-    [
-      "minecraft:spring_water",
-      "minecraft:spring_lava"
-    ],
-    [
-      "minecraft:glow_lichen",
-      "minecraft:trees_swamp",
-      "minecraft:flower_swamp",
-      "minecraft:patch_grass_normal",
-      "minecraft:patch_dead_bush",
-      "minecraft:patch_waterlily",
-      "minecraft:brown_mushroom_swamp",
-      "minecraft:red_mushroom_swamp",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane_swamp",
-      "minecraft:patch_pumpkin",
-      "minecraft:patch_firefly_bush_swamp",
-      "minecraft:patch_firefly_bush_near_water_swamp",
-      "minecraft:seagrass_swamp"
-    ],
-    [
-      "minecraft:freeze_top_layer"
-    ]
+  "minecraft:visual/fog_color": "#5a6a2a",
+  "minecraft:gameplay/monsters_burn": false,
+  "minecraft:visual/ambient_particles": {
+   "argument": [
+    {
+     "particle": {
+      "type": "minecraft:mycelium"
+     },
+     "probability": 0.015
+    }
+   ],
+   "modifier": "append"
+  }
+ },
+ "carvers": [
+  "minecraft:cave",
+  "minecraft:cave_extra_underground",
+  "minecraft:canyon"
+ ],
+ "downfall": 0.7,
+ "effects": {
+  "dry_foliage_color": "#6a6a2a",
+  "foliage_color": "#6a6a2a",
+  "grass_color_modifier": "swamp",
+  "water_color": "#4a6a1a",
+  "grass_color": "#7a7a3a"
+ },
+ "features": [
+  [],
+  [
+   "minecraft:lake_lava_underground",
+   "minecraft:lake_lava_surface"
   ],
-  "has_precipitation": true,
-  "temperature": 0.8
+  [
+   "minecraft:amethyst_geode"
+  ],
+  [
+   "minecraft:fossil_upper",
+   "minecraft:fossil_lower",
+   "minecraft:monster_room",
+   "minecraft:monster_room_deep"
+  ],
+  [
+   "royaumes:decor_cristaux_malepierre",
+   "royaumes:decor_cloche_hurlante",
+   "royaumes:decor_tunnel_skaven",
+   "royaumes:rocher_terres_rongees"
+  ],
+  [],
+  [
+   "minecraft:ore_dirt",
+   "minecraft:ore_gravel",
+   "minecraft:ore_granite_upper",
+   "minecraft:ore_granite_lower",
+   "minecraft:ore_diorite_upper",
+   "minecraft:ore_diorite_lower",
+   "minecraft:ore_andesite_upper",
+   "minecraft:ore_andesite_lower",
+   "minecraft:ore_tuff",
+   "minecraft:ore_coal_upper",
+   "minecraft:ore_coal_lower",
+   "minecraft:ore_iron_upper",
+   "minecraft:ore_iron_middle",
+   "minecraft:ore_iron_small",
+   "minecraft:ore_gold",
+   "minecraft:ore_gold_lower",
+   "minecraft:ore_redstone",
+   "minecraft:ore_redstone_lower",
+   "minecraft:ore_diamond",
+   "minecraft:ore_diamond_medium",
+   "minecraft:ore_diamond_large",
+   "minecraft:ore_diamond_buried",
+   "minecraft:ore_lapis",
+   "minecraft:ore_lapis_buried",
+   "minecraft:ore_copper",
+   "minecraft:underwater_magma",
+   "minecraft:disk_clay",
+   "royaumes:malepierre"
+  ],
+  [],
+  [
+   "minecraft:spring_water",
+   "minecraft:spring_lava"
+  ],
+  [
+   "minecraft:glow_lichen",
+   "minecraft:trees_swamp",
+   "minecraft:flower_swamp",
+   "minecraft:patch_grass_normal",
+   "minecraft:patch_dead_bush",
+   "minecraft:patch_waterlily",
+   "minecraft:brown_mushroom_swamp",
+   "minecraft:red_mushroom_swamp",
+   "minecraft:brown_mushroom_normal",
+   "minecraft:red_mushroom_normal",
+   "minecraft:patch_sugar_cane_swamp",
+   "minecraft:patch_pumpkin",
+   "minecraft:patch_firefly_bush_swamp",
+   "minecraft:patch_firefly_bush_near_water_swamp",
+   "minecraft:seagrass_swamp"
+  ],
+  [
+   "minecraft:freeze_top_layer"
+  ]
+ ],
+ "has_precipitation": true,
+ "temperature": 0.8
 }

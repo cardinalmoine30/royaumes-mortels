@@ -29,10 +29,15 @@ execute in royaumes:ghur run forceload add 0 0
 execute in royaumes:huit_points run forceload add 0 0
 attendre 15
 # Créatures du mod
-execute in minecraft:overworld run summon royaumes:liberator 0 100 0
-execute in minecraft:overworld run summon minecraft:zombie 3 100 0
-attendre 20
-execute as @e[type=royaumes:liberator] run say Liberator present
-execute as @e[type=royaumes:liberator] run data get entity @s Health
+execute in minecraft:overworld positioned 0 100 0 run function royaumes:debug/mobs
+summon royaumes:liberator 2 100 2
+summon royaumes:guerrier_chaos 6 100 2
+summon royaumes:nagash 0 100 20
+attendre 25
+execute if entity @e[type=royaumes:liberator] run say Liberator OK
+execute if entity @e[type=royaumes:nagash] run say Nagash OK
+scoreboard objectives add rm_test dummy
+execute store result score #n rm_test if entity @e[type=#royaumes:mobs_du_mod]
+scoreboard players get #n rm_test
 team list rm_ordre
-kill @e[type=royaumes:liberator]
+function royaumes:debug/nettoyer
