@@ -384,10 +384,17 @@ public final class ProfilsGeneres {
 
 
 def boite(m):
-    xs = [c.o[0] for c in m.cubes] + [c.o[0] + c.t[0] for c in m.cubes]
-    zs = [c.o[2] for c in m.cubes] + [c.o[2] + c.t[2] for c in m.cubes]
-    h = max(c.o[1] + c.t[1] for c in m.cubes) / 16.0
-    return h, max(max(xs) - min(xs), max(zs) - min(zs)) / 16.0
+    from modele2 import _rot
+    pts = []
+    for c in m.cubes:
+        if c.bone.startswith("wing"):
+            continue
+        (x0, y0, z0), (w, h, d) = c.o, c.t
+        for p in ((x0, y0, z0), (x0 + w, y0, z0), (x0, y0 + h, z0), (x0, y0, z0 + d),
+                  (x0 + w, y0 + h, z0), (x0 + w, y0, z0 + d), (x0, y0 + h, z0 + d), (x0 + w, y0 + h, z0 + d)):
+            pts.append(_rot(p, c.rot, c.pivot or c.o))
+    xs, ys, zs = [p[0] for p in pts], [p[1] for p in pts], [p[2] for p in pts]
+    return max(ys) / 16.0, max(max(xs) - min(xs), max(zs) - min(zs)) / 16.0
 
 
 def main():

@@ -68,6 +68,10 @@ def mini_cavalier(m, P, mats, fac, y0, z0, arme="lance", t=1.0):
 
 
 def bete(nom, s, fac):
+    import betes
+    f = betes.forme(nom)
+    if f:
+        return f(nom, s, fac)
     P = s["pal"]
     mats = mats_creature(nom, s, fac)
     LU, A2 = P["lueur"], P["armure2"]
@@ -266,6 +270,9 @@ def navire(nom, s, fac):
 
 
 def blob(nom, s, fac):
+    if nom.startswith("squig"):
+        import betes
+        return betes.squig(nom, s, fac)
     P = s["pal"]
     mats = mats_creature(nom, s, fac)
     LU = P["lueur"]

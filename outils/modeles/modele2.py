@@ -228,9 +228,11 @@ def peindre_matiere(px, x0, y0, w, h, face, m, rng):
                 elif vein < -0.85:
                     k *= 1.12
             elif typ == "fourrure":
-                n = rng.randint(-14, 14)
-                if (i + rng.randint(0, 1)) % 3 == 0:
-                    k *= 0.85
+                n = rng.randint(-5, 5)
+                mech = (i + (j // 3) * 2 + int(seed)) % 4
+                k *= (1.06, 1.0, 0.94, 0.86)[mech]
+                if cote and j % 3 == 2 and mech == 3:
+                    k *= 0.9
             elif typ == "pierre":
                 n = rng.randint(-10, 10)
                 if rng.random() < 0.04:
@@ -259,11 +261,14 @@ def peindre_matiere(px, x0, y0, w, h, face, m, rng):
                 if (i + j) % 2 == 0:
                     k *= 0.55
             elif typ == "plume":
-                n = rng.randint(-4, 4)
-                if j % 3 == 2 or i % 4 == 0:
-                    k *= 0.82
-                if cote and j >= h - 1 and i % 2 == 0:
-                    a = 0
+                n = rng.randint(-3, 3)
+                rang = j // 3
+                u, v = (i + (rang % 2) * 2) % 4, j % 3
+                k *= (1.08, 1.0, 0.84)[v]
+                if u == 3:
+                    k *= 0.92
+                elif u == 0 and v == 0:
+                    k *= 1.05
             elif typ == "membrane":
                 n = rng.randint(-4, 4)
                 if i % 6 == 0:
