@@ -28,3 +28,11 @@ execute in royaumes:shyish run forceload add 0 0
 execute in royaumes:ghur run forceload add 0 0
 execute in royaumes:huit_points run forceload add 0 0
 attendre 15
+# Créatures du mod
+execute in minecraft:overworld run summon royaumes:liberator 0 100 0
+execute in minecraft:overworld run summon minecraft:zombie 3 100 0
+attendre 20
+execute as @e[type=royaumes:liberator] run say Liberator present
+execute as @e[type=royaumes:liberator] run data get entity @s Health
+team list rm_ordre
+kill @e[type=royaumes:liberator]

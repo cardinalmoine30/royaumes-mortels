@@ -18,6 +18,7 @@ public class RoyaumesMortels {
 
     public RoyaumesMortels(IEventBus modBus, ModContainer container) {
         modBus.addListener(this::commonSetup);
+        ModEntites.enregistrer(modBus);
         NeoForge.EVENT_BUS.register(this);
     }
 

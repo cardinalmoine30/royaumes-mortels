@@ -19,6 +19,7 @@ level-seed=sigmar
 spawn-protection=0
 view-distance=6
 simulation-distance=6
+pause-when-empty-seconds=-1
 EOF
 echo "-Xmx4G" > user_jvm_args.txt
 
