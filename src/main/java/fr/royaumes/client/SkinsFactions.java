@@ -32,15 +32,7 @@ public final class SkinsFactions {
         public PlayerSkin get() {
             PlayerSkin o = origine.get();
             Identifier id = Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID, "skin/" + FactionsGenerees.IDS[faction]);
-            return new PlayerSkin(new ClientAsset.ResourceTexture(id), o.cape(), o.elytra(), large(o.model()), o.secure());
-        }
-    }
-
-    private static PlayerModelType large(PlayerModelType defaut) {
-        try {
-            return PlayerModelType.valueOf("WIDE");
-        } catch (IllegalArgumentException e) {
-            return defaut;
+            return new PlayerSkin(new ClientAsset.ResourceTexture(id), o.cape(), o.elytra(), PlayerModelType.WIDE, o.secure());
         }
     }
 

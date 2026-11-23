@@ -10,15 +10,12 @@ import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.minecraft.client.gui.screens.Screen;
 
 /** Client : touche J (écran de serment), HUD des Royaumes, poignée de main « j'ai le mod », skins de faction. */
 @EventBusSubscriber(modid = RoyaumesMortels.MODID, value = Dist.CLIENT)
@@ -27,8 +24,6 @@ public final class ClientRoyaumes {
     static final KeyMapping TOUCHE_SERMENT = new KeyMapping("key.royaumes.serment", 74 /* J */, CATEGORIE);
     private static int attente = 60;
     private static int compteur = 0;
-    /** Écran actuellement ouvert, suivi par les événements d'ouverture et de fermeture. */
-    private static Screen ecran = null;
 
     private ClientRoyaumes() {}
 
@@ -48,7 +43,6 @@ public final class ClientRoyaumes {
         DonneesHeros.actuelle = null;
         DonneesHeros.FACTIONS.clear();
         attente = 60;
-        ecran = null;
         ClientPacketListener c = Minecraft.getInstance().getConnection();
         if (c != null) {
             try {
@@ -59,21 +53,8 @@ public final class ClientRoyaumes {
         }
     }
 
-    /** Priorité la plus basse : on voit l'écran final (après le remplacement de l'inventaire par la taverne). */
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    static void ouverture(ScreenEvent.Opening event) {
-        ecran = event.getNewScreen();
-    }
-
-    @SubscribeEvent
-    static void fermeture(ScreenEvent.Closing event) {
-        if (event.getScreen() == ecran) {
-            ecran = null;
-        }
-    }
-
     static void ouvrir(Minecraft mc) {
-        mc.setScreenAndShow(new EcranSerment());
+        mc.gui.setScreen(new EcranSerment());
     }
 
     @SubscribeEvent
@@ -83,13 +64,13 @@ public final class ClientRoyaumes {
             return;
         }
         while (TOUCHE_SERMENT.consumeClick()) {
-            if (ecran == null) {
+            if (mc.gui.screen() == null) {
                 ouvrir(mc);
             }
         }
         // sans faction : l'écran de serment s'ouvre de lui-même (puis toutes les 2 minutes s'il est fermé)
         FicheHeros f = DonneesHeros.actuelle;
-        if (f != null && f.faction() == 0 && ecran == null) {
+        if (f != null && f.faction() == 0 && mc.gui.screen() == null) {
             if (--attente <= 0) {
                 ouvrir(mc);
                 attente = 2400;
