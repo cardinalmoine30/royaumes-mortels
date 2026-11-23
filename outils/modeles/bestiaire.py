@@ -294,3 +294,24 @@ M("rotigus", "Rotigus le Pluviomancien", "nurgle", "h", H("geant", "nurgle", fac
 
 IDS = [m["id"] for m in TOUS]
 assert len(IDS) == len(set(IDS)), "identifiants en double"
+
+# Couleurs propres à certaines montures et créatures (remplacent la palette de faction)
+TEINTES = {
+    "stardrake": dict(peau=(52, 84, 168), ventre=(160, 190, 230), corne=(236, 236, 242), membrane=(64, 104, 196)),
+    "dracoth": dict(peau=(88, 108, 150), ventre=(184, 194, 214), corne=(230, 230, 236)),
+    "gryph_charger": dict(peau=(128, 138, 160), corne=(222, 184, 80), poils=(92, 98, 120)),
+    "cavalier_franc": dict(peau=(112, 76, 46), poils=(38, 26, 18)),
+    "blood_knight": dict(peau=(42, 32, 36), poils=(20, 16, 18), ventre=(60, 48, 52)),
+    "chevalier_chaos": dict(poils=(20, 18, 20)),
+    "stonehorn": dict(peau=(122, 120, 114), corne=(204, 198, 186), ventre=(150, 146, 138)),
+    "demigryph": dict(peau=(150, 120, 80)),
+    "seeker": dict(peau=(210, 170, 210), poils=(240, 230, 250)),
+    "sabre_givre": dict(peau=(210, 220, 232), poils=(240, 244, 250)),
+    "magmadroth": dict(ventre=(255, 120, 40)),
+    "dragon": dict(ventre=(230, 170, 90)),
+    "varghulf": dict(peau=(90, 70, 70), poils=(60, 50, 50)),
+    "terrorgheist": dict(peau=(150, 140, 130), membrane=(110, 90, 90)),
+}
+for _e in TOUS:
+    if _e["id"] in TEINTES:
+        _e["spec"] = dict(_e["spec"], pal=dict(_e["spec"]["pal"], **TEINTES[_e["id"]]))

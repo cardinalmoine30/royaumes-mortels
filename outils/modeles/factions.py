@@ -393,18 +393,21 @@ def boite(m):
 def main():
     import math
     from bestiaire import TOUS, FAC
-    import creatures as C
+    import creatures as C1
+    import creatures2 as C
+    from humanoide import humanoide
+    from modele2 import apercu
     GAB = {"bete": C.bete, "navire": C.navire, "blob": C.blob, "poisson": C.poisson, "char": C.char}
     entrees, planche = [], []
     os.makedirs(f"{ICI}/apercus", exist_ok=True)
     for e in TOUS:
         if e["gabarit"] == "h":
-            m, palettes = construire(e["id"], e["spec"])
-            anims = C.animations_gen(m, e["mode"].startswith("vol") and "wings" in {b[0] for b in m.bones})
+            m, mats = humanoide(e["id"], e["spec"], e["fac"])
+            vol = e["mode"].startswith("vol") and "wing_l" in {b[0] for b in m.bones}
         else:
-            m, palettes = GAB[e["gabarit"]](e["id"], e["spec"])
-            anims = C.animations_gen(m, e["mode"].startswith("vol"))
-        tex = m.exporter(palettes, anims)
+            m, mats = GAB[e["gabarit"]](e["id"], e["spec"], e["fac"])
+            vol = e["mode"].startswith("vol")
+        tex = m.exporter(mats, C1.animations_gen(m, vol))
         h, w = boite(m)
         if e["gabarit"] == "h":
             w = max(0.5, min(w * 0.6, 1.4))
@@ -414,7 +417,7 @@ def main():
         e["alliance"] = FAC[e["fac"]][0]
         entrees.append(e)
         sortie = f"{ICI}/apercus/{e['id']}.png"
-        apercu_vues(m, tex, sortie, e["nom"])
+        apercu(m, tex, sortie, e["nom"])
         planche.append((e["nom"], e["alliance"], sortie, e["boss"], e["fac"]))
     open(f"{RACINE}/src/main/java/fr/royaumes/ProfilsGeneres.java", "w").write(java(entrees))
     # traductions
@@ -503,7 +506,7 @@ def faire_planches(planche):
             d.text((20, 20), f"Bestiaire — {titre} ({page // 24 + 1})", fill=(240, 220, 150), font=fb)
             for i, (nom, a, chemin, boss, fac) in enumerate(lot):
                 im = Image.open(chemin)
-                v = im.crop((0, 60, int((im.width - 300) * 0.62), im.height - 30))
+                v = im.crop((0, 60, im.width, im.height))
                 v.thumbnail((240, 240))
                 x, y = 20 + (i % cols) * 260, 80 + (i // cols) * 290
                 d.rectangle((x, y, x + 245, y + 278), outline=(255, 80, 80) if boss else COUL[a], width=2)

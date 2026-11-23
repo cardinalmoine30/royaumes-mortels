@@ -1,6 +1,7 @@
 package fr.royaumes.client;
 
 import com.geckolib.renderer.GeoEntityRenderer;
+import com.geckolib.renderer.layer.builtin.AutoGlowingGeoLayer;
 import fr.royaumes.ModEntites;
 import fr.royaumes.RoyaumesMortels;
 import fr.royaumes.entite.Combattant;
@@ -10,7 +11,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-/** Partie client : rendus GeckoLib de toutes les créatures du mod. */
+/** Partie client : rendus GeckoLib de toutes les créatures du mod (yeux, runes et malepierre lumineux). */
 @EventBusSubscriber(modid = RoyaumesMortels.MODID, value = Dist.CLIENT)
 public final class RoyaumesClient {
     private RoyaumesClient() {}
@@ -18,6 +19,7 @@ public final class RoyaumesClient {
     @SubscribeEvent
     static void rendus(EntityRenderersEvent.RegisterRenderers event) {
         ModEntites.ENTITES.values().forEach(type -> event.registerEntityRenderer(type.get(),
-                ctx -> new GeoEntityRenderer<Combattant, LivingEntityRenderState>(ctx, type.get())));
+                ctx -> new GeoEntityRenderer<Combattant, LivingEntityRenderState>(ctx, type.get())
+                        .withRenderLayer(AutoGlowingGeoLayer::new)));
     }
 }
