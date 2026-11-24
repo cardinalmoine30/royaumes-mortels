@@ -47,14 +47,14 @@ public final class Arsenal {
 
     private Arsenal() {}
 
-    private static final int[][] DEFENSE = {{2, 5, 6, 2}, {3, 6, 8, 3}, {3, 7, 9, 4}};
+    private static final int[][] DEFENSE = {{2, 5, 6, 2}, {3, 6, 8, 3}, {3, 6, 8, 3}};
 
     private static ArmorMaterial materiau(String faction, int palier) {
         int[] d = DEFENSE[palier];
-        return new ArmorMaterial(new int[] {15, 33, 42}[palier], Map.of(ArmorType.BOOTS, d[0], ArmorType.LEGGINGS, d[1], ArmorType.CHESTPLATE, d[2],
+        return new ArmorMaterial(new int[] {15, 33, 37}[palier], Map.of(ArmorType.BOOTS, d[0], ArmorType.LEGGINGS, d[1], ArmorType.CHESTPLATE, d[2],
                 ArmorType.HELMET, d[3], ArmorType.BODY, d[2] + 3), new int[] {9, 10, 15}[palier],
                 palier == 0 ? SoundEvents.ARMOR_EQUIP_IRON : palier == 1 ? SoundEvents.ARMOR_EQUIP_DIAMOND : SoundEvents.ARMOR_EQUIP_NETHERITE,
-                new float[] {0.0F, 2.0F, 3.5F}[palier], new float[] {0.0F, 0.0F, 0.15F}[palier],
+                new float[] {0.0F, 2.0F, 3.0F}[palier], new float[] {0.0F, 0.0F, 0.1F}[palier],
                 palier == 0 ? ItemTags.REPAIRS_IRON_ARMOR : palier == 1 ? ItemTags.REPAIRS_DIAMOND_ARMOR : ItemTags.REPAIRS_NETHERITE_ARMOR,
                 ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID,
                         faction + "_" + ArsenalGenere.PALIERS[palier])));

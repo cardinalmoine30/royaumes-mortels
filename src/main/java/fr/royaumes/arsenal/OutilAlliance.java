@@ -3,6 +3,17 @@ package fr.royaumes.arsenal;
 import fr.royaumes.ArsenalGenere;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -52,6 +63,44 @@ public class OutilAlliance extends Item {
             default -> {
             }
         }
+    }
+
+    /** Hache : écorce ; pelle : chemin ; houe : laboure (comme les outils vanilla). */
+    @Override
+    public InteractionResult useOn(UseOnContext c) {
+        int[] i = Arsenal.infosOutil(this);
+        if (i == null || i[1] < 1 || i[1] > 3) {
+            return super.useOn(c);
+        }
+        Level l = c.getLevel();
+        BlockPos pos = c.getClickedPos();
+        BlockState st = l.getBlockState(pos);
+        Identifier id = BuiltInRegistries.BLOCK.getKey(st.getBlock());
+        BlockState neuf = null;
+        if (i[1] == 2 && !id.getPath().startsWith("stripped_") && (id.getPath().endsWith("_log") || id.getPath().endsWith("_wood")
+                || id.getPath().endsWith("_stem") || id.getPath().endsWith("_hyphae"))) {
+            Block b = BuiltInRegistries.BLOCK.getValue(Identifier.fromNamespaceAndPath(id.getNamespace(), "stripped_" + id.getPath()));
+            if (b != Blocks.AIR) {
+                neuf = b.withPropertiesOf(st);
+            }
+        } else if (i[1] == 1 && st.is(Blocks.GRASS_BLOCK) && l.getBlockState(pos.above()).isAir()) {
+            neuf = Blocks.DIRT_PATH.defaultBlockState();
+        } else if (i[1] == 3 && (st.is(Blocks.GRASS_BLOCK) || st.is(Blocks.DIRT) || st.is(Blocks.DIRT_PATH))
+                && l.getBlockState(pos.above()).isAir()) {
+            neuf = Blocks.FARMLAND.defaultBlockState();
+        }
+        if (neuf == null) {
+            return super.useOn(c);
+        }
+        if (!l.isClientSide()) {
+            l.setBlock(pos, neuf, 11);
+            l.playSound(null, pos, i[1] == 2 ? SoundEvents.AXE_STRIP : i[1] == 1 ? SoundEvents.SHOVEL_FLATTEN : SoundEvents.HOE_TILL,
+                    SoundSource.BLOCKS, 1.0F, 1.0F);
+            if (c.getPlayer() != null) {
+                c.getItemInHand().hurtAndBreak(1, c.getPlayer(), c.getHand());
+            }
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Override

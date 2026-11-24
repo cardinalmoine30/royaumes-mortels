@@ -1,10 +1,10 @@
-execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"braise"}}}},limit=1] run return 0
-execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"braise"}}}},limit=1] Item.count
+execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_aqshy"}},limit=1] run return 0
+execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_aqshy"}},limit=1] Item.count
 execute if score #c rm_tmp matches ..23 run return 0
 execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"chaos"}}}},limit=1] run return 0
 execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"chaos"}}}},limit=1] Item.count
 execute if score #c rm_tmp matches ..3 run return 0
-execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"braise"}}}},limit=1] run function royaumes:forge/retirer {n:24}
+execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_aqshy"}},limit=1] run function royaumes:forge/retirer {n:24}
 execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"chaos"}}}},limit=1] run function royaumes:forge/retirer {n:4}
 loot spawn ~ ~0.6 ~ loot royaumes:forge/sceau_skarbrand
 particle minecraft:lava ~ ~0.8 ~ 0.3 0.3 0.3 0 12

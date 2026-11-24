@@ -388,7 +388,7 @@
   "item.royaumes.oeuf_monture_squig": "Œuf de monture : Squig Bondissant",
   "item.royaumes.oeuf_monture_mournfang": "Œuf de monture : Mournfang",
   "item.royaumes.oeuf_monture_mammouth": "Œuf de monture : Mammouth des Plaines",
-  "itemGroup.royaumes.armes": "Royaumes — Armes et armures",
+  "itemGroup.royaumes.armes": "Royaumes — Armes légendaires et reliques",
   "itemGroup.royaumes.magie": "Royaumes — Magie",
   "itemGroup.royaumes.blocs": "Royaumes — Blocs des Royaumes",
   "itemGroup.royaumes.creatures": "Royaumes — Créatures",
@@ -875,5 +875,6 @@
   "item.royaumes.behemat_casque_legende": "Casque de géant (Légende)",
   "item.royaumes.behemat_torse_legende": "Harnais de géant (Légende)",
   "item.royaumes.behemat_jambes_legende": "Braies de géant (Légende)",
-  "item.royaumes.behemat_bottes_legende": "Sandales de géant (Légende)"
+  "item.royaumes.behemat_bottes_legende": "Sandales de géant (Légende)",
+  "itemGroup.royaumes.arsenal": "Royaumes — Arsenal des factions"
 }

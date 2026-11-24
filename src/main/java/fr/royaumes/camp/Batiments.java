@@ -137,8 +137,8 @@ public final class Batiments {
 
     // ------------------------------------------------------------------ production (par minute)
 
-    /** Production d'une minute du bâtiment b au niveau n (forge, ferme, sanctuaire). */
-    public static List<ItemStack> production(int b, int n, int minute) {
+    /** Production d'une minute du bâtiment b au niveau n (forge, ferme, sanctuaire). Le sanctuaire capte le Vent de la faction. */
+    public static List<ItemStack> production(int b, int n, int minute, int faction) {
         List<ItemStack> l = new ArrayList<>();
         switch (b) {
             case 0 -> { // forge
@@ -165,7 +165,8 @@ public final class Batiments {
                 }
             }
             case 2 -> { // sanctuaire
-                Item eclat = ModObjets.ECLATS.get(R.nextInt(ModObjets.ECLATS.size())).get();
+                int vent = faction > 0 && faction < fr.royaumes.ContenuGenere.VENT_FACTION.length ? fr.royaumes.ContenuGenere.VENT_FACTION[faction] : 0;
+                Item eclat = ModObjets.ECLATS.get(vent).get();
                 if (n >= 2 || minute % 3 == 0) {
                     l.add(new ItemStack(eclat, 1));
                 }

@@ -181,35 +181,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:armadillo_scute",
+          "name": "royaumes:pierre_royaumes_brute",
           "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Éclat de Royaume",
-                  "color": "light_purple",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Fragment cristallisé d'un Royaume Mortel.",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "Ressource des Royaumes",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:item_model": "minecraft:amethyst_shard",
-                "minecraft:rarity": "rare",
-                "minecraft:custom_data": {
-                  "rm": "eclat"
-                }
-              }
-            },
             {
               "type": "minecraft:set_count",
               "count": {
@@ -239,35 +212,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:armadillo_scute",
+          "name": "royaumes:eclat_hysh",
           "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Cristal de Hysh",
-                  "color": "white",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "De la lumière pure, cristallisée.",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "Ressource des Royaumes",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:item_model": "minecraft:prismarine_crystals",
-                "minecraft:rarity": "rare",
-                "minecraft:custom_data": {
-                  "rm": "cristal"
-                }
-              }
-            },
             {
               "type": "minecraft:set_count",
               "count": {

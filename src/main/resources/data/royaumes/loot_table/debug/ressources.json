@@ -1,550 +1,280 @@
 {
- "pools": [
-  {
-   "rolls": 1,
-   "entries": [
+  "pools": [
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Éclat de Royaume",
-         "color": "light_purple",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Fragment cristallisé d'un Royaume Mortel.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:amethyst_shard",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "eclat"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:pierre_royaumes_brute",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Lingot de Sigmarite",
-         "color": "gold",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Métal divin forgé dans le Sigmarabulum.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:gold_ingot",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "sigmarite"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Lingot de Sigmarite",
+                  "color": "gold",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Métal divin forgé dans le Sigmarabulum.",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Ressource des Royaumes",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:item_model": "minecraft:gold_ingot",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                  "rm": "sigmarite"
+                }
+              }
+            },
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Malepierre",
-         "color": "green",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Chaos solidifié. Ne surtout pas lécher.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:emerald",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "malepierre"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:malepierre",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Ur-Or",
-         "color": "gold",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Or runique chargé de la fureur de Grimnir.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:raw_gold",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ur_or"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_chamon",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Aether-Or",
-         "color": "yellow",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Gaz d'or des cieux de Chamon, solidifié.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:glowstone_dust",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "aether_or"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_chamon",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Fragment d'Âme",
-         "color": "dark_aqua",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Un murmure de Shyish emprisonné.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:echo_shard",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ame"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_shyish",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Braise d'Aqshy",
-         "color": "red",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Elle ne s'éteint jamais.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:blaze_powder",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "braise"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_aqshy",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Ambre de Ghur",
-         "color": "gold",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "La rage d'une bête primordiale y dort.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:resin_brick",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ambre"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_ghur",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Graine de Vie",
-         "color": "green",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Bénie par Alarielle, la Reine Éternelle.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:torchflower_seeds",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "graine"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_ghyran",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Pierre-Ombre",
-         "color": "dark_gray",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Un éclat des brumes d'Ulgu.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:flint",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ombre"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_ulgu",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Cristal de Hysh",
-         "color": "white",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "De la lumière pure, cristallisée.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:prismarine_crystals",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "cristal"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_hysh",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Éclat du Chaos",
-         "color": "dark_red",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Il murmure des promesses de gloire.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:magma_cream",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "chaos"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Éclat du Chaos",
+                  "color": "dark_red",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Il murmure des promesses de gloire.",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Ressource des Royaumes",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:item_model": "minecraft:magma_cream",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                  "rm": "chaos"
+                }
+              }
+            },
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "rolls": 1,
-   "entries": [
+      ]
+    },
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Ferraille d'Orruk",
-         "color": "gray",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Ça peut toujours servir pour cogner.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:iron_nugget",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ferraille"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Ferraille d'Orruk",
+                  "color": "gray",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Ça peut toujours servir pour cogner.",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Ressource des Royaumes",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:item_model": "minecraft:iron_nugget",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                  "rm": "ferraille"
+                }
+              }
+            },
+            {
+              "type": "minecraft:set_count",
+              "count": 16
+            }
+          ]
         }
-       }
-      },
-      {
-       "type": "minecraft:set_count",
-       "count": 16
-      }
-     ]
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

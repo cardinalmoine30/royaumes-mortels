@@ -742,7 +742,6 @@ def sans_forme(ingr, resultat, n=1):
 
 def recettes():
     for v in VENTS:
-        recette("eclat_" + v[0], sans_forme(["royaumes:pierre_royaumes_brute", v[4]], "royaumes:eclat_" + v[0], 2))
         recette("baton_" + v[0], forme([" GE", " SG", "S  "], {"E": "royaumes:eclat_" + v[0], "G": "minecraft:gold_ingot", "S": "minecraft:stick"}, "royaumes:baton_" + v[0]))
     recette("cristal_arcanique", sans_forme(["royaumes:pierre_royaumes_brute", "royaumes:pierre_royaumes_brute", "minecraft:amethyst_shard"], "royaumes:cristal_arcanique"))
     recette("grimoire_des_vents", sans_forme(["minecraft:book", "royaumes:pierre_royaumes_brute"], "royaumes:grimoire_des_vents"))
@@ -943,7 +942,7 @@ def traductions(mobs, montures):
     for m in montures:
         fr["item.royaumes.oeuf_" + m["id"]] = "Œuf de monture : " + m["nom"]
         en["item.royaumes.oeuf_" + m["id"]] = m["nom"] + " Mount Egg"
-    onglets = {"armes": ("Royaumes — Armes et armures", "Realms — Weapons & Armour"),
+    onglets = {"armes": ("Royaumes — Armes légendaires et reliques", "Realms — Legendary Weapons & Relics"),
                "magie": ("Royaumes — Magie", "Realms — Magic"),
                "blocs": ("Royaumes — Blocs des Royaumes", "Realms — Realm Blocks"),
                "creatures": ("Royaumes — Créatures", "Realms — Creatures"),

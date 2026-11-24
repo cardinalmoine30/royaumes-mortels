@@ -60,31 +60,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_helmet",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Heaume de l'Élu",
-                  "color": "dark_gray",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "head",
-                  "asset_id": "royaumes:esclaves",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:esclaves_casque_soldat"
         }
       ]
     },
@@ -93,31 +69,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_chestplate",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Cuirasse — Esclaves des Ténèbres",
-                  "color": "dark_gray",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "chest",
-                  "asset_id": "royaumes:esclaves",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:esclaves_torse_soldat"
         }
       ]
     },
@@ -126,31 +78,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_leggings",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Jambières — Esclaves des Ténèbres",
-                  "color": "dark_gray",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "legs",
-                  "asset_id": "royaumes:esclaves",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:esclaves_jambes_soldat"
         }
       ]
     },
@@ -159,31 +87,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_boots",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Bottes — Esclaves des Ténèbres",
-                  "color": "dark_gray",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "feet",
-                  "asset_id": "royaumes:esclaves",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:esclaves_bottes_soldat"
         }
       ]
     },

@@ -405,7 +405,7 @@ public final class CampsPlus {
         for (int b = 0; b < 3; b++) {
             int n = get(sb, p, "rm_b_" + Batiments.IDS[b]);
             if (n > 0) {
-                Batiments.livrer(l, Batiments.coffre(camp, b, n, al), Batiments.production(b, n, minute));
+                Batiments.livrer(l, Batiments.coffre(camp, b, n, al), Batiments.production(b, n, minute, get(sb, p, "rm_faction")));
             }
         }
     }

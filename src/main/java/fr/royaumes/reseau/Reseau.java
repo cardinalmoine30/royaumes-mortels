@@ -69,8 +69,20 @@ public final class Reseau {
             if (contexte.player() instanceof ServerPlayer sp) {
                 sp.addTag(TAG_MODDE);
                 envoyerFiche(sp);
+                guide(sp);
             }
         });
+    }
+
+    /** Rappel des commandes du mod à chaque connexion (les touches s'affichent selon les réglages du joueur). */
+    static void guide(ServerPlayer p) {
+        net.minecraft.ChatFormatting or = net.minecraft.ChatFormatting.GOLD;
+        net.minecraft.ChatFormatting gris = net.minecraft.ChatFormatting.GRAY;
+        p.sendSystemMessage(Component.literal("⚔ Royaumes Mortels").withStyle(or, net.minecraft.ChatFormatting.BOLD));
+        p.sendSystemMessage(Component.literal("[").append(Component.keybind("key.royaumes.serment")).append("] serment et fiche de héros   [")
+                .append(Component.keybind("key.royaumes.capacite")).append("] capacité de faction").withStyle(gris));
+        p.sendSystemMessage(Component.literal("Étendard de camp : ton camp de guerre · Forge de guerre : ton arsenal · "
+                + "Bâton en main : magie · Inventaire : Codex de la taverne").withStyle(gris));
     }
 
     /** Serment : on passe par le trigger rm_choix du datapack, qui applique la faction (une seule fois). */

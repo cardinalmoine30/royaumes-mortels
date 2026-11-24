@@ -142,7 +142,7 @@ public class EcranForge extends Screen {
                 x += 26;
             }
         }
-        String aide = onglet == 0 ? "Palier 1 : fer et un éclat étranger. Outils communs à ton alliance, avec un effet en main."
+        String aide = onglet == 0 ? "Palier 1 : fer et pierre des Royaumes. Élite et Légende : éclats de Royaumes étrangers."
                 : onglet == 3 ? "Lignée : atout à chaque coup. Champion : forgé à partir de l'arme de lignée."
                 : "Chaque amélioration exige la pièce du palier précédent (elle est refondue).";
         g.centeredText(this.font, aide, px + PW / 2, py + PH - 26, 0xFFE6D3A8);

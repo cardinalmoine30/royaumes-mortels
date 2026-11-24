@@ -2,17 +2,7 @@ execute if function royaumes:forge/r/raffinage run return 1
 execute if function royaumes:forge/r/sigmarite run return 1
 execute if function royaumes:forge/r/pierre run return 1
 execute if function royaumes:forge/r/parchemin run return 1
-execute if function royaumes:forge/r/panoplie_sigmarite run return 1
-execute if function royaumes:forge/r/panoplie_fleau run return 1
-execute if function royaumes:forge/r/panoplie_nadirite run return 1
-execute if function royaumes:forge/r/panoplie_ferraille run return 1
-execute if function royaumes:forge/r/marteau_sigmar run return 1
-execute if function royaumes:forge/r/lame_demoniaque run return 1
-execute if function royaumes:forge/r/faux_ame run return 1
-execute if function royaumes:forge/r/choppa_gork run return 1
-execute if function royaumes:forge/r/lame_malepierre run return 1
 execute if function royaumes:forge/r/arc_hysh run return 1
-execute if function royaumes:forge/r/hache_ur_or run return 1
 execute if function royaumes:forge/r/fusil_aether run return 1
 execute if function royaumes:forge/r/elixir_ghyran run return 1
 execute if function royaumes:forge/r/elixir_malepierre run return 1

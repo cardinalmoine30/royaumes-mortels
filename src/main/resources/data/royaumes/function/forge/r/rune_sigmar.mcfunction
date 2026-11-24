@@ -1,11 +1,12 @@
+execute unless entity @p[distance=..8,scores={rm_faction=1..9}] run return 0
 execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"sigmarite"}}}},limit=1] run return 0
 execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"sigmarite"}}}},limit=1] Item.count
 execute if score #c rm_tmp matches ..5 run return 0
-execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"cristal"}}}},limit=1] run return 0
-execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"cristal"}}}},limit=1] Item.count
+execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_hysh"}},limit=1] run return 0
+execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_hysh"}},limit=1] Item.count
 execute if score #c rm_tmp matches ..1 run return 0
 execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"sigmarite"}}}},limit=1] run function royaumes:forge/retirer {n:6}
-execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"cristal"}}}},limit=1] run function royaumes:forge/retirer {n:2}
+execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_hysh"}},limit=1] run function royaumes:forge/retirer {n:2}
 loot spawn ~ ~0.6 ~ loot royaumes:forge/rune_sigmar
 particle minecraft:lava ~ ~0.8 ~ 0.3 0.3 0.3 0 12
 particle minecraft:enchant ~ ~1 ~ 0.4 0.6 0.4 0.5 40

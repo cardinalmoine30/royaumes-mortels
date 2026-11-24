@@ -1,42 +1,13 @@
 {
- "pools": [
-  {
-   "rolls": 1,
-   "entries": [
+  "pools": [
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Malepierre",
-         "color": "green",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Chaos solidifié. Ne surtout pas lécher.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:emerald",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "malepierre"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:malepierre"
         }
-       }
-      }
-     ]
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

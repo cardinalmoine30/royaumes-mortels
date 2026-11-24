@@ -1,10 +1,11 @@
-execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"ambre"}}}},limit=1] run return 0
-execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"ambre"}}}},limit=1] Item.count
+execute unless entity @p[distance=..8,scores={rm_faction=24..24}] run return 0
+execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_ghur"}},limit=1] run return 0
+execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_ghur"}},limit=1] Item.count
 execute if score #c rm_tmp matches ..0 run return 0
 execute unless entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:cooked_beef"}},limit=1] run return 0
 execute store result score #c rm_tmp run data get entity @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:cooked_beef"}},limit=1] Item.count
 execute if score #c rm_tmp matches ..3 run return 0
-execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:armadillo_scute",components:{"minecraft:custom_data":{rm:"ambre"}}}},limit=1] run function royaumes:forge/retirer {n:1}
+execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"royaumes:eclat_ghur"}},limit=1] run function royaumes:forge/retirer {n:1}
 execute as @e[type=minecraft:item,distance=..1.5,nbt={Item:{id:"minecraft:cooked_beef"}},limit=1] run function royaumes:forge/retirer {n:4}
 loot spawn ~ ~0.6 ~ loot royaumes:forge/festin_ogor
 particle minecraft:lava ~ ~0.8 ~ 0.3 0.3 0.3 0 12

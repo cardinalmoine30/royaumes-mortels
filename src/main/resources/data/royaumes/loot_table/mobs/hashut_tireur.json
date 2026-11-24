@@ -74,35 +74,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:armadillo_scute",
+          "name": "royaumes:pierre_royaumes_brute",
           "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Éclat de Royaume",
-                  "color": "light_purple",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Fragment cristallisé d'un Royaume Mortel.",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "Ressource des Royaumes",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:item_model": "minecraft:amethyst_shard",
-                "minecraft:rarity": "rare",
-                "minecraft:custom_data": {
-                  "rm": "eclat"
-                }
-              }
-            },
             {
               "type": "minecraft:set_count",
               "count": {
@@ -132,35 +105,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:armadillo_scute",
+          "name": "royaumes:eclat_aqshy",
           "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Braise d'Aqshy",
-                  "color": "red",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Elle ne s'éteint jamais.",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "Ressource des Royaumes",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:item_model": "minecraft:blaze_powder",
-                "minecraft:rarity": "rare",
-                "minecraft:custom_data": {
-                  "rm": "braise"
-                }
-              }
-            },
             {
               "type": "minecraft:set_count",
               "count": {

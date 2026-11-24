@@ -82,31 +82,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_helmet",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Heaume — Maggotkin de Nurgle",
-                  "color": "dark_green",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "head",
-                  "asset_id": "royaumes:nurgle",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:nurgle_casque_soldat"
         }
       ]
     },
@@ -115,31 +91,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_chestplate",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Carapace Pourrissante",
-                  "color": "dark_green",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "chest",
-                  "asset_id": "royaumes:nurgle",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:nurgle_torse_soldat"
         }
       ]
     },
@@ -148,31 +100,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_leggings",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Jambières — Maggotkin de Nurgle",
-                  "color": "dark_green",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "legs",
-                  "asset_id": "royaumes:nurgle",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:nurgle_jambes_soldat"
         }
       ]
     },
@@ -181,31 +109,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_boots",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Bottes — Maggotkin de Nurgle",
-                  "color": "dark_green",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Apparence de faction",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:equippable": {
-                  "slot": "feet",
-                  "asset_id": "royaumes:nurgle",
-                  "equip_sound": "minecraft:item.armor.equip_iron"
-                }
-              }
-            }
-          ]
+          "name": "royaumes:nurgle_bottes_soldat"
         }
       ]
     },

@@ -15,6 +15,10 @@
       "width": 400,
       "contents": [
         {
+          "text": "Armes et armures : à la Forge de guerre (bloc à fabriquer), qui n'ouvre que l'arsenal de ta faction et de ton alliance.\n",
+          "color": "yellow"
+        },
+        {
           "text": "Posez une Table de forgeron, puis lâchez-y (touche Q) les ingrédients. Ils fusionnent automatiquement.\n\n",
           "color": "gray"
         },
@@ -23,7 +27,7 @@
           "color": "gold"
         },
         {
-          "text": " : 3 Sigmarite Brute, 1 gold ingot\n",
+          "text": " : 3 Éclat d'Azyr, 1 lingots d'or\n",
           "color": "white"
         },
         {
@@ -31,7 +35,7 @@
           "color": "gold"
         },
         {
-          "text": " : 3 gold ingot, 2 lapis lazuli, 1 Éclat de Royaume\n",
+          "text": " : 3 lingots d'or, 2 lapis-lazuli, 1 Pierre des Royaumes brute\n",
           "color": "white"
         },
         {
@@ -39,7 +43,7 @@
           "color": "gold"
         },
         {
-          "text": " : 4 Éclat de Royaume, 1 ender pearl\n",
+          "text": " : 4 Pierre des Royaumes brute, 1 perle de l'Ender\n",
           "color": "white"
         },
         {
@@ -47,7 +51,7 @@
           "color": "gold"
         },
         {
-          "text": " : 3 Éclat de Royaume, 1 paper\n",
+          "text": " : 3 Pierre des Royaumes brute, 1 papier\n",
           "color": "white"
         },
         {
@@ -55,95 +59,55 @@
           "color": "gold"
         },
         {
-          "text": " : 16 Lingot de Sigmarite, 2 diamond\n",
-          "color": "white"
-        },
-        {
           "text": "• Armure du Fléau Noir (Chaos)",
           "color": "gold"
-        },
-        {
-          "text": " : 16 Éclat du Chaos, 2 netherite scrap\n",
-          "color": "white"
         },
         {
           "text": "• Armure de Nadirite (Mort)",
           "color": "gold"
         },
         {
-          "text": " : 16 Fragment d'Âme, 2 diamond\n",
-          "color": "white"
-        },
-        {
           "text": "• Armure de Ferraille Ironjawz (Destruction)",
           "color": "gold"
-        },
-        {
-          "text": " : 16 Ferraille d'Orruk, 4 Ambre de Ghur\n",
-          "color": "white"
         },
         {
           "text": "• Marteau de Sigmar",
           "color": "gold"
         },
         {
-          "text": " : 8 Lingot de Sigmarite, 2 Cristal de Hysh, 1 iron block\n",
-          "color": "white"
-        },
-        {
           "text": "• Lame Démoniaque",
           "color": "gold"
-        },
-        {
-          "text": " : 8 Éclat du Chaos, 2 Braise d'Aqshy, 1 iron block\n",
-          "color": "white"
         },
         {
           "text": "• Faux des Âmes",
           "color": "gold"
         },
         {
-          "text": " : 8 Fragment d'Âme, 2 Pierre-Ombre, 1 iron block\n",
-          "color": "white"
-        },
-        {
           "text": "• Choppa de Gork",
           "color": "gold"
-        },
-        {
-          "text": " : 10 Ferraille d'Orruk, 3 Ambre de Ghur, 1 iron block\n",
-          "color": "white"
         },
         {
           "text": "• Lame de Malepierre",
           "color": "gold"
         },
         {
-          "text": " : 6 Malepierre, 1 iron sword\n",
-          "color": "white"
-        },
-        {
-          "text": "• Arc de Lumière de Hysh",
+          "text": "• Arc de Lumière de Hysh [réservé : Lumineth]",
           "color": "gold"
         },
         {
-          "text": " : 6 Cristal de Hysh, 1 bow\n",
+          "text": " : 6 Éclat d'Hysh, 1 arc\n",
           "color": "white"
         },
         {
-          "text": "• Hache d'Ur-Or",
+          "text": "• Hache d'Éclat de Chamon",
           "color": "gold"
         },
         {
-          "text": " : 8 Ur-Or, 1 gold block\n",
-          "color": "white"
-        },
-        {
-          "text": "• Fusil à Aether",
+          "text": "• Fusil à Aether [réservé : Kharadron]",
           "color": "gold"
         },
         {
-          "text": " : 8 Aether-Or, 1 crossbow\n",
+          "text": " : 8 Éclat de Chamon, 1 arbalète\n",
           "color": "white"
         },
         {
@@ -151,15 +115,15 @@
           "color": "gold"
         },
         {
-          "text": " : 2 Graine de Vie, 2 glass bottle\n",
+          "text": " : 2 Éclat de Ghyran, 2 fioles\n",
           "color": "white"
         },
         {
-          "text": "• Élixir de Malepierre",
+          "text": "• Élixir de Malepierre [réservé : Skaven]",
           "color": "gold"
         },
         {
-          "text": " : 1 Malepierre, 1 glass bottle\n",
+          "text": " : 1 Malepierre, 1 fioles\n",
           "color": "white"
         },
         {
@@ -167,7 +131,7 @@
           "color": "gold"
         },
         {
-          "text": " : 2 Braise d'Aqshy, 1 glass bottle\n",
+          "text": " : 2 Éclat d'Aqshy, 1 fioles\n",
           "color": "white"
         },
         {
@@ -175,7 +139,7 @@
           "color": "gold"
         },
         {
-          "text": " : 2 Pierre-Ombre, 1 glass bottle\n",
+          "text": " : 2 Éclat d'Ulgu, 1 fioles\n",
           "color": "white"
         },
         {
@@ -183,23 +147,23 @@
           "color": "gold"
         },
         {
-          "text": " : 2 Cristal de Hysh, 1 glass bottle\n",
+          "text": " : 2 Éclat d'Hysh, 1 fioles\n",
           "color": "white"
         },
         {
-          "text": "• Festin d'Ogor ×2",
+          "text": "• Festin d'Ogor ×2 [réservé : Ogors]",
           "color": "gold"
         },
         {
-          "text": " : 1 Ambre de Ghur, 4 cooked beef\n",
+          "text": " : 1 Éclat de Ghur, 4 bœuf cuit\n",
           "color": "white"
         },
         {
-          "text": "• Talisman de Grimnir",
+          "text": "• Talisman de Grimnir [réservé : Fyreslayers]",
           "color": "gold"
         },
         {
-          "text": " : 6 Ur-Or, 2 gold ingot\n",
+          "text": " : 6 Éclat de Chamon, 2 lingots d'or\n",
           "color": "white"
         },
         {
@@ -207,7 +171,7 @@
           "color": "gold"
         },
         {
-          "text": " : 6 Ambre de Ghur, 2 gold ingot\n",
+          "text": " : 6 Éclat de Ghur, 2 lingots d'or\n",
           "color": "white"
         },
         {
@@ -215,15 +179,15 @@
           "color": "gold"
         },
         {
-          "text": " : 6 Pierre-Ombre, 2 gold ingot\n",
+          "text": " : 6 Éclat d'Ulgu, 2 lingots d'or\n",
           "color": "white"
         },
         {
-          "text": "• Cœur de Cristal de Hysh",
+          "text": "• Cœur de Éclat d'Hysh",
           "color": "gold"
         },
         {
-          "text": " : 6 Cristal de Hysh, 2 gold ingot\n",
+          "text": " : 6 Éclat d'Hysh, 2 lingots d'or\n",
           "color": "white"
         },
         {
@@ -231,7 +195,7 @@
           "color": "gold"
         },
         {
-          "text": " : 6 Lingot de Sigmarite, 2 Cristal de Hysh\n",
+          "text": " : 6 Lingot de Sigmarite, 2 Éclat d'Hysh\n",
           "color": "white"
         },
         {
@@ -247,7 +211,7 @@
           "color": "gold"
         },
         {
-          "text": " : 24 Fragment d'Âme, 4 Éclat de Royaume\n",
+          "text": " : 24 Éclat de Shyish, 4 Pierre des Royaumes brute\n",
           "color": "white"
         },
         {
@@ -255,7 +219,7 @@
           "color": "gold"
         },
         {
-          "text": " : 24 Éclat du Chaos, 4 Éclat de Royaume\n",
+          "text": " : 24 Éclat du Chaos, 4 Pierre des Royaumes brute\n",
           "color": "white"
         },
         {
@@ -263,7 +227,7 @@
           "color": "gold"
         },
         {
-          "text": " : 24 Ferraille d'Orruk, 8 Ambre de Ghur\n",
+          "text": " : 24 Ferraille d'Orruk, 8 Éclat de Ghur\n",
           "color": "white"
         },
         {
@@ -271,7 +235,7 @@
           "color": "gold"
         },
         {
-          "text": " : 24 Braise d'Aqshy, 4 Éclat du Chaos\n",
+          "text": " : 24 Éclat d'Aqshy, 4 Éclat du Chaos\n",
           "color": "white"
         },
         {
@@ -279,7 +243,7 @@
           "color": "gold"
         },
         {
-          "text": " : 24 Malepierre, 4 Éclat de Royaume\n",
+          "text": " : 24 Malepierre, 4 Pierre des Royaumes brute\n",
           "color": "white"
         },
         {
@@ -287,7 +251,7 @@
           "color": "gold"
         },
         {
-          "text": " : 16 Graine de Vie, 8 Éclat du Chaos\n",
+          "text": " : 16 Éclat de Ghyran, 8 Éclat du Chaos\n",
           "color": "white"
         }
       ]

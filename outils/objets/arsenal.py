@@ -55,8 +55,15 @@ ATOUTS = {"foudre": "Foudre : la cible est frappée par l'éclair", "feu": "Bras
           "fletri": "Flétrissure : flétrit la cible", "vol_de_vie": "Vol de vie : te soigne à chaque coup", "lenteur": "Entrave : ralentit fortement la cible",
           "recul": "Fracas : projette la cible au loin", "aveugle": "Éclat : aveugle la cible", "faiblesse": "Brise-garde : affaiblit la cible"}
 # stats : (dégâts en plus, vitesse) selon le type, champion (netherite) / lignée (diamant)
-STATS = {"epee": ((6.0, -2.4), (3.5, -2.4)), "hache": ((8.0, -3.0), (5.0, -3.0)), "marteau": ((9.0, -3.2), (5.5, -3.1)),
-         "lance": ((6.5, -2.6), (4.0, -2.5)), "faux": ((7.5, -2.8), (4.5, -2.7)), "baton": ((5.0, -2.2), (3.0, -2.0))}
+STATS = {"epee": ((4.5, -2.4), (3.5, -2.4)), "hache": ((6.0, -3.0), (5.0, -3.0)), "marteau": ((7.0, -3.2), (5.5, -3.1)),
+         "lance": ((5.0, -2.6), (4.0, -2.5)), "faux": ((5.5, -2.8), (4.5, -2.7)), "baton": ((3.5, -2.2), (3.0, -2.0))}
+EN_FACTIONS = {"stormcast": "Stormcast", "cites": "Freeguild", "fyreslayers": "Fyreslayer", "kharadron": "Kharadron", "khaine": "Khainite",
+               "idoneth": "Idoneth", "lumineth": "Lumineth", "seraphon": "Seraphon", "sylvaneth": "Sylvaneth", "esclaves": "Chaos Warrior",
+               "khorne": "Khornate", "tzeentch": "Tzeentchian", "slaanesh": "Hedonite", "nurgle": "Nurglite", "skaven": "Skaven",
+               "hashut": "Hashutite", "nighthaunt": "Nighthaunt", "soulblight": "Soulblight", "ossiarch": "Ossiarch", "fec": "Ghoul",
+               "ironjawz": "Ironjawz", "kruleboyz": "Kruleboyz", "gitz": "Gloomspite", "ogors": "Ogor", "behemat": "Gargant"}
+EN_TYPES = {"epee": "Sword", "hache": "Axe", "marteau": "Hammer", "lance": "Spear", "faux": "Scythe", "baton": "Staff"}
+EN_PIECES = {"casque": "Helmet", "torse": "Chestplate", "jambes": "Leggings", "bottes": "Boots"}
 PIECES = ["casque", "torse", "jambes", "bottes"]
 
 
@@ -98,7 +105,7 @@ def lignes(f):
             oid = "%s_%s_%s" % (fid, piece, tid)
             prec = "royaumes:%s_%s_%s" % (fid, piece, TIERS[t - 1][0]) if t else None
             if t == 0:
-                r = [("minecraft:iron_ingot", FER_ARMURE[i]), (ea, 1)]
+                r = [("minecraft:iron_ingot", FER_ARMURE[i]), ("royaumes:pierre_royaumes_brute", 2)]
             elif t == 1:
                 r = [(prec, 1), ("minecraft:diamond", 3 if i in (1, 2) else 2), (ea, 3), (eb, 2)]
             else:
@@ -108,7 +115,7 @@ def lignes(f):
             oid = "%s_%s_%s" % (al, o, tid)
             prec = "royaumes:%s_%s_%s" % (al, o, TIERS[t - 1][0]) if t else None
             if t == 0:
-                r = [("minecraft:iron_ingot", FER_OUTIL[o]), ("minecraft:stick", BATON_OUTIL[o]), (ea, 1)]
+                r = [("minecraft:iron_ingot", FER_OUTIL[o]), ("minecraft:stick", BATON_OUTIL[o]), ("royaumes:pierre_royaumes_brute", 1)]
             elif t == 1:
                 r = [(prec, 1), ("minecraft:diamond", 1 if o == "pelle" else 2), (eb, 2)]
             else:
@@ -568,13 +575,13 @@ def main():
                 "cases": [{"when": ["gui", "ground", "fixed"], "model": {"type": "minecraft:model", "model": "royaumes:item/" + oid}}],
                 "fallback": {"type": "minecraft:model", "model": "royaumes:item/" + oid + "_3d"}}})
             fr["item.royaumes." + oid] = nom
-            en["item.royaumes." + oid] = nom
+            en["item.royaumes." + oid] = "%s %s %s" % (EN_FACTIONS[fid], "Champion" if champion else "Lineage", EN_TYPES[type_])
         for t, (tid, tnom) in enumerate(TIERS):
             for piece, nom in zip(PIECES, pieces):
                 oid = "%s_%s_%s" % (fid, piece, tid)
                 item_plat(oid, icone_armure(piece, fid, t))
                 fr["item.royaumes." + oid] = "%s (%s)" % (nom, tnom)
-                en["item.royaumes." + oid] = "%s (%s)" % (nom, tnom)
+                en["item.royaumes." + oid] = "%s %s (%s)" % (EN_FACTIONS[fid], EN_PIECES[piece], ["Soldier", "Elite", "Legend"][t])
             armure_portee(fid, t)
         L = lignes(f)
         noms = {}
@@ -596,8 +603,10 @@ def main():
         java["ingr"].append([",".join("%s*%d" % (i, n) for i, n in x[2]) for x in L])
         java["atout"].append(atout)
         java["bonus"].append(bonus)
-    fr.update({"block.royaumes.forge_de_guerre": "Forge de guerre", "royaumes.forge.titre": "Forge de guerre"})
-    en.update({"block.royaumes.forge_de_guerre": "War Forge", "royaumes.forge.titre": "War Forge"})
+    fr.update({"block.royaumes.forge_de_guerre": "Forge de guerre", "royaumes.forge.titre": "Forge de guerre",
+               "itemGroup.royaumes.arsenal": "Royaumes — Arsenal des factions"})
+    en.update({"block.royaumes.forge_de_guerre": "War Forge", "royaumes.forge.titre": "War Forge",
+               "itemGroup.royaumes.arsenal": "Realms — Faction Arsenal"})
     for lang, d in (("fr_fr", fr), ("en_us", en)):
         p = os.path.join(ASSETS, "lang", lang + ".json")
         old = json.load(open(p, encoding="utf-8"))

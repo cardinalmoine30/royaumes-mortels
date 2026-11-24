@@ -132,9 +132,14 @@ public final class ModObjets {
                 .displayItems((params, sortie) -> {
                     sortie.accept(MARTEAU.get());
                     RELIQUES.values().forEach(r -> sortie.accept(r.get()));
+                    depuisDatapack(params, sortie, "armes");
+                }).build());
+        ONGLETS.register("arsenal", () -> CreativeModeTab.builder()
+                .title(Component.translatable("itemGroup.royaumes.arsenal"))
+                .icon(() -> new ItemStack(BLOCS_PAR_ID.get("forge_de_guerre").get()))
+                .displayItems((params, sortie) -> {
                     sortie.accept(BLOCS_PAR_ID.get("forge_de_guerre").get());
                     fr.royaumes.arsenal.Arsenal.TOUS.forEach(o -> sortie.accept(o.get()));
-                    depuisDatapack(params, sortie, "armes");
                 }).build());
         ONGLETS.register("magie", () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.royaumes.magie"))

@@ -1,42 +1,13 @@
 {
- "pools": [
-  {
-   "rolls": 1,
-   "entries": [
+  "pools": [
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Fragment d'Âme",
-         "color": "dark_aqua",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Un murmure de Shyish emprisonné.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:echo_shard",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ame"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "royaumes:eclat_shyish"
         }
-       }
-      }
-     ]
+      ]
     }
-   ]
-  }
- ]
+  ]
 }
