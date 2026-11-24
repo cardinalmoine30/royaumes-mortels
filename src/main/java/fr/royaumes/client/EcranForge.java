@@ -18,7 +18,7 @@ import net.minecraft.world.item.ItemStack;
 /** Forge de guerre : seules les 6 pièces de l'arsenal de TA faction, avec leurs matériaux (éclats de Royaumes étrangers). */
 public class EcranForge extends Screen {
     private static final int PW = 460;
-    private static final int PH = 262;
+    private static final int PH = 286;
     private static final String[] ONGLETS = {"Soldat", "Élite", "Légende", "Mythique", "Divin", "Armes"};
     private static final int ARMES = ArsenalGenere.PALIERS.length * 9;
     private static final int[] COULEURS_PALIERS = {0xFFC8CAD2, 0xFF96D7E6, 0xFFF5CD50, 0xFF5AE6FF, 0xFFFFF5DC, 0xFFFFAA00};
@@ -144,8 +144,7 @@ public class EcranForge extends Screen {
         int req = requis(l[0]);
         String rq = onglet == 5 ? "Lignée niv. " + requis(ARMES) + " · Champion niv. " + requis(ARMES + 1) + " · Ascension niv. " + requis(ARMES + 2)
                 : "Niveau de héros requis : " + req;
-        g.text(this.font, rq + "  (toi : " + niveau() + ")", px + PW - 12 - this.font.width(rq + "  (toi : " + niveau() + ")"), py + 4,
-                niveau() >= req ? 0xFF9EE69A : 0xFFFF6B6B, true);
+        g.centeredText(this.font, rq + "  (toi : " + niveau() + ")", px + PW / 2, py + PH - 14, niveau() >= req ? 0xFF9EE69A : 0xFFFF6B6B);
         for (int k = 0; k < l.length; k++) {
             int ligne = l[k];
             int y = py + 40 + k * 22;
@@ -178,7 +177,6 @@ public class EcranForge extends Screen {
             case 4 -> "Divin : étoile du Nether et âmes de seigneurs. Panoplie : +2 niveaux, 8 cœurs, régénération.";
             default -> "Lignée : atout à chaque coup. Champion puis Ascension : forgés à partir de l'arme précédente.";
         };
-        g.centeredText(this.font, aide, px + PW / 2, py + PH - 26, 0xFFE6D3A8);
-        g.centeredText(this.font, "Les éclats viennent de Royaumes étrangers : il faudra voyager ou commercer.", px + PW / 2, py + PH - 13, 0xFF9AA0B8);
+        g.centeredText(this.font, aide, px + PW / 2, py + PH - 28, 0xFFE6D3A8);
     }
 }

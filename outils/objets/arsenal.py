@@ -265,7 +265,7 @@ def teintes(fid, t):
     if t == 3:  # mythique : couleurs profondes, runes arcaniques cyan
         return tuple(int(v * 0.8) for v in c1), (90, 230, 255)
     if t == 4:  # divin : métal blanc-or, couleurs de faction éclaircies
-        return mix(c1, (255, 250, 235), 0.45), (255, 225, 110)
+        return mix(c1, (255, 245, 215), 0.25), (255, 225, 110)
     if t == 0:  # soldat : fer teinté, sans or
         return mix(c1, (170, 172, 180), 0.55), mix(c1, (120, 122, 130), 0.4)
     if t == 2:  # légende : couleurs vives, liserés d'or
@@ -505,7 +505,8 @@ def retoucher(im, tier, c2):
             elif tier == 3:
                 r, g, b = mix((r, g, b), (int(r * 0.7), int(g * 0.75), int(b * 0.95)), 0.6)
             elif tier == 4:
-                r, g, b = mix((r, g, b), (255, 250, 235), 0.4)
+                r, g, b = mix((r, g, b), (255, 245, 215), 0.22)
+                r, g, b = (min(255, int(v * 1.08)) for v in (r, g, b))
             px[x, y] = (int(r), int(g), int(b), a)
     if tier >= 2:  # liserés : or (Légende), runes cyan (Mythique), or blanc (Divin)
         liseré = {2: (245, 205, 80), 3: (90, 230, 255), 4: (255, 225, 110)}[tier]

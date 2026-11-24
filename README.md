@@ -42,21 +42,36 @@ Au cœur de l'antre, l'Autel des Seigneurs éveille le sceau forgé : le seigneu
 Sceptre de Nagash (Armée des Morts, Main de Nagash), Pourfendeuse des Rois d'Archaon, Krokfendeur de Gordrakk, Massacre et
 Carnage de Skarbrand, Bâton de malefeu de Thanquol, Bâton de pluie de Rotigus.
 
-**Arsenal et Forge de guerre (0.12).** 410 objets, tous forgés à la **Forge de guerre** (or, enclume, obsidienne, pierre
-des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Trois paliers, chacun forgé à partir de la pièce
-du palier précédent (refondue) :
-- **Soldat** (fer + pierre des Royaumes, dès le début) → **Élite** (pièce Soldat + diamants + éclats de **deux Royaumes étrangers**)
-  → **Légende** (pièce Élite + netherite + éclats étrangers + pierre). Le serment donne l'armure Soldat de ta faction.
-- **Armure de faction** en 4 pièces par palier (défense fer / diamant / netherite). Panoplie complète portée par un
-  héros de la faction : Soldat = premier effet, Élite = tous les effets, Légende = tous les effets un niveau au-dessus.
-- **Outils d'alliance** (pioche, pelle, hache, houe, épée), communs aux factions d'une Grande Alliance, chacune avec sa forme et ses
-  métaux (Ordre : acier, sigmarite, or ; Chaos : fer noir, airain, métal démoniaque ; Mort : os, fer de tombe, nadirite ;
-  Destruction : fer rouillé, bronze brut, ferraille Waaagh), avec un effet en main
-  qui monte avec le palier : Ordre (célérité, vitesse, résistance, régénération ; épée affaiblissante, foudre en Légende),
-  Chaos (célérité, résistance au feu, force, chance ; épée de feu), Mort (vision nocturne, célérité, résistance, chance ;
-  épée vampirique), Destruction (célérité, vitesse, force, vie bonus ; épée qui projette).
-- **Armes de faction** : arme de lignée (atout à chaque coup) puis arme de champion, forgée à partir de l'arme de lignée
-  (très puissante, atout une fois sur quatre). Modèles 3D en main.
+**Arsenal et Forge de guerre.** 675 objets, tous forgés à la **Forge de guerre** (or, enclume, obsidienne, pierre des
+Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance et exige un **niveau de héros** par palier. Cinq paliers,
+chacun forgé à partir de la pièce du palier précédent (refondue) :
+
+| Palier | Niveau | Coût principal | Défense de l'armure | Panoplie complète |
+|---|---|---|---|---|
+| Soldat | 1 | fer + pierre des Royaumes | 15 (fer) | premier effet de faction |
+| Élite | 8 | diamants + éclats de deux Royaumes étrangers | 20 (diamant) | tous les effets |
+| Légende | 16 | netherite + cristal arcanique + éclats | 24, robustesse 4 | +1 niveau d'effets |
+| Mythique | 25 | **âmes de seigneur** + netherite + éclats | 27, robustesse 5 | +1 niveau, +4 cœurs |
+| Divin | 35 | **étoile du Nether** + âmes + netherite + éclats | 30 (le maximum du jeu), robustesse 6 | +2 niveaux, +8 cœurs, régénération |
+
+- **Outils d'alliance** (pioche, pelle, hache, houe, épée) sur les mêmes cinq paliers, avec des métaux au-dessus de la netherite
+  (Légende 2800 utilisations, Mythique 3800, Divin 5200 et minage 2× plus rapide). Chaque alliance a sa forme et ses métaux
+  (Ordre : acier, sigmarite, or, aether, étoile d'Azyr ; Chaos : fer noir, airain, métal démoniaque, warpfer, feu des Dieux ;
+  Mort : os, fer de tombe, nadirite, âme, pâleur de Nagash ; Destruction : rouille, bronze, ferraille Waaagh, ferraille de feu,
+  or de Gork) et un effet en main qui monte avec le palier.
+- **Armes de faction** : lignée (niv. 8, atout à chaque coup) → champion (niv. 16, atout 1 coup sur 4) → **ascension** (niv. 35,
+  étoile du Nether et 4 âmes, atout 1 coup sur 2 renforcé). Modèles 3D en main.
+- **Âmes de seigneur** : 2 à 3 par seigneur vaincu, +1 par héros supplémentaire au combat.
+
+**Saga du Héros (0.14).** 23 quêtes qui servent de fil rouge et de tutoriel, affichées en haut à gauche avec leur progrès :
+serment, camp, premier bâtiment, premier sang, armure Soldat, magie, capacité, niveau 8, premier Royaume, éclat étranger, Élite,
+raid, Œil de seigneur, premier seigneur, Légende, Mythique, Divin, jusqu'à l'**Ascension** de ton arme. Chaque étape rapporte de la
+gloire et des objets. Ensuite, des **Contrats de chasse** renouvelables (abattre N guerriers d'une alliance ennemie) récompensent
+gloire, éclats et pierre des Royaumes.
+
+**Seigneurs : phase finale (0.14).** Sous 25 % de vie, un seigneur appelle des renforts, frappe plus souvent et fait tomber des
+**frappes annoncées** : un cercle de flammes apparaît sous chaque héros, l'impact suit 1,5 s plus tard (10 dégâts, projection).
+Il faut bouger. Les seigneurs apparus par œuf ou commande ont leur propre barre de vie et leurs trois phases.
 
 **Une seule économie (0.13).** Les matériaux des Royaumes sont les objets du mod : pierre des Royaumes brute (minerai du
 monde de base), éclats des huit Vents (minerais de chaque Royaume, butin des créatures et coffres de ce Royaume, raids) et
@@ -81,6 +96,7 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | ![Carte des Royaumes](outils/visuels/apercus/carte_royaumes.png) | ![Guide de la magie](outils/visuels/apercus/guide_magie.png) |
 | ![Skins des factions](outils/skins/apercus/planche_skins.png) | ![Onglets créatifs](outils/visuels/apercus/onglets_creatifs.png) |
 | ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Paliers](outils/visuels/apercus/arsenal/paliers.png) |
+| ![Forge de guerre](outils/visuels/apercus/jeu/maquette_forge.png) | ![Saga et seigneur](outils/visuels/apercus/jeu/maquette_saga.png) |
 
 ## Générateurs (dossier `outils/`)
 
