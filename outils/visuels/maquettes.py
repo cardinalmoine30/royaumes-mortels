@@ -137,7 +137,14 @@ def serment(choix=0, survol=11):
     d.rectangle(((qx + 8) * K, (qy + 28) * K, (qx + 60) * K, (qy + 116) * K), fill=(10, 16, 32), outline=(120, 92, 36), width=K // 2 + 1)
     poupee(skin, qx + 14, qy + 32, 2.5)
     coller(img, embleme(survol - 1), qx + 66, qy + 28, 24, 24)
-    yy = paragraphe(d, qx + 66, qy + 56, f["desc"], 106, 6, PARCH, 8)
+    sys.path.insert(0, os.path.join(ICI, "..", "objets"))
+    from capacites import CAPACITES
+    from objets import VENTS, vent_de_royaume
+    v = VENTS[vent_de_royaume(f["royaume"])]
+    texte(d, qx + 94, qy + 36, "Vent : " + v[1], 6, v[2], serif=False)
+    cap = CAPACITES[f["id"]]
+    texte(d, qx + 66, qy + 56, "[R] " + cap[0], 6, OR_C, gras=True, serif=False)
+    yy = paragraphe(d, qx + 66, qy + 65, cap[1], 106, 6, (191, 178, 230), 8)
     yy = qy + 122
     texte(d, qx + 8, yy, "Dons", 7, VERT, gras=True)
     yy = paragraphe(d, qx + 8, yy + 10, f["bonus"], qw - 16, 6, (200, 230, 190), 8)
