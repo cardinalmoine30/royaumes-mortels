@@ -63,3 +63,8 @@ grep -nE 'ERROR|Exception|Caused by|Failed to|Unknown function|Couldn.t (load|pa
 if [ "$PRET" != "1" ]; then echo "Le serveur n'a pas démarré"; exit 1; fi
 grep -q ROYAUMES_OK "$SORTIE/console.log" || { echo "Le mod ne s'est pas chargé"; exit 1; }
 echo "Serveur de test OK"
+# Plantages de génération du monde ou du serveur pendant les tests
+if grep -qE 'Feature order cycle|Exception generating new chunk|Considering it to be crashed' "$SORTIE/console.log" logs/latest.log 2>/dev/null; then
+  echo "Le serveur a planté pendant les tests (génération du monde ?)"; exit 1
+fi
+grep -q 'Autel seigneurs OK' "$SORTIE/console.log" || { echo "Les commandes de test ne sont pas allées au bout"; exit 1; }
