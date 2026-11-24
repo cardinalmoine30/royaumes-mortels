@@ -23,11 +23,21 @@ public class EcranCamp extends Screen {
     private static final String[] RAIDS = {"Pillage", "Assaut", "Croisade"};
     private static final int[] DUREE = {2, 5, 10};
     private static final int[] DIFF = {15, 40, 90};
+    private static final int[] DEBLOQUEES = {0, 2, 3, 5, 6, 8};
     private int px;
     private int py;
 
     public EcranCamp() {
         super(Component.literal("Camp de guerre"));
+    }
+
+    static int niveauRequis(int i) {
+        for (int n = 1; n < DEBLOQUEES.length; n++) {
+            if (DEBLOQUEES[n] > i) {
+                return n;
+            }
+        }
+        return 5;
     }
 
     static FicheCamp f() {
@@ -121,7 +131,7 @@ public class EcranCamp extends Screen {
             g.fill(qx + 6, y - 2, qx + 178, y + 20, ouvert ? 0x40D4A63A : 0x40000000);
             Component nom = Component.translatable("entity.royaumes." + fc.recrues().get(i));
             g.text(this.font, nom, qx + 10, y + 1, ouvert ? 0xFFF0E6D2 : 0xFF707070, true);
-            g.text(this.font, ouvert ? fc.couts().get(i) + " butin" : "Niveau " + Math.max(2, i), qx + 10, y + 11,
+            g.text(this.font, ouvert ? fc.couts().get(i) + " butin" : "Camp niveau " + niveauRequis(i), qx + 10, y + 11,
                     ouvert ? 0xFFF2D27A : 0xFF707070, false);
         }
     }

@@ -124,8 +124,11 @@ public final class Camps {
 
     /** Nombre de types d'unités débloqués au niveau donné. */
     public static int debloquees(int niveau) {
-        return Math.min(8, 1 + niveau);
+        return DEBLOQUEES[Math.max(0, Math.min(NIVEAU_MAX, niveau))];
     }
+
+    /** Types d'unités débloqués par niveau de camp (0 à 5). */
+    public static final int[] DEBLOQUEES = {0, 2, 3, 5, 6, 8};
 
     // ------------------------------------------------------------------ lieu du camp
 
