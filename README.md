@@ -80,6 +80,18 @@ la Saga du Héros a une étape pour la choisir.
 **frappes annoncées** : un cercle de flammes apparaît sous chaque héros, l'impact suit 1,5 s plus tard (10 dégâts, projection).
 Il faut bouger. Les seigneurs apparus par œuf ou commande ont leur propre barre de vie et leurs trois phases.
 
+**Équilibrage (0.16).** `outils/equilibrage/simulation.py` calcule, avec les formules de Minecraft, combien de coups un héros
+encaisse selon son équipement. En 0.15 la panoplie Divine encaissait 185 coups d'un guerrier et 69 d'un seigneur (Résistance III,
+Régénération, 30 d'armure) : immortelle. Désormais Résistance et Régénération de panoplie plafonnent au niveau I, Mythique et Divin
+gardent une défense proche de Légende (24-25) et gagnent des cœurs, les seigneurs frappent +30 % par palier d'armure au-dessus
+d'Élite, et les guerriers ne frappent moins fort que les héros sous le niveau 20. Résultat : 69 coups d'un guerrier, 18 d'un
+seigneur. Les hauts paliers apportent plutôt des **pouvoirs d'outils** : pioche et pelle qui creusent 2, 3 puis 5 blocs en ligne,
+hache qui abat l'arbre entier, houe qui laboure en 3×3 ou 5×5, épée qui fend les ennemis autour (accroupi : effet normal).
+
+**Objets dessinés (0.16).** Chacun des 58 objets nommés du datapack (armes de départ, sceaux, élixirs, matériaux, Pierre de Royaume,
+Corne d'appel…) a sa propre icône (`outils/objets/designs.py`) ; les doublons ont été retirés (œufs de zombie déguisés, trophées de
+boss qui faisaient double emploi avec les reliques, armes de départ portant le nom d'une arme de l'arsenal).
+
 **Une seule économie (0.13).** Les matériaux des Royaumes sont les objets du mod : pierre des Royaumes brute (minerai du
 monde de base), éclats des huit Vents (minerais de chaque Royaume, butin des créatures et coffres de ce Royaume, raids) et
 malepierre. Les éclats ne se fabriquent pas : ton camp (sanctuaire) produit ceux de ton Vent, les autres se gagnent en voyageant,
@@ -104,7 +116,8 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | ![Skins des factions](outils/skins/apercus/planche_skins.png) | ![Onglets créatifs](outils/visuels/apercus/onglets_creatifs.png) |
 | ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Paliers](outils/visuels/apercus/arsenal/paliers.png) |
 | ![Forge de guerre](outils/visuels/apercus/jeu/maquette_forge.png) | ![Saga et seigneur](outils/visuels/apercus/jeu/maquette_saga.png) |
-| ![Voie du héros](outils/visuels/apercus/jeu/maquette_voies.png) | |
+| ![Voie du héros](outils/visuels/apercus/jeu/maquette_voies.png) | ![Équilibrage](outils/equilibrage/equilibrage.png) |
+| ![Objets du datapack](outils/visuels/apercus/arsenal/objets_datapack.png) | |
 
 ## Générateurs (dossier `outils/`)
 
