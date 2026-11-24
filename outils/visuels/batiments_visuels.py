@@ -43,7 +43,7 @@ def rendu(b, ciel=((90, 120, 170), (190, 205, 225)), taille=(640, 520)):
         chemin, e = tex(bid)
         s.bloc(x, y, z, chemin, emissif=e)
     hmax = max(k[1] for k in b)
-    img = s.rendre((9, 7 + hmax * 0.45, -13), (0, hmax * 0.4, 0), fov=50)
+    img = s.rendre((9 + hmax * 0.4, 7 + hmax * 0.55, -13 - hmax * 0.6), (0, hmax * 0.4, 0), fov=50)
     scenes.W, scenes.H = 1280, 720
     return img
 

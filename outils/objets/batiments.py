@@ -165,6 +165,56 @@ def interieur(P, bat, n, r, h):
             P.mettre(-1, 0, r - 1, "minecraft:fletching_table")
 
 
+def signature(P, bat, n, r, h):
+    """Silhouette propre à chaque bâtiment, visible de l'extérieur (quel que soit le style)."""
+    hauteur_toit = h + r + 1
+    if bat == "forge":  # cheminée fumante et appentis du forgeron
+        for y in range(h, hauteur_toit + 2 + n):
+            P.mettre(-r + 1, y, r - 1, "mur")
+        P.mettre(-r + 1, hauteur_toit + 2 + n, r - 1, "minecraft:campfire")
+        for z in (-1, 1):
+            P.mettre(r + 2, 0, z, "pilier")
+            P.mettre(r + 2, 1, z, "pilier")
+        P.boite(r + 1, 2, -1, r + 2, 2, 1, "toit")
+        P.mettre(r + 1, 0, 0, "minecraft:anvil")
+        if n >= 2:
+            P.mettre(r + 1, 0, -1, "minecraft:lava_cauldron")
+        if n >= 3:
+            P.mettre(r + 1, 0, 1, "minecraft:blast_furnace")
+    elif bat == "ferme":  # champs, meules de foin et clôtures
+        for x in (r + 1, r + 2):
+            for z in range(-r, r + 1):
+                P.mettre(x, -1, z, "minecraft:farmland")
+                P.mettre(x, 0, z, "minecraft:wheat" if (z + n) % 3 else "minecraft:carrots")
+        for y in range(n + 1):
+            P.mettre(-r - 1, y, r, "minecraft:hay_block")
+        P.mettre(-r - 1, 0, r - 1, "minecraft:hay_block")
+        for z in (-r - 1, r + 1):
+            P.mettre(r + 2, 0, z, "minecraft:oak_fence")
+            P.mettre(r + 1, 0, z, "minecraft:oak_fence")
+    elif bat == "sanctuaire":  # flèche de cristal lumineux et vitraux
+        for y in range(hauteur_toit, hauteur_toit + 2 + n):
+            P.mettre(0, y, 0, "royaumes:cristal_de_hysh")
+        P.mettre(0, hauteur_toit + 2 + n, 0, "royaumes:pierre_de_lumiere")
+        for z in (-1, 0, 1):
+            if h > 2:
+                P.mettre(-r, 1, z, "minecraft:purple_stained_glass")
+                P.mettre(r, 1, z, "minecraft:purple_stained_glass")
+        P.mettre(-1, 0, -r - 1, "royaumes:cristal_de_hysh")
+        P.mettre(1, 0, -r - 1, "royaumes:cristal_de_hysh")
+    elif bat == "caserne":  # cour d'entraînement à l'arrière et mât d'étendard
+        for x in range(-r, r + 1):
+            P.mettre(x, 0, r + 2, "minecraft:oak_fence")
+        for x in (-1, 1):
+            P.mettre(x, 0, r + 1, "minecraft:hay_block")
+            P.mettre(x, 1, r + 1, "minecraft:carved_pumpkin")
+        P.mettre(r - 1 if r > 2 else 0, 0, r + 1, "minecraft:target")
+        for y in range(h + 4):
+            P.mettre(-r - 1, y, -r - 1, "pilier")
+        P.mettre(-r - 1, h + 4, -r - 1, "faite")
+        P.mettre(-r - 2, h + 3, -r - 1, "faite")
+
+
 def tour(P, n):
     hauteur = {1: 6, 2: 10, 3: 14}[n]
     P.boite(-2, -1, -2, 2, -1, 2, "sol")
@@ -210,6 +260,7 @@ def plan(bat, n, style):
         coque(P, r, h)
         toit(P, r, h)
         interieur(P, bat, n, r, h)
+        signature(P, bat, n, r, h)
         if n >= 3:  # annexe/ornement de niveau 3
             P.mettre(-r - 1, 0, -r - 1, "pilier")
             P.mettre(r + 1, 0, -r - 1, "pilier")
