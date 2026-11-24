@@ -9,7 +9,7 @@ execute positioned 0 120 0 run function royaumes:boss/nagash/invoquer
 attendre 5
 execute if entity @e[type=royaumes:nagash] run say Nagash OK
 bossbar get royaumes:nagash max
-damage @e[type=royaumes:nagash,limit=1] 700 minecraft:generic
+damage @e[type=royaumes:nagash,limit=1] 400 minecraft:generic
 attendre 1
 execute if entity @e[type=royaumes:nagash] run say Phase finale OK
 kill @e[type=royaumes:nagash]
