@@ -174,7 +174,11 @@ public class Combattant extends PathfinderMob implements GeoEntity {
             return;
         }
         Profil p = profil();
-        if (p.boss() && this.tickCount == 3 && !this.entityTags().contains("rm_appele")) {
+        // invoqué : œuf ou commande (rm_appele), ou sceau posé sur l'Autel des Seigneurs (rm_boss posé par le datapack,
+        // sans la marque rm_c des anciens marqueurs de structure)
+        boolean appele = this.entityTags().contains("rm_appele")
+                || (this.entityTags().contains("rm_boss") && !this.entityTags().contains("rm_c") && !this.entityTags().contains("rm_spawn"));
+        if (p.boss() && this.tickCount == 3 && !appele) {
             // boss posé par une structure : il laisse place à l'Autel des Seigneurs, où l'on doit l'invoquer
             var autel = fr.royaumes.ModObjets.BLOCS_PAR_ID.get("autel_des_seigneurs");
             net.minecraft.core.BlockPos pos = this.blockPosition();
@@ -192,7 +196,7 @@ public class Combattant extends PathfinderMob implements GeoEntity {
             }
             sb.addPlayerToTeam(this.getScoreboardName(), equipe);
         }
-        if (p.boss() && this.entityTags().contains("rm_appele")) {
+        if (p.boss() && appele) {
             Seigneurs.tick(this, niveau);
         }
         if (rechargeAttaque > 0) rechargeAttaque--;

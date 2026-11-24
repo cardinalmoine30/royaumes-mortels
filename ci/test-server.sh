@@ -69,4 +69,6 @@ if grep -qE 'Feature order cycle|Exception generating new chunk|Considering it t
 fi
 grep -q 'Autel seigneurs OK' "$SORTIE/console.log" || { echo "Les commandes de test ne sont pas allées au bout"; exit 1; }
 grep -q 'Forge de guerre OK' "$SORTIE/console.log" || { echo "La Forge de guerre n'est pas posée"; exit 1; }
+grep -q 'Nagash OK' "$SORTIE/console.log" || { echo "Un seigneur invoqué à l'autel a disparu"; exit 1; }
+grep -q 'Phase finale OK' "$SORTIE/console.log" || { echo "Le seigneur n'a pas survécu à sa phase finale"; exit 1; }
 if grep -qE 'Failed to load function|Couldn.t (load|parse)|Failed to parse|Unknown function|Error loading' "$SORTIE/console.log"; then echo "Erreur de chargement du datapack"; exit 1; fi
