@@ -18,15 +18,13 @@
     "tuer": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:archaon"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:archaon"
           }
-        ]
+        }
       }
     }
   },

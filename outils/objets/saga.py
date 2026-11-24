@@ -68,13 +68,13 @@ def main():
     av("voyageur", "royaume_chamon", "minecraft:recovery_compass", "Voyageur des Royaumes", "Visiter les huit Royaumes Mortels.",
        {v: {"trigger": "minecraft:changed_dimension", "conditions": {"to": DIMS[v]}} for v in VENTS}, "challenge", xp=500)
     av("premier_boss", "serment", "minecraft:iron_sword", "Tueur de légendes", "Vaincre un des seigneurs des Royaumes.",
-       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": [{"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}]}} for b in BOSS},
+       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}}} for b in BOSS},
        "goal", requis=[[b[0] for b in BOSS]], xp=100)
     for b in BOSS:
         av("boss_" + b[0], "premier_boss", "minecraft:wither_skeleton_skull", b[1], b[2],
-           {"tuer": {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": [{"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}]}}}, "goal", xp=150)
+           {"tuer": {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}}}}, "goal", xp=150)
     av("fleau", "premier_boss", "minecraft:nether_star", "Fléau des Dieux", "Vaincre les six seigneurs des Royaumes.",
-       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": [{"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}]}} for b in BOSS},
+       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}}} for b in BOSS},
        "challenge", xp=1000)
     shutil.rmtree(DOSSIER, ignore_errors=True)
     os.makedirs(DOSSIER)

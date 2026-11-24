@@ -18,85 +18,73 @@
     "nagash": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:nagash"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:nagash"
           }
-        ]
+        }
       }
     },
     "archaon": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:archaon"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:archaon"
           }
-        ]
+        }
       }
     },
     "gordrakk": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:gordrakk"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:gordrakk"
           }
-        ]
+        }
       }
     },
     "skarbrand": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:skarbrand"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:skarbrand"
           }
-        ]
+        }
       }
     },
     "thanquol": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:thanquol"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:thanquol"
           }
-        ]
+        }
       }
     },
     "rotigus": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "royaumes:rotigus"
-            }
+        "entity": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "type": "royaumes:rotigus"
           }
-        ]
+        }
       }
     }
   },
