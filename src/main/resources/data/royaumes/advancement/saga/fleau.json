@@ -19,7 +19,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:nagash"
@@ -31,7 +31,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:archaon"
@@ -43,7 +43,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:gordrakk"
@@ -55,7 +55,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:skarbrand"
@@ -67,7 +67,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:thanquol"
@@ -79,7 +79,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:rotigus"

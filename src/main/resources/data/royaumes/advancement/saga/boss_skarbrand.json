@@ -19,7 +19,7 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "condition": "minecraft:entity_properties",
+          "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
             "type": "royaumes:skarbrand"
