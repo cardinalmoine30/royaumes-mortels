@@ -73,7 +73,7 @@ public class ArmeFaction extends Item {
                                 Consumer<Component> ajout, TooltipFlag options) {
         ajout.accept(Component.literal(new String[] {"Arme de lignée", "Arme de champion", "Arme d'ascension"}[rang] + " · " + FactionsGenerees.NOMS[faction])
                 .withColor(FactionsGenerees.COULEURS[faction]));
-        ajout.accept(Component.literal(ArsenalGenere.TEXTES_ATOUTS[faction] + new String[] {" (à chaque coup)", " (1 coup sur 4)", " (1 coup sur 2, renforcé)"}[rang]))
+        ajout.accept(Component.literal(ArsenalGenere.TEXTES_ATOUTS[faction] + new String[] {" (à chaque coup)", " (1 coup sur 4)", " (1 coup sur 2, renforcé)"}[rang])
                 .withStyle(ChatFormatting.GOLD));
     }
 }
