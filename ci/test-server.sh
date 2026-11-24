@@ -68,3 +68,4 @@ if grep -qE 'Feature order cycle|Exception generating new chunk|Considering it t
   echo "Le serveur a planté pendant les tests (génération du monde ?)"; exit 1
 fi
 grep -q 'Autel seigneurs OK' "$SORTIE/console.log" || { echo "Les commandes de test ne sont pas allées au bout"; exit 1; }
+grep -q 'Forge de guerre OK' "$SORTIE/console.log" || { echo "La Forge de guerre n'est pas posée"; exit 1; }

@@ -89,6 +89,10 @@ execute if block 6 100 2 royaumes:etendard_de_camp run say Etendard OK
 setblock 7 100 2 royaumes:autel_des_seigneurs
 setblock 8 100 2 royaumes:minerai_malepierre
 execute if block 7 100 2 royaumes:autel_des_seigneurs run say Autel seigneurs OK
+setblock 9 100 2 royaumes:forge_de_guerre
+execute if block 9 100 2 royaumes:forge_de_guerre run say Forge de guerre OK
+summon item 2 102 4 {Item:{id:"royaumes:stormcast_champion",count:1}}
+summon item 2 102 5 {Item:{id:"royaumes:nurgle_torse",count:1}}
 summon item 2 102 2 {Item:{id:"royaumes:baton_azyr",count:1}}
 summon item 2 102 3 {Item:{id:"royaumes:oeuf_liberator",count:1}}
 summon item 2 102 4 {Item:{id:"royaumes:marteau_tempete",count:1}}

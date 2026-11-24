@@ -1,14 +1,14 @@
 {
- "layers": {
-  "humanoid": [
-   {
-    "texture": "royaumes:seraphon"
-   }
-  ],
-  "humanoid_leggings": [
-   {
-    "texture": "royaumes:seraphon"
-   }
-  ]
- }
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:seraphon"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:seraphon"
+      }
+    ]
+  }
 }

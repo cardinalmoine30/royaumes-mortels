@@ -12,6 +12,7 @@ public final class DonneesHeros {
     /** Dernière fiche du camp de guerre, et demande d'ouverture de son écran. */
     public static volatile FicheCamp camp = null;
     public static volatile boolean ouvrirCamp = false;
+    public static volatile boolean ouvrirForge = false;
     /** Faction de chaque joueur connu (uuid -> numéro rm_faction). */
     public static final Map<UUID, Integer> FACTIONS = new ConcurrentHashMap<>();
 }

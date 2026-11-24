@@ -95,6 +95,7 @@ public final class ModObjets {
         for (String[] y : yeux) {
             YEUX.add(OBJETS.registerItem("oeil_" + y[0], p -> new OeilSeigneur(p, y[0], y[1], y[2]), p -> p.stacksTo(16).rarity(Rarity.RARE)));
         }
+        fr.royaumes.arsenal.Arsenal.enregistrer();
         for (int i = 0; i < ContenuGenere.BLOCS.length; i++) {
             final String id = ContenuGenere.BLOCS[i];
             final float durete = ContenuGenere.BLOCS_DURETE[i];
@@ -106,6 +107,7 @@ public final class ModObjets {
                 case "PORTAIL" -> new BlocPortail(props);
                 case "CAMP" -> new BlocEtendard(props);
                 case "SEIGNEURS" -> new BlocAutelSeigneurs(props);
+                case "FORGE" -> new fr.royaumes.bloc.BlocForge(props);
                 default -> new Block(props);
             }, p -> proprietes(p, durete, lumiere, bois));
             BLOCS_PAR_ID.put(id, bloc);
@@ -130,6 +132,8 @@ public final class ModObjets {
                 .displayItems((params, sortie) -> {
                     sortie.accept(MARTEAU.get());
                     RELIQUES.values().forEach(r -> sortie.accept(r.get()));
+                    sortie.accept(BLOCS_PAR_ID.get("forge_de_guerre").get());
+                    fr.royaumes.arsenal.Arsenal.PAR_FACTION.forEach(l -> l.forEach(o -> sortie.accept(o.get())));
                     depuisDatapack(params, sortie, "armes");
                 }).build());
         ONGLETS.register("magie", () -> CreativeModeTab.builder()

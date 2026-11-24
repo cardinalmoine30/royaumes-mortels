@@ -64,6 +64,7 @@ public final class Reseau {
                 Camps.action(sp, a.action(), a.arg(), a.texte());
             }
         });
+        r.playToClient(OuvrirForge.TYPE, OuvrirForge.CODEC, (o, contexte) -> DonneesHeros.ouvrirForge = true);
         r.playToServer(BonjourModde.TYPE, BonjourModde.CODEC, (c, contexte) -> {
             if (contexte.player() instanceof ServerPlayer sp) {
                 sp.addTag(TAG_MODDE);
@@ -125,6 +126,7 @@ public final class Reseau {
             factions.add(faction);
             annoncerRoyaume(joueur);
             Camps.tickJoueur(joueur);
+            fr.royaumes.arsenal.Arsenal.bonusPanoplie(joueur);
         }
         FactionsVisibles visibles = new FactionsVisibles(ids, factions);
         for (ServerPlayer joueur : serveur.getPlayerList().getPlayers()) {

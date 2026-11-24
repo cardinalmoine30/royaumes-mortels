@@ -1,14 +1,14 @@
 {
- "layers": {
-  "humanoid": [
-   {
-    "texture": "royaumes:behemat"
-   }
-  ],
-  "humanoid_leggings": [
-   {
-    "texture": "royaumes:behemat"
-   }
-  ]
- }
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:behemat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:behemat"
+      }
+    ]
+  }
 }

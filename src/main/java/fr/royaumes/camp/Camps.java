@@ -218,6 +218,10 @@ public final class Camps {
     }
 
     public static void action(ServerPlayer p, int action, int arg, String texte) {
+        if (action == 20) {
+            fr.royaumes.arsenal.Arsenal.forger(p, arg);
+            return;
+        }
         Scoreboard sb = sb(p);
         if (CampsPlus.VISITE.containsKey(p.getUUID())) {
             CampsPlus.actionInvite(p, action);

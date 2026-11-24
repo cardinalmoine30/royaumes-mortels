@@ -84,6 +84,7 @@ BLOCS = [
     ("autel_arcanique", "Autel arcanique", "Arcane Altar", "", "pioche", 3.5, 10, None),
     ("portail_des_royaumes", "Portail des Royaumes", "Realmgate", "", "pioche", 25.0, 11, None),
     ("etendard_de_camp", "Étendard de camp", "War Camp Standard", "", "hache", 2.0, 6, None),
+    ("forge_de_guerre", "Forge de guerre", "War Forge", "", "pioche", 5.0, 9, None),
     ("autel_des_seigneurs", "Autel des Seigneurs", "Altar of the Lords", "", "pioche", 50.0, 7, None),
     ("minerai_azyrite", "Minerai d'azyrite", "Azyrite Ore", "azyr", "pioche", 3.0, 3, None),
     ("minerai_braise", "Minerai de braise", "Emberstone Ore", "aqshy", "pioche", 3.0, 5, None),
@@ -107,7 +108,7 @@ MINERAIS = {
     "minerai_or_vif": ("royaumes:eclat_chamon", 1, 2, ["chamon_"], 7, 10, 140),
     "minerai_malepierre": ("royaumes:malepierre", 1, 3, ["chaos_", "terres_rongees"], 4, 7, 100),
 }
-SPECIAUX = {"autel_arcanique": "AUTEL", "portail_des_royaumes": "PORTAIL", "etendard_de_camp": "CAMP", "autel_des_seigneurs": "SEIGNEURS"}
+SPECIAUX = {"forge_de_guerre": "FORGE", "autel_arcanique": "AUTEL", "portail_des_royaumes": "PORTAIL", "etendard_de_camp": "CAMP", "autel_des_seigneurs": "SEIGNEURS"}
 # objets simples : id, nom fr, nom en, onglet
 OBJETS = [("baton_" + v[0], "Bâton " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1], v[1] + " Staff", "magie") for v in VENTS]
 OBJETS += [("eclat_" + v[0], "Éclat " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1], v[1] + " Shard", "magie") for v in VENTS]
@@ -609,6 +610,20 @@ def tex_bloc(bid):
             x, y = r.randint(1, 13), r.randint(1, 13)
             for dx, dy in ((0, 0), (1, 0), (0, 1), (1, 1), (2, 1)):
                 t.p(x + dx, y + dy, cc if (dx, dy) == (0, 0) else mul(c, 0.8 + 0.1 * dx))
+    elif bid == "forge_de_guerre":  # enclume de guerre : fer sombre, braises et sceau d'or
+        t.bruit((70, 66, 72), 0.1, g)
+        for i in range(16):
+            for (x, y) in ((i, 0), (0, i), (i, 15), (15, i)):
+                t.p(x, y, (212, 166, 58))
+        for y in range(10, 15):
+            for x in range(2, 14):
+                t.p(x, y, mix((255, 120, 20), (255, 220, 90), ((x * 3 + y) % 5) / 5))
+        for y in range(3, 9):
+            for x in range(3, 13):
+                if y < 5 or 5 <= x <= 10:
+                    t.p(x, y, (40, 40, 46) if (x + y) % 4 else (60, 60, 66))
+        t.p(7, 4, (242, 210, 122))
+        t.p(8, 4, (242, 210, 122))
     elif bid == "autel_des_seigneurs":
         t.bruit((40, 34, 44), 0.12, g)
         for i in range(16):
@@ -740,6 +755,8 @@ def recettes():
                "skarbrand": "royaumes:eclat_aqshy", "thanquol": "royaumes:malepierre", "rotigus": "royaumes:eclat_ghyran"}[sid]
         recette("oeil_" + sid, sans_forme(["minecraft:ender_eye", cle, cle, "royaumes:pierre_royaumes_brute"], "royaumes:oeil_" + sid))
         ecrire(os.path.join(DATA, "tags", "worldgen", "structure", "antre_" + sid + ".json"), {"values": ["royaumes:" + struct]})
+    recette("forge_de_guerre", forme(["GGG", " A ", "OPO"], {"G": "minecraft:gold_ingot", "A": "minecraft:anvil", "O": "minecraft:obsidian",
+                                                             "P": "royaumes:pierre_royaumes_brute"}, "royaumes:forge_de_guerre"))
     recette("etendard_de_camp", forme([" G ", " B ", " P "], {"G": "minecraft:gold_ingot", "B": "#minecraft:banners", "P": "royaumes:pierre_royaumes_brute"}, "royaumes:etendard_de_camp"))
     recette("portail_des_royaumes", forme(["OEO", "EBE", "OEO"], {"O": "minecraft:crying_obsidian", "E": "minecraft:ender_eye", "B": "royaumes:bloc_pierre_royaumes"}, "royaumes:portail_des_royaumes"))
     for b in BLOCS:

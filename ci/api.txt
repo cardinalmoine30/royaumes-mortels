@@ -77,3 +77,7 @@ net.minecraft.world.entity.ai.navigation.PathNavigation
 net.minecraft.world.scores.ScoreHolder
 net.minecraft.nbt.CompoundTag
 net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent
+net.minecraft.world.item.equipment.ArmorMaterial
+net.minecraft.world.item.equipment.EquipmentAssets
+net.minecraft.world.item.equipment.ArmorType
+net.minecraft.tags.ItemTags

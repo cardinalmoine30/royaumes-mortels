@@ -81,6 +81,10 @@ public final class ClientRoyaumes {
                 }
             }
         }
+        if (DonneesHeros.ouvrirForge) {
+            DonneesHeros.ouvrirForge = false;
+            mc.gui.setScreen(new EcranForge());
+        }
         if (DonneesHeros.ouvrirCamp) {
             DonneesHeros.ouvrirCamp = false;
             mc.gui.setScreen(new EcranCamp());

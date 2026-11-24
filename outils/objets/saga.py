@@ -72,6 +72,7 @@ def main():
     av("batiment", "camp", "minecraft:anvil", "Bâtisseur", "Construire un bâtiment dans ton camp de guerre.", {"batiment": impossible()})
     av("exploration", "camp", "minecraft:spyglass", "Éclaireurs", "Découvrir le camp d'un autre héros grâce à tes éclaireurs.", {"exploration": impossible()})
     av("raid_joueur", "exploration", "minecraft:golden_sword", "Seigneur pillard", "Piller le camp d'un autre héros.", {"raid_joueur": impossible()}, "challenge", xp=200)
+    av("forge_guerre", "serment", "minecraft:anvil", "Arsenal de faction", "Forger une pièce d'arsenal à la Forge de guerre.", {"forge_guerre": impossible()}, xp=50)
     av("premier_boss", "serment", "minecraft:iron_sword", "Tueur de légendes", "Vaincre un des seigneurs des Royaumes.",
        {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"type": "minecraft:entity_properties", "entity": "this", "predicate": {"minecraft:entity_type": "royaumes:" + b[0]}}}} for b in BOSS},
        "goal", requis=[[b[0] for b in BOSS]], xp=100)

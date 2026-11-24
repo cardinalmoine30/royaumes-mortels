@@ -1,14 +1,14 @@
 {
- "layers": {
-  "humanoid": [
-   {
-    "texture": "royaumes:ossiarch"
-   }
-  ],
-  "humanoid_leggings": [
-   {
-    "texture": "royaumes:ossiarch"
-   }
-  ]
- }
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:ossiarch"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:ossiarch"
+      }
+    ]
+  }
 }

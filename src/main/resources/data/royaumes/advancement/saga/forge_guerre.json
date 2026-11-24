@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:anvil"
+    },
+    "title": {
+      "text": "Arsenal de faction"
+    },
+    "description": {
+      "text": "Forger une pièce d'arsenal à la Forge de guerre."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "forge_guerre": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/serment",
+  "rewards": {
+    "experience": 50
+  }
+}

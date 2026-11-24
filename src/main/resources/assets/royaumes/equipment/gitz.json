@@ -1,14 +1,14 @@
 {
- "layers": {
-  "humanoid": [
-   {
-    "texture": "royaumes:gitz"
-   }
-  ],
-  "humanoid_leggings": [
-   {
-    "texture": "royaumes:gitz"
-   }
-  ]
- }
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:gitz"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:gitz"
+      }
+    ]
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GGG",
+    " A ",
+    "OPO"
+  ],
+  "key": {
+    "G": "minecraft:gold_ingot",
+    "A": "minecraft:anvil",
+    "O": "minecraft:obsidian",
+    "P": "royaumes:pierre_royaumes_brute"
+  },
+  "result": {
+    "id": "royaumes:forge_de_guerre",
+    "count": 1
+  }
+}
