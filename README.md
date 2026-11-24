@@ -48,7 +48,9 @@ des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Les r
 - **Soldat** (fer + 1 éclat) → **Élite** (pièce Soldat + diamants + éclats) → **Légende** (pièce Élite + netherite + éclats + pierre).
 - **Armure de faction** en 4 pièces par palier (défense fer / diamant / au-delà de la netherite). Panoplie complète portée par un
   héros de la faction : Soldat = premier effet, Élite = tous les effets, Légende = tous les effets un niveau au-dessus.
-- **Outils d'alliance** (pioche, pelle, hache, houe, épée), communs aux factions d'une Grande Alliance, avec un effet en main
+- **Outils d'alliance** (pioche, pelle, hache, houe, épée), communs aux factions d'une Grande Alliance, chacune avec sa forme et ses
+  métaux (Ordre : acier, sigmarite, or ; Chaos : fer noir, airain, métal démoniaque ; Mort : os, fer de tombe, nadirite ;
+  Destruction : fer rouillé, bronze brut, ferraille Waaagh), avec un effet en main
   qui monte avec le palier : Ordre (célérité, vitesse, résistance, régénération ; épée affaiblissante, foudre en Légende),
   Chaos (célérité, résistance au feu, force, chance ; épée de feu), Mort (vision nocturne, célérité, résistance, chance ;
   épée vampirique), Destruction (célérité, vitesse, force, vie bonus ; épée qui projette).
