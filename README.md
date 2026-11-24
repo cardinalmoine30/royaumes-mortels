@@ -63,11 +63,18 @@ chacun forgé à partir de la pièce du palier précédent (refondue) :
   étoile du Nether et 4 âmes, atout 1 coup sur 2 renforcé). Modèles 3D en main.
 - **Âmes de seigneur** : 2 à 3 par seigneur vaincu, +1 par héros supplémentaire au combat.
 
-**Saga du Héros (0.14).** 23 quêtes qui servent de fil rouge et de tutoriel, affichées en haut à gauche avec leur progrès :
+**Saga du Héros (0.14).** 24 quêtes qui servent de fil rouge et de tutoriel, affichées en haut à gauche avec leur progrès :
 serment, camp, premier bâtiment, premier sang, armure Soldat, magie, capacité, niveau 8, premier Royaume, éclat étranger, Élite,
 raid, Œil de seigneur, premier seigneur, Légende, Mythique, Divin, jusqu'à l'**Ascension** de ton arme. Chaque étape rapporte de la
 gloire et des objets. Ensuite, des **Contrats de chasse** renouvelables (abattre N guerriers d'une alliance ennemie) récompensent
 gloire, éclats et pierre des Royaumes.
+
+**Voies du héros (0.15).** Dès le niveau 5, touche **K** : Guerrier (+4 PV, +1 dégât), Mage (+30 énergie, régénération
+accrue) ou Éclaireur (+10 % de vitesse). Aux niveaux 10, 20, 30 et 40, un talent parmi deux, 24 au total : Peau de fer ou Brute,
+Second souffle ou Rage, Inébranlable ou Vampirisme, Champion des Dieux ou Exécuteur (Guerrier) ; Réserve ou Flux, Bouclier
+arcanique ou Concentration, Maître du Vent ou Vents mêlés, Archimage ou Clairvoyance (Mage) ; Pied léger ou Archer, Chute féline
+ou Ombre, Coup bas ou Pillard, Fantôme ou Œil de faucon (Éclaireur). Oublier sa voie coûte 3 diamants. La voie s'affiche au HUD et
+la Saga du Héros a une étape pour la choisir.
 
 **Seigneurs : phase finale (0.14).** Sous 25 % de vie, un seigneur appelle des renforts, frappe plus souvent et fait tomber des
 **frappes annoncées** : un cercle de flammes apparaît sous chaque héros, l'impact suit 1,5 s plus tard (10 dégâts, projection).
@@ -97,6 +104,7 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | ![Skins des factions](outils/skins/apercus/planche_skins.png) | ![Onglets créatifs](outils/visuels/apercus/onglets_creatifs.png) |
 | ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Paliers](outils/visuels/apercus/arsenal/paliers.png) |
 | ![Forge de guerre](outils/visuels/apercus/jeu/maquette_forge.png) | ![Saga et seigneur](outils/visuels/apercus/jeu/maquette_saga.png) |
+| ![Voie du héros](outils/visuels/apercus/jeu/maquette_voies.png) | |
 
 ## Générateurs (dossier `outils/`)
 

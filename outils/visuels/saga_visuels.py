@@ -155,9 +155,48 @@ def saga():
     return img
 
 
+def talents_java():
+    j = open(os.path.join(ICI, "..", "..", "src", "main", "java", "fr", "royaumes", "rpg", "Voies.java"), encoding="utf-8").read()
+    bloc = j[j.index("TALENTS = {"):j.index("private static final Map")]
+    paires = re.findall(r'\{"([^"]+)", "([^"]+)"\}', bloc)
+    return [paires[i * 8:(i + 1) * 8] for i in range(3)]
+
+
+def voies(voie=2, niveau=27, choix=(1, 2, 0, 0)):
+    W, H = 520, 330
+    img = M.fond_nuit(W, H)
+    M.img_courante[0] = img
+    d = ImageDraw.Draw(img)
+    PW, PH = 440, 268
+    px, py = (W - PW) // 2, (H - PH) // 2 + 6
+    cadre_or(d, px, py, PW, PH, fond=(12, 20, 40, 235))
+    coins(img, px, py, PW, PH)
+    coller(img, M.ORN.crop((0, 24, 160, 48)), px + PW / 2 - 80, py - 12)
+    texte(d, px + PW / 2, py - 4, "VOIE DU HÉROS", 8, OR_C, gras=True, centre=True, serif=False)
+    coul = [None, (224, 90, 70), (140, 124, 255), (110, 220, 140)][voie]
+    texte(d, px + PW / 2, py + 18, "Voie du " + ["", "Guerrier", "Mage", "Éclaireur"][voie], 8, coul, gras=True, centre=True, serif=False)
+    texte(d, px + PW / 2, py + 32, "Un talent parmi deux à chaque palier. Niveau actuel : %d" % niveau, 6, (154, 160, 184), centre=True, serif=False)
+    T = talents_java()[voie - 1]
+    for t in range(4):
+        y = py + 50 + t * 48
+        ouvert = niveau >= [10, 20, 30, 40][t]
+        texte(d, px + 14, y + 5, "Niv. %d" % [10, 20, 30, 40][t], 7, OR_C if ouvert else (140, 140, 140), serif=False)
+        for c in range(2):
+            x = px + 64 + c * 186
+            pris = choix[t] == c + 1
+            coller(img, M.ORN.crop((128 if pris else 64, 0, 192 if pris else 128, 20)), x, y, 180, 18)
+            actif = ouvert and choix[t] == 0
+            texte(d, x + 90, y + 4, T[t * 2 + c][0], 7, OR_C if (pris or actif) else (140, 140, 140), centre=True, serif=False)
+            M.paragraphe(d, x + 2, y + 21, T[t * 2 + c][1], 176, 6, (158, 230, 154) if pris else (180, 170, 150), 8)
+    coller(img, M.ORN.crop((64, 0, 128, 20)), px + PW - 176, py + PH - 26, 164, 18)
+    texte(d, px + PW - 94, py + PH - 22, "Oublier ma voie (3 diamants)", 6, OR_C, centre=True, serif=False)
+    return img
+
+
 if __name__ == "__main__":
     out = os.path.join(ICI, "apercus", "jeu")
     os.makedirs(out, exist_ok=True)
     forge().convert("RGB").save(os.path.join(out, "maquette_forge.png"))
     saga().convert("RGB").save(os.path.join(out, "maquette_saga.png"))
+    voies().convert("RGB").save(os.path.join(out, "maquette_voies.png"))
     print("ok")
