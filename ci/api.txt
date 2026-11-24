@@ -85,3 +85,5 @@ net.minecraft.world.item.context.UseOnContext
 net.minecraft.world.item.ToolMaterial
 net.minecraft.server.level.ServerBossEvent
 net.minecraft.world.BossEvent
+net.minecraft.world.entity.ai.attributes.AttributeInstance
+net.minecraft.world.entity.ai.attributes.AttributeModifier

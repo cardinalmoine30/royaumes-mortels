@@ -41,6 +41,7 @@ public final class Quetes {
         new Etape("Le Vent en toi", "Lance un sort avec un bâton de ton Vent.", "evt", "saga:sort", 1, 100, "royaumes:cristal_arcanique*1"),
         new Etape("Pouvoir de faction", "Utilise ta capacité de faction (touche R).", "evt", "saga:capacite", 1, 100, ""),
         new Etape("Héros reconnu", "Atteins le niveau 8.", "score", "rm_niveau", 8, 0, "minecraft:diamond*2,royaumes:cristal_arcanique*1"),
+        new Etape("La Voie du héros", "Choisis ta voie : Guerrier, Mage ou Éclaireur (touche K).", "score", "rm_voie", 1, 120, ""),
         new Etape("Au-delà du voile", "Rejoins un des Royaumes (Portail ou Pierre de Royaume).", "royaume", "", 1, 200, ""),
         new Etape("Matière étrangère", "Obtiens l'éclat d'un Vent qui n'est pas le tien.", "etranger", "", 1, 150, ""),
         new Etape("Élite", "Forge une pièce Élite (niveau 8).", "palier", "1", 1, 250, "minecraft:diamond*2"),
@@ -313,6 +314,6 @@ public final class Quetes {
         int i = etape(p);
         int prog = i < SAGA.length ? progres(p, SAGA[i]) : 0;
         int but = i < SAGA.length ? SAGA[i].but() : 0;
-        return new int[] {prog, but, get(p, "rm_contrat_n"), get(p, "rm_contrat_but")};
+        return new int[] {prog, but, get(p, "rm_contrat_n"), get(p, "rm_contrat_but"), Voies.voie(p), get(p, "rm_talents")};
     }
 }

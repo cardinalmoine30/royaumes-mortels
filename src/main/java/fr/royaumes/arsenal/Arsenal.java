@@ -236,7 +236,7 @@ public final class Arsenal {
 
     // ------------------------------------------------------------------ forge
 
-    static int compter(Inventory inv, Item item) {
+    public static int compter(Inventory inv, Item item) {
         int n = 0;
         for (int i = 0; i < inv.getContainerSize(); i++) {
             ItemStack s = inv.getItem(i);
@@ -247,7 +247,7 @@ public final class Arsenal {
         return n;
     }
 
-    static void retirer(Inventory inv, Item item, int n) {
+    public static void retirer(Inventory inv, Item item, int n) {
         for (int i = 0; i < inv.getContainerSize() && n > 0; i++) {
             ItemStack s = inv.getItem(i);
             if (s.is(item)) {

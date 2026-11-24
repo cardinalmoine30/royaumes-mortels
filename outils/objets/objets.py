@@ -981,6 +981,7 @@ def traductions(mobs, montures):
         en[k] = b
     textes2 = {
         "key.royaumes.capacite": ("Capacité de faction", "Faction ability"),
+        "key.royaumes.voie": ("Voie du héros", "Hero path"),
         "royaumes.camp.titre": ("Camp de guerre", "War Camp"),
         "royaumes.camp.fonde": ("Ton camp de guerre est fondé ici.", "Your war camp is founded here."),
         "royaumes.camp.pas_a_toi": ("Cet étendard appartient à un autre héros.", "This standard belongs to another hero."),

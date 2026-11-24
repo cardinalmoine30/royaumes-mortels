@@ -80,7 +80,8 @@ public final class Reseau {
         net.minecraft.ChatFormatting gris = net.minecraft.ChatFormatting.GRAY;
         p.sendSystemMessage(Component.literal("⚔ Royaumes Mortels").withStyle(or, net.minecraft.ChatFormatting.BOLD));
         p.sendSystemMessage(Component.literal("[").append(Component.keybind("key.royaumes.serment")).append("] serment et fiche de héros   [")
-                .append(Component.keybind("key.royaumes.capacite")).append("] capacité de faction").withStyle(gris));
+                .append(Component.keybind("key.royaumes.capacite")).append("] capacité de faction   [")
+                .append(Component.keybind("key.royaumes.voie")).append("] voie et talents").withStyle(gris));
         p.sendSystemMessage(Component.literal("Étendard de camp : ton camp de guerre · Forge de guerre : ton arsenal · "
                 + "Bâton en main : magie · Inventaire : Codex de la taverne").withStyle(gris));
     }
@@ -142,6 +143,7 @@ public final class Reseau {
             Camps.tickJoueur(joueur);
             fr.royaumes.arsenal.Arsenal.bonusPanoplie(joueur);
             fr.royaumes.rpg.Quetes.tick(joueur);
+            fr.royaumes.rpg.Voies.passif(joueur);
         }
         FactionsVisibles visibles = new FactionsVisibles(ids, factions);
         for (ServerPlayer joueur : serveur.getPlayerList().getPlayers()) {

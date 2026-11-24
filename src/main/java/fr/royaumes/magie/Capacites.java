@@ -60,7 +60,7 @@ public final class Capacites {
             return;
         }
         appliquer(p, p, ContenuGenere.CAP_EFFETS_SOI[faction]);
-        PRETE_A.put(p.getUUID(), n.getGameTime() + ContenuGenere.CAP_RECHARGES[faction] * 20L);
+        PRETE_A.put(p.getUUID(), n.getGameTime() + (long) (ContenuGenere.CAP_RECHARGES[faction] * 20L * fr.royaumes.rpg.Voies.recharge(p)));
         p.sendOverlayMessage(Component.literal("✦ " + ContenuGenere.CAP_NOMS[faction] + " ✦").withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD));
         Reseau.envoyerFiche(p);
         Saga.accorder(p, "capacite");

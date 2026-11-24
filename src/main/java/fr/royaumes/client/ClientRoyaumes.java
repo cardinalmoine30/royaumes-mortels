@@ -24,6 +24,7 @@ public final class ClientRoyaumes {
     static final KeyMapping.Category CATEGORIE = new KeyMapping.Category(Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID, "royaumes"));
     static final KeyMapping TOUCHE_SERMENT = new KeyMapping("key.royaumes.serment", 74 /* J */, CATEGORIE);
     static final KeyMapping TOUCHE_CAPACITE = new KeyMapping("key.royaumes.capacite", 82 /* R */, CATEGORIE);
+    static final KeyMapping TOUCHE_VOIE = new KeyMapping("key.royaumes.voie", 75 /* K */, CATEGORIE);
     private static int attente = 60;
     private static int compteur = 0;
 
@@ -34,6 +35,7 @@ public final class ClientRoyaumes {
         event.registerCategory(CATEGORIE);
         event.register(TOUCHE_SERMENT);
         event.register(TOUCHE_CAPACITE);
+        event.register(TOUCHE_VOIE);
     }
 
     @SubscribeEvent
@@ -69,6 +71,11 @@ public final class ClientRoyaumes {
         while (TOUCHE_SERMENT.consumeClick()) {
             if (mc.gui.screen() == null) {
                 ouvrir(mc);
+            }
+        }
+        while (TOUCHE_VOIE.consumeClick()) {
+            if (mc.gui.screen() == null) {
+                mc.gui.setScreen(new EcranVoies());
             }
         }
         while (TOUCHE_CAPACITE.consumeClick()) {

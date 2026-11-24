@@ -222,6 +222,10 @@ public final class Camps {
             fr.royaumes.arsenal.Arsenal.forger(p, arg);
             return;
         }
+        if (action >= 30 && action <= 32) {
+            fr.royaumes.rpg.Voies.action(p, action, arg);
+            return;
+        }
         Scoreboard sb = sb(p);
         if (CampsPlus.VISITE.containsKey(p.getUUID())) {
             CampsPlus.actionInvite(p, action);

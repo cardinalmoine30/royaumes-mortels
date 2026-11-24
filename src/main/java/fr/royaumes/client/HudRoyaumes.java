@@ -40,7 +40,9 @@ public class HudRoyaumes implements GuiLayer {
             int v = ((f.faction() - 1) / 8) * 32;
             g.blit(RenderPipelines.GUI_TEXTURED, EcranSerment.EMBLEMES, 6, 6, u, v, 22, 22, 32, 32, 256, 128);
             g.text(mc.font, FactionsGenerees.NOMS[f.faction()], 34, 7, EcranSerment.OR_CLAIR, true);
-            String ligne = "Niveau " + f.niveau() + (lieu >= 0 ? " · Royaume " + de(ContenuGenere.NOMS_VENTS[lieu]) : "");
+            int voie = f.progres() != null && f.progres().length > 4 ? f.progres()[4] : 0;
+            String ligne = "Niveau " + f.niveau() + (voie > 0 && voie < fr.royaumes.rpg.Voies.NOMS.length ? " · " + fr.royaumes.rpg.Voies.NOMS[voie] : "")
+                    + (lieu >= 0 ? " · Royaume " + de(ContenuGenere.NOMS_VENTS[lieu]) : "");
             g.text(mc.font, ligne, 34, 18, 0xFFF0E6D2, true);
             String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (R)");
             g.text(mc.font, cap, 34, 29, f.capacite() > 0 ? 0xFF8C8CA0 : 0xFFF2D27A, true);

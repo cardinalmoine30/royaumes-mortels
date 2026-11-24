@@ -72,7 +72,7 @@ public final class Magie {
     }
 
     public static int maximum(ServerPlayer p) {
-        return 100 + 5 * Math.max(0, score(p.level().getServer().getScoreboard(), p, "rm_niveau"));
+        return 100 + 5 * Math.max(0, score(p.level().getServer().getScoreboard(), p, "rm_niveau")) + fr.royaumes.rpg.Voies.bonusEnergie(p);
     }
 
     public static int energie(ServerPlayer p) {
@@ -106,7 +106,7 @@ public final class Magie {
                     && estDans(p.level(), ContenuGenere.DIMENSION_FACTION[faction])) {
                 gain = 4;
             }
-            definir(p, e + gain);
+            definir(p, e + fr.royaumes.rpg.Voies.regeneration(p, gain));
         } else if (e > max) {
             definir(p, max);
         }
@@ -114,7 +114,7 @@ public final class Magie {
 
     public static int cout(ServerPlayer p, int vent, int rang) {
         int c = ContenuGenere.SORTS_COUTS[vent][rang];
-        return ventDuLieu(p.level()) == vent ? (c + 1) / 2 : c;
+        return fr.royaumes.rpg.Voies.cout(p, vent, ventDuLieu(p.level()) == vent ? (c + 1) / 2 : c);
     }
 
     /** Tente de lancer un sort ; renvoie vrai s'il a été lancé (énergie dépensée). */
