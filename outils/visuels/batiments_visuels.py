@@ -76,3 +76,48 @@ if __name__ == "__main__":
         planche("Camp " + noms[st] + " : les cinq bâtiments (niveau 3)",
                 [(b.capitalize(), plan(b, 3, st)) for b in BATIMENTS] + [("Tour niveau 1", plan("tour", 1, st))],
                 os.path.join(out, "batiments_" + st + ".png"), 3)
+
+
+SLOTS = {"forge": (11, 0, 3), "ferme": (-11, 0, 1), "sanctuaire": (0, 11, 0), "caserne": (0, -11, 2), "tour": (10, 10, 0)}
+
+
+def camp_complet(style, niveaux, faction, unites, sortie, titre):
+    """Vue d'ensemble d'un camp : étendard, cinq bâtiments posés comme dans le mod, troupes."""
+    import scenes as S
+    from camp_visuels import etendard
+    S.W, S.H = 1600, 900
+    s = Scene((90, 130, 200), (205, 220, 240), (205, 220, 240), 90)
+    herbe = terrain("herbe_camp", (100, 140, 80), 0.1, 41)
+    occ = set()
+    for bat, (sx, sz, k) in SLOTS.items():
+        for (x, y, z), bid in plan(bat, niveaux[bat], style).items():
+            for _ in range(k):
+                x, z = -z, x
+            occ.add((sx + x, y, sz + z))
+            chemin, e = tex(bid)
+            s.bloc(sx + x, y, sz + z, chemin, emissif=e)
+    for x in range(-18, 19):
+        for z in range(-18, 19):
+            if (x, -1, z) not in occ:
+                s.bloc(x, -1, z, herbe, faces=("up",))
+    etendard(s, 0, 0, 0)
+    for i, (m, x, z, l) in enumerate(unites):
+        s.modele(m, x, 0, z, lacet=l)
+    img = s.rendre((-24, 30, -30), (0, 0, 0), fov=62)
+    S.W, S.H = 1280, 720
+    d = ImageDraw.Draw(img)
+    f = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", 30)
+    d.rectangle((0, 0, 1600, 54), fill=(14, 26, 51, 220))
+    d.text((800, 10), titre, font=f, fill=(242, 210, 122), anchor="mt")
+    img.convert("RGB").save(sortie)
+    print(sortie)
+
+
+if __name__ == "__main__":
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "apercus", "camp")
+    camp_complet("ordre", {"forge": 3, "ferme": 2, "sanctuaire": 2, "caserne": 3, "tour": 2}, "stormcast",
+                 [("liberator", 3, 3, 200), ("judicator", -3, 2, 160), ("liberator", 2, -4, 20), ("vindictor", -4, -3, -20), ("dracoth", 5, -1, 120)],
+                 os.path.join(out, "camp_ordre_complet.png"), "Camp de guerre Stormcast — forge et caserne niv. 3, ferme, sanctuaire et tour niv. 2")
+    camp_complet("destruction", {"forge": 2, "ferme": 1, "sanctuaire": 1, "caserne": 2, "tour": 3}, "ironjawz",
+                 [("brute", 3, 3, 200), ("ardboy", -3, 2, 160), ("ardboy", 2, -4, 20), ("megaboss", -4, -3, -20)],
+                 os.path.join(out, "camp_destruction_complet.png"), "Camp de guerre Ironjawz — style Destruction")
