@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:soulblight_mythique"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:soulblight_mythique"
+      }
+    ]
+  }
+}

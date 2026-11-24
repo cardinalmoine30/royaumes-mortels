@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:lumineth_divin"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:lumineth_divin"
+      }
+    ]
+  }
+}

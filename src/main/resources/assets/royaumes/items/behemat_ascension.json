@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+    "cases": [
+      {
+        "when": [
+          "gui",
+          "ground",
+          "fixed"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "royaumes:item/behemat_ascension"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "royaumes:item/behemat_ascension_3d"
+    }
+  }
+}

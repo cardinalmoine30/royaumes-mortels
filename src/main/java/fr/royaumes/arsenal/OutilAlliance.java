@@ -48,8 +48,8 @@ public class OutilAlliance extends Item {
         }
         switch (ArsenalGenere.BUFFS_OUTILS[alliance][4]) {
             case "faiblesse" -> {
-                cible.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, palier), attaquant);
-                if (palier == 2 && attaquant.getRandom().nextFloat() < 0.2F) {
+                cible.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, Math.min(3, palier)), attaquant);
+                if (palier >= 2 && attaquant.getRandom().nextFloat() < 0.1F + 0.1F * palier) {
                     n.sendParticles(ParticleTypes.ELECTRIC_SPARK, cible.getX(), cible.getY() + 1, cible.getZ(), 30, 0.3, 0.8, 0.3, 0.3);
                     cible.hurtServer(n, n.damageSources().lightningBolt(), 4.0F);
                 }
@@ -123,13 +123,26 @@ public class OutilAlliance extends Item {
         static final java.util.Map<String, String> TEXTES = java.util.Map.of("haste", "Célérité en main", "speed", "Vitesse en main",
                 "resistance", "Résistance en main", "regeneration", "Régénération en main", "fire_resistance", "Résistance au feu en main",
                 "strength", "Force en main", "luck", "Chance en main", "night_vision", "Vision nocturne en main", "health_boost", "Vie bonus en main");
+        static final java.util.Map<String, String> NOMS_EFFETS = java.util.Map.ofEntries(java.util.Map.entry("haste", "Célérité"),
+                java.util.Map.entry("speed", "Vitesse"), java.util.Map.entry("resistance", "Résistance"), java.util.Map.entry("regeneration", "Régénération"),
+                java.util.Map.entry("fire_resistance", "Résistance au feu"), java.util.Map.entry("strength", "Force"), java.util.Map.entry("luck", "Chance"),
+                java.util.Map.entry("night_vision", "Vision nocturne"), java.util.Map.entry("health_boost", "Vie bonus"),
+                java.util.Map.entry("slow_falling", "Chute lente"), java.util.Map.entry("water_breathing", "Respiration"),
+                java.util.Map.entry("dolphins_grace", "Grâce du dauphin"), java.util.Map.entry("jump_boost", "Saut"),
+                java.util.Map.entry("invisibility", "Invisibilité"));
+
+        public static String nomEffet(String e) {
+            return NOMS_EFFETS.getOrDefault(e, e);
+        }
+
         static final java.util.Map<String, String> EPEE = java.util.Map.of("faiblesse", "Affaiblit la cible (foudre en Légende)",
                 "feu", "Enflamme la cible", "vol_de_vie", "Te soigne à chaque coup", "recul", "Projette la cible");
 
         public static void tooltip(int alliance, int outil, int palier, Consumer<Component> ajout) {
             ajout.accept(Component.literal(NOMS[alliance] + " · " + ArsenalGenere.NOMS_PALIERS[palier]).withStyle(ChatFormatting.GOLD));
             String b = ArsenalGenere.BUFFS_OUTILS[alliance][outil];
-            String t = outil == 4 ? EPEE.getOrDefault(b, b) : TEXTES.getOrDefault(b, b) + (palier > 0 ? " (niveau " + (palier + 1) + ")" : "");
+            int niv = b.equals("regeneration") || b.equals("resistance") ? palier / 2 : Math.min(3, palier);
+            String t = outil == 4 ? EPEE.getOrDefault(b, b) : TEXTES.getOrDefault(b, b) + (niv > 0 ? " (niveau " + (niv + 1) + ")" : "");
             ajout.accept(Component.literal(t).withStyle(ChatFormatting.GREEN));
             ajout.accept(Component.literal("Réservé aux héros de l'alliance").withStyle(ChatFormatting.GRAY));
         }

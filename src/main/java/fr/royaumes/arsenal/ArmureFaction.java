@@ -21,6 +21,10 @@ public class ArmureFaction extends Item {
         this.palier = palier;
     }
 
+    static String romain(int n) {
+        return new String[] {"", "I", "II", "III", "IV", "V"}[Math.max(0, Math.min(5, n))];
+    }
+
     public int palier() {
         return palier;
     }
@@ -34,8 +38,10 @@ public class ArmureFaction extends Item {
                                 Consumer<Component> ajout, TooltipFlag options) {
         ajout.accept(Component.literal(FactionsGenerees.NOMS[faction]).withColor(FactionsGenerees.COULEURS[faction]));
         ajout.accept(Component.literal("Palier " + ArsenalGenere.NOMS_PALIERS[palier]).withStyle(ChatFormatting.GOLD));
-        String b = palier == 0 ? ArsenalGenere.BONUS[faction].split(",")[0] : ArsenalGenere.BONUS[faction];
-        ajout.accept(Component.literal("Panoplie complète : " + b.replace(",", ", ") + (palier == 2 ? " (+1 niveau)" : ""))
-                .withStyle(ChatFormatting.GREEN));
+        StringBuilder b = new StringBuilder();
+        for (var e : Arsenal.effetsPanoplie(faction, palier).entrySet()) {
+            b.append(b.length() > 0 ? ", " : "").append(OutilAlliance.Infos.nomEffet(e.getKey())).append(" ").append(romain(e.getValue() + 1));
+        }
+        ajout.accept(Component.literal("Panoplie complète : " + b).withStyle(ChatFormatting.GREEN));
     }
 }

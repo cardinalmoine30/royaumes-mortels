@@ -27,6 +27,21 @@ public final class EvenementsCamp {
                 c.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(c.level(), c.getX(), c.getY() + 1, c.getZ(),
                         new net.minecraft.world.item.ItemStack(relique.get())));
             }
+            if (c.profil().boss()) {
+                // âmes de seigneur (paliers Mythique et Divin) : 2 à 3, +1 par héros supplémentaire au combat
+                var heros = fr.royaumes.entite.Seigneurs.heros(c);
+                int ames = 2 + c.getRandom().nextInt(2) + Math.max(0, heros.size() - 1);
+                c.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(c.level(), c.getX(), c.getY() + 1.5, c.getZ(),
+                        new net.minecraft.world.item.ItemStack(fr.royaumes.arsenal.Arsenal.AME.get(), ames)));
+                if (event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer tueur && !heros.contains(tueur)) {
+                    fr.royaumes.rpg.Quetes.seigneur(tueur);
+                }
+                heros.forEach(fr.royaumes.rpg.Quetes::seigneur);
+                fr.royaumes.entite.Seigneurs.fin(c);
+            } else if (event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer tueur) {
+                String equipe = c.profil().equipe();
+                fr.royaumes.rpg.Quetes.tuer(tueur, equipe.startsWith("rm_") ? equipe.substring(3) : equipe);
+            }
         }
     }
 

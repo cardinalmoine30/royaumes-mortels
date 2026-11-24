@@ -67,7 +67,12 @@ EN_PIECES = {"casque": "Helmet", "torse": "Chestplate", "jambes": "Leggings", "b
 PIECES = ["casque", "torse", "jambes", "bottes"]
 
 
-TIERS = [("soldat", "Soldat"), ("elite", "Élite"), ("legende", "Légende")]
+TIERS = [("soldat", "Soldat"), ("elite", "Élite"), ("legende", "Légende"), ("mythique", "Mythique"), ("divin", "Divin")]
+EN_TIERS = ["Soldier", "Elite", "Legend", "Mythic", "Divine"]
+# niveau de héros requis pour forger chaque palier, puis lignée, champion, ascension
+NIVEAUX_TIERS = [1, 8, 16, 25, 35]
+NIVEAUX_ARMES = [8, 16, 35]
+AME = "royaumes:ame_de_seigneur"
 OUTILS = ["pioche", "pelle", "hache", "houe", "epee"]
 NOMS_OUTILS = {"pioche": "Pioche", "pelle": "Pelle", "hache": "Hache", "houe": "Houe", "epee": "Épée"}
 ALLIANCES = ["ordre", "chaos", "mort", "destruction"]
@@ -94,7 +99,7 @@ def etrangers(f):
 
 
 def lignes(f):
-    """Les 29 lignes de la Forge pour une faction : 3 paliers × (4 pièces + 5 outils d'alliance), puis lignée et champion.
+    """Les 48 lignes de la Forge pour une faction : 5 paliers × (4 pièces + 5 outils d'alliance), puis lignée, champion, ascension.
     Chaque palier supérieur exige la pièce du palier précédent."""
     a, b = etrangers(f)
     ea, eb = "royaumes:eclat_" + a, "royaumes:eclat_" + b
@@ -108,8 +113,12 @@ def lignes(f):
                 r = [("minecraft:iron_ingot", FER_ARMURE[i]), ("royaumes:pierre_royaumes_brute", 2)]
             elif t == 1:
                 r = [(prec, 1), ("minecraft:diamond", 3 if i in (1, 2) else 2), (ea, 3), (eb, 2)]
-            else:
-                r = [(prec, 1), ("minecraft:netherite_ingot", 1), (ea, 4), (eb, 4), ("royaumes:pierre_royaumes_brute", 4)]
+            elif t == 2:
+                r = [(prec, 1), ("minecraft:netherite_ingot", 2 if i in (1, 2) else 1), ("royaumes:cristal_arcanique", 2), (ea, 4), (eb, 4)]
+            elif t == 3:  # Mythique : âmes des seigneurs vaincus
+                r = [(prec, 1), (AME, 2 if i in (1, 2) else 1), ("minecraft:netherite_ingot", 2), ("royaumes:cristal_arcanique", 3), (ea, 6), (eb, 6)]
+            else:  # Divin : étoile du Nether et âmes
+                r = [(prec, 1), ("minecraft:nether_star", 1), (AME, 3), ("minecraft:netherite_ingot", 2), (ea, 8), (eb, 8)]
             L.append((oid, piece + ":" + str(t), r))
         for o in OUTILS:
             oid = "%s_%s_%s" % (al, o, tid)
@@ -118,19 +127,27 @@ def lignes(f):
                 r = [("minecraft:iron_ingot", FER_OUTIL[o]), ("minecraft:stick", BATON_OUTIL[o]), ("royaumes:pierre_royaumes_brute", 1)]
             elif t == 1:
                 r = [(prec, 1), ("minecraft:diamond", 1 if o == "pelle" else 2), (eb, 2)]
+            elif t == 2:
+                r = [(prec, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 1), (ea, 3), (eb, 3)]
+            elif t == 3:
+                r = [(prec, 1), (AME, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 2), (ea, 4), (eb, 4)]
             else:
-                r = [(prec, 1), ("minecraft:netherite_ingot", 1), (ea, 3), (eb, 3)]
+                r = [(prec, 1), (AME, 2), ("minecraft:netherite_ingot", 2), ("royaumes:cristal_arcanique", 3), (ea, 6), (eb, 6)]
             L.append((oid, o + ":" + str(t), r))
     L.append((fid + "_lignee", "lignee", [("minecraft:diamond", 2), (ea, 2), ("minecraft:iron_ingot", 4)]))
     L.append((fid + "_champion", "champion", [("royaumes:" + fid + "_lignee", 1), ("minecraft:netherite_ingot", 1), (ea, 4), (eb, 2),
                                              ("royaumes:pierre_royaumes_brute", 4)]))
+    L.append((fid + "_ascension", "ascension", [("royaumes:" + fid + "_champion", 1), ("minecraft:nether_star", 1), (AME, 4),
+                                               ("minecraft:netherite_ingot", 2), (ea, 8), (eb, 8)]))
     return L
 
 
 # ------------------------------------------------------------------ palette (texture 16x16 en cases de 4x4)
-def palette(fid, champion):
+def palette(fid, champion, ascension=False):
     c1, c2 = COUL.get(fid, ((120, 120, 120), (220, 220, 220)))
     metal = (225, 228, 235) if champion else (190, 192, 200)
+    if ascension:  # métal divin, couleurs de faction éclaircies
+        metal, c1, c2 = (255, 248, 222), mix(c1, (255, 255, 255), 0.35), (255, 225, 110)
     cases = [metal, mul(metal, 0.7), c2, mul(c2, 0.7), (92, 62, 40), (60, 40, 26), c1, mul(c1, 0.7),
              mix(c2, (255, 255, 255), 0.5), (40, 36, 44), mix(c1, (255, 255, 255), 0.4), (255, 240, 200),
              mul(metal, 0.5), c2, c1, (20, 20, 24)]
@@ -245,6 +262,10 @@ def icone(type_, fid, champion):
 
 def teintes(fid, t):
     c1, c2 = COUL.get(fid, ((120, 120, 120), (220, 220, 220)))
+    if t == 3:  # mythique : couleurs profondes, runes arcaniques cyan
+        return tuple(int(v * 0.8) for v in c1), (90, 230, 255)
+    if t == 4:  # divin : métal blanc-or, couleurs de faction éclaircies
+        return mix(c1, (255, 250, 235), 0.45), (255, 225, 110)
     if t == 0:  # soldat : fer teinté, sans or
         return mix(c1, (170, 172, 180), 0.55), mix(c1, (120, 122, 130), 0.4)
     if t == 2:  # légende : couleurs vives, liserés d'or
@@ -289,9 +310,10 @@ def icone_armure(piece, fid, tier=1):
                     t.p(x, y, c1)
         for x in (2, 3, 4, 5, 10, 11, 12, 13):
             t.p(x, 14, c2)
-    if tier == 2:
-        t.p(1, 1, (255, 245, 180))
-        t.p(14, 1, (255, 235, 150))
+    if tier >= 2:
+        etoile = [(255, 245, 180), (255, 245, 180), (255, 245, 180), (120, 240, 255), (255, 255, 255)][tier]
+        t.p(1, 1, etoile)
+        t.p(14, 1, etoile)
     t.contour()
     return t.im
 
@@ -436,10 +458,11 @@ MOTIFS_ALLIANCE = {
     },
 }
 METAUX_ALLIANCE = {  # Soldat, Élite, Légende
-    "ordre": [(200, 202, 210), (150, 200, 240), (245, 205, 80)],         # acier, sigmarite azur, or d'Azyr
-    "chaos": [(92, 88, 100), (190, 140, 60), (225, 60, 40)],             # fer noir, airain, métal démoniaque
-    "mort": [(215, 208, 185), (150, 205, 195), (150, 95, 215)],          # os, fer de tombe, nadirite
-    "destruction": [(150, 110, 80), (195, 155, 75), (130, 225, 60)],     # fer rouillé, bronze brut, ferraille Waaagh
+    # Soldat, Élite, Légende, Mythique, Divin
+    "ordre": [(200, 202, 210), (150, 200, 240), (245, 205, 80), (100, 235, 255), (255, 252, 235)],   # acier, sigmarite, or, aether, étoile d'Azyr
+    "chaos": [(92, 88, 100), (190, 140, 60), (225, 60, 40), (170, 70, 230), (255, 140, 30)],        # fer noir, airain, démoniaque, warpfer, feu des Dieux
+    "mort": [(215, 208, 185), (150, 205, 195), (150, 95, 215), (90, 230, 170), (185, 255, 240)],     # os, tombe, nadirite, âme, pâleur de Nagash
+    "destruction": [(150, 110, 80), (195, 155, 75), (130, 225, 60), (230, 110, 30), (255, 220, 60)],  # rouille, bronze, Waaagh, ferraille de feu, or de Gork
 }
 MANCHES_ALLIANCE = {"ordre": ((125, 86, 52), (78, 52, 30)), "chaos": ((60, 46, 52), (30, 22, 26)),
                     "mort": ((205, 198, 172), (140, 134, 112)), "destruction": ((112, 82, 50), (70, 50, 30))}
@@ -457,8 +480,10 @@ def icone_outil(o, al, tier):
         for x, ch in enumerate(ligne[:16]):
             if ch in cl:
                 t.p(x, y + 1, cl[ch])
-    if tier == 2:
+    if tier >= 2:
         t.p(15, 0, (255, 245, 180))
+    if tier >= 3:
+        t.p(0, 15, (120, 240, 255) if tier == 3 else (255, 255, 255))
     t.contour()
     return t.im
 
@@ -477,13 +502,21 @@ def retoucher(im, tier, c2):
                 r, g, b = mix((r, g, b), (gr + 20, gr + 22, gr + 30), 0.55)
             elif tier == 2:
                 r, g, b = (min(255, int(v * 1.12)) for v in (r, g, b))
+            elif tier == 3:
+                r, g, b = mix((r, g, b), (int(r * 0.7), int(g * 0.75), int(b * 0.95)), 0.6)
+            elif tier == 4:
+                r, g, b = mix((r, g, b), (255, 250, 235), 0.4)
             px[x, y] = (int(r), int(g), int(b), a)
-    if tier == 2:  # liserés d'or : bords des faces
+    if tier >= 2:  # liserés : or (Légende), runes cyan (Mythique), or blanc (Divin)
+        liseré = {2: (245, 205, 80), 3: (90, 230, 255), 4: (255, 225, 110)}[tier]
         for (x0, y0, w, h) in [(8, 0, 8, 8), (16, 0, 8, 8), (0, 8, 32, 8), (20, 16, 8, 4), (20, 20, 8, 12), (44, 20, 4, 12), (4, 20, 4, 12)]:
             for x in range(x0, x0 + w):
                 for y in (y0, y0 + h - 1):
                     if px[x, y][3]:
-                        px[x, y] = (245, 205, 80, 255)
+                        px[x, y] = liseré + (255,)
+        if tier >= 3:  # runes / gemmes au centre du torse et sur le front
+            for (x, y) in [(23, 23), (24, 24), (23, 25), (11, 9), (12, 9)]:
+                px[x, y] = ((60, 255, 255) if tier == 3 else (255, 255, 255)) + (255,)
     return im
 
 
@@ -556,7 +589,7 @@ def main():
                 fr["item.royaumes." + oid] = "%s %s (%s)" % (NOMS_OUTILS[o], NOMS_ALLIANCES[al], tnom)
                 en["item.royaumes." + oid] = "%s %s (%s)" % ({"ordre": "Order", "chaos": "Chaos", "mort": "Death", "destruction": "Destruction"}[al],
                                                              {"pioche": "Pickaxe", "pelle": "Shovel", "hache": "Axe", "houe": "Hoe", "epee": "Sword"}[o],
-                                                             ["Soldier", "Elite", "Legend"][t])
+                                                             EN_TIERS[t])
     for f in FACTIONS:
         fid = f["id"]
         champ, lign, atout, pieces, bonus = ARSENAL[fid]
@@ -576,19 +609,37 @@ def main():
                 "fallback": {"type": "minecraft:model", "model": "royaumes:item/" + oid + "_3d"}}})
             fr["item.royaumes." + oid] = nom
             en["item.royaumes." + oid] = "%s %s %s" % (EN_FACTIONS[fid], "Champion" if champion else "Lineage", EN_TYPES[type_])
+            if champion:  # arme d'ascension : l'arme de champion éveillée par une étoile du Nether et des âmes de seigneurs
+                aid = fid + "_ascension"
+                palette(fid, True, True).save(os.path.join(ti, aid + "_palette.png"))
+                ic = icone(type_, fid, True)
+                ic.putpixel((0, 15), (255, 255, 255, 255))
+                ic.putpixel((15, 1), (255, 240, 160, 255))
+                ic.save(os.path.join(ti, aid + ".png"))
+                ecrire(os.path.join(ASSETS, "models", "item", aid + "_3d.json"),
+                       {"textures": {"p": "royaumes:item/" + aid + "_palette", "particle": "royaumes:item/" + aid + "_palette"},
+                        "elements": geometrie(type_, True), "display": AFFICHAGE, "gui_light": "front"})
+                ecrire(os.path.join(ASSETS, "models", "item", aid + ".json"),
+                       {"parent": "minecraft:item/handheld", "textures": {"layer0": "royaumes:item/" + aid}})
+                ecrire(os.path.join(ASSETS, "items", aid + ".json"), {"model": {
+                    "type": "minecraft:select", "property": "minecraft:display_context",
+                    "cases": [{"when": ["gui", "ground", "fixed"], "model": {"type": "minecraft:model", "model": "royaumes:item/" + aid}}],
+                    "fallback": {"type": "minecraft:model", "model": "royaumes:item/" + aid + "_3d"}}})
+                fr["item.royaumes." + aid] = "Ascension : " + nom
+                en["item.royaumes." + aid] = "Ascended %s %s" % (EN_FACTIONS[fid], EN_TYPES[type_])
         for t, (tid, tnom) in enumerate(TIERS):
             for piece, nom in zip(PIECES, pieces):
                 oid = "%s_%s_%s" % (fid, piece, tid)
                 item_plat(oid, icone_armure(piece, fid, t))
                 fr["item.royaumes." + oid] = "%s (%s)" % (nom, tnom)
-                en["item.royaumes." + oid] = "%s %s (%s)" % (EN_FACTIONS[fid], EN_PIECES[piece], ["Soldier", "Elite", "Legend"][t])
+                en["item.royaumes." + oid] = "%s %s (%s)" % (EN_FACTIONS[fid], EN_PIECES[piece], EN_TIERS[t])
             armure_portee(fid, t)
         L = lignes(f)
         noms = {}
         for piece, nom in zip(PIECES, pieces):
             noms[piece] = nom
         noms.update({o: NOMS_OUTILS[o] + " " + NOMS_ALLIANCES[f["alliance"]] for o in OUTILS})
-        noms.update({"lignee": lign[0], "champion": champ[0]})
+        noms.update({"lignee": lign[0], "champion": champ[0], "ascension": "Ascension : " + champ[0]})
         java["ids"].append([x[0] for x in L])
         java["noms"].append([noms[x[1].split(":")[0]] for x in L])
         types = []
@@ -597,12 +648,30 @@ def main():
                 types.append(lign[1] + ":l")
             elif x[1] == "champion":
                 types.append(champ[1] + ":c")
+            elif x[1] == "ascension":
+                types.append(champ[1] + ":a")
             else:
                 types.append(x[1])
         java["types"].append(types)
         java["ingr"].append([",".join("%s*%d" % (i, n) for i, n in x[2]) for x in L])
         java["atout"].append(atout)
         java["bonus"].append(bonus)
+    # Âme de seigneur : lâchée par les seigneurs vaincus, matériau des paliers Mythique et Divin
+    t = T()
+    for y in range(16):
+        for x in range(16):
+            d = ((x - 7.5) ** 2 + (y - 8) ** 2) ** 0.5
+            if d < 6.2:
+                k = 1 - d / 6.2
+                t.p(x, y, mix((90, 40, 160), (190, 255, 255), k ** 1.4))
+    for (x, y) in [(7, 3), (8, 2), (9, 2), (10, 3), (6, 1), (7, 6), (8, 7), (5, 8), (10, 10), (11, 9)]:
+        t.p(x, y, (230, 255, 255))
+    t.p(7, 8, (255, 255, 255))
+    t.p(8, 8, (255, 255, 255))
+    t.contour((30, 10, 50))
+    item_plat("ame_de_seigneur", t.im)
+    fr.update({"item.royaumes.ame_de_seigneur": "Âme de seigneur"})
+    en.update({"item.royaumes.ame_de_seigneur": "Lord's Soul"})
     fr.update({"block.royaumes.forge_de_guerre": "Forge de guerre", "royaumes.forge.titre": "Forge de guerre",
                "itemGroup.royaumes.arsenal": "Royaumes — Arsenal des factions"})
     en.update({"block.royaumes.forge_de_guerre": "War Forge", "royaumes.forge.titre": "War Forge",
@@ -617,7 +686,8 @@ def main():
         ecrire(p, old)
     L = ["package fr.royaumes;", "", "/** FICHIER GÉNÉRÉ par outils/objets/arsenal.py : ne pas modifier à la main. */",
          "public final class ArsenalGenere {", "    private ArsenalGenere() {}", "",
-         "    /** Lignes de la Forge : 0-8 Soldat, 9-17 Élite, 18-26 Légende (4 pièces puis 5 outils), 27 lignée, 28 champion. */"]
+         "    /** Lignes de la Forge : 9 par palier (4 pièces puis 5 outils) : 0 Soldat, 9 Élite, 18 Légende, 27 Mythique, 36 Divin ;"
+         "     *  45 lignée, 46 champion, 47 ascension. */"]
 
     def tab2(nom, t):
         L.append("    public static final String[][] %s = {" % nom)
@@ -634,6 +704,9 @@ def main():
     L.append("    public static final String[] BONUS = {\"\", " + ", ".join(jstr(x) for x in java["bonus"]) + "};")
     L.append("    public static final String[] PALIERS = {" + ", ".join(jstr(t[0]) for t in TIERS) + "};")
     L.append("    public static final String[] NOMS_PALIERS = {" + ", ".join(jstr(t[1]) for t in TIERS) + "};")
+    niv = [NIVEAUX_TIERS[i // 9] for i in range(len(TIERS) * 9)] + NIVEAUX_ARMES
+    L.append("    /** Niveau de héros requis pour chaque ligne de la Forge. */")
+    L.append("    public static final int[] NIVEAUX = {" + ", ".join(str(n) for n in niv) + "};")
     L.append("    public static final String[] ALLIANCES = {" + ", ".join(jstr(a) for a in ALLIANCES) + "};")
     L.append("    public static final String[] OUTILS = {" + ", ".join(jstr(o) for o in OUTILS) + "};")
     L.append("    /** Effet en main (ou atout de l'épée) : [alliance][outil]. */")
@@ -645,7 +718,7 @@ def main():
         "{{%.1fF, %.1fF}, {%.1fF, %.1fF}}" % (c[0], c[1], l[0], l[1]) for c, l in STATS.values()) + "};")
     L.append("}")
     open(os.path.join(JAVA, "ArsenalGenere.java"), "w", encoding="utf-8").write("\n".join(L) + "\n")
-    print("arsenal :", 25 * 2 + 25 * 12 + 60, "objets")
+    print("arsenal :", 25 * 3 + 25 * 4 * len(TIERS) + 4 * 5 * len(TIERS), "objets")
 
 
 if __name__ == "__main__":

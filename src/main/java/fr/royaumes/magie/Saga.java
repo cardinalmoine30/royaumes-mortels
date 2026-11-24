@@ -12,6 +12,7 @@ public final class Saga {
     private Saga() {}
 
     public static void accorder(ServerPlayer p, String progres) {
+        fr.royaumes.rpg.Quetes.evenement(p, "saga:" + progres);
         if (DEJA.add(p.getUUID() + progres)) {
             BlocPortail.executer(p, "advancement grant @s only royaumes:saga/" + progres);
         }

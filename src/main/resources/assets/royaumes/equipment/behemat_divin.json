@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:behemat_divin"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:behemat_divin"
+      }
+    ]
+  }
+}

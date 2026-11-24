@@ -110,7 +110,8 @@ public final class Reseau {
         }
         FicheHeros fiche = new FicheHeros(score(sb, joueur, "rm_niveau"), score(sb, joueur, "rm_gloire"),
                 score(sb, joueur, "rm_besoin"), score(sb, joueur, "rm_pts"), score(sb, joueur, "rm_faction"), rangs,
-                Magie.energie(joueur), Magie.maximum(joueur), Capacites.reste(joueur));
+                Magie.energie(joueur), Magie.maximum(joueur), Capacites.reste(joueur),
+                fr.royaumes.rpg.Quetes.textes(joueur), fr.royaumes.rpg.Quetes.nombres(joueur));
         try {
             PacketDistributor.sendToPlayer(joueur, fiche);
         } catch (RuntimeException e) {
@@ -124,6 +125,7 @@ public final class Reseau {
         if (++compteur % 20 != 0) {
             return;
         }
+        fr.royaumes.entite.Seigneurs.nettoyer();
         Scoreboard sb = serveur.getScoreboard();
         List<UUID> ids = new ArrayList<>();
         List<Integer> factions = new ArrayList<>();
@@ -139,6 +141,7 @@ public final class Reseau {
             annoncerRoyaume(joueur);
             Camps.tickJoueur(joueur);
             fr.royaumes.arsenal.Arsenal.bonusPanoplie(joueur);
+            fr.royaumes.rpg.Quetes.tick(joueur);
         }
         FactionsVisibles visibles = new FactionsVisibles(ids, factions);
         for (ServerPlayer joueur : serveur.getPlayerList().getPlayers()) {

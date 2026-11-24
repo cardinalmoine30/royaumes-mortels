@@ -82,3 +82,6 @@ net.minecraft.world.item.equipment.EquipmentAssets
 net.minecraft.world.item.equipment.ArmorType
 net.minecraft.tags.ItemTags
 net.minecraft.world.item.context.UseOnContext
+net.minecraft.world.item.ToolMaterial
+net.minecraft.server.level.ServerBossEvent
+net.minecraft.world.BossEvent

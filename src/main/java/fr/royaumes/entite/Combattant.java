@@ -192,6 +192,9 @@ public class Combattant extends PathfinderMob implements GeoEntity {
             }
             sb.addPlayerToTeam(this.getScoreboardName(), equipe);
         }
+        if (p.boss() && this.entityTags().contains("rm_appele")) {
+            Seigneurs.tick(this, niveau);
+        }
         if (rechargeAttaque > 0) rechargeAttaque--;
         if (rechargeSpecial > 0) rechargeSpecial--;
         if (rechargeOnde > 0) rechargeOnde--;
@@ -213,7 +216,7 @@ public class Combattant extends PathfinderMob implements GeoEntity {
         if (p.boss() || p.special() == Special.ONDE) {
             if (rechargeOnde == 0 && cible != null && this.distanceTo(cible) < 4 + p.echelle() * 1.5) {
                 frappeDeZone(niveau);
-                rechargeOnde = p.boss() ? 140 : 200;
+                rechargeOnde = p.boss() ? (Seigneurs.phase(this) >= 2 ? 90 : 140) : 200;
             }
         }
         special(niveau, p, cible);
@@ -354,6 +357,13 @@ public class Combattant extends PathfinderMob implements GeoEntity {
         }
         if (p.boss() && !p.sbire().isEmpty() && cible != null && this.tickCount % 400 == 0) {
             invoquer(niveau, 3);
+        }
+    }
+
+    /** Renforts appelés par un seigneur qui change de phase. */
+    void invoquerRenforts(ServerLevel niveau, int nombre) {
+        if (!profil().sbire().isEmpty()) {
+            invoquer(niveau, nombre);
         }
     }
 

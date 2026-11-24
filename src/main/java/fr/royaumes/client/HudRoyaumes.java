@@ -45,6 +45,23 @@ public class HudRoyaumes implements GuiLayer {
             String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (R)");
             g.text(mc.font, cap, 34, 29, f.capacite() > 0 ? 0xFF8C8CA0 : 0xFFF2D27A, true);
         }
+        // (5) Saga du Héros : quête en cours et contrat de chasse
+        if (f.quete() != null && f.quete().length >= 3) {
+            int qy = f.faction() > 0 ? 44 : 6;
+            int[] pr = f.progres();
+            String l1 = "✦ " + f.quete()[0] + (pr.length > 1 && pr[1] > 1 ? "  " + pr[0] + "/" + pr[1] : "");
+            String l2 = coupe(mc, f.quete()[1], 230);
+            String l3 = f.quete()[2].isEmpty() ? "" : "⚔ " + f.quete()[2] + (pr.length > 3 ? "  " + pr[2] + "/" + pr[3] : "");
+            int largeur = Math.max(mc.font.width(l1), Math.max(mc.font.width(l2), mc.font.width(l3))) + 8;
+            int hauteur = l3.isEmpty() ? 24 : 35;
+            g.fill(4, qy, 4 + largeur, qy + hauteur, 0x780C1428);
+            g.fill(4, qy, 5, qy + hauteur, 0xFFD4A63A);
+            g.text(mc.font, l1, 8, qy + 3, 0xFFF2D27A, true);
+            g.text(mc.font, l2, 8, qy + 13, 0xFFCFC6B4, true);
+            if (!l3.isEmpty()) {
+                g.text(mc.font, l3, 8, qy + 24, 0xFF7FD6E6, true);
+            }
+        }
         // (1) jauge arcanique
         int vent = ventAffiche(joueur, f);
         int gx = 6;
@@ -80,6 +97,16 @@ public class HudRoyaumes implements GuiLayer {
             return ContenuGenere.VENT_FACTION[f.faction()];
         }
         return 0;
+    }
+
+    static String coupe(Minecraft mc, String s, int max) {
+        if (mc.font.width(s) <= max) {
+            return s;
+        }
+        while (s.length() > 3 && mc.font.width(s + "…") > max) {
+            s = s.substring(0, s.length() - 1);
+        }
+        return s + "…";
     }
 
     static String de(String nom) {

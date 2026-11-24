@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:khorne_mythique"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:khorne_mythique"
+      }
+    ]
+  }
+}

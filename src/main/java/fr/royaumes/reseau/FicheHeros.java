@@ -7,7 +7,8 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
 /** Fiche du héros envoyée chaque seconde au client (inventaire de taverne, HUD, écran de serment). */
-public record FicheHeros(int niveau, int gloire, int besoin, int points, int faction, int[] rangs, int energie, int energieMax, int capacite) implements CustomPacketPayload {
+public record FicheHeros(int niveau, int gloire, int besoin, int points, int faction, int[] rangs, int energie, int energieMax, int capacite,
+                         String[] quete, int[] progres) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<FicheHeros> TYPE =
             new CustomPacketPayload.Type<>(Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID, "fiche"));
     public static final StreamCodec<RegistryFriendlyByteBuf, FicheHeros> CODEC =
@@ -26,6 +27,14 @@ public record FicheHeros(int niveau, int gloire, int besoin, int points, int fac
         b.writeVarInt(energie);
         b.writeVarInt(energieMax);
         b.writeVarInt(capacite);
+        b.writeVarInt(quete.length);
+        for (String q : quete) {
+            b.writeUtf(q);
+        }
+        b.writeVarInt(progres.length);
+        for (int v : progres) {
+            b.writeVarInt(v);
+        }
     }
 
     private static FicheHeros lire(RegistryFriendlyByteBuf b) {
@@ -42,7 +51,17 @@ public record FicheHeros(int niveau, int gloire, int besoin, int points, int fac
         int energie = b.readVarInt();
         int energieMax = b.readVarInt();
         int capacite = b.readVarInt();
-        return new FicheHeros(niveau, gloire, besoin, points, faction, rangs, energie, energieMax, capacite);
+        int nq = Math.min(8, b.readVarInt());
+        String[] quete = new String[nq];
+        for (int i = 0; i < nq; i++) {
+            quete[i] = b.readUtf();
+        }
+        int np = Math.min(8, b.readVarInt());
+        int[] progres = new int[np];
+        for (int i = 0; i < np; i++) {
+            progres[i] = b.readVarInt();
+        }
+        return new FicheHeros(niveau, gloire, besoin, points, faction, rangs, energie, energieMax, capacite, quete, progres);
     }
 
     @Override
