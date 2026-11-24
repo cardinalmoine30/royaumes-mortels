@@ -69,7 +69,7 @@ public final class Quetes {
         new Etape("Tueur de légendes", "Invoque un seigneur à son autel et vaincs-le.", "boss", "", 1, 500, "",
                 "Forge son sceau (table de forgeron, voir le Codex) et utilise-le sur l'Autel des Seigneurs. Sous 25 % de vie : esquive les cercles !"),
         new Etape("Pourfendeur de seigneurs", "Vaincs encore des seigneurs.", "boss", "", 3, 700, "",
-                "Chaque seigneur lâche sa relique unique et des âmes de seigneur."),
+                "Chaque seigneur lâche des âmes. Sa relique est rare (10 % au premier combat), mais chaque échec rapproche de la suivante."),
         new Etape("Mythique", "Forge une pièce Mythique (niveau 25).", "palier", "3", 1, 800, "", "Il faut des âmes de seigneur."),
         new Etape("Héros mythique", "Atteins le niveau 35.", "score", "rm_niveau", 35, 0, "minecraft:nether_star*1", ""),
         new Etape("Divin", "Forge une pièce Divine (niveau 35).", "palier", "4", 1, 1200, "", "Étoile du Nether et âmes de seigneur."),
@@ -100,7 +100,7 @@ public final class Quetes {
         return i == null ? 0 : i.value();
     }
 
-    static void set(ServerPlayer p, String nom, int v) {
+    public static void set(ServerPlayer p, String nom, int v) {
         Scoreboard sb = p.level().getServer().getScoreboard();
         sb.getOrCreatePlayerScore(p, obj(sb, nom)).set(v);
     }

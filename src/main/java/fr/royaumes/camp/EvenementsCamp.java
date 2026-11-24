@@ -23,13 +23,12 @@ public final class EvenementsCamp {
             // un seigneur vaincu lâche sa relique unique
             String id = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(c.getType()).getPath();
             var relique = fr.royaumes.ModObjets.RELIQUES.get(id);
-            if (relique != null && c.profil().boss()) {
-                c.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(c.level(), c.getX(), c.getY() + 1, c.getZ(),
-                        new net.minecraft.world.item.ItemStack(relique.get())));
-            }
             if (c.profil().boss()) {
                 // âmes de seigneur (paliers Mythique et Divin) : 2 à 3, +1 par héros supplémentaire au combat
                 var heros = fr.royaumes.entite.Seigneurs.heros(c);
+                if (relique != null) {
+                    tirerRelique(c, relique.get(), heros, event.getSource().getEntity());
+                }
                 int ames = 2 + c.getRandom().nextInt(2) + Math.max(0, heros.size() - 1);
                 c.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(c.level(), c.getX(), c.getY() + 1.5, c.getZ(),
                         new net.minecraft.world.item.ItemStack(fr.royaumes.arsenal.Arsenal.AME.get(), ames)));
@@ -65,6 +64,43 @@ public final class EvenementsCamp {
         } else if (fr.royaumes.rpg.Quetes.get(joueur, "rm_niveau") < 20) {
             // équilibrage des débuts : les guerriers frappent les héros novices 25 % moins fort
             event.setAmount(event.getAmount() * 0.75F);
+        }
+    }
+
+    /**
+     * La relique d'un seigneur est rare : 10 %, +5 % par héros en plus au combat, et +8 % par victoire sans relique (pitié,
+     * comptée par héros dans rm_pitie et remise à zéro quand une relique tombe). Seul : en moyenne une relique toutes les ~4 victoires, au pire 12.
+     */
+    static void tirerRelique(Combattant c, net.minecraft.world.item.Item relique, java.util.List<net.minecraft.server.level.ServerPlayer> heros,
+                             net.minecraft.world.entity.Entity tueur) {
+        java.util.List<net.minecraft.server.level.ServerPlayer> l = new java.util.ArrayList<>(heros);
+        if (tueur instanceof net.minecraft.server.level.ServerPlayer sp && !l.contains(sp)) {
+            l.add(sp);
+        }
+        int pitie = 0;
+        for (var h : l) {
+            pitie = Math.max(pitie, fr.royaumes.rpg.Quetes.get(h, "rm_pitie"));
+        }
+        double chance = 0.10 + 0.05 * Math.max(0, l.size() - 1) + 0.08 * pitie;
+        if (c.getRandom().nextDouble() < chance) {
+            c.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(c.level(), c.getX(), c.getY() + 1, c.getZ(),
+                    new net.minecraft.world.item.ItemStack(relique)));
+            for (var h : l) {
+                fr.royaumes.rpg.Quetes.set(h, "rm_pitie", 0);
+            }
+            String nom = new net.minecraft.world.item.ItemStack(relique).getHoverName().getString().replace("\"", "'");
+            if (!l.isEmpty()) {
+                fr.royaumes.bloc.BlocPortail.executer(l.get(0), "tellraw @a [{\"text\":\"✦ Relique ! \",\"color\":\"light_purple\",\"bold\":true},"
+                        + "{\"text\":\"" + nom + "\",\"color\":\"gold\"},{\"text\":\" est tombée de la dépouille du seigneur.\",\"color\":\"gray\"}]");
+                fr.royaumes.bloc.BlocPortail.executer(l.get(0), "playsound minecraft:ui.toast.challenge_complete master @a ~ ~ ~ 1 0.7");
+            }
+        } else {
+            for (var h : l) {
+                fr.royaumes.rpg.Quetes.set(h, "rm_pitie", fr.royaumes.rpg.Quetes.get(h, "rm_pitie") + 1);
+                h.sendSystemMessage(net.minecraft.network.chat.Component.literal("La relique du seigneur ne s'est pas révélée cette fois ("
+                        + Math.min(100, (int) Math.round(100 * (chance + 0.08))) + " % la prochaine fois).")
+                        .withStyle(net.minecraft.ChatFormatting.DARK_PURPLE));
+            }
         }
     }
 

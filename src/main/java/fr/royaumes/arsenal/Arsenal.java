@@ -81,7 +81,7 @@ public final class Arsenal {
     /** Métaux au-dessus de la netherite (2031 / 9 / +4) : Légende, Mythique, Divin. */
     static final ToolMaterial LEGENDE = metal(2800, 11.0F, 5.0F, 18);
     static final ToolMaterial MYTHIQUE = metal(3800, 14.0F, 6.0F, 20);
-    static final ToolMaterial DIVIN = metal(5200, 18.0F, 7.0F, 25);
+    public static final ToolMaterial DIVIN = metal(5200, 18.0F, 7.0F, 25);
     private static final ToolMaterial[] MATERIAUX = {ToolMaterial.IRON, ToolMaterial.DIAMOND, LEGENDE, MYTHIQUE, DIVIN};
 
     private static ToolMaterial metal(int durabilite, float vitesse, float degats, int enchant) {

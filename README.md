@@ -100,6 +100,14 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Reliques des seigneurs (0.18) : rares mais redoutables.** Une relique ne tombe plus à chaque victoire : 10 % au premier
+combat, +5 % par héros en plus, +8 % par victoire sans relique (la « pitié », comptée pour chaque héros, remise à zéro quand une
+relique tombe). Seul, il faut en moyenne ~4 victoires, au pire 12 ; tout le serveur est prévenu quand une relique apparaît.
+En échange, elles dépassent l'arsenal Divin : Pourfendeuse des Rois (17 dégâts, x1,75 contre les seigneurs, Force III et
+Résistance II pendant 15 s), Krokfendeur (20 dégâts, onde de 20 dégâts, Force et Vitesse pour les alliés), Massacre et Carnage
+(18 dégâts, enflamme, cône de feu de 18), Sceptre de Nagash (6 Gardes des Tombes, drain de 14 PV par ennemi), Bâton de malefeu
+(7 boules qui flétrissent), Bâton de pluie (poison II et lenteur II sur 12 blocs, régénération des alliés).
+
 **Objets dessinés (0.16).** Chacun des 58 objets nommés du datapack (armes de départ, sceaux, élixirs, matériaux, Pierre de Royaume,
 Corne d'appel…) a sa propre icône (`outils/objets/designs.py`) ; les doublons ont été retirés (œufs de zombie déguisés, trophées de
 boss qui faisaient double emploi avec les reliques, armes de départ portant le nom d'une arme de l'arsenal).

@@ -49,7 +49,17 @@ public class ReliqueSeigneur extends Item {
     @Override
     public void appendHoverText(ItemStack pile, Item.TooltipContext contexte, TooltipDisplay affichage,
                                 Consumer<Component> ajout, TooltipFlag options) {
-        ajout.accept(Component.literal("Relique unique d'un seigneur des Royaumes").withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC));
+        ajout.accept(Component.literal("Relique unique d'un seigneur des Royaumes · très rare").withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC));
+        String passif = switch (seigneur) {
+            case "archaon" -> "Tueuse de Rois : dégâts x1,75 contre les seigneurs";
+            case "gordrakk" -> "Chaque coup projette la cible";
+            case "skarbrand" -> "Chaque coup enflamme ; Force I sous 50 % de vie";
+            case "thanquol" -> "Le malefeu flétrit et frappe 50 % plus fort";
+            default -> "";
+        };
+        if (!passif.isEmpty()) {
+            ajout.accept(Component.literal(passif).withStyle(ChatFormatting.LIGHT_PURPLE));
+        }
         for (int i = 0; i < pouvoirs.length; i++) {
             ajout.accept(Component.literal((i == 0 ? "Clic droit : " : "Accroupi + clic droit : ") + pouvoirs[i]).withStyle(ChatFormatting.GOLD));
         }

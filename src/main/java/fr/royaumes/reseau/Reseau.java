@@ -145,6 +145,7 @@ public final class Reseau {
             fr.royaumes.arsenal.Arsenal.bonusPanoplie(joueur);
             fr.royaumes.rpg.Quetes.tick(joueur);
             fr.royaumes.rpg.Voies.passif(joueur);
+            fr.royaumes.magie.Reliques.passif(joueur);
         }
         FactionsVisibles visibles = new FactionsVisibles(ids, factions);
         for (ServerPlayer joueur : serveur.getPlayerList().getPlayers()) {
