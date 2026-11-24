@@ -57,8 +57,8 @@ def main():
     av("huit_vents", "sort", "royaumes:grimoire_des_vents", "Maître des huit Vents", "Posséder les huit bâtons de magie.",
        {v: objet("royaumes:baton_" + v) for v in VENTS}, "challenge", xp=500)
     av("autel", "baton", "royaumes:autel_arcanique", "Source arcanique", "Fabriquer un autel arcanique.", {"autel": objet("royaumes:autel_arcanique")})
-    av("portail", "pierre", "royaumes:portail_des_royaumes", "Porte des Royaumes", "Poser un Portail des Royaumes.",
-       {"portail": {"trigger": "minecraft:placed_block", "conditions": {"location": [{"condition": "minecraft:block_state_property", "block": "royaumes:portail_des_royaumes"}]}}}, "goal")
+    av("portail", "pierre", "royaumes:portail_des_royaumes", "Porte des Royaumes", "Fabriquer un Portail des Royaumes.",
+       {"portail": objet("royaumes:portail_des_royaumes")}, "goal")
     parent = "portail"
     for v in VENTS:
         av("royaume_" + v, "portail", "royaumes:eclat_" + v, "Royaume " + ("d'" if NOMS[v][0] in "AEIOUH" else "de ") + NOMS[v], DESC_ROYAUMES[v],
@@ -68,13 +68,13 @@ def main():
     av("voyageur", "royaume_chamon", "minecraft:recovery_compass", "Voyageur des Royaumes", "Visiter les huit Royaumes Mortels.",
        {v: {"trigger": "minecraft:changed_dimension", "conditions": {"to": DIMS[v]}} for v in VENTS}, "challenge", xp=500)
     av("premier_boss", "serment", "minecraft:iron_sword", "Tueur de légendes", "Vaincre un des seigneurs des Royaumes.",
-       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"type": "royaumes:" + b[0]}}} for b in BOSS},
+       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": [{"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}]}} for b in BOSS},
        "goal", requis=[[b[0] for b in BOSS]], xp=100)
     for b in BOSS:
         av("boss_" + b[0], "premier_boss", "minecraft:wither_skeleton_skull", b[1], b[2],
-           {"tuer": {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"type": "royaumes:" + b[0]}}}}, "goal", xp=150)
+           {"tuer": {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": [{"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}]}}}, "goal", xp=150)
     av("fleau", "premier_boss", "minecraft:nether_star", "Fléau des Dieux", "Vaincre les six seigneurs des Royaumes.",
-       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"type": "royaumes:" + b[0]}}} for b in BOSS},
+       {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": [{"condition": "minecraft:entity_properties", "entity": "this", "predicate": {"type": "royaumes:" + b[0]}}]}} for b in BOSS},
        "challenge", xp=1000)
     shutil.rmtree(DOSSIER, ignore_errors=True)
     os.makedirs(DOSSIER)
