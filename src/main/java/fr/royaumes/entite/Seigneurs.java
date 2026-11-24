@@ -56,7 +56,7 @@ public final class Seigneurs {
             frappes(c, n, proches(c, n));
             return;
         }
-        ServerBossEvent barre = BARRES.computeIfAbsent(id, k -> new ServerBossEvent(c.getDisplayName(),
+        ServerBossEvent barre = BARRES.computeIfAbsent(id, k -> new ServerBossEvent(UUID.randomUUID(), c.getDisplayName(),
                 BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.NOTCHED_10));
         barre.setProgress(Math.max(0.0F, Math.min(1.0F, vie)));
         if (c.tickCount % 10 == 0) {
