@@ -88,6 +88,18 @@ d'Élite, et les guerriers ne frappent moins fort que les héros sous le niveau 
 seigneur. Les hauts paliers apportent plutôt des **pouvoirs d'outils** : pioche et pelle qui creusent 2, 3 puis 5 blocs en ligne,
 hache qui abat l'arbre entier, houe qui laboure en 3×3 ou 5×5, épée qui fend les ennemis autour (accroupi : effet normal).
 
+**Équilibrage global (0.17).** Trois scripts dans `outils/equilibrage/` : `simulation.py` (coups encaissés), `combat.py` (duels
+complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux). Réglages qui en sortent :
+- **Panoplies** : chaque faction a un budget d'effets comparable (de 3,8 à 5,5 points, contre 1 à 9 avant : Idoneth et Lumineth étaient
+  presque nus, Khorne et Behemat écrasants). Force, Résistance et Régénération plafonnent au niveau I, la vie bonus au niveau II.
+- **Seigneurs** : leur vie dépend du nombre de héros présents (55 % seul, +30 % par héros en plus, 160 % au plus) ; ils frappent
+  +20 % par palier d'armure au-dessus d'Élite ; chaque héros du combat gagne 400 de gloire. Seul, un héros en Légende gagne de
+  justesse (59 s pour vaincre, 66 s tenus), en Divin confortablement (41 s / 70 s) ; en Élite, c'est perdu d'avance.
+- **Saga** : la quête Légende passe avant le premier seigneur.
+- **Coûts** : l'équipement complet Divin + outils + ascension demande 24 lingots de netherite (au lieu de 45), 25 âmes (≈ 10 seigneurs
+  seul, moins en groupe) et 5 étoiles du Nether.
+- **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
+
 **Objets dessinés (0.16).** Chacun des 58 objets nommés du datapack (armes de départ, sceaux, élixirs, matériaux, Pierre de Royaume,
 Corne d'appel…) a sa propre icône (`outils/objets/designs.py`) ; les doublons ont été retirés (œufs de zombie déguisés, trophées de
 boss qui faisaient double emploi avec les reliques, armes de départ portant le nom d'une arme de l'arsenal).
@@ -117,7 +129,7 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Paliers](outils/visuels/apercus/arsenal/paliers.png) |
 | ![Forge de guerre](outils/visuels/apercus/jeu/maquette_forge.png) | ![Saga et seigneur](outils/visuels/apercus/jeu/maquette_saga.png) |
 | ![Voie du héros](outils/visuels/apercus/jeu/maquette_voies.png) | ![Équilibrage](outils/equilibrage/equilibrage.png) |
-| ![Objets du datapack](outils/visuels/apercus/arsenal/objets_datapack.png) | |
+| ![Objets du datapack](outils/visuels/apercus/arsenal/objets_datapack.png) | ![Combats](outils/equilibrage/combats.png) |
 
 ## Générateurs (dossier `outils/`)
 

@@ -249,7 +249,28 @@ def textes_kits(armures):
             open(p, "w", encoding="utf-8").write(t)
 
 
+MINERAIS_GLOIRE = [("minerai_pierre_royaumes", 3), ("minerai_pierre_royaumes_profond", 3), ("minerai_azyrite", 6), ("minerai_braise", 6),
+                   ("minerai_croc", 6), ("minerai_jade", 6), ("minerai_lumineux", 6), ("minerai_ombre", 6), ("minerai_ames", 6),
+                   ("minerai_or_vif", 6), ("minerai_malepierre", 8)]
+
+
+def gloire_minerais():
+    """Les minerais du mod rapportent de la gloire comme les minerais vanilla (le datapack ne connaissait que ces derniers)."""
+    load = os.path.join(DATA, "function", "rpg", "load.mcfunction")
+    boucle = os.path.join(DATA, "function", "rpg", "boucle.mcfunction")
+    l, b = open(load, encoding="utf-8").read(), open(boucle, encoding="utf-8").read()
+    for i, (bloc, v) in enumerate(MINERAIS_GLOIRE):
+        obj = "rm_mr%d" % i
+        if obj + " " not in l:
+            l = l.rstrip("\n") + "\nscoreboard objectives add %s minecraft.mined:royaumes.%s\n" % (obj, bloc)
+        if '"%s"' % obj not in b:
+            b = b.rstrip("\n") + '\nexecute as @a[scores={%s=1..}] run function royaumes:rpg/source {obj:"%s",val:%d}\n' % (obj, obj, v)
+    open(load, "w", encoding="utf-8").write(l)
+    open(boucle, "w", encoding="utf-8").write(b)
+
+
 def main():
+    gloire_minerais()
     armures = armures_des_kits()
     e, a = butin(armures)
     f = fonctions()

@@ -225,8 +225,8 @@ public final class Arsenal {
             String[] x = bonus[i].split(":");
             // équilibrage 0.16 : jamais plus de Résistance I ni de Régénération I ; le reste plafonne au niveau II
             int cap = switch (x[0]) {
-                case "resistance", "regeneration", "invisibility", "fire_resistance", "water_breathing", "night_vision" -> 0;
-                case "health_boost" -> 2;
+                case "resistance", "regeneration", "strength", "invisibility", "fire_resistance", "water_breathing", "night_vision" -> 0;
+                case "health_boost" -> 1;
                 default -> 1;
             };
             r.merge(x[0], Math.min(cap, Integer.parseInt(x[1]) + plus), Math::max);

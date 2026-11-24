@@ -37,6 +37,11 @@ public final class EvenementsCamp {
                     fr.royaumes.rpg.Quetes.seigneur(tueur);
                 }
                 heros.forEach(fr.royaumes.rpg.Quetes::seigneur);
+                // gloire de la victoire (le datapack ne la donnait qu'aux anciens boss de son équipe rm_boss)
+                for (var h : heros) {
+                    fr.royaumes.bloc.BlocPortail.executer(h, "scoreboard players set #gain rm_tmp 400");
+                    fr.royaumes.bloc.BlocPortail.executer(h, "function royaumes:rpg/ajouter");
+                }
                 fr.royaumes.entite.Seigneurs.fin(c);
             } else if (event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer tueur) {
                 String equipe = c.profil().equipe();
@@ -52,10 +57,10 @@ public final class EvenementsCamp {
             return;
         }
         if (c.profil().boss()) {
-            // les seigneurs s'adaptent : +30 % de dégâts par palier d'armure au-dessus d'Élite (Divin : x1,9)
+            // les seigneurs s'adaptent : +20 % de dégâts par palier d'armure au-dessus d'Élite (Divin : x1,6)
             int palier = palierArmure(joueur);
             if (palier >= 2) {
-                event.setAmount(event.getAmount() * (1.0F + 0.3F * (palier - 1)));
+                event.setAmount(event.getAmount() * (1.0F + 0.2F * (palier - 1)));
             }
         } else if (fr.royaumes.rpg.Quetes.get(joueur, "rm_niveau") < 20) {
             // équilibrage des débuts : les guerriers frappent les héros novices 25 % moins fort

@@ -28,28 +28,28 @@ ARSENAL = {
     "stormcast": (("Marteau de Sigmar", "marteau"), ("Lame runique d'Azyr", "epee"), "foudre", ("Heaume céleste", "Cuirasse de sigmarite", "Grèves de sigmarite", "Solerets d'Azyr"), "resistance:0,speed:0"),
     "cites": (("Épée de Freeguild", "epee"), ("Hallebarde de la cité", "lance"), "faiblesse", ("Morion de garde", "Cuirasse de la cité", "Cuissards de garde", "Bottes de marche"), "resistance:0,haste:0"),
     "fyreslayers": (("Hache runique d'ur-or", "hache"), ("Marteau de forge-rune", "marteau"), "feu", ("Casque à crête", "Plastron runique", "Jambières d'ur-or", "Bottes de magma"), "fire_resistance:0,strength:0"),
-    "kharadron": (("Marteau à aether", "marteau"), ("Hachette d'aéronaute", "hache"), "recul", ("Masque à aether", "Combinaison d'aether-or", "Jambières d'arkanaute", "Bottes à endrins"), "slow_falling:0,resistance:0"),
+    "kharadron": (("Marteau à aether", "marteau"), ("Hachette d'aéronaute", "hache"), "recul", ("Masque à aether", "Combinaison d'aether-or", "Jambières d'arkanaute", "Bottes à endrins"), "slow_falling:0,resistance:0,haste:0"),
     "khaine": (("Lame du Meurtrier", "epee"), ("Glaive sacrificiel", "lance"), "vol_de_vie", ("Bandeau de Khaine", "Harnais de sang", "Jupe de lames", "Sandales de sœur"), "speed:1,strength:0"),
-    "idoneth": (("Lance de la marée", "lance"), ("Lame d'âme", "epee"), "lenteur", ("Heaume des profondeurs", "Écailles d'Idoneth", "Jambières de nacre", "Bottes des abysses"), "water_breathing:0,dolphins_grace:0"),
-    "lumineth": (("Épée de soleil-métal", "epee"), ("Lance de Hysh", "lance"), "aveugle", ("Heaume de Hysh", "Cuirasse de lumière", "Grèves d'albâtre", "Bottes de Teclis"), "night_vision:0,speed:0"),
+    "idoneth": (("Lance de la marée", "lance"), ("Lame d'âme", "epee"), "lenteur", ("Heaume des profondeurs", "Écailles d'Idoneth", "Jambières de nacre", "Bottes des abysses"), "water_breathing:0,dolphins_grace:0,resistance:0"),
+    "lumineth": (("Épée de soleil-métal", "epee"), ("Lance de Hysh", "lance"), "aveugle", ("Heaume de Hysh", "Cuirasse de lumière", "Grèves d'albâtre", "Bottes de Teclis"), "night_vision:0,speed:0,resistance:0"),
     "seraphon": (("Macuahuitl céleste", "epee"), ("Lance du Slann", "lance"), "lenteur", ("Masque de Saurus", "Plastron d'écailles", "Jambières de jade", "Pattes de Saurus"), "jump_boost:1,resistance:0"),
-    "sylvaneth": (("Lame de bois-vif", "epee"), ("Bâton épineux", "baton"), "lenteur", ("Couronne d'écorce", "Écorce d'Alarielle", "Racines-jambières", "Racines-bottes"), "regeneration:0,speed:0"),
-    "esclaves": (("Épée du Chaos", "epee"), ("Hache de guerre maudite", "hache"), "faiblesse", ("Heaume à cornes", "Armure du Chaos", "Jambières maudites", "Solerets noirs"), "strength:0,resistance:0"),
-    "khorne": (("Hache de sang", "hache"), ("Épée de Khorne", "epee"), "feu", ("Heaume de crânes", "Cuirasse d'airain", "Jambières de sang", "Bottes de carnage"), "strength:1"),
-    "tzeentch": (("Lame changeante", "epee"), ("Bâton de feu de Tzeentch", "baton"), "feu", ("Masque de Tzeentch", "Robe changeante", "Jambières bleues", "Bottes à plumes"), "speed:0,fire_resistance:0"),
-    "slaanesh": (("Rapière exquise", "epee"), ("Fouet-lame", "lance"), "aveugle", ("Diadème d'extase", "Corset de Slaanesh", "Jambières de soie", "Bottes à talons"), "speed:1,haste:0"),
+    "sylvaneth": (("Lame de bois-vif", "epee"), ("Bâton épineux", "baton"), "lenteur", ("Couronne d'écorce", "Écorce d'Alarielle", "Racines-jambières", "Racines-bottes"), "regeneration:0,speed:0,health_boost:0"),
+    "esclaves": (("Épée du Chaos", "epee"), ("Hache de guerre maudite", "hache"), "faiblesse", ("Heaume à cornes", "Armure du Chaos", "Jambières maudites", "Solerets noirs"), "resistance:0,health_boost:0"),
+    "khorne": (("Hache de sang", "hache"), ("Épée de Khorne", "epee"), "feu", ("Heaume de crânes", "Cuirasse d'airain", "Jambières de sang", "Bottes de carnage"), "strength:0,speed:0"),
+    "tzeentch": (("Lame changeante", "epee"), ("Bâton de feu de Tzeentch", "baton"), "feu", ("Masque de Tzeentch", "Robe changeante", "Jambières bleues", "Bottes à plumes"), "speed:0,fire_resistance:0,resistance:0"),
+    "slaanesh": (("Rapière exquise", "epee"), ("Fouet-lame", "lance"), "aveugle", ("Diadème d'extase", "Corset de Slaanesh", "Jambières de soie", "Bottes à talons"), "speed:1,haste:0,regeneration:0"),
     "nurgle": (("Fléau pestilentiel", "marteau"), ("Hache rouillée", "hache"), "poison", ("Heaume putride", "Armure pestilente", "Jambières gonflées", "Bottes de fange"), "regeneration:0,resistance:0"),
-    "skaven": (("Hallebarde de malepierre", "lance"), ("Lame rouillée", "epee"), "poison", ("Casque de clanrat", "Haillons de malepierre", "Jambières rapiécées", "Pattes de rat"), "speed:1,night_vision:0"),
+    "skaven": (("Hallebarde de malepierre", "lance"), ("Lame rouillée", "epee"), "poison", ("Casque de clanrat", "Haillons de malepierre", "Jambières rapiécées", "Pattes de rat"), "speed:1,night_vision:0,regeneration:0"),
     "hashut": (("Marteau de l'Ash", "marteau"), ("Hache de forge", "hache"), "feu", ("Haut casque d'Hashut", "Cuirasse de basalte", "Jambières de lave", "Bottes de cendre"), "fire_resistance:0,resistance:0"),
-    "nighthaunt": (("Faux spectrale", "faux"), ("Lame tranchante", "epee"), "fletri", ("Capuche spectrale", "Linceul", "Haillons fantômes", "Chaînes d'ombre"), "invisibility:0,slow_falling:0"),
-    "soulblight": (("Épée vampirique", "epee"), ("Lance du chevalier de sang", "lance"), "vol_de_vie", ("Heaume du comte", "Cuirasse sanglante", "Jambières de nuit", "Bottes de l'aristocrate"), "night_vision:0,strength:0"),
-    "ossiarch": (("Glaive d'os", "faux"), ("Lance-os", "lance"), "fletri", ("Crâne-heaume", "Cage thoracique", "Fémurs-jambières", "Os-solerets"), "resistance:1"),
-    "fec": (("Couperet du festin", "hache"), ("Massue d'os", "marteau"), "vol_de_vie", ("Couronne du roi-goule", "Haillons royaux", "Jambières de fange", "Pattes griffues"), "regeneration:0,speed:0"),
-    "ironjawz": (("Grand Kikoup'", "hache"), ("Choppa", "hache"), "recul", ("Casque à mâchoire", "Plaques d'Ironjawz", "Jambières de fer", "Bottes de fer"), "resistance:0,strength:0"),
+    "nighthaunt": (("Faux spectrale", "faux"), ("Lame tranchante", "epee"), "fletri", ("Capuche spectrale", "Linceul", "Haillons fantômes", "Chaînes d'ombre"), "invisibility:0,slow_falling:0,resistance:0"),
+    "soulblight": (("Épée vampirique", "epee"), ("Lance du chevalier de sang", "lance"), "vol_de_vie", ("Heaume du comte", "Cuirasse sanglante", "Jambières de nuit", "Bottes de l'aristocrate"), "night_vision:0,strength:0,regeneration:0"),
+    "ossiarch": (("Glaive d'os", "faux"), ("Lance-os", "lance"), "fletri", ("Crâne-heaume", "Cage thoracique", "Fémurs-jambières", "Os-solerets"), "resistance:0,health_boost:0"),
+    "fec": (("Couperet du festin", "hache"), ("Massue d'os", "marteau"), "vol_de_vie", ("Couronne du roi-goule", "Haillons royaux", "Jambières de fange", "Pattes griffues"), "regeneration:0,strength:0"),
+    "ironjawz": (("Grand Kikoup'", "hache"), ("Choppa", "hache"), "recul", ("Casque à mâchoire", "Plaques d'Ironjawz", "Jambières de fer", "Bottes de fer"), "strength:0,health_boost:0"),
     "kruleboyz": (("Pique des marais", "lance"), ("Lame empoisonnée", "epee"), "poison", ("Casque de Kruleboy", "Armure de marais", "Jambières de vase", "Bottes de vase"), "speed:0,resistance:0"),
-    "gitz": (("Lune-lance", "lance"), ("Bâton à champignons", "baton"), "aveugle", ("Capuche noire", "Robe de Gitz", "Jambières sombres", "Bottes de squig"), "jump_boost:1,night_vision:0"),
-    "ogors": (("Couperet de boucher", "hache"), ("Massue d'ogre", "marteau"), "recul", ("Casque de boucher", "Plaque de bedaine", "Jambières d'ogre", "Bottes d'ogre"), "health_boost:1,strength:0"),
-    "behemat": (("Arbre-gourdin", "marteau"), ("Massue de géant", "marteau"), "recul", ("Casque de géant", "Harnais de géant", "Braies de géant", "Sandales de géant"), "health_boost:2,resistance:0"),
+    "gitz": (("Lune-lance", "lance"), ("Bâton à champignons", "baton"), "aveugle", ("Capuche noire", "Robe de Gitz", "Jambières sombres", "Bottes de squig"), "jump_boost:1,night_vision:0,strength:0"),
+    "ogors": (("Couperet de boucher", "hache"), ("Massue d'ogre", "marteau"), "recul", ("Casque de boucher", "Plaque de bedaine", "Jambières d'ogre", "Bottes d'ogre"), "health_boost:0,strength:0"),
+    "behemat": (("Arbre-gourdin", "marteau"), ("Massue de géant", "marteau"), "recul", ("Casque de géant", "Harnais de géant", "Braies de géant", "Sandales de géant"), "health_boost:1,speed:0"),
 }
 ATOUTS = {"foudre": "Foudre : la cible est frappée par l'éclair", "feu": "Brasier : enflamme la cible", "poison": "Venin : empoisonne la cible",
           "fletri": "Flétrissure : flétrit la cible", "vol_de_vie": "Vol de vie : te soigne à chaque coup", "lenteur": "Entrave : ralentit fortement la cible",
@@ -114,11 +114,11 @@ def lignes(f):
             elif t == 1:
                 r = [(prec, 1), ("minecraft:diamond", 3 if i in (1, 2) else 2), (ea, 3), (eb, 2)]
             elif t == 2:
-                r = [(prec, 1), ("minecraft:netherite_ingot", 2 if i in (1, 2) else 1), ("royaumes:cristal_arcanique", 2), (ea, 4), (eb, 4)]
+                r = [(prec, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 2), (ea, 4), (eb, 4)]
             elif t == 3:  # Mythique : âmes des seigneurs vaincus
-                r = [(prec, 1), (AME, 2 if i in (1, 2) else 1), ("minecraft:netherite_ingot", 2), ("royaumes:cristal_arcanique", 3), (ea, 6), (eb, 6)]
+                r = [(prec, 1), (AME, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 3), (ea, 6), (eb, 6)]
             else:  # Divin : étoile du Nether et âmes
-                r = [(prec, 1), ("minecraft:nether_star", 1), (AME, 3), ("minecraft:netherite_ingot", 2), (ea, 8), (eb, 8)]
+                r = [(prec, 1), ("minecraft:nether_star", 1), (AME, 2), ("minecraft:netherite_ingot", 1), (ea, 8), (eb, 8)]
             L.append((oid, piece + ":" + str(t), r))
         for o in OUTILS:
             oid = "%s_%s_%s" % (al, o, tid)
@@ -130,15 +130,15 @@ def lignes(f):
             elif t == 2:
                 r = [(prec, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 1), (ea, 3), (eb, 3)]
             elif t == 3:
-                r = [(prec, 1), (AME, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 2), (ea, 4), (eb, 4)]
+                r = [(prec, 1), (AME, 1), ("royaumes:cristal_arcanique", 2), (ea, 4), (eb, 4)]
             else:
-                r = [(prec, 1), (AME, 2), ("minecraft:netherite_ingot", 2), ("royaumes:cristal_arcanique", 3), (ea, 6), (eb, 6)]
+                r = [(prec, 1), (AME, 1), ("minecraft:netherite_ingot", 1), ("royaumes:cristal_arcanique", 3), (ea, 6), (eb, 6)]
             L.append((oid, o + ":" + str(t), r))
     L.append((fid + "_lignee", "lignee", [("minecraft:diamond", 2), (ea, 2), ("minecraft:iron_ingot", 4)]))
     L.append((fid + "_champion", "champion", [("royaumes:" + fid + "_lignee", 1), ("minecraft:netherite_ingot", 1), (ea, 4), (eb, 2),
                                              ("royaumes:pierre_royaumes_brute", 4)]))
-    L.append((fid + "_ascension", "ascension", [("royaumes:" + fid + "_champion", 1), ("minecraft:nether_star", 1), (AME, 4),
-                                               ("minecraft:netherite_ingot", 2), (ea, 8), (eb, 8)]))
+    L.append((fid + "_ascension", "ascension", [("royaumes:" + fid + "_champion", 1), ("minecraft:nether_star", 1), (AME, 3),
+                                               ("minecraft:netherite_ingot", 1), (ea, 8), (eb, 8)]))
     return L
 
 

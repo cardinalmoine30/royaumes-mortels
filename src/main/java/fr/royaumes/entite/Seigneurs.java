@@ -45,6 +45,9 @@ public final class Seigneurs {
     public static void tick(Combattant c, ServerLevel n) {
         UUID id = c.getUUID();
         ACTIFS.put(id, c);
+        if (!c.entityTags().contains("rm_echelle") && c.tickCount >= 20) {
+            echelle(c, n);
+        }
         float vie = c.getHealth() / Math.max(1.0F, c.getMaxHealth());
         boolean datapack = c.entityTags().contains("rm_boss");
         if (datapack) {
@@ -87,6 +90,27 @@ public final class Seigneurs {
             c.invoquerRenforts(n, 4);
         }
         frappes(c, n, new ArrayList<>(barre.getPlayers()));
+    }
+
+    /**
+     * Vie du seigneur selon le nombre de héros présents à l'invocation : 55 % seul, +30 % par héros en plus (160 % au plus).
+     * Voir outils/equilibrage/combat.py : seul en Légende on gagne en ~60 s en tenant ~75 s ; à trois, ~40 s.
+     */
+    static void echelle(Combattant c, ServerLevel n) {
+        c.addTag("rm_echelle");
+        int heros = Math.max(1, proches(c, n).size());
+        double mult = Math.min(1.6, 0.55 + 0.3 * (heros - 1));
+        var vie = c.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
+        if (vie == null) {
+            return;
+        }
+        vie.setBaseValue(c.profil().pv() * mult);
+        c.setHealth(c.getMaxHealth());
+        String id = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(c.getType()).getPath();
+        commande(c, "bossbar set royaumes:" + id + " max " + (int) c.getMaxHealth());
+        if (heros > 1) {
+            annonce(c, "se dresse face à " + heros + " héros", "gold", "minecraft:entity.wither.spawn");
+        }
     }
 
     static List<ServerPlayer> proches(Combattant c, ServerLevel n) {

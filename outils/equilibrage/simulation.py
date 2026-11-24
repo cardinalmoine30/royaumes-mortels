@@ -48,10 +48,10 @@ APRES = {
     "Fer (vanilla)": AVANT["Fer (vanilla)"],
     "Netherite Prot IV": AVANT["Netherite Prot IV"],
     "Légende Prot IV": dict(palier=2, armure=24, robustesse=16, epf=16, resistance=1, coeurs=0),
-    "Mythique Prot IV": dict(palier=3, armure=24, robustesse=18, epf=16, resistance=1, coeurs=4),
-    "Divin Prot IV": dict(palier=4, armure=25, robustesse=20, epf=16, resistance=1, coeurs=8),
+    "Mythique Prot IV": dict(palier=3, armure=24, robustesse=18, epf=16, resistance=1, coeurs=2),
+    "Divin Prot IV": dict(palier=4, armure=25, robustesse=20, epf=16, resistance=1, coeurs=4),
 }
-REGLE_APRES = {"adaptation": 0.3, "novices": True}
+REGLE_APRES = {"adaptation": 0.2, "novices": True}
 
 
 def main():

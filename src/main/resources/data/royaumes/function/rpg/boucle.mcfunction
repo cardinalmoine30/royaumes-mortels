@@ -33,3 +33,14 @@ execute as @a[scores={rm_comp=1..}] run function royaumes:rpg/depenser
 execute as @a[scores={rm_forge=1..}] run function royaumes:forge/ouvrir
 scoreboard players enable @a rm_rpg
 scoreboard players enable @a rm_forge
+execute as @a[scores={rm_mr0=1..}] run function royaumes:rpg/source {obj:"rm_mr0",val:3}
+execute as @a[scores={rm_mr1=1..}] run function royaumes:rpg/source {obj:"rm_mr1",val:3}
+execute as @a[scores={rm_mr2=1..}] run function royaumes:rpg/source {obj:"rm_mr2",val:6}
+execute as @a[scores={rm_mr3=1..}] run function royaumes:rpg/source {obj:"rm_mr3",val:6}
+execute as @a[scores={rm_mr4=1..}] run function royaumes:rpg/source {obj:"rm_mr4",val:6}
+execute as @a[scores={rm_mr5=1..}] run function royaumes:rpg/source {obj:"rm_mr5",val:6}
+execute as @a[scores={rm_mr6=1..}] run function royaumes:rpg/source {obj:"rm_mr6",val:6}
+execute as @a[scores={rm_mr7=1..}] run function royaumes:rpg/source {obj:"rm_mr7",val:6}
+execute as @a[scores={rm_mr8=1..}] run function royaumes:rpg/source {obj:"rm_mr8",val:6}
+execute as @a[scores={rm_mr9=1..}] run function royaumes:rpg/source {obj:"rm_mr9",val:6}
+execute as @a[scores={rm_mr10=1..}] run function royaumes:rpg/source {obj:"rm_mr10",val:8}

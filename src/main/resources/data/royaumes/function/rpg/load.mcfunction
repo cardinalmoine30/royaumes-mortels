@@ -99,3 +99,14 @@ scoreboard objectives add rm_voyage trigger
 scoreboard objectives add rm_id dummy
 scoreboard objectives add rm_cdm dummy
 scoreboard objectives add rm_blocs trigger
+scoreboard objectives add rm_mr0 minecraft.mined:royaumes.minerai_pierre_royaumes
+scoreboard objectives add rm_mr1 minecraft.mined:royaumes.minerai_pierre_royaumes_profond
+scoreboard objectives add rm_mr2 minecraft.mined:royaumes.minerai_azyrite
+scoreboard objectives add rm_mr3 minecraft.mined:royaumes.minerai_braise
+scoreboard objectives add rm_mr4 minecraft.mined:royaumes.minerai_croc
+scoreboard objectives add rm_mr5 minecraft.mined:royaumes.minerai_jade
+scoreboard objectives add rm_mr6 minecraft.mined:royaumes.minerai_lumineux
+scoreboard objectives add rm_mr7 minecraft.mined:royaumes.minerai_ombre
+scoreboard objectives add rm_mr8 minecraft.mined:royaumes.minerai_ames
+scoreboard objectives add rm_mr9 minecraft.mined:royaumes.minerai_or_vif
+scoreboard objectives add rm_mr10 minecraft.mined:royaumes.minerai_malepierre
