@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:golden_sword"
+    },
+    "title": {
+      "text": "Seigneur pillard"
+    },
+    "description": {
+      "text": "Piller le camp d'un autre héros."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "raid_joueur": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/exploration",
+  "rewards": {
+    "experience": 200
+  }
+}

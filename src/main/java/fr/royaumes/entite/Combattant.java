@@ -113,6 +113,9 @@ public class Combattant extends PathfinderMob implements GeoEntity {
 
     /** L'Ordre ne s'en prend qu'aux joueurs des autres alliances ; les autres attaquent tout joueur hors de leur alliance. */
     private boolean joueurEnnemi(LivingEntity cible) {
+        if (fr.royaumes.camp.CampsPlus.allies(this, cible)) {
+            return false;
+        }
         String e = equipeDe(cible);
         if ("rm_ordre".equals(profil().equipe())) {
             return e.startsWith("rm_") && !e.equals(profil().equipe());
@@ -121,6 +124,9 @@ public class Combattant extends PathfinderMob implements GeoEntity {
     }
 
     private boolean mobEnnemi(LivingEntity cible) {
+        if (fr.royaumes.camp.CampsPlus.allies(this, cible)) {
+            return false;
+        }
         if (cible instanceof Combattant c) {
             return !c.profil().equipe().equals(profil().equipe());
         }

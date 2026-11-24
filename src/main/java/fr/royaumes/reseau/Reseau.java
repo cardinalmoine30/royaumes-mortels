@@ -61,7 +61,7 @@ public final class Reseau {
         });
         r.playToServer(ActionCamp.TYPE, ActionCamp.CODEC, (a, contexte) -> {
             if (contexte.player() instanceof ServerPlayer sp) {
-                Camps.action(sp, a.action(), a.arg());
+                Camps.action(sp, a.action(), a.arg(), a.texte());
             }
         });
         r.playToServer(BonjourModde.TYPE, BonjourModde.CODEC, (c, contexte) -> {

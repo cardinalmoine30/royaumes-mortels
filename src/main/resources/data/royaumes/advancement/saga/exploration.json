@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:spyglass"
+    },
+    "title": {
+      "text": "Éclaireurs"
+    },
+    "description": {
+      "text": "Découvrir le camp d'un autre héros grâce à tes éclaireurs."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "exploration": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/camp"
+}

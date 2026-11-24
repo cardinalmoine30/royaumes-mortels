@@ -85,7 +85,7 @@ public final class Camps {
         sb.getOrCreatePlayerScore(h, obj(sb, nom)).set(v);
     }
 
-    private static Scoreboard sb(ServerPlayer p) {
+    static Scoreboard sb(ServerPlayer p) {
         return p.level().getServer().getScoreboard();
     }
 
@@ -95,6 +95,16 @@ public final class Camps {
 
     public static int maxUnites(int niveau) {
         return 2 + 2 * niveau;
+    }
+
+    /** Places de troupes : niveau du camp + caserne. */
+    static int capacite(Scoreboard sb, ScoreHolder h) {
+        return maxUnites(get(sb, h, "rm_camp_niv")) + 2 * get(sb, h, "rm_b_caserne");
+    }
+
+    /** Coût de recrutement, réduit de 10 % par niveau de caserne. */
+    static int coutReduit(Scoreboard sb, ScoreHolder h, String id) {
+        return cout(id) * (10 - get(sb, h, "rm_b_caserne")) / 10;
     }
 
     // ------------------------------------------------------------------ unités recrutables
@@ -185,15 +195,22 @@ public final class Camps {
             if (!aUnCamp(p)) {
                 fonder(p, pos);
             } else {
-                p.sendOverlayMessage(Component.translatable("royaumes.camp.pas_a_toi").withStyle(ChatFormatting.GRAY));
+                if (!CampsPlus.ouvrirInvite(p, pos)) {
+                    p.sendOverlayMessage(Component.translatable("royaumes.camp.pas_a_toi").withStyle(ChatFormatting.GRAY));
+                }
                 return;
             }
         }
+        CampsPlus.VISITE.remove(p.getUUID());
         envoyer(p, true);
     }
 
-    public static void action(ServerPlayer p, int action, int arg) {
+    public static void action(ServerPlayer p, int action, int arg, String texte) {
         Scoreboard sb = sb(p);
+        if (CampsPlus.VISITE.containsKey(p.getUUID())) {
+            CampsPlus.actionInvite(p, action);
+            return;
+        }
         if (!aUnCamp(p)) {
             return;
         }
@@ -207,11 +224,11 @@ public final class Camps {
                 if (!pres || arg < 0 || arg >= Math.min(l.size(), debloquees(niveau))) {
                     return;
                 }
-                if (get(sb, p, "rm_camp_nb") >= maxUnites(niveau)) {
+                if (get(sb, p, "rm_camp_nb") >= capacite(sb, p)) {
                     msg(p, "Ton camp est plein : améliore-le pour accueillir plus de troupes.", ChatFormatting.RED);
                     break;
                 }
-                int c = cout(l.get(arg));
+                int c = coutReduit(sb, p, l.get(arg));
                 if (get(sb, p, "rm_butin") < c) {
                     msg(p, "Pas assez de butin (" + c + " requis).", ChatFormatting.RED);
                     break;
@@ -233,18 +250,23 @@ public final class Camps {
                 set(sb, p, "rm_butin", get(sb, p, "rm_butin") - c);
                 set(sb, p, "rm_camp_niv", niveau + 1);
                 ((ServerLevel) p.level()).sendParticles(ParticleTypes.TOTEM_OF_UNDYING, camp.getX() + 0.5, camp.getY() + 1.5, camp.getZ() + 0.5, 60, 0.6, 1, 0.6, 0.3);
-                msg(p, "Le camp passe au niveau " + (niveau + 1) + " : " + maxUnites(niveau + 1) + " troupes, nouvelles unités.", ChatFormatting.GOLD);
+                msg(p, "Le camp passe au niveau " + (niveau + 1) + " : plus de troupes, nouvelles unités et bâtiments.", ChatFormatting.GOLD);
             }
             case 3 -> deposer(p);
             case 4 -> set(sb, p, "rm_camp_ordre", arg == 1 ? 1 : 0);
             case 5 -> lancerRaid(p, arg);
+            case 6 -> CampsPlus.ameliorerBatiment(p, arg);
+            case 7 -> CampsPlus.inviter(p, texte);
+            case 8 -> CampsPlus.retirer(p, texte);
+            case 9 -> CampsPlus.explorer(p, arg);
+            case 10 -> CampsPlus.raidJoueur(p, texte);
             default -> {
             }
         }
         envoyer(p, false);
     }
 
-    private static void msg(ServerPlayer p, String s, ChatFormatting c) {
+    static void msg(ServerPlayer p, String s, ChatFormatting c) {
         p.sendSystemMessage(Component.literal(s).withStyle(c));
     }
 
@@ -267,7 +289,7 @@ public final class Camps {
         };
     }
 
-    private static void deposer(ServerPlayer p) {
+    static void deposer(ServerPlayer p) {
         Inventory inv = p.getInventory();
         int total = 0;
         for (int i = 0; i < inv.getContainerSize(); i++) {
@@ -322,25 +344,24 @@ public final class Camps {
 
     // ------------------------------------------------------------------ raids
 
-    private static void lancerRaid(ServerPlayer p, int type) {
+    /** Retire du camp les troupes présentes (au plus max) et les mémorise sous le préfixe ; renvoie {nombre, force}. */
+    static int[] partir(ServerPlayer p, String prefixe, int max) {
         Scoreboard sb = sb(p);
-        if (type < 0 || type >= RAIDS.length || get(sb, p, "rm_raid_fin") > 0) {
-            return;
-        }
         BlockPos camp = pos(sb, p);
         ServerLevel l = niveauCamp(p.level().getServer(), get(sb, p, "rm_camp_dim"));
         if (l == null) {
-            return;
+            return new int[] {0, 0};
         }
         List<Combattant> troupe = unites(l, p, camp, 32);
-        if (troupe.isEmpty()) {
-            msg(p, "Aucune troupe au camp : recrute des unités, ou ramène-les près de l'étendard.", ChatFormatting.RED);
-            return;
-        }
+        troupe.sort(Comparator.comparingInt(c -> puissance(BuiltInRegistries.ENTITY_TYPE.getKey(c.getType()).getPath())));
         List<String> types = recrutables(get(sb, p, "rm_faction"));
         int force = 0;
+        int n = 0;
         int[] compte = new int[8];
         for (Combattant c : troupe) {
+            if (n >= max) {
+                break;
+            }
             String id = BuiltInRegistries.ENTITY_TYPE.getKey(c.getType()).getPath();
             int k = types.indexOf(id);
             if (k >= 0 && k < 8) {
@@ -349,34 +370,25 @@ public final class Camps {
             force += puissance(id) / 10;
             l.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, c.getX(), c.getY() + 1, c.getZ(), 4, 0.3, 0.5, 0.3, 0.02);
             c.discard();
+            n++;
         }
         for (int k = 0; k < 8; k++) {
-            set(sb, p, "rm_raid_u" + k, compte[k]);
+            set(sb, p, prefixe + k, compte[k]);
         }
-        set(sb, p, "rm_raid_type", type);
-        set(sb, p, "rm_raid_force", force);
-        set(sb, p, "rm_raid_fin", maintenant(p.level().getServer()) + RAID_DUREE[type]);
-        set(sb, p, "rm_camp_nb", Math.max(0, get(sb, p, "rm_camp_nb") - troupe.size()));
-        l.playSound(null, camp, SoundEvents.EVOKER_PREPARE_SUMMON, SoundSource.PLAYERS, 1.2F, 1.0F);
-        msg(p, "⚔ " + troupe.size() + " guerriers partent en " + RAIDS[type].toLowerCase() + " (force " + force
-                + " contre " + RAID_DIFF[type] + "). Retour dans " + RAID_DUREE[type] / 60 + " min.", ChatFormatting.GOLD);
+        set(sb, p, "rm_camp_nb", Math.max(0, get(sb, p, "rm_camp_nb") - n));
+        return new int[] {n, force};
     }
 
-    private static void finirRaid(ServerPlayer p) {
+    /** Ramène au camp la troupe mémorisée ; chaque guerrier meurt avec la probabilité risque. Renvoie {partis, revenus}. */
+    static int[] revenir(ServerPlayer p, String prefixe, double risque) {
         Scoreboard sb = sb(p);
-        int type = Math.max(0, Math.min(2, get(sb, p, "rm_raid_type")));
-        int force = get(sb, p, "rm_raid_force");
-        int diff = RAID_DIFF[type];
-        double chance = force / (double) (force + diff);
-        boolean victoire = R.nextDouble() < chance;
-        double risque = victoire ? 0.3 * diff / (force + diff) : 0.5;
         List<String> types = recrutables(get(sb, p, "rm_faction"));
         BlockPos camp = pos(sb, p);
         ServerLevel l = niveauCamp(p.level().getServer(), get(sb, p, "rm_camp_dim"));
         int partis = 0;
         int revenus = 0;
         for (int k = 0; k < 8; k++) {
-            int n = get(sb, p, "rm_raid_u" + k);
+            int n = get(sb, p, prefixe + k);
             partis += n;
             int vivants = 0;
             for (int i = 0; i < n; i++) {
@@ -387,9 +399,41 @@ public final class Camps {
             if (vivants > 0 && k < types.size() && l != null) {
                 revenus += invoquer(p, l, camp, types.get(k), vivants);
             }
-            set(sb, p, "rm_raid_u" + k, 0);
+            set(sb, p, prefixe + k, 0);
         }
         set(sb, p, "rm_camp_nb", get(sb, p, "rm_camp_nb") + revenus);
+        return new int[] {partis, revenus};
+    }
+
+    private static void lancerRaid(ServerPlayer p, int type) {
+        Scoreboard sb = sb(p);
+        if (type < 0 || type >= RAIDS.length || get(sb, p, "rm_raid_fin") > 0) {
+            return;
+        }
+        int[] t = partir(p, "rm_raid_u", 99);
+        if (t[0] == 0) {
+            msg(p, "Aucune troupe au camp : recrute des unités, ou ramène-les près de l'étendard.", ChatFormatting.RED);
+            return;
+        }
+        set(sb, p, "rm_raid_type", type);
+        set(sb, p, "rm_raid_force", t[1]);
+        set(sb, p, "rm_raid_fin", maintenant(p.level().getServer()) + RAID_DUREE[type]);
+        p.level().playSound(null, p.blockPosition(), SoundEvents.EVOKER_PREPARE_SUMMON, SoundSource.PLAYERS, 1.2F, 1.0F);
+        msg(p, "⚔ " + t[0] + " guerriers partent en " + RAIDS[type].toLowerCase() + " (force " + t[1]
+                + " contre " + RAID_DIFF[type] + "). Retour dans " + RAID_DUREE[type] / 60 + " min.", ChatFormatting.GOLD);
+    }
+
+    private static void finirRaid(ServerPlayer p) {
+        Scoreboard sb = sb(p);
+        if (get(sb, p, "rm_raid_type") == 3) {
+            CampsPlus.finirRaidJoueur(p);
+            return;
+        }
+        int type = Math.max(0, Math.min(2, get(sb, p, "rm_raid_type")));
+        int force = get(sb, p, "rm_raid_force");
+        int diff = RAID_DIFF[type];
+        boolean victoire = R.nextDouble() < force / (double) (force + diff);
+        int[] r = revenir(p, "rm_raid_u", victoire ? 0.3 * diff / (force + diff) : 0.5);
         int butin = (int) (RAID_BUTIN[type] * (victoire ? 0.8 + R.nextDouble() * 0.6 : 0.2));
         set(sb, p, "rm_butin", get(sb, p, "rm_butin") + butin);
         set(sb, p, "rm_raid_fin", 0);
@@ -405,12 +449,12 @@ public final class Camps {
             Saga.accorder(p, "raid");
         }
         p.sendSystemMessage(Component.literal((victoire ? "✦ Victoire ! " : "✖ Défaite… ") + RAIDS[type] + " terminé : "
-                + revenus + "/" + partis + " guerriers rentrent, +" + butin + " butin" + (victoire ? ", +" + diff + " gloire." : "."))
+                + r[1] + "/" + r[0] + " guerriers rentrent, +" + butin + " butin" + (victoire ? ", +" + diff + " gloire." : "."))
                 .withStyle(victoire ? ChatFormatting.GOLD : ChatFormatting.RED));
         p.level().playSound(null, p.blockPosition(), victoire ? SoundEvents.PLAYER_LEVELUP : SoundEvents.WITHER_SHOOT, SoundSource.PLAYERS, 0.8F, 1.0F);
     }
 
-    private static void donner(ServerPlayer p, ItemStack s) {
+    static void donner(ServerPlayer p, ItemStack s) {
         if (!p.getInventory().add(s)) {
             p.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(p.level(), p.getX(), p.getY() + 0.5, p.getZ(), s));
         }
@@ -470,6 +514,7 @@ public final class Camps {
         if (fin > 0 && t >= fin) {
             finirRaid(p);
         }
+        CampsPlus.tick(p, t);
         int att = get(sb, p, "rm_camp_att");
         if (att > 0 && t >= att) {
             set(sb, p, "rm_camp_att", t + 1200 + R.nextInt(600));
@@ -536,28 +581,45 @@ public final class Camps {
     // ------------------------------------------------------------------ fiche envoyée au client
 
     public static void envoyer(ServerPlayer p, boolean ouvrir) {
-        Scoreboard sb = sb(p);
-        int faction = get(sb, p, "rm_faction");
-        int niveau = get(sb, p, "rm_camp_niv");
+        envoyer(p, p, p.getUUID(), p.getScoreboardName(), true, ouvrir);
+    }
+
+    /** Fiche du camp de chef (vue par spectateur : le chef lui-même ou un invité). */
+    static void envoyer(ServerPlayer spectateur, ScoreHolder chef, UUID idChef, String nomChef, boolean proprio, boolean ouvrir) {
+        MinecraftServer s = spectateur.level().getServer();
+        Scoreboard sb = s.getScoreboard();
+        int faction = get(sb, chef, "rm_faction");
+        int niveau = get(sb, chef, "rm_camp_niv");
         List<String> l = recrutables(faction);
         List<Integer> couts = new ArrayList<>();
         for (String id : l) {
-            couts.add(cout(id));
+            couts.add(coutReduit(sb, chef, id));
         }
-        int fin = get(sb, p, "rm_raid_fin");
-        int reste = fin > 0 ? Math.max(0, fin - maintenant(p.level().getServer())) : -1;
-        int force = 0;
-        ServerLevel lc = niveauCamp(p.level().getServer(), get(sb, p, "rm_camp_dim"));
-        if (lc != null) {
-            for (Combattant c : unites(lc, p, pos(sb, p), 32)) {
-                force += puissance(BuiltInRegistries.ENTITY_TYPE.getKey(c.getType()).getPath()) / 10;
-            }
+        int t = maintenant(s);
+        int fin = get(sb, chef, "rm_raid_fin");
+        int efin = get(sb, chef, "rm_expl_fin");
+        int force = CampsPlus.forceAuCamp(s, sb, chef, idChef);
+        int[] bat = new int[Batiments.IDS.length];
+        for (int i = 0; i < bat.length; i++) {
+            bat[i] = get(sb, chef, "rm_b_" + Batiments.IDS[i]);
         }
-        FicheCamp fiche = new FicheCamp(ouvrir, faction, niveau, get(sb, p, "rm_butin"), get(sb, p, "rm_camp_nb"), maxUnites(niveau),
-                get(sb, p, "rm_camp_ordre"), get(sb, p, "rm_raid_type"), reste, force,
-                niveau < NIVEAU_MAX ? COUT_NIVEAU[niveau + 1] : 0, debloquees(niveau), l, couts);
+        int nexpl = 0;
+        for (int k = 0; k < 8; k++) {
+            nexpl += get(sb, chef, "rm_expl_u" + k);
+        }
+        List<String> cibles = proprio ? CampsPlus.cibles(spectateur) : List.of();
+        List<Integer> defs = new ArrayList<>();
+        for (String c : cibles) {
+            defs.add(CampsPlus.defense(sb, ScoreHolder.forNameOnly(c)));
+        }
+        FicheCamp fiche = new FicheCamp(ouvrir, proprio, nomChef, faction, niveau, get(sb, chef, "rm_butin"), get(sb, chef, "rm_camp_nb"),
+                capacite(sb, chef), get(sb, chef, "rm_camp_ordre"), get(sb, chef, "rm_raid_type"), fin > 0 ? Math.max(0, fin - t) : -1, force,
+                niveau < NIVEAU_MAX ? COUT_NIVEAU[niveau + 1] : 0, debloquees(niveau), l, couts, bat,
+                efin > 0 ? Math.max(0, efin - t) : -1, nexpl,
+                proprio ? CampsPlus.proches(spectateur) : List.of(), proprio ? CampsPlus.invites(spectateur) : List.of(), cibles, defs,
+                CampsPlus.cibleEnCours(spectateur), get(sb, chef, "rm_b_tour"));
         try {
-            PacketDistributor.sendToPlayer(p, fiche);
+            PacketDistributor.sendToPlayer(spectateur, fiche);
         } catch (RuntimeException e) {
             // client sans le mod
         }
