@@ -47,7 +47,7 @@ des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Trois
 du palier précédent (refondue) :
 - **Soldat** (fer + pierre des Royaumes, dès le début) → **Élite** (pièce Soldat + diamants + éclats de **deux Royaumes étrangers**)
   → **Légende** (pièce Élite + netherite + éclats étrangers + pierre). Le serment donne l'armure Soldat de ta faction.
-- **Armure de faction** en 4 pièces par palier (défense fer / diamant / au-delà de la netherite). Panoplie complète portée par un
+- **Armure de faction** en 4 pièces par palier (défense fer / diamant / netherite). Panoplie complète portée par un
   héros de la faction : Soldat = premier effet, Élite = tous les effets, Légende = tous les effets un niveau au-dessus.
 - **Outils d'alliance** (pioche, pelle, hache, houe, épée), communs aux factions d'une Grande Alliance, chacune avec sa forme et ses
   métaux (Ordre : acier, sigmarite, or ; Chaos : fer noir, airain, métal démoniaque ; Mort : os, fer de tombe, nadirite ;
