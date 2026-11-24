@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:fyreslayers_elite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:fyreslayers_elite"
+      }
+    ]
+  }
+}

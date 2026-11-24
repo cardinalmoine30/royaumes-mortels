@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:gitz_soldat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:gitz_soldat"
+      }
+    ]
+  }
+}

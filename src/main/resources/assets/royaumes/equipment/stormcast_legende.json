@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:stormcast_legende"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:stormcast_legende"
+      }
+    ]
+  }
+}

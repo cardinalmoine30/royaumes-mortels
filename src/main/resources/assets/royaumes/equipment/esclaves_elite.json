@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:esclaves_elite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:esclaves_elite"
+      }
+    ]
+  }
+}

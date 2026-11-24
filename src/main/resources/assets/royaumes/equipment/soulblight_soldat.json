@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:soulblight_soldat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:soulblight_soldat"
+      }
+    ]
+  }
+}

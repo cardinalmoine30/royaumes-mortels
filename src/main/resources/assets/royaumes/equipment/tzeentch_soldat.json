@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:tzeentch_soldat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:tzeentch_soldat"
+      }
+    ]
+  }
+}

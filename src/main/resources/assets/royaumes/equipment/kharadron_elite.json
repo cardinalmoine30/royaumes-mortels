@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:kharadron_elite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:kharadron_elite"
+      }
+    ]
+  }
+}

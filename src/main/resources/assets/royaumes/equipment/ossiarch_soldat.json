@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:ossiarch_soldat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:ossiarch_soldat"
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "royaumes:cites_legende"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "royaumes:cites_legende"
+      }
+    ]
+  }
+}
