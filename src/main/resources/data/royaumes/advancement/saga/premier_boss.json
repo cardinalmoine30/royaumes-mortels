@@ -1,0 +1,81 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_sword"
+    },
+    "title": {
+      "text": "Tueur de légendes"
+    },
+    "description": {
+      "text": "Vaincre un des seigneurs des Royaumes."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "nagash": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:nagash"
+        }
+      }
+    },
+    "archaon": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:archaon"
+        }
+      }
+    },
+    "gordrakk": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:gordrakk"
+        }
+      }
+    },
+    "skarbrand": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:skarbrand"
+        }
+      }
+    },
+    "thanquol": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:thanquol"
+        }
+      }
+    },
+    "rotigus": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:rotigus"
+        }
+      }
+    }
+  },
+  "parent": "royaumes:saga/serment",
+  "requirements": [
+    [
+      "nagash",
+      "archaon",
+      "gordrakk",
+      "skarbrand",
+      "thanquol",
+      "rotigus"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

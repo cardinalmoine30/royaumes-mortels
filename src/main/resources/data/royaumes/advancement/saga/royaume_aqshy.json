@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:eclat_aqshy"
+    },
+    "title": {
+      "text": "Royaume d'Aqshy"
+    },
+    "description": {
+      "text": "Fouler les cendres d'Aqshy, le Royaume du Feu."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "entrer": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:aqshy"
+      }
+    }
+  },
+  "parent": "royaumes:saga/portail"
+}

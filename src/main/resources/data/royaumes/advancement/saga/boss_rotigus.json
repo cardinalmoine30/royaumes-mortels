@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:wither_skeleton_skull"
+    },
+    "title": {
+      "text": "Le Père-Pluie"
+    },
+    "description": {
+      "text": "Vaincre Rotigus, Grand Immonde de Nurgle."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tuer": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:rotigus"
+        }
+      }
+    }
+  },
+  "parent": "royaumes:saga/premier_boss",
+  "rewards": {
+    "experience": 150
+  }
+}

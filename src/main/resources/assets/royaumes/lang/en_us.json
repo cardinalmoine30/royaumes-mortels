@@ -432,5 +432,9 @@
   "royaumes.sort.main": "Main de poussière",
   "royaumes.sort.moisson": "Moisson des âmes",
   "royaumes.sort.peau": "Peau de fer",
-  "royaumes.sort.plomb": "Malédiction de plomb"
+  "royaumes.sort.plomb": "Malédiction de plomb",
+  "key.royaumes.capacite": "Faction ability",
+  "royaumes.capacite.attente": "%s: %s s left",
+  "royaumes.capacite.sans": "Swear an oath to a faction first (J key).",
+  "royaumes.capacite.pret": "Ability ready (R)"
 }

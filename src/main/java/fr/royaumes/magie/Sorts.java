@@ -34,9 +34,9 @@ import net.minecraft.world.phys.Vec3;
 
 /** Les seize sorts des huit Vents de magie. */
 public final class Sorts {
-    private record Invoque(ServerLevel niveau, UUID id, long fin) {}
+    record Invoque(ServerLevel niveau, UUID id, long fin) {}
 
-    private static final List<Invoque> INVOQUES = new ArrayList<>();
+    static final List<Invoque> INVOQUES = new ArrayList<>();
 
     private Sorts() {}
 
@@ -75,12 +75,12 @@ public final class Sorts {
         return e instanceof Enemy || e instanceof Combattant || (e instanceof Mob m && m.getTarget() == p);
     }
 
-    private static List<LivingEntity> ennemis(ServerPlayer p, ServerLevel n, Vec3 centre, double r) {
+    static List<LivingEntity> ennemis(ServerPlayer p, ServerLevel n, Vec3 centre, double r) {
         return n.getEntitiesOfClass(LivingEntity.class, p.getBoundingBox().move(centre.subtract(p.position())).inflate(r),
                 e -> ennemi(p, e) && e.position().distanceTo(centre) <= r + 1);
     }
 
-    private static EntityType<?> type(String nom) {
+    static EntityType<?> type(String nom) {
         return BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.withDefaultNamespace(nom));
     }
 
@@ -88,7 +88,7 @@ public final class Sorts {
         return BuiltInRegistries.ENTITY_TYPE.wrapAsHolder(e.getType()).is(EntityTypeTags.UNDEAD);
     }
 
-    private static HitResult vise(ServerPlayer p, double portee) {
+    static HitResult vise(ServerPlayer p, double portee) {
         return ProjectileUtil.getHitResultOnViewVector(p, e -> e instanceof LivingEntity l && l.isAlive() && e != p && !e.isSpectator(), portee);
     }
 
@@ -96,15 +96,15 @@ public final class Sorts {
         return vise(p, portee) instanceof EntityHitResult h && h.getEntity() instanceof LivingEntity l ? l : null;
     }
 
-    private static void blesser(ServerPlayer p, ServerLevel n, LivingEntity e, float degats) {
+    static void blesser(ServerPlayer p, ServerLevel n, LivingEntity e, float degats) {
         e.hurtServer(n, n.damageSources().indirectMagic(p, p), degats);
     }
 
-    private static void son(ServerLevel n, Entity e, SoundEvent s, float volume, float hauteur) {
+    static void son(ServerLevel n, Entity e, SoundEvent s, float volume, float hauteur) {
         n.playSound(null, e.getX(), e.getY(), e.getZ(), s, SoundSource.PLAYERS, volume, hauteur);
     }
 
-    private static void trainee(ServerLevel n, ParticleOptions part, Vec3 a, Vec3 b, double pas) {
+    static void trainee(ServerLevel n, ParticleOptions part, Vec3 a, Vec3 b, double pas) {
         Vec3 d = b.subtract(a);
         int k = (int) Math.max(1, d.length() / pas);
         for (int i = 0; i <= k; i++) {
@@ -113,14 +113,14 @@ public final class Sorts {
         }
     }
 
-    private static void cercle(ServerLevel n, ParticleOptions part, Vec3 c, double r, int points) {
+    static void cercle(ServerLevel n, ParticleOptions part, Vec3 c, double r, int points) {
         for (int i = 0; i < points; i++) {
             double a = 2 * Math.PI * i / points;
             n.sendParticles(part, c.x + Math.cos(a) * r, c.y + 0.2, c.z + Math.sin(a) * r, 1, 0.05, 0.05, 0.05, 0.0);
         }
     }
 
-    private static void foudreVisuelle(ServerLevel n, Vec3 pos) {
+    static void foudreVisuelle(ServerLevel n, Vec3 pos) {
         Entity e = type("lightning_bolt").create(n, EntitySpawnReason.TRIGGERED);
         if (e instanceof LightningBolt foudre) {
             foudre.setPos(pos.x, pos.y, pos.z);

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:pierre_du_chaos"
+    },
+    "title": {
+      "text": "Aux portes des Huit-Points"
+    },
+    "description": {
+      "text": "Oser entrer dans les Huit-Points, domaine du Chaos."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entrer": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:huit_points"
+      }
+    }
+  },
+  "parent": "royaumes:saga/portail"
+}

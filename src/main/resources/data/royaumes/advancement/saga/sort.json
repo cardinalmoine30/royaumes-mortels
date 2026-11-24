@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:eclat_hysh"
+    },
+    "title": {
+      "text": "Premier sortilège"
+    },
+    "description": {
+      "text": "Lancer un sort avec un bâton."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "sort": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/baton"
+}

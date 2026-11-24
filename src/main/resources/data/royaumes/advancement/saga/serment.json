@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:white_banner"
+    },
+    "title": {
+      "text": "Serment d'allégeance"
+    },
+    "description": {
+      "text": "Prêter serment à une faction (touche J)."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "serment": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/racine",
+  "rewards": {
+    "experience": 50
+  }
+}

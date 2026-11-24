@@ -2,7 +2,9 @@ package fr.royaumes.reseau;
 
 import fr.royaumes.ContenuGenere;
 import fr.royaumes.FactionsGenerees;
+import fr.royaumes.magie.Capacites;
 import fr.royaumes.magie.Magie;
+import fr.royaumes.magie.Saga;
 import fr.royaumes.magie.Sorts;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +47,11 @@ public final class Reseau {
                 choisir(sp, c.faction());
             }
         });
+        r.playToServer(UtiliserCapacite.TYPE, UtiliserCapacite.CODEC, (c, contexte) -> {
+            if (contexte.player() instanceof ServerPlayer sp) {
+                Capacites.utiliser(sp, score(sp.level().getServer().getScoreboard(), sp, "rm_faction"));
+            }
+        });
         r.playToServer(BonjourModde.TYPE, BonjourModde.CODEC, (c, contexte) -> {
             if (contexte.player() instanceof ServerPlayer sp) {
                 sp.addTag(TAG_MODDE);
@@ -78,7 +85,7 @@ public final class Reseau {
         }
         FicheHeros fiche = new FicheHeros(score(sb, joueur, "rm_niveau"), score(sb, joueur, "rm_gloire"),
                 score(sb, joueur, "rm_besoin"), score(sb, joueur, "rm_pts"), score(sb, joueur, "rm_faction"), rangs,
-                Magie.energie(joueur), Magie.maximum(joueur));
+                Magie.energie(joueur), Magie.maximum(joueur), Capacites.reste(joueur));
         try {
             PacketDistributor.sendToPlayer(joueur, fiche);
         } catch (RuntimeException e) {
@@ -98,6 +105,9 @@ public final class Reseau {
         for (ServerPlayer joueur : serveur.getPlayerList().getPlayers()) {
             int faction = score(sb, joueur, "rm_faction");
             Magie.regenerer(joueur, faction);
+            if (faction > 0) {
+                Saga.accorder(joueur, "serment");
+            }
             envoyerFiche(joueur);
             ids.add(joueur.getUUID());
             factions.add(faction);

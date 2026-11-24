@@ -136,6 +136,7 @@ public final class Magie {
         p.sendOverlayMessage(Component.translatable("royaumes.sort.lance",
                 Component.translatable("royaumes.sort." + ContenuGenere.SORTS_IDS[vent][rang]), c).withColor(ContenuGenere.COULEURS_VENTS[vent]));
         Reseau.envoyerFiche(p);
+        Saga.accorder(p, "sort");
         return true;
     }
 }

@@ -42,6 +42,8 @@ public class HudRoyaumes implements GuiLayer {
             g.text(mc.font, FactionsGenerees.NOMS[f.faction()], 34, 7, EcranSerment.OR_CLAIR, true);
             String ligne = "Niveau " + f.niveau() + (lieu >= 0 ? " · Royaume " + de(ContenuGenere.NOMS_VENTS[lieu]) : "");
             g.text(mc.font, ligne, 34, 18, 0xFFF0E6D2, true);
+            String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (R)");
+            g.text(mc.font, cap, 34, 29, f.capacite() > 0 ? 0xFF8C8CA0 : 0xFFF2D27A, true);
         }
         // (1) jauge arcanique
         int vent = ventAffiche(joueur, f);

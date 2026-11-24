@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:eclat_ghyran"
+    },
+    "title": {
+      "text": "Royaume de Ghyran"
+    },
+    "description": {
+      "text": "Entrer dans Ghyran, le Royaume de la Vie."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "entrer": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:ghyran"
+      }
+    }
+  },
+  "parent": "royaumes:saga/portail"
+}

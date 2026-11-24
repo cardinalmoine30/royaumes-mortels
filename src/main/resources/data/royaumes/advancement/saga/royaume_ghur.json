@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:eclat_ghur"
+    },
+    "title": {
+      "text": "Royaume de Ghur"
+    },
+    "description": {
+      "text": "Survivre à Ghur, le Royaume des Bêtes."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "entrer": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:ghur"
+      }
+    }
+  },
+  "parent": "royaumes:saga/portail"
+}

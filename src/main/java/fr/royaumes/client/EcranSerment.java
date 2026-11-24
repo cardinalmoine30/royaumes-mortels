@@ -142,7 +142,9 @@ public class EcranSerment extends Screen {
         g.blit(RenderPipelines.GUI_TEXTURED, EMBLEMES, qx + 62, qy + 28, ((f - 1) % 8) * 32, ((f - 1) / 8) * 32, 24, 24, 32, 32, 256, 128);
         int vent = ContenuGenere.VENT_FACTION[f];
         g.text(police, "Vent : " + ContenuGenere.NOMS_VENTS[vent], qx + 90, qy + 36, 0xFF000000 | ContenuGenere.COULEURS_VENTS[vent], true);
-        g.textWithWordWrap(police, Component.literal(ContenuGenere.DESCRIPTIONS[f]), qx + 62, qy + 56, qw - 68, PARCHEMIN, false);
+        Component capacite = Component.literal("[R] " + ContenuGenere.CAP_NOMS[f]).withColor(0xF2D27A)
+                .append(Component.literal(" — " + ContenuGenere.CAP_DESC[f]).withColor(0xBFB2E6));
+        g.textWithWordWrap(police, capacite, qx + 62, qy + 56, qw - 68, 0xFFBFB2E6, false);
         int y = qy + 116;
         g.text(police, Component.translatable("royaumes.serment.dons"), qx + 8, y, 0xFF7EC86E, true);
         y += 10;

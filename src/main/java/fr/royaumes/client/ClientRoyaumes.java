@@ -4,6 +4,7 @@ import fr.royaumes.RoyaumesMortels;
 import fr.royaumes.reseau.BonjourModde;
 import fr.royaumes.reseau.DonneesHeros;
 import fr.royaumes.reseau.FicheHeros;
+import fr.royaumes.reseau.UtiliserCapacite;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
@@ -22,6 +23,7 @@ import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 public final class ClientRoyaumes {
     static final KeyMapping.Category CATEGORIE = new KeyMapping.Category(Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID, "royaumes"));
     static final KeyMapping TOUCHE_SERMENT = new KeyMapping("key.royaumes.serment", 74 /* J */, CATEGORIE);
+    static final KeyMapping TOUCHE_CAPACITE = new KeyMapping("key.royaumes.capacite", 82 /* R */, CATEGORIE);
     private static int attente = 60;
     private static int compteur = 0;
 
@@ -31,6 +33,7 @@ public final class ClientRoyaumes {
     static void touches(RegisterKeyMappingsEvent event) {
         event.registerCategory(CATEGORIE);
         event.register(TOUCHE_SERMENT);
+        event.register(TOUCHE_CAPACITE);
     }
 
     @SubscribeEvent
@@ -66,6 +69,16 @@ public final class ClientRoyaumes {
         while (TOUCHE_SERMENT.consumeClick()) {
             if (mc.gui.screen() == null) {
                 ouvrir(mc);
+            }
+        }
+        while (TOUCHE_CAPACITE.consumeClick()) {
+            ClientPacketListener c = mc.getConnection();
+            if (c != null && mc.gui.screen() == null) {
+                try {
+                    c.send(new ServerboundCustomPayloadPacket(new UtiliserCapacite(1)));
+                } catch (RuntimeException e) {
+                    // serveur sans le mod
+                }
             }
         }
         // sans faction : l'écran de serment s'ouvre de lui-même (puis toutes les 2 minutes s'il est fermé)

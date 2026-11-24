@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:wither_skeleton_skull"
+    },
+    "title": {
+      "text": "Le Poing de Gork"
+    },
+    "description": {
+      "text": "Vaincre Gordrakk, le Poing de Gork."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tuer": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "royaumes:gordrakk"
+        }
+      }
+    }
+  },
+  "parent": "royaumes:saga/premier_boss",
+  "rewards": {
+    "experience": 150
+  }
+}

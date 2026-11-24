@@ -706,6 +706,11 @@ def java(mobs, montures):
         a("    public static final String[] %s = {" % champ + ", ".join(jstr(f[cle]) if f else '""' for f in fs) + "};")
     a("    public static final int[] VENT_FACTION = {0, " + ", ".join(str(vent_de_royaume(f["royaume"])) for f in FACTIONS) + "};")
     a("    public static final String[] DIMENSION_FACTION = {\"\", " + ", ".join(jstr(dimension_de_royaume(f["royaume"])) for f in FACTIONS) + "};\n")
+    a("    /** Capacités de faction (touche R), index = numéro de faction. */")
+    from capacites import java as java_capacites
+    for ligne in java_capacites([f["id"] for f in FACTIONS], jstr):
+        a(ligne)
+    a("")
     a("    /** Œufs : créature -> couleurs (fond, taches) pour l'aperçu. */")
     a("    public static final String[] OEUFS_MOBS = {" + ", ".join(jstr(m["id"]) for m in mobs) + "};")
     a("    public static final String[] OEUFS_MONTURES = {" + ", ".join(jstr(m["id"]) for m in montures) + "};")
@@ -764,6 +769,15 @@ def traductions(mobs, montures):
         "key.category.royaumes.royaumes": ("Royaumes Mortels", "Mortal Realms"),
     }
     for k, (a, b) in textes.items():
+        fr[k] = a
+        en[k] = b
+    textes2 = {
+        "key.royaumes.capacite": ("Capacité de faction", "Faction ability"),
+        "royaumes.capacite.attente": ("%s : encore %s s", "%s: %s s left"),
+        "royaumes.capacite.sans": ("Prête d'abord serment à une faction (touche J).", "Swear an oath to a faction first (J key)."),
+        "royaumes.capacite.pret": ("Capacité prête (R)", "Ability ready (R)"),
+    }
+    for k, (a, b) in textes2.items():
         fr[k] = a
         en[k] = b
     for v in VENTS:

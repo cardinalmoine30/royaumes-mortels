@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:pierre_royaumes_brute"
+    },
+    "title": {
+      "text": "Pierre des Royaumes"
+    },
+    "description": {
+      "text": "Extraire de la pierre des Royaumes brute."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "pierre": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:pierre_royaumes_brute"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "royaumes:saga/racine"
+}

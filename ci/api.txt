@@ -69,3 +69,4 @@ net.minecraft.world.entity.TamableAnimal
 net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$LoggingIn
 net.minecraft.sounds.SoundEvents
 net.minecraft.resources.ResourceKey
+net.minecraft.world.entity.projectile.arrow.Arrow

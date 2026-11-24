@@ -1,0 +1,71 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:recovery_compass"
+    },
+    "title": {
+      "text": "Voyageur des Royaumes"
+    },
+    "description": {
+      "text": "Visiter les huit Royaumes Mortels."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "azyr": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:royaumes_mortels"
+      }
+    },
+    "aqshy": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:aqshy"
+      }
+    },
+    "ghur": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:ghur"
+      }
+    },
+    "ghyran": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:ghyran"
+      }
+    },
+    "hysh": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:hysh"
+      }
+    },
+    "ulgu": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:ulgu"
+      }
+    },
+    "shyish": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:shyish"
+      }
+    },
+    "chamon": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:chamon"
+      }
+    }
+  },
+  "parent": "royaumes:saga/royaume_chamon",
+  "rewards": {
+    "experience": 500
+  }
+}

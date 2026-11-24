@@ -1,0 +1,103 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:grimoire_des_vents"
+    },
+    "title": {
+      "text": "Maître des huit Vents"
+    },
+    "description": {
+      "text": "Posséder les huit bâtons de magie."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "azyr": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_azyr"
+          }
+        ]
+      }
+    },
+    "aqshy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_aqshy"
+          }
+        ]
+      }
+    },
+    "ghur": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_ghur"
+          }
+        ]
+      }
+    },
+    "ghyran": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_ghyran"
+          }
+        ]
+      }
+    },
+    "hysh": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_hysh"
+          }
+        ]
+      }
+    },
+    "ulgu": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_ulgu"
+          }
+        ]
+      }
+    },
+    "shyish": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_shyish"
+          }
+        ]
+      }
+    },
+    "chamon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "royaumes:baton_chamon"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "royaumes:saga/sort",
+  "rewards": {
+    "experience": 500
+  }
+}

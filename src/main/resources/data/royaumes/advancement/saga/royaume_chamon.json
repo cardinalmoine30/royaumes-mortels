@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:eclat_chamon"
+    },
+    "title": {
+      "text": "Royaume de Chamon"
+    },
+    "description": {
+      "text": "Contempler l'or vif de Chamon, le Royaume des Métaux."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "entrer": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "royaumes:chamon"
+      }
+    }
+  },
+  "parent": "royaumes:saga/portail"
+}

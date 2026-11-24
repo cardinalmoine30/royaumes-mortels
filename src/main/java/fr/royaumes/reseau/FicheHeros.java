@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
 /** Fiche du héros envoyée chaque seconde au client (inventaire de taverne, HUD, écran de serment). */
-public record FicheHeros(int niveau, int gloire, int besoin, int points, int faction, int[] rangs, int energie, int energieMax) implements CustomPacketPayload {
+public record FicheHeros(int niveau, int gloire, int besoin, int points, int faction, int[] rangs, int energie, int energieMax, int capacite) implements CustomPacketPayload {
     public static final CustomPacketPayload.Type<FicheHeros> TYPE =
             new CustomPacketPayload.Type<>(Identifier.fromNamespaceAndPath(RoyaumesMortels.MODID, "fiche"));
     public static final StreamCodec<RegistryFriendlyByteBuf, FicheHeros> CODEC =
@@ -25,6 +25,7 @@ public record FicheHeros(int niveau, int gloire, int besoin, int points, int fac
         }
         b.writeVarInt(energie);
         b.writeVarInt(energieMax);
+        b.writeVarInt(capacite);
     }
 
     private static FicheHeros lire(RegistryFriendlyByteBuf b) {
@@ -40,7 +41,8 @@ public record FicheHeros(int niveau, int gloire, int besoin, int points, int fac
         }
         int energie = b.readVarInt();
         int energieMax = b.readVarInt();
-        return new FicheHeros(niveau, gloire, besoin, points, faction, rangs, energie, energieMax);
+        int capacite = b.readVarInt();
+        return new FicheHeros(niveau, gloire, besoin, points, faction, rangs, energie, energieMax, capacite);
     }
 
     @Override
