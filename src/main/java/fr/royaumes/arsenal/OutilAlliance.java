@@ -95,11 +95,11 @@ public class OutilAlliance extends Item {
         if (!l.isClientSide()) {
             l.setBlock(pos, neuf, 11);
             if (i[1] == 2) {
-                l.playSound(null, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                l.playSound(null, pos, SoundEvents.AXE_STRIP.value(), SoundSource.BLOCKS, 1.0F, 1.0F);
             } else if (i[1] == 1) {
-                l.playSound(null, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
+                l.playSound(null, pos, SoundEvents.SHOVEL_FLATTEN.value(), SoundSource.BLOCKS, 1.0F, 1.0F);
             } else {
-                l.playSound(null, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                l.playSound(null, pos, SoundEvents.HOE_TILL.value(), SoundSource.BLOCKS, 1.0F, 1.0F);
             }
             if (c.getPlayer() != null) {
                 c.getItemInHand().hurtAndBreak(1, c.getPlayer(), c.getHand());
