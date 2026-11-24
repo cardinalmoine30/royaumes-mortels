@@ -28,7 +28,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:echo_shard",
+                "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

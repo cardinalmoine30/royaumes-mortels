@@ -44,7 +44,7 @@
                   }
                 ],
                 "minecraft:max_stack_size": 1,
-                "minecraft:item_model": "minecraft:nether_star",
+                "minecraft:item_model": "royaumes:dp/comete_de_sigmar",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

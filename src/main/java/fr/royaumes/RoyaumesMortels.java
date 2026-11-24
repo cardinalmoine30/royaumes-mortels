@@ -26,6 +26,7 @@ public class RoyaumesMortels {
         NeoForge.EVENT_BUS.addListener(fr.royaumes.camp.EvenementsCamp::mort);
         NeoForge.EVENT_BUS.addListener(fr.royaumes.camp.EvenementsCamp::degats);
         NeoForge.EVENT_BUS.addListener(fr.royaumes.rpg.Voies::degats);
+        NeoForge.EVENT_BUS.addListener(fr.royaumes.arsenal.PouvoirsOutils::casser);
         NeoForge.EVENT_BUS.register(this);
     }
 

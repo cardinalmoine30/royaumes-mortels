@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "royaumes:item/dp/arquebuse_de_la_garde_franche"
+  }
+}

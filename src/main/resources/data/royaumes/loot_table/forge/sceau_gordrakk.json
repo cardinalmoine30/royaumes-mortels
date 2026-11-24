@@ -28,7 +28,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:goat_horn",
+                "minecraft:item_model": "royaumes:dp/totem_de_gordrakk",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

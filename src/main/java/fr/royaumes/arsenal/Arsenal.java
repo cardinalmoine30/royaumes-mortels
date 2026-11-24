@@ -49,11 +49,12 @@ public final class Arsenal {
 
     private Arsenal() {}
 
-    /** Défense par palier (bottes, jambières, torse, casque) : fer, diamant, puis au-dessus de la netherite (20) : 24, 27, 30. */
-    private static final int[][] DEFENSE = {{2, 5, 6, 2}, {3, 6, 8, 3}, {4, 7, 9, 4}, {4, 8, 10, 5}, {5, 9, 11, 5}};
+    /** Défense par palier (bottes, jambières, torse, casque) : fer 15, diamant 20, puis 24, 24, 25 (netherite : 20). Au-delà de
+     *  Légende, la défense progresse peu : les paliers Mythique et Divin apportent surtout des pouvoirs (voir simulation d'équilibrage). */
+    private static final int[][] DEFENSE = {{2, 5, 6, 2}, {3, 6, 8, 3}, {4, 7, 9, 4}, {4, 7, 9, 4}, {4, 8, 9, 4}};
     private static final int[] DURABILITE = {15, 33, 45, 55, 70};
     private static final int[] ENCHANT = {9, 10, 18, 20, 25};
-    private static final float[] ROBUSTESSE = {0.0F, 2.0F, 4.0F, 5.0F, 6.0F};
+    private static final float[] ROBUSTESSE = {0.0F, 2.0F, 4.0F, 4.5F, 5.0F};
     private static final float[] RECUL = {0.0F, 0.0F, 0.15F, 0.2F, 0.25F};
     private static final Rarity[] RARETE = {Rarity.UNCOMMON, Rarity.RARE, Rarity.EPIC, Rarity.EPIC, Rarity.EPIC};
 
@@ -184,15 +185,15 @@ public final class Arsenal {
 
     /**
      * Chaque seconde. Panoplie complète d'une faction portée par un héros de cette faction : Soldat = premier effet,
-     * Élite = tous les effets, Légende = +1 niveau, Mythique = +1 niveau et 4 cœurs, Divin = +2 niveaux, 8 cœurs et
-     * régénération. Outil d'alliance en main (héros de l'alliance) : son effet, plus fort à chaque palier.
+     * Élite = tous les effets, Légende = +1 niveau, Mythique = +4 cœurs, Divin = +8 cœurs (Résistance et Régénération plafonnées au
+     * niveau I). Outil d'alliance en main (héros de l'alliance) : son effet, plus fort à chaque palier.
      */
     public static void bonusPanoplie(ServerPlayer p) {
         int fa = scoreFaction(p);
         int[] outil = infosOutil(p.getMainHandItem().getItem());
         if (outil != null && outil[0] == alliance(fa) && outil[1] < 4) {
             String e = ArsenalGenere.BUFFS_OUTILS[outil[0]][outil[1]];
-            int niv = e.equals("regeneration") || e.equals("resistance") ? outil[2] / 2 : Math.min(3, outil[2]);
+            int niv = e.equals("regeneration") || e.equals("resistance") ? 0 : Math.min(3, outil[2]);
             effet(p, e, niv);
         }
         int faction = -1;
@@ -219,17 +220,19 @@ public final class Arsenal {
     public static Map<String, Integer> effetsPanoplie(int faction, int palier) {
         Map<String, Integer> r = new java.util.LinkedHashMap<>();
         String[] bonus = ArsenalGenere.BONUS[faction].split(",");
-        int plus = new int[] {0, 0, 1, 1, 2}[Math.min(4, palier)];
+        int plus = new int[] {0, 0, 1, 1, 1}[Math.min(4, palier)];
         for (int i = 0; i < (palier == 0 ? 1 : bonus.length); i++) {
             String[] x = bonus[i].split(":");
-            int cap = x[0].equals("health_boost") ? 4 : 2;
+            // équilibrage 0.16 : jamais plus de Résistance I ni de Régénération I ; le reste plafonne au niveau II
+            int cap = switch (x[0]) {
+                case "resistance", "regeneration", "invisibility", "fire_resistance", "water_breathing", "night_vision" -> 0;
+                case "health_boost" -> 2;
+                default -> 1;
+            };
             r.merge(x[0], Math.min(cap, Integer.parseInt(x[1]) + plus), Math::max);
         }
         if (palier >= 3) {
             r.merge("health_boost", palier == 3 ? 0 : 1, Math::max);
-        }
-        if (palier >= 4) {
-            r.merge("regeneration", 0, Math::max);
         }
         return r;
     }

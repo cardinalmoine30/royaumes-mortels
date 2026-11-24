@@ -44,7 +44,7 @@
                   }
                 ],
                 "minecraft:max_stack_size": 1,
-                "minecraft:item_model": "minecraft:heart_of_the_sea",
+                "minecraft:item_model": "royaumes:dp/coeur_de_cristal_de_hysh",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

@@ -1,42 +1,42 @@
 {
- "pools": [
-  {
-   "rolls": 1,
-   "entries": [
+  "pools": [
     {
-     "type": "minecraft:item",
-     "name": "minecraft:armadillo_scute",
-     "modifier": [
-      {
-       "type": "minecraft:set_components",
-       "components": {
-        "minecraft:custom_name": {
-         "text": "Ferraille d'Orruk",
-         "color": "gray",
-         "italic": false
-        },
-        "minecraft:lore": [
-         {
-          "text": "Ça peut toujours servir pour cogner.",
-          "color": "gray",
-          "italic": true
-         },
-         {
-          "text": "Ressource des Royaumes",
-          "color": "gray",
-          "italic": true
-         }
-        ],
-        "minecraft:item_model": "minecraft:iron_nugget",
-        "minecraft:rarity": "rare",
-        "minecraft:custom_data": {
-         "rm": "ferraille"
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:armadillo_scute",
+          "modifier": [
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_name": {
+                  "text": "Ferraille d'Orruk",
+                  "color": "gray",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Ça peut toujours servir pour cogner.",
+                    "color": "gray",
+                    "italic": true
+                  },
+                  {
+                    "text": "Ressource des Royaumes",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ],
+                "minecraft:item_model": "royaumes:dp/ferraille_d_orruk",
+                "minecraft:rarity": "rare",
+                "minecraft:custom_data": {
+                  "rm": "ferraille"
+                }
+              }
+            }
+          ]
         }
-       }
-      }
-     ]
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

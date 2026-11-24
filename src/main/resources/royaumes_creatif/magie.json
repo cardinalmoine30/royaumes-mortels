@@ -21,7 +21,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:echo_shard",
+      "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -50,7 +50,7 @@
           "italic": true
         }
       ],
-      "minecraft:item_model": "minecraft:paper",
+      "minecraft:item_model": "royaumes:dp/parchemin_de_gloire",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -90,7 +90,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:goat_horn",
+      "minecraft:item_model": "royaumes:dp/corne_d_appel",
       "minecraft:rarity": "rare",
       "minecraft:custom_data": {
         "royaumes": "monture"
@@ -119,7 +119,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:wither_skeleton_skull",
+      "minecraft:item_model": "royaumes:dp/sceau_de_nagash",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -149,7 +149,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:ender_eye",
+      "minecraft:item_model": "royaumes:dp/sceau_d_archaon",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -179,7 +179,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:goat_horn",
+      "minecraft:item_model": "royaumes:dp/totem_de_gordrakk",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -209,7 +209,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:skeleton_skull",
+      "minecraft:item_model": "royaumes:dp/crane_de_skarbrand",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -239,7 +239,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:bell",
+      "minecraft:item_model": "royaumes:dp/cloche_de_thanquol",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -269,7 +269,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:honey_bottle",
+      "minecraft:item_model": "royaumes:dp/calice_de_rotigus",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -298,7 +298,7 @@
           "italic": true
         }
       ],
-      "minecraft:item_model": "minecraft:gold_ingot",
+      "minecraft:item_model": "royaumes:dp/lingot_de_sigmarite",
       "minecraft:rarity": "rare",
       "minecraft:custom_data": {
         "rm": "sigmarite"
@@ -326,7 +326,7 @@
           "italic": true
         }
       ],
-      "minecraft:item_model": "minecraft:magma_cream",
+      "minecraft:item_model": "royaumes:dp/eclat_du_chaos",
       "minecraft:rarity": "rare",
       "minecraft:custom_data": {
         "rm": "chaos"
@@ -354,7 +354,7 @@
           "italic": true
         }
       ],
-      "minecraft:item_model": "minecraft:iron_nugget",
+      "minecraft:item_model": "royaumes:dp/ferraille_d_orruk",
       "minecraft:rarity": "rare",
       "minecraft:custom_data": {
         "rm": "ferraille"

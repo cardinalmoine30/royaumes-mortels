@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lame Vampirique",
+                  "text": "Dague du Sang Neuf",
                   "color": "dark_red",
                   "italic": false
                 },
@@ -40,7 +40,8 @@
                 ],
                 "minecraft:enchantments": {
                   "royaumes:vol_d_ame": 2
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/dague_du_sang_neuf"
               }
             }
           ]
@@ -126,7 +127,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:echo_shard",
+                "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {
@@ -191,7 +192,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:goat_horn",
+                "minecraft:item_model": "royaumes:dp/corne_d_appel",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "royaumes": "monture"

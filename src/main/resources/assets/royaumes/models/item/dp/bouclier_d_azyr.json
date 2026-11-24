@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "royaumes:item/dp/bouclier_d_azyr"
+  }
+}

@@ -28,7 +28,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:skeleton_skull",
+                "minecraft:item_model": "royaumes:dp/crane_de_skarbrand",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

@@ -47,9 +47,33 @@ public final class EvenementsCamp {
 
     /** Équilibrage : les guerriers de faction (hors troupes de camp et seigneurs) frappent les héros 25 % moins fort. */
     public static void degats(net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent event) {
-        if (event.getEntity() instanceof net.minecraft.world.entity.player.Player
-                && event.getSource().getEntity() instanceof Combattant c && !c.profil().boss() && !c.entityTags().contains(Camps.UNITE)) {
+        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer joueur)
+                || !(event.getSource().getEntity() instanceof Combattant c) || c.entityTags().contains(Camps.UNITE)) {
+            return;
+        }
+        if (c.profil().boss()) {
+            // les seigneurs s'adaptent : +30 % de dégâts par palier d'armure au-dessus d'Élite (Divin : x1,9)
+            int palier = palierArmure(joueur);
+            if (palier >= 2) {
+                event.setAmount(event.getAmount() * (1.0F + 0.3F * (palier - 1)));
+            }
+        } else if (fr.royaumes.rpg.Quetes.get(joueur, "rm_niveau") < 20) {
+            // équilibrage des débuts : les guerriers frappent les héros novices 25 % moins fort
             event.setAmount(event.getAmount() * 0.75F);
         }
+    }
+
+    /** Plus bas palier des pièces d'arsenal portées (−1 sans armure complète d'arsenal). */
+    static int palierArmure(net.minecraft.server.level.ServerPlayer p) {
+        int min = 9;
+        for (var s : new net.minecraft.world.entity.EquipmentSlot[] {net.minecraft.world.entity.EquipmentSlot.HEAD,
+                net.minecraft.world.entity.EquipmentSlot.CHEST, net.minecraft.world.entity.EquipmentSlot.LEGS,
+                net.minecraft.world.entity.EquipmentSlot.FEET}) {
+            if (!(p.getItemBySlot(s).getItem() instanceof fr.royaumes.arsenal.ArmureFaction a)) {
+                return -1;
+            }
+            min = Math.min(min, a.palier());
+        }
+        return min;
     }
 }

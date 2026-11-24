@@ -180,7 +180,8 @@
                 ],
                 "minecraft:enchantments": {
                   "royaumes:malepierre": 1
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/lame_de_malepierre"
               }
             }
           ],
@@ -197,7 +198,8 @@
                   "text": "Globe à Gaz Empoisonné",
                   "color": "green",
                   "italic": false
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/globe_a_gaz_empoisonne"
               }
             },
             {
@@ -261,7 +263,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:echo_shard",
+                "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {
@@ -324,7 +326,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:gold_ingot",
+                "minecraft:item_model": "royaumes:dp/lingot_de_sigmarite",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "sigmarite"
@@ -506,7 +508,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:magma_cream",
+                "minecraft:item_model": "royaumes:dp/eclat_du_chaos",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "chaos"
@@ -548,7 +550,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:iron_nugget",
+                "minecraft:item_model": "royaumes:dp/ferraille_d_orruk",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "ferraille"
@@ -610,7 +612,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:paper",
+                "minecraft:item_model": "royaumes:dp/parchemin_de_gloire",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "royaumes:item/dp/coeur_de_cristal_de_hysh"
+  }
+}

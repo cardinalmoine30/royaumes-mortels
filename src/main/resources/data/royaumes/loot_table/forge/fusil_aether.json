@@ -19,7 +19,8 @@
                   "minecraft:quick_charge": 2,
                   "minecraft:piercing": 3
                 },
-                "minecraft:rarity": "epic"
+                "minecraft:rarity": "epic",
+                "minecraft:item_model": "royaumes:dp/grand_fusil_a_aether"
               }
             }
           ]

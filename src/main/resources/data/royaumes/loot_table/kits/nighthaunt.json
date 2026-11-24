@@ -40,7 +40,8 @@
                 ],
                 "minecraft:enchantments": {
                   "royaumes:vol_d_ame": 1
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/faux_d_esprit"
               }
             }
           ]
@@ -126,7 +127,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:echo_shard",
+                "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {
@@ -191,7 +192,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:goat_horn",
+                "minecraft:item_model": "royaumes:dp/corne_d_appel",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "royaumes": "monture"

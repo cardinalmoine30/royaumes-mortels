@@ -28,7 +28,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:ender_eye",
+                "minecraft:item_model": "royaumes:dp/sceau_d_archaon",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

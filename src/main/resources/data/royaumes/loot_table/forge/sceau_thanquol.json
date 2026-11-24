@@ -28,7 +28,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:bell",
+                "minecraft:item_model": "royaumes:dp/cloche_de_thanquol",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

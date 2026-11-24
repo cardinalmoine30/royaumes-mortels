@@ -19,7 +19,8 @@
                   "minecraft:power": 4,
                   "minecraft:infinity": 1
                 },
-                "minecraft:rarity": "epic"
+                "minecraft:rarity": "epic",
+                "minecraft:item_model": "royaumes:dp/arc_de_lumiere_de_hysh"
               }
             }
           ]

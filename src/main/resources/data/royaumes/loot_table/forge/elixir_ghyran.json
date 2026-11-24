@@ -48,7 +48,7 @@
                   ]
                 },
                 "minecraft:max_stack_size": 16,
-                "minecraft:item_model": "minecraft:honey_bottle",
+                "minecraft:item_model": "royaumes:dp/elixir_de_ghyran",
                 "minecraft:custom_data": {
                   "rm": "elixir_ghyran"
                 }

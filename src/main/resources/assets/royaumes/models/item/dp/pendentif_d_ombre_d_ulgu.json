@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "royaumes:item/dp/pendentif_d_ombre_d_ulgu"
+  }
+}

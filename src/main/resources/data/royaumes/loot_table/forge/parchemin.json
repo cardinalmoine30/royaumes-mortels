@@ -27,7 +27,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:paper",
+                "minecraft:item_model": "royaumes:dp/parchemin_de_gloire",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

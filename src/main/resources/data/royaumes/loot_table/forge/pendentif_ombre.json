@@ -44,7 +44,7 @@
                   }
                 ],
                 "minecraft:max_stack_size": 1,
-                "minecraft:item_model": "minecraft:ender_eye",
+                "minecraft:item_model": "royaumes:dp/pendentif_d_ombre_d_ulgu",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

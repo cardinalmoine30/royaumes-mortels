@@ -32,7 +32,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:oak_log"
+      "minecraft:item_model": "royaumes:dp/tronc_d_arbre_arrache"
     }
   },
   {
@@ -57,7 +57,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:echo_shard",
+      "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -97,7 +97,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:goat_horn",
+      "minecraft:item_model": "royaumes:dp/corne_d_appel",
       "minecraft:rarity": "rare",
       "minecraft:custom_data": {
         "royaumes": "monture"
@@ -122,7 +122,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:quick_charge": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/arquebuse_de_la_garde_franche"
     }
   },
   {
@@ -149,7 +150,8 @@
           "operation": "add_value",
           "slot": "mainhand"
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/epee_de_hammerhal"
     }
   },
   {
@@ -179,7 +181,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:sharpness": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/lame_du_fleau_noir"
     }
   },
   {
@@ -209,7 +212,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:sharpness": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/griffe_de_goule"
     }
   },
   {
@@ -217,7 +221,7 @@
     "count": 1,
     "components": {
       "minecraft:custom_name": {
-        "text": "Hache Runique d'Ur-Or",
+        "text": "Hachette de Forge-Novice",
         "color": "gold",
         "italic": false
       },
@@ -247,7 +251,8 @@
       "minecraft:enchantments": {
         "minecraft:fire_aspect": 1
       },
-      "minecraft:unbreakable": {}
+      "minecraft:unbreakable": {},
+      "minecraft:item_model": "royaumes:dp/hachette_de_forge_novice"
     }
   },
   {
@@ -274,7 +279,8 @@
           "operation": "add_value",
           "slot": "mainhand"
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/coupe_tronche"
     }
   },
   {
@@ -285,7 +291,8 @@
         "text": "Bouillon de la Mauvaise Lune",
         "color": "yellow",
         "italic": false
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/bouillon_de_la_mauvaise_lune"
     }
   },
   {
@@ -315,7 +322,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:efficiency": 2
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/pic_de_forge_infernale"
     }
   },
   {
@@ -333,7 +341,8 @@
           "color": "gray",
           "italic": true
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/lance_d_akhelian"
     }
   },
   {
@@ -341,7 +350,7 @@
     "count": 1,
     "components": {
       "minecraft:custom_name": {
-        "text": "Gros Choppa",
+        "text": "Choppa Rouillé",
         "color": "gold",
         "italic": false
       },
@@ -370,7 +379,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:waaagh": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/choppa_rouille"
     }
   },
   {
@@ -378,7 +388,7 @@
     "count": 1,
     "components": {
       "minecraft:custom_name": {
-        "text": "Lame du Meurtre",
+        "text": "Dague de l'Initiée",
         "color": "red",
         "italic": false
       },
@@ -407,7 +417,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:sharpness": 2
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/dague_de_l_initiee"
     }
   },
   {
@@ -428,7 +439,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:multishot": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/fusil_a_aether"
     }
   },
   {
@@ -465,7 +477,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:sharpness": 2
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/hache_sanglante"
     }
   },
   {
@@ -495,7 +508,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:peste": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/coupe_gorge_empoisonne"
     }
   },
   {
@@ -506,7 +520,8 @@
         "text": "Arc de Marais",
         "color": "dark_green",
         "italic": false
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/arc_de_marais"
     }
   },
   {
@@ -514,7 +529,7 @@
     "count": 1,
     "components": {
       "minecraft:custom_name": {
-        "text": "Arc de Lumière",
+        "text": "Arc de Novice Vanari",
         "color": "white",
         "italic": false
       },
@@ -527,7 +542,8 @@
       ],
       "minecraft:enchantments": {
         "minecraft:power": 2
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/arc_de_novice_vanari"
     }
   },
   {
@@ -554,7 +570,8 @@
           "operation": "add_value",
           "slot": "mainhand"
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/lame_de_hysh"
     }
   },
   {
@@ -591,7 +608,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:vol_d_ame": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/faux_d_esprit"
     }
   },
   {
@@ -628,7 +646,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:peste": 2
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/lame_pestilentielle"
     }
   },
   {
@@ -636,7 +655,7 @@
     "count": 1,
     "components": {
       "minecraft:custom_name": {
-        "text": "Couperet de Boucher",
+        "text": "Couteau de Boucher",
         "color": "gold",
         "italic": false
       },
@@ -662,7 +681,8 @@
           "operation": "add_value",
           "slot": "mainhand"
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/couteau_de_boucher"
     }
   },
   {
@@ -689,7 +709,8 @@
           "operation": "add_value",
           "slot": "mainhand"
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/lame_d_os_ossifiee"
     }
   },
   {
@@ -700,7 +721,8 @@
         "text": "Pavois d'Os",
         "color": "white",
         "italic": false
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/pavois_d_os"
     }
   },
   {
@@ -735,7 +757,8 @@
           "slot": "mainhand"
         }
       ],
-      "minecraft:unbreakable": {}
+      "minecraft:unbreakable": {},
+      "minecraft:item_model": "royaumes:dp/gourdin_de_saurus"
     }
   },
   {
@@ -772,7 +795,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:malepierre": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/lame_de_malepierre"
     }
   },
   {
@@ -783,7 +807,8 @@
         "text": "Globe à Gaz Empoisonné",
         "color": "green",
         "italic": false
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/globe_a_gaz_empoisonne"
     }
   },
   {
@@ -810,7 +835,8 @@
           "operation": "add_value",
           "slot": "mainhand"
         }
-      ]
+      ],
+      "minecraft:item_model": "royaumes:dp/lame_extatique"
     }
   },
   {
@@ -818,7 +844,7 @@
     "count": 1,
     "components": {
       "minecraft:custom_name": {
-        "text": "Lame Vampirique",
+        "text": "Dague du Sang Neuf",
         "color": "dark_red",
         "italic": false
       },
@@ -847,7 +873,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:vol_d_ame": 2
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/dague_du_sang_neuf"
     }
   },
   {
@@ -884,7 +911,8 @@
       ],
       "minecraft:enchantments": {
         "royaumes:foudre_de_sigmar": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/marteau_tonnerre"
     }
   },
   {
@@ -895,7 +923,8 @@
         "text": "Bouclier d'Azyr",
         "color": "aqua",
         "italic": false
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/bouclier_d_azyr"
     }
   },
   {
@@ -923,7 +952,8 @@
           "slot": "mainhand"
         }
       ],
-      "minecraft:unbreakable": {}
+      "minecraft:unbreakable": {},
+      "minecraft:item_model": "royaumes:dp/griffes_de_dryade"
     }
   },
   {
@@ -961,7 +991,8 @@
       "minecraft:enchantments": {
         "royaumes:flammes_de_tzeentch": 1,
         "minecraft:knockback": 1
-      }
+      },
+      "minecraft:item_model": "royaumes:dp/baton_du_changement"
     }
   },
   {
@@ -995,7 +1026,7 @@
         }
       ],
       "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:resin_clump",
+      "minecraft:item_model": "royaumes:dp/amulette_d_ambre_de_ghur",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1016,7 +1047,8 @@
         "minecraft:power": 4,
         "minecraft:infinity": 1
       },
-      "minecraft:rarity": "epic"
+      "minecraft:rarity": "epic",
+      "minecraft:item_model": "royaumes:dp/arc_de_lumiere_de_hysh"
     }
   },
   {
@@ -1061,7 +1093,7 @@
         ]
       },
       "minecraft:max_stack_size": 16,
-      "minecraft:item_model": "minecraft:ominous_bottle",
+      "minecraft:item_model": "royaumes:dp/brume_d_ulgu",
       "minecraft:custom_data": {
         "rm": "brume_ulgu"
       }
@@ -1105,7 +1137,7 @@
         }
       ],
       "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:heart_of_the_sea",
+      "minecraft:item_model": "royaumes:dp/coeur_de_cristal_de_hysh",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1155,7 +1187,7 @@
         ]
       },
       "minecraft:max_stack_size": 16,
-      "minecraft:item_model": "minecraft:honey_bottle",
+      "minecraft:item_model": "royaumes:dp/elixir_de_ghyran",
       "minecraft:custom_data": {
         "rm": "elixir_ghyran"
       }
@@ -1203,7 +1235,7 @@
         ]
       },
       "minecraft:max_stack_size": 16,
-      "minecraft:item_model": "minecraft:experience_bottle",
+      "minecraft:item_model": "royaumes:dp/elixir_de_malepierre",
       "minecraft:custom_data": {
         "rm": "elixir_malepierre"
       }
@@ -1246,7 +1278,7 @@
         "saturation": 16.0,
         "can_always_eat": true
       },
-      "minecraft:item_model": "minecraft:cooked_beef",
+      "minecraft:item_model": "royaumes:dp/festin_d_ogor",
       "minecraft:custom_data": {
         "rm": "festin"
       }
@@ -1265,7 +1297,8 @@
         "minecraft:quick_charge": 2,
         "minecraft:piercing": 3
       },
-      "minecraft:rarity": "epic"
+      "minecraft:rarity": "epic",
+      "minecraft:item_model": "royaumes:dp/grand_fusil_a_aether"
     }
   },
   {
@@ -1310,7 +1343,7 @@
         ]
       },
       "minecraft:max_stack_size": 16,
-      "minecraft:item_model": "minecraft:experience_bottle",
+      "minecraft:item_model": "royaumes:dp/lumiere_de_hysh",
       "minecraft:custom_data": {
         "rm": "lumiere_hysh"
       }
@@ -1354,7 +1387,7 @@
         }
       ],
       "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:ender_eye",
+      "minecraft:item_model": "royaumes:dp/oeil_des_dieux_sombres",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1383,7 +1416,7 @@
           "italic": true
         }
       ],
-      "minecraft:item_model": "minecraft:paper",
+      "minecraft:item_model": "royaumes:dp/parchemin_de_gloire",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1429,7 +1462,7 @@
         }
       ],
       "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:ender_eye",
+      "minecraft:item_model": "royaumes:dp/pendentif_d_ombre_d_ulgu",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1459,7 +1492,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:echo_shard",
+      "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1488,7 +1521,7 @@
           "italic": true
         }
       ],
-      "minecraft:item_model": "minecraft:gold_ingot",
+      "minecraft:item_model": "royaumes:dp/lingot_de_sigmarite",
       "minecraft:rarity": "rare",
       "minecraft:custom_data": {
         "rm": "sigmarite"
@@ -1538,7 +1571,7 @@
         }
       ],
       "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:nether_star",
+      "minecraft:item_model": "royaumes:dp/comete_de_sigmar",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1568,7 +1601,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:ender_eye",
+      "minecraft:item_model": "royaumes:dp/sceau_d_archaon",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1598,7 +1631,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:goat_horn",
+      "minecraft:item_model": "royaumes:dp/totem_de_gordrakk",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1628,7 +1661,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:wither_skeleton_skull",
+      "minecraft:item_model": "royaumes:dp/sceau_de_nagash",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1658,7 +1691,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:honey_bottle",
+      "minecraft:item_model": "royaumes:dp/calice_de_rotigus",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1688,7 +1721,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:skeleton_skull",
+      "minecraft:item_model": "royaumes:dp/crane_de_skarbrand",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1718,7 +1751,7 @@
         }
       ],
       "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:bell",
+      "minecraft:item_model": "royaumes:dp/cloche_de_thanquol",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1757,7 +1790,7 @@
         }
       ],
       "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:raw_gold",
+      "minecraft:item_model": "royaumes:dp/talisman_de_grimnir",
       "minecraft:enchantment_glint_override": true,
       "minecraft:rarity": "epic",
       "minecraft:custom_data": {
@@ -1807,342 +1840,9 @@
         ]
       },
       "minecraft:max_stack_size": 16,
-      "minecraft:item_model": "minecraft:dragon_breath",
+      "minecraft:item_model": "royaumes:dp/tonique_d_aqshy",
       "minecraft:custom_data": {
         "rm": "tonique_aqshy"
-      }
-    }
-  },
-  {
-    "id": "minecraft:netherite_hoe",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Alakanash, Bâton de Nagash",
-        "color": "dark_purple",
-        "italic": false
-      },
-      "minecraft:lore": [
-        {
-          "text": "Le bâton du Grand Nécromancien.",
-          "color": "gray",
-          "italic": true
-        }
-      ],
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 14.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -2.6,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "royaumes:vol_d_ame": 2,
-        "royaumes:malepierre": 1
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:blaze_rod",
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:golden_helmet",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Couronne de Nagash",
-        "color": "dark_purple",
-        "italic": false
-      },
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:armor",
-          "amount": 5.0,
-          "id": "royaumes:couronne_0",
-          "operation": "add_value",
-          "slot": "head"
-        },
-        {
-          "type": "minecraft:max_health",
-          "amount": 10.0,
-          "id": "royaumes:couronne_1",
-          "operation": "add_value",
-          "slot": "head"
-        },
-        {
-          "type": "minecraft:armor_toughness",
-          "amount": 3.0,
-          "id": "royaumes:couronne_2",
-          "operation": "add_value",
-          "slot": "head"
-        }
-      ],
-      "minecraft:trim": {
-        "material": "minecraft:amethyst",
-        "pattern": "minecraft:silence"
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:netherite_sword",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Tueuse de Rois",
-        "color": "dark_red",
-        "italic": false
-      },
-      "minecraft:lore": [
-        {
-          "text": "Un démon y est lié : U'zuhl le Dévoreur.",
-          "color": "gray",
-          "italic": true
-        }
-      ],
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 16.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -2.4,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "minecraft:sharpness": 5,
-        "royaumes:flammes_de_tzeentch": 1
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:netherite_axe",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Smasha",
-        "color": "gold",
-        "italic": false
-      },
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 17.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -3.0,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "royaumes:waaagh": 1,
-        "minecraft:sharpness": 4
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:netherite_axe",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Kunnin'",
-        "color": "gold",
-        "italic": false
-      },
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 13.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -2.6,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "royaumes:peste": 2,
-        "minecraft:sharpness": 3
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:netherite_axe",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Massacre",
-        "color": "red",
-        "italic": false
-      },
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 18.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -3.0,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "minecraft:fire_aspect": 3,
-        "minecraft:sharpness": 4
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:netherite_hoe",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Bâton de Malefoudre",
-        "color": "green",
-        "italic": false
-      },
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 12.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -2.4,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "royaumes:foudre_de_sigmar": 1,
-        "royaumes:malepierre": 1
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:blaze_rod",
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:netherite_shovel",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Bâton de Pluie Pestilentielle",
-        "color": "dark_green",
-        "italic": false
-      },
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:attack_damage",
-          "amount": 13.0,
-          "id": "minecraft:base_attack_damage",
-          "operation": "add_value",
-          "slot": "mainhand"
-        },
-        {
-          "type": "minecraft:attack_speed",
-          "amount": -2.8,
-          "id": "minecraft:base_attack_speed",
-          "operation": "add_value",
-          "slot": "mainhand"
-        }
-      ],
-      "minecraft:enchantments": {
-        "royaumes:peste": 2,
-        "royaumes:vol_d_ame": 1
-      },
-      "minecraft:unbreakable": {},
-      "minecraft:item_model": "minecraft:stick",
-      "minecraft:rarity": "epic"
-    }
-  },
-  {
-    "id": "minecraft:armadillo_scute",
-    "count": 1,
-    "components": {
-      "minecraft:custom_name": {
-        "text": "Cloche de Pluie",
-        "color": "dark_green",
-        "italic": false
-      },
-      "minecraft:lore": [
-        {
-          "text": "Talisman : +4 cœurs, +2 armure",
-          "color": "gray",
-          "italic": true
-        },
-        {
-          "text": "Tenir en main secondaire.",
-          "color": "gray",
-          "italic": true
-        }
-      ],
-      "minecraft:attribute_modifiers": [
-        {
-          "type": "minecraft:max_health",
-          "amount": 8.0,
-          "id": "royaumes:cloche_pluie_0",
-          "operation": "add_value",
-          "slot": "offhand"
-        },
-        {
-          "type": "minecraft:armor",
-          "amount": 2.0,
-          "id": "royaumes:cloche_pluie_1",
-          "operation": "add_value",
-          "slot": "offhand"
-        }
-      ],
-      "minecraft:max_stack_size": 1,
-      "minecraft:item_model": "minecraft:bell",
-      "minecraft:rarity": "epic",
-      "minecraft:custom_data": {
-        "rm": "cloche_pluie"
       }
     }
   }

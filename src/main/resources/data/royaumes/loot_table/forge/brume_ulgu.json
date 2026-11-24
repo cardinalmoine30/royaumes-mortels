@@ -48,7 +48,7 @@
                   ]
                 },
                 "minecraft:max_stack_size": 16,
-                "minecraft:item_model": "minecraft:ominous_bottle",
+                "minecraft:item_model": "royaumes:dp/brume_d_ulgu",
                 "minecraft:custom_data": {
                   "rm": "brume_ulgu"
                 }

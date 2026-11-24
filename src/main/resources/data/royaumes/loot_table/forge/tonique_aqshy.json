@@ -48,7 +48,7 @@
                   ]
                 },
                 "minecraft:max_stack_size": 16,
-                "minecraft:item_model": "minecraft:dragon_breath",
+                "minecraft:item_model": "royaumes:dp/tonique_d_aqshy",
                 "minecraft:custom_data": {
                   "rm": "tonique_aqshy"
                 }

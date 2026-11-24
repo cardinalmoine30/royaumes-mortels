@@ -127,7 +127,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:magma_cream",
+                "minecraft:item_model": "royaumes:dp/eclat_du_chaos",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "chaos"

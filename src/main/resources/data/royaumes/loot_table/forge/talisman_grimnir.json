@@ -37,7 +37,7 @@
                   }
                 ],
                 "minecraft:max_stack_size": 1,
-                "minecraft:item_model": "minecraft:raw_gold",
+                "minecraft:item_model": "royaumes:dp/talisman_de_grimnir",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

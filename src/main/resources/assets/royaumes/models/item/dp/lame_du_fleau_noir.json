@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "royaumes:item/dp/lame_du_fleau_noir"
+  }
+}

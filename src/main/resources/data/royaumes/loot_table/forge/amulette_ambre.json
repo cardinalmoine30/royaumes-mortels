@@ -37,7 +37,7 @@
                   }
                 ],
                 "minecraft:max_stack_size": 1,
-                "minecraft:item_model": "minecraft:resin_clump",
+                "minecraft:item_model": "royaumes:dp/amulette_d_ambre_de_ghur",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

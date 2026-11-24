@@ -46,6 +46,20 @@ public class OutilAlliance extends Item {
                 || !(attaquant instanceof net.minecraft.server.level.ServerPlayer sp) || Arsenal.alliance(Arsenal.scoreFaction(sp)) != alliance) {
             return;
         }
+        // épée Mythique et Divine : la frappe fend aussi les ennemis autour de la cible (40 % / 60 % des dégâts)
+        if (palier >= 3) {
+            float part = palier >= 4 ? 0.6F : 0.4F;
+            float degats = (float) sp.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE) * part;
+            String equipe = "rm_" + ArsenalGenere.ALLIANCES[alliance];
+            for (LivingEntity e : n.getEntitiesOfClass(LivingEntity.class, cible.getBoundingBox().inflate(3.0),
+                    e -> e != cible && e != sp && e.isAlive() && !(e instanceof net.minecraft.world.entity.player.Player)
+                            && (e instanceof net.minecraft.world.entity.monster.Enemy || e instanceof fr.royaumes.entite.Combattant)
+                            && !(e instanceof fr.royaumes.entite.Combattant cc && (cc.profil().equipe().equals(equipe)
+                                    || cc.entityTags().contains(fr.royaumes.camp.Camps.UNITE))))) {
+                e.hurtServer(n, n.damageSources().playerAttack(sp), degats);
+            }
+            n.sendParticles(ParticleTypes.SWEEP_ATTACK, cible.getX(), cible.getY() + 1, cible.getZ(), 3, 1.2, 0.2, 1.2, 0.0);
+        }
         switch (ArsenalGenere.BUFFS_OUTILS[alliance][4]) {
             case "faiblesse" -> {
                 cible.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, Math.min(3, palier)), attaquant);
@@ -104,6 +118,20 @@ public class OutilAlliance extends Item {
             if (c.getPlayer() != null) {
                 c.getItemInHand().hurtAndBreak(1, c.getPlayer(), c.getHand());
             }
+            // houe Mythique (3×3) et Divine (5×5) : laboure toute la zone autour
+            int r = i[1] == 3 ? (palier >= 4 ? 2 : palier == 3 ? 1 : 0) : 0;
+            if (r > 0 && c.getPlayer() != null && !c.getPlayer().isShiftKeyDown()) {
+                for (int dx = -r; dx <= r; dx++) {
+                    for (int dz = -r; dz <= r; dz++) {
+                        BlockPos q = pos.offset(dx, 0, dz);
+                        BlockState sq = l.getBlockState(q);
+                        if ((dx != 0 || dz != 0) && (sq.is(Blocks.GRASS_BLOCK) || sq.is(Blocks.DIRT) || sq.is(Blocks.DIRT_PATH))
+                                && l.getBlockState(q.above()).isAir()) {
+                            l.setBlock(q, Blocks.FARMLAND.defaultBlockState(), 11);
+                        }
+                    }
+                }
+            }
         }
         return InteractionResult.SUCCESS;
     }
@@ -141,9 +169,18 @@ public class OutilAlliance extends Item {
         public static void tooltip(int alliance, int outil, int palier, Consumer<Component> ajout) {
             ajout.accept(Component.literal(NOMS[alliance] + " · " + ArsenalGenere.NOMS_PALIERS[palier]).withStyle(ChatFormatting.GOLD));
             String b = ArsenalGenere.BUFFS_OUTILS[alliance][outil];
-            int niv = b.equals("regeneration") || b.equals("resistance") ? palier / 2 : Math.min(3, palier);
+            int niv = b.equals("regeneration") || b.equals("resistance") ? 0 : Math.min(3, palier);
             String t = outil == 4 ? EPEE.getOrDefault(b, b) : TEXTES.getOrDefault(b, b) + (niv > 0 ? " (niveau " + (niv + 1) + ")" : "");
             ajout.accept(Component.literal(t).withStyle(ChatFormatting.GREEN));
+            String pouvoir = switch (outil) {
+                case 0, 1 -> PouvoirsOutils.ligne(palier) > 1 ? "Creuse " + PouvoirsOutils.ligne(palier) + " blocs en ligne (accroupi : un seul)" : "";
+                case 2 -> PouvoirsOutils.arbre(palier) > 0 ? "Abat l'arbre entier, jusqu'à " + PouvoirsOutils.arbre(palier) + " bûches" : "";
+                case 3 -> palier >= 3 ? "Laboure une zone " + (palier >= 4 ? "5×5" : "3×3") : "";
+                default -> palier >= 3 ? "Fend les ennemis autour de la cible (" + (palier >= 4 ? 60 : 40) + " % des dégâts)" : "";
+            };
+            if (!pouvoir.isEmpty()) {
+                ajout.accept(Component.literal("✦ " + pouvoir).withStyle(ChatFormatting.LIGHT_PURPLE));
+            }
             ajout.accept(Component.literal("Réservé aux héros de l'alliance").withStyle(ChatFormatting.GRAY));
         }
     }

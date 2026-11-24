@@ -180,7 +180,8 @@
                 ],
                 "minecraft:enchantments": {
                   "royaumes:foudre_de_sigmar": 1
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/marteau_tonnerre"
               }
             }
           ],
@@ -197,7 +198,8 @@
                   "text": "Bouclier d'Azyr",
                   "color": "aqua",
                   "italic": false
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/bouclier_d_azyr"
               }
             }
           ],
@@ -244,7 +246,8 @@
                 ],
                 "minecraft:enchantments": {
                   "minecraft:quick_charge": 1
-                }
+                },
+                "minecraft:item_model": "royaumes:dp/arquebuse_de_la_garde_franche"
               }
             }
           ],
@@ -277,7 +280,8 @@
                     "operation": "add_value",
                     "slot": "mainhand"
                   }
-                ]
+                ],
+                "minecraft:item_model": "royaumes:dp/epee_de_hammerhal"
               }
             }
           ],
@@ -337,7 +341,7 @@
                   }
                 ],
                 "minecraft:unbreakable": {},
-                "minecraft:item_model": "minecraft:echo_shard",
+                "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {
@@ -400,7 +404,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:gold_ingot",
+                "minecraft:item_model": "royaumes:dp/lingot_de_sigmarite",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "sigmarite"
@@ -582,7 +586,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:magma_cream",
+                "minecraft:item_model": "royaumes:dp/eclat_du_chaos",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "chaos"
@@ -624,7 +628,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:iron_nugget",
+                "minecraft:item_model": "royaumes:dp/ferraille_d_orruk",
                 "minecraft:rarity": "rare",
                 "minecraft:custom_data": {
                   "rm": "ferraille"
@@ -686,7 +690,7 @@
                     "italic": true
                   }
                 ],
-                "minecraft:item_model": "minecraft:paper",
+                "minecraft:item_model": "royaumes:dp/parchemin_de_gloire",
                 "minecraft:enchantment_glint_override": true,
                 "minecraft:rarity": "epic",
                 "minecraft:custom_data": {

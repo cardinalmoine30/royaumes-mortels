@@ -48,7 +48,7 @@
                   ]
                 },
                 "minecraft:max_stack_size": 16,
-                "minecraft:item_model": "minecraft:experience_bottle",
+                "minecraft:item_model": "royaumes:dp/lumiere_de_hysh",
                 "minecraft:custom_data": {
                   "rm": "lumiere_hysh"
                 }
