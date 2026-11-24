@@ -42,14 +42,18 @@ Au cœur de l'antre, l'Autel des Seigneurs éveille le sceau forgé : le seigneu
 Sceptre de Nagash (Armée des Morts, Main de Nagash), Pourfendeuse des Rois d'Archaon, Krokfendeur de Gordrakk, Massacre et
 Carnage de Skarbrand, Bâton de malefeu de Thanquol, Bâton de pluie de Rotigus.
 
-**Arsenal de faction (0.12).** 150 objets : pour chacune des 25 factions, une **arme de champion** (base netherite,
-très puissante, atout une fois sur quatre), une **arme de lignée** (base diamant, plus légère, atout à chaque coup :
-foudre, brasier, venin, flétrissure, vol de vie, entrave, fracas, éclat aveuglant, brise-garde) et une **armure en 4 pièces**
-(défense de netherite, bonus de panoplie complète : force, résistance, vitesse, régénération…). Les armes ont un vrai
-modèle 3D en main et une icône plate en inventaire ; l'armure portée reprend le skin de la faction.
-Rien de tout cela ne se fabrique à l'établi : il faut la **Forge de guerre** (or, enclume, obsidienne, pierre des Royaumes),
-qui n'affiche que l'arsenal de TA faction. Chaque recette exige les éclats de **deux Royaumes étrangers** au tien
-(un Stormcast d'Azyr doit aller chercher de l'Hysh et de l'Ulgu…) : voyage, commerce entre amis ou raids.
+**Arsenal et Forge de guerre (0.12).** 410 objets, tous forgés à la **Forge de guerre** (or, enclume, obsidienne, pierre
+des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Les recettes exigent les éclats de **deux Royaumes
+étrangers** au tien. Trois paliers, chacun forgé à partir de la pièce du palier précédent (refondue) :
+- **Soldat** (fer + 1 éclat) → **Élite** (pièce Soldat + diamants + éclats) → **Légende** (pièce Élite + netherite + éclats + pierre).
+- **Armure de faction** en 4 pièces par palier (défense fer / diamant / au-delà de la netherite). Panoplie complète portée par un
+  héros de la faction : Soldat = premier effet, Élite = tous les effets, Légende = tous les effets un niveau au-dessus.
+- **Outils d'alliance** (pioche, pelle, hache, houe, épée), communs aux factions d'une Grande Alliance, avec un effet en main
+  qui monte avec le palier : Ordre (célérité, vitesse, résistance, régénération ; épée affaiblissante, foudre en Légende),
+  Chaos (célérité, résistance au feu, force, chance ; épée de feu), Mort (vision nocturne, célérité, résistance, chance ;
+  épée vampirique), Destruction (célérité, vitesse, force, vie bonus ; épée qui projette).
+- **Armes de faction** : arme de lignée (atout à chaque coup) puis arme de champion, forgée à partir de l'arme de lignée
+  (très puissante, atout une fois sur quatre). Modèles 3D en main.
 
 **Les Royaumes.** Huit Royaumes et les Huit-Points, chacun avec ses biomes, ses structures et ses factions.
 On y voyage par les failles du datapack ou par le **Portail des Royaumes** (bloc). En entrant dans un Royaume,
@@ -67,7 +71,7 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | ![Écran de serment](outils/visuels/apercus/maquette_serment_ironjawz.png) | ![HUD](outils/visuels/apercus/maquette_hud.png) |
 | ![Carte des Royaumes](outils/visuels/apercus/carte_royaumes.png) | ![Guide de la magie](outils/visuels/apercus/guide_magie.png) |
 | ![Skins des factions](outils/skins/apercus/planche_skins.png) | ![Onglets créatifs](outils/visuels/apercus/onglets_creatifs.png) |
-| ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Arsenal 2](outils/visuels/apercus/arsenal/arsenal_2.png) |
+| ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Paliers](outils/visuels/apercus/arsenal/paliers.png) |
 
 ## Générateurs (dossier `outils/`)
 
