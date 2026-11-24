@@ -25,7 +25,11 @@ P = {}
 
 
 def av(nom, parent, icone, titre, desc, criteres, cadre="task", requis=None, xp=0, cache=False, fond=None):
-    d = {"display": {"icon": {"id": icone}, "title": {"text": titre}, "description": {"text": desc}, "frame": cadre,
+    import re as _re
+    morceaux = _re.split(r"\[(serment|capacite|voie)\]", desc)
+    texte = [{"text": m} if i % 2 == 0 else {"keybind": "key.royaumes." + m} for i, m in enumerate(morceaux) if m]
+    description = texte[0] if len(texte) == 1 else {"text": "", "extra": texte}
+    d = {"display": {"icon": {"id": icone}, "title": {"text": titre}, "description": description, "frame": cadre,
                      "show_toast": True, "announce_to_chat": cadre != "task", "hidden": cache}, "criteria": criteres}
     if fond:
         d["display"]["background"] = fond
@@ -49,8 +53,8 @@ def impossible():
 def main():
     av("racine", None, "royaumes:marbre_celeste_grave", "Saga des Royaumes", "Les Royaumes Mortels t'attendent, héros.",
        {"arrivee": {"trigger": "minecraft:tick"}}, fond="royaumes:block/marbre_celeste")
-    av("serment", "racine", "minecraft:white_banner", "Serment d'allégeance", "Prêter serment à une faction (touche J).", {"serment": impossible()}, "goal", xp=50)
-    av("capacite", "serment", "minecraft:blaze_powder", "Don de la faction", "Utiliser la capacité de ta faction (touche R).", {"capacite": impossible()})
+    av("serment", "racine", "minecraft:white_banner", "Serment d'allégeance", "Prêter serment à une faction (touche [serment]).", {"serment": impossible()}, "goal", xp=50)
+    av("capacite", "serment", "minecraft:blaze_powder", "Don de la faction", "Utiliser la capacité de ta faction (touche [capacite]).", {"capacite": impossible()})
     av("pierre", "racine", "royaumes:pierre_royaumes_brute", "Pierre des Royaumes", "Extraire de la pierre des Royaumes brute.", {"pierre": objet("royaumes:pierre_royaumes_brute")})
     av("baton", "pierre", "royaumes:baton_azyr", "Porteur de Vent", "Forger un bâton de magie.", {"baton": objet(*["royaumes:baton_" + v for v in VENTS])})
     av("sort", "baton", "royaumes:eclat_hysh", "Premier sortilège", "Lancer un sort avec un bâton.", {"sort": impossible()})

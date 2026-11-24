@@ -114,7 +114,7 @@ public class EcranSerment extends Screen {
             y += 46;
         }
         Texte.ligne(g, this.font, Component.translatable("royaumes.serment.aide").getString(), px + 12, py + PH - 22, 192, 0xFFA0AAC8, false);
-        Texte.ligne(g, this.font, Component.translatable("royaumes.serment.touche").getString(), px + 12, py + PH - 12, 192, 0xFFA0AAC8, false);
+        Texte.ligne(g, this.font, Component.translatable("royaumes.serment.touche", ClientRoyaumes.TOUCHE_SERMENT.getTranslatedKeyMessage()).getString(), px + 12, py + PH - 12, 192, 0xFFA0AAC8, false);
         // panneau de la faction
         int qx = px + 210;
         int qy = py + 18;

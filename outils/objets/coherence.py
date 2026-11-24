@@ -198,6 +198,11 @@ def forge():
         if neuf and isinstance(neuf[0], dict) and "Forge de guerre" not in neuf[0].get("text", ""):
             neuf.insert(0, {"text": "Armes et armures : à la Forge de guerre (bloc à fabriquer), qui n'ouvre que l'arsenal de ta faction "
                                     "et de ton alliance.\n", "color": "yellow"})
+        # la touche « jeter » réelle du joueur au lieu d'un Q écrit en dur (claviers AZERTY : c'est A)
+        for i, el in enumerate(neuf):
+            if isinstance(el, dict) and "(touche Q)" in el.get("text", ""):
+                avant, apres = el["text"].split("(touche Q)", 1)
+                neuf[i] = dict(el, text=avant + "(touche ", extra=[{"keybind": "key.drop"}, {"text": ")" + apres}])
         corps["contents"] = neuf
     ecrire(d, j)
 

@@ -968,7 +968,7 @@ def traductions(mobs, montures):
         "royaumes.serment.bouton": ("Prêter serment", "Swear the oath"),
         "royaumes.serment.deja": ("Serment prêté", "Oath sworn"),
         "royaumes.serment.aide": ("Survole un blason pour lire son serment.", "Hover a crest to read its oath."),
-        "royaumes.serment.touche": ("Touche J : rouvrir cet écran.", "J key: reopen this screen."),
+        "royaumes.serment.touche": ("Touche %s : rouvrir cet écran.", "%s key: reopen this screen."),
         "royaumes.serment.dons": ("Dons", "Gifts"),
         "royaumes.serment.fardeau": ("Fardeau", "Burden"),
         "royaumes.serment.choisi": ("Tu as prêté serment : %s", "You have sworn your oath: %s"),
@@ -986,7 +986,7 @@ def traductions(mobs, montures):
         "royaumes.camp.fonde": ("Ton camp de guerre est fondé ici.", "Your war camp is founded here."),
         "royaumes.camp.pas_a_toi": ("Cet étendard appartient à un autre héros.", "This standard belongs to another hero."),
         "royaumes.capacite.attente": ("%s : encore %s s", "%s: %s s left"),
-        "royaumes.capacite.sans": ("Prête d'abord serment à une faction (touche J).", "Swear an oath to a faction first (J key)."),
+        "royaumes.capacite.sans": ("Prête d'abord serment à une faction (touche %s).", "Swear an oath to a faction first (%s key)."),
         "royaumes.capacite.pret": ("Capacité prête (R)", "Ability ready (R)"),
     }
     for k, (a, b) in textes2.items():

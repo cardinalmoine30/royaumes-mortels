@@ -58,6 +58,13 @@ public final class ClientRoyaumes {
         }
     }
 
+    /** Remplace [serment], [capacite], [voie] par la touche réellement configurée par le joueur. */
+    public static String touches(String s) {
+        return s.replace("[serment]", TOUCHE_SERMENT.getTranslatedKeyMessage().getString())
+                .replace("[capacite]", TOUCHE_CAPACITE.getTranslatedKeyMessage().getString())
+                .replace("[voie]", TOUCHE_VOIE.getTranslatedKeyMessage().getString());
+    }
+
     static void ouvrir(Minecraft mc) {
         mc.gui.setScreen(new EcranSerment());
     }

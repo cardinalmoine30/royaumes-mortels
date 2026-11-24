@@ -7,7 +7,18 @@
       "text": "Serment d'allégeance"
     },
     "description": {
-      "text": "Prêter serment à une faction (touche J)."
+      "text": "",
+      "extra": [
+        {
+          "text": "Prêter serment à une faction (touche "
+        },
+        {
+          "keybind": "key.royaumes.serment"
+        },
+        {
+          "text": ")."
+        }
+      ]
     },
     "frame": "goal",
     "show_toast": true,

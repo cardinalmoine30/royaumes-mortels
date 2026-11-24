@@ -137,7 +137,7 @@ public class EcranForge extends Screen {
         int fa = faction();
         if (fa <= 0 || fa >= ArsenalGenere.IDS.length) {
             Texte.bloc(g, this.font, "Les maîtres-forgerons ne travaillent que pour un héros lié à une faction. "
-                    + "Prête serment (touche J), puis reviens : seul l'arsenal de TA faction te sera ouvert.", px + 20, py + 40, PW - 40, 80, 0xFFE6D3A8, false);
+                    + "Prête serment (touche " + ClientRoyaumes.TOUCHE_SERMENT.getTranslatedKeyMessage().getString() + "), puis reviens : seul l'arsenal de TA faction te sera ouvert.", px + 20, py + 40, PW - 40, 80, 0xFFE6D3A8, false);
             return;
         }
         Texte.ligne(g, this.font, "Arsenal : " + FactionsGenerees.NOMS[fa], px + 10, py + 3, PW / 2 - 92, 0xFF000000 | FactionsGenerees.COULEURS[fa], true);

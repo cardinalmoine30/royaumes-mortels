@@ -44,17 +44,17 @@ public class HudRoyaumes implements GuiLayer {
             String ligne = "Niveau " + f.niveau() + (voie > 0 && voie < fr.royaumes.rpg.Voies.NOMS.length ? " · " + fr.royaumes.rpg.Voies.NOMS[voie] : "")
                     + (lieu >= 0 ? " · Royaume " + de(ContenuGenere.NOMS_VENTS[lieu]) : "");
             Texte.ligne(g, mc.font, ligne, 34, 18, w / 2 - 40, 0xFFF0E6D2, true);
-            String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (R)");
+            String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (" + ClientRoyaumes.TOUCHE_CAPACITE.getTranslatedKeyMessage().getString() + ")");
             g.text(mc.font, cap, 34, 29, f.capacite() > 0 ? 0xFF8C8CA0 : 0xFFF2D27A, true);
         }
         // (5) Saga du Héros : quête en cours et contrat de chasse
         if (f.quete() != null && f.quete().length >= 3) {
             int qy = f.faction() > 0 ? 44 : 6;
             int[] pr = f.progres();
-            String l1 = "✦ " + f.quete()[0] + (pr.length > 1 && pr[1] > 1 ? "  " + pr[0] + "/" + pr[1] : "");
+            String l1 = "✦ " + ClientRoyaumes.touches(f.quete()[0]) + (pr.length > 1 && pr[1] > 1 ? "  " + pr[0] + "/" + pr[1] : "");
             int max = Math.min(230, w / 2 - 20);
             l1 = coupe(mc, l1, max);
-            String l2 = coupe(mc, f.quete()[1], max);
+            String l2 = coupe(mc, ClientRoyaumes.touches(f.quete()[1]), max);
             String l3 = f.quete()[2].isEmpty() ? "" : coupe(mc, "⚔ " + f.quete()[2] + (pr.length > 3 ? "  " + pr[2] + "/" + pr[3] : ""), max);
             int largeur = Math.max(mc.font.width(l1), Math.max(mc.font.width(l2), mc.font.width(l3))) + 8;
             int hauteur = l3.isEmpty() ? 24 : 35;

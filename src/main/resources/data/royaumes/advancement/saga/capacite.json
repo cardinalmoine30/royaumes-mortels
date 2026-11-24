@@ -7,7 +7,18 @@
       "text": "Don de la faction"
     },
     "description": {
-      "text": "Utiliser la capacité de ta faction (touche R)."
+      "text": "",
+      "extra": [
+        {
+          "text": "Utiliser la capacité de ta faction (touche "
+        },
+        {
+          "keybind": "key.royaumes.capacite"
+        },
+        {
+          "text": ")."
+        }
+      ]
     },
     "frame": "task",
     "show_toast": true,

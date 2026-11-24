@@ -32,7 +32,7 @@ public final class Quetes {
     public record Etape(String titre, String texte, String type, String arg, int but, int gloire, String objets, String astuce) {}
 
     public static final Etape[] SAGA = {
-        new Etape("Le Serment", "Prête serment à une faction (touche J).", "score", "rm_faction", 1, 40, "",
+        new Etape("Le Serment", "Prête serment à une faction (touche [serment]).", "score", "rm_faction", 1, 40, "",
                 "25 factions en 4 Grandes Alliances. Tu reçois ton armure Soldat, une arme de départ et une Pierre de Royaume."),
         new Etape("Soldat de ta faction", "Équipe les 4 pièces de ton armure Soldat.", "panoplie", "0", 1, 60, "",
                 "Panoplie complète d'une même faction = effets permanents, plus forts à chaque palier."),
@@ -48,12 +48,12 @@ public final class Quetes {
                 "Forge de guerre : 3 lingots d'or, une enclume, 2 obsidiennes, pierre des Royaumes. Elle n'ouvre que TON arsenal."),
         new Etape("Le Vent en toi", "Lance un sort avec un bâton de ton Vent.", "evt", "saga:sort", 1, 100, "royaumes:cristal_arcanique*1",
                 "Bâton : 2 lingots d'or, 2 bâtons et un éclat du Vent. Clic droit : sort ; accroupi + clic droit : grand sort."),
-        new Etape("Pouvoir de faction", "Utilise ta capacité de faction (touche R).", "evt", "saga:capacite", 1, 100, "",
+        new Etape("Pouvoir de faction", "Utilise ta capacité de faction (touche [capacite]).", "evt", "saga:capacite", 1, 100, "",
                 "Chaque faction a la sienne, gratuite mais longue à recharger. Le HUD indique quand elle est prête."),
         new Etape("Héros reconnu", "Atteins le niveau 8.", "score", "rm_niveau", 8, 0, "minecraft:diamond*2,royaumes:cristal_arcanique*1",
                 "La gloire vient des combats, des quêtes, des contrats et des découvertes. Chaque niveau donne un point de compétence."),
         new Etape("La Voie du héros", "Choisis ta voie : Guerrier, Mage ou Éclaireur.", "score", "rm_voie", 1, 120, "",
-                "Touche K. Un talent parmi deux aux niveaux 10, 20, 30 et 40."),
+                "Touche [voie]. Un talent parmi deux aux niveaux 10, 20, 30 et 40."),
         new Etape("Matière étrangère", "Obtiens l'éclat d'un Vent qui n'est pas le tien.", "etranger", "", 1, 150, "",
                 "Minerais et créatures des autres Royaumes, contrats de chasse, raids, ou échange avec un ami d'une autre faction."),
         new Etape("Élite", "Forge une pièce Élite (niveau 8).", "palier", "1", 1, 250, "minecraft:diamond*2",
@@ -236,13 +236,26 @@ public final class Quetes {
         }
     }
 
+    /** Texte de chat où [serment], [capacite], [voie] deviennent la touche configurée par le joueur. */
+    public static net.minecraft.network.chat.MutableComponent avecTouches(String s) {
+        net.minecraft.network.chat.MutableComponent c = Component.empty();
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("\\[(serment|capacite|voie)\\]").matcher(s);
+        int debut = 0;
+        while (m.find()) {
+            c.append(s.substring(debut, m.start()));
+            c.append(Component.keybind("key.royaumes." + m.group(1)));
+            debut = m.end();
+        }
+        return c.append(s.substring(debut));
+    }
+
     static void annoncer(ServerPlayer p, int i) {
         Etape e = SAGA[i];
         p.sendSystemMessage(Component.literal("✦ Saga du Héros " + (i + 1) + "/" + SAGA.length + " : ").withStyle(ChatFormatting.GOLD)
                 .append(Component.literal(e.titre()).withStyle(ChatFormatting.YELLOW))
-                .append(Component.literal(" — " + e.texte() + (e.but() > 1 ? " (" + e.but() + ")" : "")).withStyle(ChatFormatting.GRAY)));
+                .append(avecTouches(" — " + e.texte() + (e.but() > 1 ? " (" + e.but() + ")" : "")).withStyle(ChatFormatting.GRAY)));
         if (!e.astuce().isEmpty()) {
-            p.sendSystemMessage(Component.literal("  ➜ " + e.astuce()).withStyle(ChatFormatting.DARK_AQUA));
+            p.sendSystemMessage(avecTouches("  ➜ " + e.astuce()).withStyle(ChatFormatting.DARK_AQUA));
         }
     }
 

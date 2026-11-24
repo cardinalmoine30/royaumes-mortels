@@ -262,7 +262,7 @@ public final class Arsenal {
     public static void forger(ServerPlayer p, int k) {
         int faction = scoreFaction(p);
         if (faction <= 0 || faction >= ArsenalGenere.IDS.length || k < 0 || k >= ArsenalGenere.IDS[faction].length) {
-            p.sendSystemMessage(Component.literal("La Forge de guerre ne répond qu'aux héros ayant prêté serment (touche J).").withStyle(ChatFormatting.RED));
+            p.sendSystemMessage(fr.royaumes.rpg.Quetes.avecTouches("La Forge de guerre ne répond qu'aux héros ayant prêté serment (touche [serment]).").withStyle(ChatFormatting.RED));
             return;
         }
         int requis = k < ArsenalGenere.NIVEAUX.length ? ArsenalGenere.NIVEAUX[k] : 1;

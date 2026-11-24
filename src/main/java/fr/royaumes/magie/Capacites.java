@@ -47,7 +47,7 @@ public final class Capacites {
 
     public static void utiliser(ServerPlayer p, int faction) {
         if (faction < 1 || faction >= ContenuGenere.CAP_NOMS.length) {
-            p.sendOverlayMessage(Component.translatable("royaumes.capacite.sans").withStyle(ChatFormatting.GRAY));
+            p.sendOverlayMessage(Component.translatable("royaumes.capacite.sans", Component.keybind("key.royaumes.serment")).withStyle(ChatFormatting.GRAY));
             return;
         }
         int r = reste(p);

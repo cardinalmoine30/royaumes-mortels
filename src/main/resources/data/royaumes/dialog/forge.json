@@ -19,8 +19,16 @@
           "color": "yellow"
         },
         {
-          "text": "Posez une Table de forgeron, puis lâchez-y (touche Q) les ingrédients. Ils fusionnent automatiquement.\n\n",
-          "color": "gray"
+          "text": "Posez une Table de forgeron, puis lâchez-y (touche ",
+          "color": "gray",
+          "extra": [
+            {
+              "keybind": "key.drop"
+            },
+            {
+              "text": ") les ingrédients. Ils fusionnent automatiquement.\n\n"
+            }
+          ]
         },
         {
           "text": "• Raffinage de Sigmarite",

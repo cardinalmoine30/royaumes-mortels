@@ -130,7 +130,7 @@ public final class Voies {
             Quetes.set(p, "rm_voie", 0);
             Quetes.set(p, "rm_talents", 0);
             passif(p);
-            p.sendSystemMessage(Component.literal("Tu as oublié ta voie : choisis-en une nouvelle (touche K).").withStyle(ChatFormatting.YELLOW));
+            p.sendSystemMessage(Quetes.avecTouches("Tu as oublié ta voie : choisis-en une nouvelle (touche [voie]).").withStyle(ChatFormatting.YELLOW));
         }
         fr.royaumes.reseau.Reseau.envoyerFiche(p);
     }
