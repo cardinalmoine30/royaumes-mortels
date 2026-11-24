@@ -21,7 +21,7 @@ import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 /** Écran du camp de guerre, en onglets : Camp, Bâtiments, Exploration, Raids, Alliés. */
 public class EcranCamp extends Screen {
     private static final int PW = 400;
-    private static final int PH = 250;
+    private static final int PH = 232;
     private static final String[] ONGLETS = {"Camp", "Bâtiments", "Exploration", "Raids", "Alliés"};
     private static final String[] RAIDS = {"Pillage", "Assaut", "Croisade", "Raid joueur"};
     private static final int[] DUREE = {2, 5, 10};
@@ -95,7 +95,7 @@ public class EcranCamp extends Screen {
     @Override
     protected void init() {
         px = (this.width - PW) / 2;
-        py = (this.height - PH) / 2;
+        py = Texte.haut(this.height, PH);
         boutons.clear();
         int x = px + 12;
         BooleanSupplier oui = () -> true;
@@ -113,14 +113,14 @@ public class EcranCamp extends Screen {
                 () -> envoyer(2, 0, ""), () -> f() != null && f().coutNiveau() > 0 && f().butin() >= f().coutNiveau(), non, chef);
         for (int i = 0; i < 8; i++) {
             final int k = i;
-            bouton(0, px + 330, py + 48 + i * 24, 52, () -> "Recruter", () -> envoyer(1, k, ""),
+            bouton(0, px + 330, py + 46 + i * 22, 52, () -> "Recruter", () -> envoyer(1, k, ""),
                     () -> f() != null && k < f().debloquees() && k < f().couts().size() && f().butin() >= f().couts().get(k) && f().unites() < f().max(),
                     non, () -> proprio() && f().recrues().size() > k);
         }
         // --- Bâtiments
         for (int b = 0; b < BATS.length; b++) {
             final int k = b;
-            bouton(1, px + 296, py + 38 + b * 40, 92, () -> {
+            bouton(1, px + 296, py + 38 + b * 38, 92, () -> {
                 int n = f() == null ? 0 : f().batiments()[k];
                 return n >= 3 ? "Niveau max" : (n == 0 ? "Bâtir — " : "Améliorer — ") + COUT_BAT[n + 1];
             }, () -> envoyer(6, k, ""), () -> {
@@ -177,8 +177,9 @@ public class EcranCamp extends Screen {
         super.extractRenderState(g, sx, sy, partiel);
     }
 
+    /** Texte qui s'arrête au bord du panneau. */
     private void t(GuiGraphicsExtractor g, String s, int x, int y, int c) {
-        g.text(this.font, s, x, y, c, true);
+        Texte.ligne(g, this.font, s, x, y, px + PW - 8 - x, c, true);
     }
 
     private void titre(GuiGraphicsExtractor g, String s, int x, int y, int w) {
@@ -193,8 +194,8 @@ public class EcranCamp extends Screen {
         EcranSerment.coins(g, px, py, PW, PH);
         g.blit(RenderPipelines.GUI_TEXTURED, EcranSerment.ORNEMENTS, px + PW / 2 - 80, py - 12, 0, 24, 160, 24, 256, 64);
         FicheCamp fc = f();
-        g.centeredText(this.font, fc != null && !fc.proprio() ? "CAMP DE " + fc.chef().toUpperCase() : "CAMP DE GUERRE", px + PW / 2, py - 4,
-                EcranSerment.OR_CLAIR);
+        Texte.centre(g, this.font, fc != null && !fc.proprio() ? "CAMP DE " + fc.chef().toUpperCase() : "CAMP DE GUERRE", px + PW / 2, py - 4,
+                150, EcranSerment.OR_CLAIR);
         if (fc == null) {
             return;
         }
@@ -205,48 +206,50 @@ public class EcranCamp extends Screen {
         int gris = 0xFF9AA0B8;
         switch (onglet) {
             case 0 -> {
-                t(g, "Niveau " + fc.niveau() + " / 5", x, y, EcranSerment.OR_CLAIR);
-                t(g, "Butin : " + fc.butin(), x + 100, y, or);
-                t(g, "Troupes : " + fc.unites() + " / " + fc.max(), x, y + 12, parch);
-                t(g, "Force au camp : " + fc.force(), x + 100, y + 12, parch);
+                Texte.ligne(g, this.font, "Niveau " + fc.niveau() + " / 5", x, y, 96, EcranSerment.OR_CLAIR, true);
+                Texte.ligne(g, this.font, "Butin : " + fc.butin(), x + 100, y, 88, or, true);
+                Texte.ligne(g, this.font, "Troupes : " + fc.unites() + " / " + fc.max(), x, y + 12, 96, parch, true);
+                Texte.ligne(g, this.font, "Force : " + fc.force(), x + 100, y + 12, 88, parch, true);
                 if (fc.proprio()) {
                     titre(g, "ORDRES", x, y + 30, 184);
                     int qx = px + 206;
-                    EcranSerment.cadre(g, qx, py + 30, 184, PH - 38, 0xFF181E34);
-                    g.centeredText(this.font, "RECRUTEMENT", qx + 92, py + 36, EcranSerment.OR_CLAIR);
+                    EcranSerment.cadre(g, qx, py + 30, 184, PH - 36, 0xFF181E34);
+                    g.centeredText(this.font, "RECRUTEMENT", qx + 92, py + 35, EcranSerment.OR_CLAIR);
                     for (int i = 0; i < Math.min(8, fc.recrues().size()); i++) {
-                        int ry = py + 48 + i * 24;
+                        int ry = py + 46 + i * 22;
                         boolean ouvert = i < fc.debloquees();
-                        g.fill(qx + 6, ry - 2, qx + 178, ry + 20, ouvert ? 0x40D4A63A : 0x40000000);
-                        g.text(this.font, Component.translatable("entity.royaumes." + fc.recrues().get(i)), qx + 10, ry + 1,
-                                ouvert ? 0xFFF0E6D2 : 0xFF707070, true);
-                        g.text(this.font, ouvert ? fc.couts().get(i) + " butin" : "Camp niveau " + niveauRequis(i), qx + 10, ry + 11,
-                                ouvert ? or : 0xFF707070, false);
+                        g.fill(qx + 6, ry - 1, qx + 178, ry + 20, ouvert ? 0x40D4A63A : 0x40000000);
+                        Texte.ligne(g, this.font, Component.translatable("entity.royaumes." + fc.recrues().get(i)).getString(), qx + 10, ry + 1,
+                                114, ouvert ? 0xFFF0E6D2 : 0xFF707070, true);
+                        Texte.ligne(g, this.font, ouvert ? fc.couts().get(i) + " butin" : "Camp niveau " + niveauRequis(i), qx + 10, ry + 11,
+                                114, ouvert ? or : 0xFF707070, false);
                     }
                 } else {
-                    g.textWithWordWrap(this.font, Component.literal("Tu es l'invité de ce camp : ses troupes te sont neutres. Tu peux y offrir du butin."),
-                            x, y + 30, 184, parch, false);
+                    Texte.bloc(g, this.font, "Tu es l'invité de ce camp : ses troupes te sont neutres. Tu peux y offrir du butin.",
+                            x, y + 30, 184, 40, parch, false);
                 }
             }
             case 1 -> {
                 for (int b = 0; b < BATS.length; b++) {
-                    int ry = py + 36 + b * 40;
+                    int ry = py + 36 + b * 38;
                     int n = fc.batiments()[b];
-                    g.fill(px + 10, ry - 2, px + PW - 10, ry + 34, n > 0 ? 0x30D4A63A : 0x30000000);
-                    t(g, BATS[b] + "  ·  niveau " + n + " / 3", px + 16, ry + 1, n > 0 ? EcranSerment.OR_CLAIR : parch);
-                    t(g, effet(b, n), px + 16, ry + 12, n > 0 ? 0xFFC8E6BE : gris);
+                    int large = 274;
+                    g.fill(px + 10, ry - 2, px + PW - 10, ry + 33, n > 0 ? 0x30D4A63A : 0x30000000);
+                    Texte.ligne(g, this.font, BATS[b] + "  ·  niveau " + n + " / 3", px + 16, ry + 1, large, n > 0 ? EcranSerment.OR_CLAIR : parch, true);
+                    Texte.ligne(g, this.font, effet(b, n), px + 16, ry + 12, large, n > 0 ? 0xFFC8E6BE : gris, true);
                     if (n < 3) {
-                        t(g, "Suivant : " + effet(b, n + 1) + (fc.niveau() < CAMP_REQUIS[n + 1] ? " (camp niv. " + CAMP_REQUIS[n + 1] + ")" : ""),
-                                px + 16, ry + 22, gris);
+                        Texte.ligne(g, this.font, "Suivant : " + effet(b, n + 1) + (fc.niveau() < CAMP_REQUIS[n + 1] ? " (camp niv. " + CAMP_REQUIS[n + 1] + ")" : ""),
+                                px + 16, ry + 22, large, gris, true);
                     }
                 }
             }
             case 2 -> {
                 titre(g, "EXPLORATION", x, y, PW - 24);
-                g.textWithWordWrap(this.font, Component.literal("Tes éclaireurs parcourent les Royaumes pendant 3 minutes. Ils rapportent "
+                Texte.bloc(g, this.font, "Tes éclaireurs parcourent les Royaumes pendant 3 minutes. Ils rapportent "
                         + "des ressources et peuvent repérer les camps d'autres héros, que tu pourras ensuite attaquer depuis l'onglet Raids. "
-                        + "Plus ils sont nombreux, et plus ta tour de guet est haute, plus ils trouvent."), x, y + 14, PW - 24, parch, false);
-                t(g, "Force au camp : " + fc.force() + "   ·   Tour de guet : niveau " + fc.tour() + " (+" + 15 * fc.tour() + " %)", x, y + 64, or);
+                        + "Plus ils sont nombreux, et plus ta tour de guet est haute, plus ils trouvent.", x, y + 14, PW - 24, 46, parch, false);
+                Texte.ligne(g, this.font, "Force au camp : " + fc.force() + "   ·   Tour de guet : niveau " + fc.tour() + " (+" + 15 * fc.tour() + " %)",
+                        x, y + 64, PW - 24, or, true);
                 if (fc.explReste() >= 0) {
                     t(g, fc.explNb() + " éclaireur(s) en route", x + 196, y + 82, 0xFF80D0FF);
                     t(g, "retour dans " + fc.explReste() / 60 + ":" + String.format("%02d", fc.explReste() % 60), x + 196, y + 94, 0xFF80D0FF);
@@ -259,20 +262,19 @@ public class EcranCamp extends Screen {
                 if (fc.raidReste() >= 0) {
                     String r = (fc.raidType() == 3 ? "Raid sur " + fc.raidCible() : RAIDS[Math.max(0, Math.min(2, fc.raidType()))])
                             + " — retour dans " + fc.raidReste() / 60 + ":" + String.format("%02d", fc.raidReste() % 60);
-                    t(g, r, x, y + 86, 0xFFFFC060);
+                    Texte.ligne(g, this.font, r, x, y + 86, 184, 0xFFFFC060, true);
                 }
                 t(g, "Force au camp : " + fc.force(), x, y + 100, parch);
                 if (fc.cibles().isEmpty()) {
-                    g.textWithWordWrap(this.font, Component.literal("Aucun camp repéré : envoie des éclaireurs (onglet Exploration)."),
-                            px + 210, y + 16, 176, gris, false);
+                    Texte.bloc(g, this.font, "Aucun camp repéré : envoie des éclaireurs (onglet Exploration).", px + 210, y + 16, 176, 30, gris, false);
                 }
                 for (int i = 0; i < Math.min(5, fc.cibles().size()); i++) {
                     int ry = py + 54 + i * 30;
                     int def = i < fc.ciblesDef().size() ? fc.ciblesDef().get(i) : 0;
                     int ch = fc.force() <= 0 ? 0 : 100 * fc.force() / (fc.force() + Math.max(1, def));
                     g.fill(px + 206, ry - 2, px + 390, ry + 24, 0x40962820);
-                    t(g, fc.cibles().get(i), px + 210, ry + 1, 0xFFF0E6D2);
-                    t(g, "défense ~" + def + " · " + ch + " %", px + 210, ry + 12, gris);
+                    Texte.ligne(g, this.font, fc.cibles().get(i), px + 210, ry + 1, 116, 0xFFF0E6D2, true);
+                    Texte.ligne(g, this.font, "défense ~" + def + " · " + ch + " %", px + 210, ry + 12, 116, gris, true);
                 }
             }
             case 4 -> {
@@ -282,16 +284,16 @@ public class EcranCamp extends Screen {
                     t(g, "Aucun allié.", x, y + 20, gris);
                 }
                 for (int i = 0; i < Math.min(5, fc.invites().size()); i++) {
-                    t(g, fc.invites().get(i), x, py + 57 + i * 24, 0xFF9EE69A);
+                    Texte.ligne(g, this.font, fc.invites().get(i), x, py + 57 + i * 24, 118, 0xFF9EE69A, true);
                 }
                 if (fc.proches().isEmpty()) {
                     t(g, "Personne à moins de 24 blocs.", px + 206, y + 20, gris);
                 }
                 for (int i = 0; i < Math.min(5, fc.proches().size()); i++) {
-                    t(g, fc.proches().get(i), px + 206, py + 57 + i * 24, 0xFFF0E6D2);
+                    Texte.ligne(g, this.font, fc.proches().get(i), px + 206, py + 57 + i * 24, 112, 0xFFF0E6D2, true);
                 }
-                g.textWithWordWrap(this.font, Component.literal("Un allié, de n'importe quelle faction, est épargné par tes troupes, "
-                        + "peut ouvrir ton étendard et offrir du butin. Il ne peut pas être la cible de tes raids."), x, py + PH - 46, PW - 24, gris, false);
+                Texte.bloc(g, this.font, "Un allié, de n'importe quelle faction, est épargné par tes troupes, "
+                        + "peut ouvrir ton étendard et offrir du butin. Il ne peut pas être la cible de tes raids.", x, py + PH - 40, PW - 24, 30, gris, false);
             }
             default -> {
             }
@@ -331,8 +333,8 @@ public class EcranCamp extends Screen {
             boolean c = choisi.getAsBoolean();
             int u = c || (this.active && this.isHovered()) ? 128 : 64;
             g.blit(RenderPipelines.GUI_TEXTURED, EcranSerment.ORNEMENTS, getX(), getY(), u, 0, getWidth(), getHeight(), 64, 20, 256, 64);
-            g.centeredText(Minecraft.getInstance().font, texte.get(), getX() + getWidth() / 2, getY() + (getHeight() - 8) / 2,
-                    this.active || c ? EcranSerment.OR_CLAIR : 0xFF8C8C8C);
+            Texte.centre(g, Minecraft.getInstance().font, texte.get().getString(), getX() + getWidth() / 2, getY() + (getHeight() - 8) / 2,
+                    getWidth() - 8, this.active || c ? EcranSerment.OR_CLAIR : 0xFF8C8C8C);
             if (!this.active && !c) {
                 g.fill(getX() + 2, getY() + 2, getX() + getWidth() - 2, getY() + getHeight() - 2, 0x55000000);
             }

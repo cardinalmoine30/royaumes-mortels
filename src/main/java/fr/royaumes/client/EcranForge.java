@@ -17,8 +17,9 @@ import net.minecraft.world.item.ItemStack;
 
 /** Forge de guerre : seules les 6 pièces de l'arsenal de TA faction, avec leurs matériaux (éclats de Royaumes étrangers). */
 public class EcranForge extends Screen {
-    private static final int PW = 460;
-    private static final int PH = 286;
+    private static final int PW = 440;
+    private static final int PH = 234;
+    private static final int RANG = 19;
     private static final String[] ONGLETS = {"Soldat", "Élite", "Légende", "Mythique", "Divin", "Armes"};
     private static final int ARMES = ArsenalGenere.PALIERS.length * 9;
     private static final int[] COULEURS_PALIERS = {0xFFC8CAD2, 0xFF96D7E6, 0xFFF5CD50, 0xFF5AE6FF, 0xFFFFF5DC, 0xFFFFAA00};
@@ -45,23 +46,23 @@ public class EcranForge extends Screen {
     @Override
     protected void init() {
         px = (this.width - PW) / 2;
-        py = (this.height - PH) / 2;
+        py = Texte.haut(this.height, PH);
         int fa = faction();
         if (fa <= 0 || fa >= ArsenalGenere.IDS.length) {
             return;
         }
         for (int o = 0; o < ONGLETS.length; o++) {
             final int oo = o;
-            int w = 70;
-            int x = px + 10 + o * 74;
-            boutons.add(addRenderableWidget(new EcranCamp.BoutonAoS(-1, x, py + 16, w, 18, () -> Component.literal(ONGLETS[oo]),
+            int w = 68;
+            int x = px + 8 + o * 71;
+            boutons.add(addRenderableWidget(new EcranCamp.BoutonAoS(-1, x, py + 13, w, 16, () -> Component.literal(ONGLETS[oo]),
                     () -> onglet = oo, () -> true, () -> onglet == oo, () -> true)));
         }
         for (int o = 0; o < ONGLETS.length; o++) {
             int[] l = lignes(o);
             for (int k = 0; k < l.length; k++) {
                 final int ligne = l[k];
-                boutons.add(addRenderableWidget(new EcranCamp.BoutonAoS(o, px + PW - 68, py + 42 + k * 22, 60, 18,
+                boutons.add(addRenderableWidget(new EcranCamp.BoutonAoS(o, px + PW - 66, py + 35 + k * RANG, 58, 16,
                         () -> Component.literal(ligne < 9 || ligne == ARMES ? "Forger" : "Améliorer"),
                         () -> EcranCamp.envoyer(20, ligne, ""), () -> possible(ligne), () -> false, () -> true)));
             }
@@ -135,38 +136,32 @@ public class EcranForge extends Screen {
         g.centeredText(this.font, "FORGE DE GUERRE", px + PW / 2, py - 4, EcranSerment.OR_CLAIR);
         int fa = faction();
         if (fa <= 0 || fa >= ArsenalGenere.IDS.length) {
-            g.textWithWordWrap(this.font, Component.literal("Les maîtres-forgerons ne travaillent que pour un héros lié à une faction. "
-                    + "Prête serment (touche J), puis reviens : seul l'arsenal de TA faction te sera ouvert."), px + 20, py + 40, PW - 40, 0xFFE6D3A8);
+            Texte.bloc(g, this.font, "Les maîtres-forgerons ne travaillent que pour un héros lié à une faction. "
+                    + "Prête serment (touche J), puis reviens : seul l'arsenal de TA faction te sera ouvert.", px + 20, py + 40, PW - 40, 80, 0xFFE6D3A8, false);
             return;
         }
-        g.text(this.font, "Arsenal : " + FactionsGenerees.NOMS[fa], px + 12, py + 4, 0xFF000000 | FactionsGenerees.COULEURS[fa], true);
+        Texte.ligne(g, this.font, "Arsenal : " + FactionsGenerees.NOMS[fa], px + 10, py + 3, PW / 2 - 92, 0xFF000000 | FactionsGenerees.COULEURS[fa], true);
         int[] l = lignes(onglet);
         int req = requis(l[0]);
         String rq = onglet == 5 ? "Lignée niv. " + requis(ARMES) + " · Champion niv. " + requis(ARMES + 1) + " · Ascension niv. " + requis(ARMES + 2)
                 : "Niveau de héros requis : " + req;
-        g.centeredText(this.font, rq + "  (toi : " + niveau() + ")", px + PW / 2, py + PH - 14, niveau() >= req ? 0xFF9EE69A : 0xFFFF6B6B);
+        Texte.centre(g, this.font, rq + "  (toi : " + niveau() + ")", px + PW / 2, py + PH - 12, PW - 20, niveau() >= req ? 0xFF9EE69A : 0xFFFF6B6B);
         for (int k = 0; k < l.length; k++) {
             int ligne = l[k];
-            int y = py + 40 + k * 22;
-            g.fill(px + 8, y, px + PW - 8, y + 21, ligne % 9 < 4 || ligne >= ARMES ? 0x55402810 : 0x40203848);
-            g.item(new ItemStack(item("royaumes:" + ArsenalGenere.IDS[fa][ligne])), px + 12, y + 2);
-            String nom = ArsenalGenere.NOMS[fa][ligne];
-            while (this.font.width(nom) > 150 && nom.length() > 4) {
-                nom = nom.substring(0, nom.length() - 2) + "…";
-                nom = nom.replace("……", "…");
-            }
-            g.text(this.font, nom, px + 32, y + 6, onglet == 5 ? (ligne == ARMES ? 0xFFE6D3A8 : COULEURS_PALIERS[5]) : COULEURS_PALIERS[onglet], true);
-            if (onglet == 5 && niveau() < requis(ligne)) {
-                g.text(this.font, "niv. " + requis(ligne), px + PW - 104, y + 6, 0xFFFF6B6B, true);
-            }
-            int x = px + 186;
+            int y = py + 34 + k * RANG;
+            g.fill(px + 8, y, px + PW - 8, y + RANG - 1, ligne % 9 < 4 || ligne >= ARMES ? 0x55402810 : 0x40203848);
+            g.item(new ItemStack(item("royaumes:" + ArsenalGenere.IDS[fa][ligne])), px + 11, y + 1);
+            int debut = px + PW - 72 - 6 * 22;
+            Texte.ligne(g, this.font, ArsenalGenere.NOMS[fa][ligne], px + 30, y + 5, debut - px - 34,
+                    onglet == 5 ? (ligne == ARMES ? 0xFFE6D3A8 : COULEURS_PALIERS[5]) : COULEURS_PALIERS[onglet], true);
+            int x = debut;
             for (String ing : ArsenalGenere.RECETTES[fa][ligne].split(",")) {
                 String[] a = ing.split("\\*");
                 Item it = item(a[0]);
                 int n = Integer.parseInt(a[1]);
-                g.item(new ItemStack(it), x, y + 2);
-                g.text(this.font, "" + n, x + 11, y + 11, compte(it) >= n ? 0xFF9EE69A : 0xFFFF6B6B, true);
-                x += 24;
+                g.item(new ItemStack(it), x, y + 1);
+                g.text(this.font, "" + n, x + 17 - this.font.width("" + n), y + 10, compte(it) >= n ? 0xFF9EE69A : 0xFFFF6B6B, true);
+                x += 22;
             }
         }
         String aide = switch (onglet) {
@@ -177,6 +172,6 @@ public class EcranForge extends Screen {
             case 4 -> "Divin : étoile du Nether et âmes de seigneurs. Panoplie : +2 niveaux, 8 cœurs, régénération.";
             default -> "Lignée : atout à chaque coup. Champion puis Ascension : forgés à partir de l'arme précédente.";
         };
-        g.centeredText(this.font, aide, px + PW / 2, py + PH - 28, 0xFFE6D3A8);
+        Texte.centre(g, this.font, aide, px + PW / 2, py + PH - 24, PW - 20, 0xFFE6D3A8);
     }
 }

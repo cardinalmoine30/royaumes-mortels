@@ -127,7 +127,7 @@ public class EcranTaverne extends InventoryScreen {
             return;
         }
         if (f.faction() > 0 && f.faction() < FactionsGenerees.NOMS.length) {
-            g.text(this.font, FactionsGenerees.NOMS[f.faction()], x0 + 10, y0 + 21,
+            Texte.ligne(g, this.font, FactionsGenerees.NOMS[f.faction()], x0 + 10, y0 + 21, 98,
                     sombre(FactionsGenerees.COULEURS[f.faction()]), false);
         } else {
             g.text(this.font, "Sans allégeance", x0 + 10, y0 + 21, 0xFF7A5A3A, false);
@@ -138,7 +138,7 @@ public class EcranTaverne extends InventoryScreen {
         g.fill(x0 + 10, y0 + 49, x0 + 107, y0 + 56, 0xFF50382A);
         g.fill(x0 + 11, y0 + 50, x0 + 11 + plein, y0 + 55, 0xFFD6AA3C);
         g.fill(x0 + 11, y0 + 50, x0 + 11 + plein, y0 + 51, 0xFFF4D27A);
-        g.text(this.font, "Gloire " + f.gloire() + " / " + f.besoin(), x0 + 10, y0 + 59, 0xFF6E5028, false);
+        Texte.ligne(g, this.font, "Gloire " + f.gloire() + " / " + f.besoin(), x0 + 10, y0 + 59, 98, 0xFF6E5028, false);
         g.text(this.font, "Points : " + f.points(), x0 + 10, y0 + 72, f.points() > 0 ? 0xFF286E28 : 0xFF6E5028, false);
         int n = Math.min(f.rangs().length, FactionsGenerees.NOMS_COMPETENCES.length);
         for (int i = 0; i < n; i++) {

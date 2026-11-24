@@ -39,11 +39,11 @@ public class HudRoyaumes implements GuiLayer {
             int u = ((f.faction() - 1) % 8) * 32;
             int v = ((f.faction() - 1) / 8) * 32;
             g.blit(RenderPipelines.GUI_TEXTURED, EcranSerment.EMBLEMES, 6, 6, u, v, 22, 22, 32, 32, 256, 128);
-            g.text(mc.font, FactionsGenerees.NOMS[f.faction()], 34, 7, EcranSerment.OR_CLAIR, true);
+            Texte.ligne(g, mc.font, FactionsGenerees.NOMS[f.faction()], 34, 7, w / 2 - 40, EcranSerment.OR_CLAIR, true);
             int voie = f.progres() != null && f.progres().length > 4 ? f.progres()[4] : 0;
             String ligne = "Niveau " + f.niveau() + (voie > 0 && voie < fr.royaumes.rpg.Voies.NOMS.length ? " · " + fr.royaumes.rpg.Voies.NOMS[voie] : "")
                     + (lieu >= 0 ? " · Royaume " + de(ContenuGenere.NOMS_VENTS[lieu]) : "");
-            g.text(mc.font, ligne, 34, 18, 0xFFF0E6D2, true);
+            Texte.ligne(g, mc.font, ligne, 34, 18, w / 2 - 40, 0xFFF0E6D2, true);
             String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (R)");
             g.text(mc.font, cap, 34, 29, f.capacite() > 0 ? 0xFF8C8CA0 : 0xFFF2D27A, true);
         }
@@ -52,8 +52,10 @@ public class HudRoyaumes implements GuiLayer {
             int qy = f.faction() > 0 ? 44 : 6;
             int[] pr = f.progres();
             String l1 = "✦ " + f.quete()[0] + (pr.length > 1 && pr[1] > 1 ? "  " + pr[0] + "/" + pr[1] : "");
-            String l2 = coupe(mc, f.quete()[1], 230);
-            String l3 = f.quete()[2].isEmpty() ? "" : "⚔ " + f.quete()[2] + (pr.length > 3 ? "  " + pr[2] + "/" + pr[3] : "");
+            int max = Math.min(230, w / 2 - 20);
+            l1 = coupe(mc, l1, max);
+            String l2 = coupe(mc, f.quete()[1], max);
+            String l3 = f.quete()[2].isEmpty() ? "" : coupe(mc, "⚔ " + f.quete()[2] + (pr.length > 3 ? "  " + pr[2] + "/" + pr[3] : ""), max);
             int largeur = Math.max(mc.font.width(l1), Math.max(mc.font.width(l2), mc.font.width(l3))) + 8;
             int hauteur = l3.isEmpty() ? 24 : 35;
             g.fill(4, qy, 4 + largeur, qy + hauteur, 0x780C1428);

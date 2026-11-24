@@ -39,7 +39,7 @@ public class EcranSerment extends Screen {
     static final int OR_SOMBRE = 0xFF78601E;
     static final int PARCHEMIN = 0xFFE6D3A8;
     private static final int PW = 400;
-    private static final int PH = 240;
+    private static final int PH = 232;
     private static final String[] ALLIANCES = {"ordre", "chaos", "mort", "destruction"};
     private static final String[] NOMS_ALLIANCES = {"ORDRE", "CHAOS", "MORT", "DESTRUCTION"};
     private static final int[] COULEURS_ALLIANCES = {0xFFD4A63A, 0xFFC83C32, 0xFF9682C8, 0xFF78AA3C};
@@ -63,7 +63,7 @@ public class EcranSerment extends Screen {
     @Override
     protected void init() {
         px = (this.width - PW) / 2;
-        py = (this.height - PH) / 2;
+        py = Texte.haut(this.height, PH);
         blasons.clear();
         int y = py + 20;
         for (int a = 0; a < ALLIANCES.length; a++) {
@@ -113,8 +113,8 @@ public class EcranSerment extends Screen {
             g.fill(px + 12, y + 10, px + 200, y + 11, COULEURS_ALLIANCES[a]);
             y += 46;
         }
-        g.text(this.font, Component.translatable("royaumes.serment.aide"), px + 12, py + PH - 22, 0xFFA0AAC8, false);
-        g.text(this.font, Component.translatable("royaumes.serment.touche"), px + 12, py + PH - 12, 0xFFA0AAC8, false);
+        Texte.ligne(g, this.font, Component.translatable("royaumes.serment.aide").getString(), px + 12, py + PH - 22, 192, 0xFFA0AAC8, false);
+        Texte.ligne(g, this.font, Component.translatable("royaumes.serment.touche").getString(), px + 12, py + PH - 12, 192, 0xFFA0AAC8, false);
         // panneau de la faction
         int qx = px + 210;
         int qy = py + 18;
@@ -128,31 +128,32 @@ public class EcranSerment extends Screen {
     private void panneau(GuiGraphicsExtractor g, int f, int qx, int qy, int qw) {
         Font police = this.font;
         int a = indexAlliance(ContenuGenere.ALLIANCES[f]);
-        g.centeredText(police, FactionsGenerees.NOMS[f], qx + qw / 2, qy + 6, OR_CLAIR);
-        g.centeredText(police, nomAlliance(a) + " · " + ContenuGenere.ROYAUMES[f], qx + qw / 2, qy + 17, COULEURS_ALLIANCES[Math.max(0, a)]);
+        Texte.centre(g, police, FactionsGenerees.NOMS[f], qx + qw / 2, qy + 6, qw - 10, OR_CLAIR);
+        Texte.centre(g, police, nomAlliance(a) + " · " + ContenuGenere.ROYAUMES[f], qx + qw / 2, qy + 17, qw - 10, COULEURS_ALLIANCES[Math.max(0, a)]);
         // aperçu du skin
-        g.fill(qx + 8, qy + 28, qx + 56, qy + 112, 0xFF0A1020);
+        g.fill(qx + 8, qy + 28, qx + 56, qy + 100, 0xFF0A1020);
         g.fill(qx + 8, qy + 28, qx + 56, qy + 29, OR_SOMBRE);
-        g.fill(qx + 8, qy + 111, qx + 56, qy + 112, OR_SOMBRE);
-        g.fill(qx + 8, qy + 28, qx + 9, qy + 112, OR_SOMBRE);
-        g.fill(qx + 55, qy + 28, qx + 56, qy + 112, OR_SOMBRE);
+        g.fill(qx + 8, qy + 99, qx + 56, qy + 100, OR_SOMBRE);
+        g.fill(qx + 8, qy + 28, qx + 9, qy + 100, OR_SOMBRE);
+        g.fill(qx + 55, qy + 28, qx + 56, qy + 100, OR_SOMBRE);
         long t = System.currentTimeMillis() / 3000;
-        poupee(g, FactionsGenerees.IDS[f], qx + 14, qy + 34, (t % 2) == 1);
+        poupee(g, FactionsGenerees.IDS[f], qx + 16, qy + 32, (t % 2) == 1);
         // blason + description
         g.blit(RenderPipelines.GUI_TEXTURED, EMBLEMES, qx + 62, qy + 28, ((f - 1) % 8) * 32, ((f - 1) / 8) * 32, 24, 24, 32, 32, 256, 128);
         int vent = ContenuGenere.VENT_FACTION[f];
-        g.text(police, "Vent : " + ContenuGenere.NOMS_VENTS[vent], qx + 90, qy + 36, 0xFF000000 | ContenuGenere.COULEURS_VENTS[vent], true);
-        Component capacite = Component.literal("[R] " + ContenuGenere.CAP_NOMS[f]).withColor(0xF2D27A)
-                .append(Component.literal(" — " + ContenuGenere.CAP_DESC[f]).withColor(0xBFB2E6));
-        g.textWithWordWrap(police, capacite, qx + 62, qy + 56, qw - 68, 0xFFBFB2E6, false);
-        int y = qy + 116;
+        Texte.ligne(g, police, "Vent : " + ContenuGenere.NOMS_VENTS[vent], qx + 90, qy + 36, qw - 96, 0xFF000000 | ContenuGenere.COULEURS_VENTS[vent], true);
+        Texte.ligne(g, police, "[R] " + ContenuGenere.CAP_NOMS[f], qx + 62, qy + 56, qw - 68, 0xFFF2D27A, true);
+        Texte.bloc(g, police, ContenuGenere.CAP_DESC[f], qx + 62, qy + 66, qw - 68, 34, 0xFFBFB2E6, false);
+        // dons et fardeau : jusqu'au bouton du serment
+        int bas = qy + (PH - 28) - 28;
+        int y = qy + 104;
         g.text(police, Component.translatable("royaumes.serment.dons"), qx + 8, y, 0xFF7EC86E, true);
         y += 10;
-        g.textWithWordWrap(police, Component.literal(ContenuGenere.DONS[f]), qx + 8, y, qw - 16, 0xFFC8E6BE, false);
-        y += police.split(Component.literal(ContenuGenere.DONS[f]), qw - 16).size() * 9 + 3;
+        int place = (bas - y - 10) / 2;
+        y += Texte.bloc(g, police, ContenuGenere.DONS[f], qx + 8, y, qw - 16, place, 0xFFC8E6BE, false) + 2;
         g.text(police, Component.translatable("royaumes.serment.fardeau"), qx + 8, y, 0xFFDC6050, true);
         y += 10;
-        g.textWithWordWrap(police, Component.literal(ContenuGenere.FARDEAUX[f]), qx + 8, y, qw - 16, 0xFFF0BEB4, false);
+        Texte.bloc(g, police, ContenuGenere.FARDEAUX[f], qx + 8, y, qw - 16, Math.max(9, bas - y), 0xFFF0BEB4, false);
     }
 
     /** Skin plat (face ou dos), comme sur la planche des skins. */
@@ -166,7 +167,7 @@ public class EcranSerment extends Screen {
                 {32, 36, 8, 12, 4, 8}, {52, 36, 4, 12, 12, 8}, {60, 52, 4, 12, 0, 8}, {12, 36, 4, 12, 8, 20}, {12, 52, 4, 12, 4, 20}};
         g.pose().pushMatrix();
         g.pose().translate(x, y);
-        g.pose().scale(2.25F, 2.25F);
+        g.pose().scale(2.0F, 2.0F);
         for (int[] p : dos ? arriere : face) {
             g.blit(RenderPipelines.GUI_TEXTURED, skin, p[4], p[5], p[0], p[1], p[2], p[3], 64, 64);
         }
@@ -286,7 +287,7 @@ public class EcranSerment extends Screen {
             int u = this.active && this.isHovered() ? 128 : 64;
             g.blit(RenderPipelines.GUI_TEXTURED, ORNEMENTS, getX(), getY(), u, 0, 120, 20, 64, 20, 256, 64);
             Component texte = factionActuelle() > 0 ? Component.translatable("royaumes.serment.deja") : getMessage();
-            g.centeredText(Minecraft.getInstance().font, texte, getX() + 60, getY() + 6, this.active ? OR_CLAIR : 0xFF8C8C8C);
+            Texte.centre(g, Minecraft.getInstance().font, texte.getString(), getX() + 60, getY() + 6, 112, this.active ? OR_CLAIR : 0xFF8C8C8C);
             if (!this.active) {
                 g.fill(getX() + 2, getY() + 2, getX() + 118, getY() + 18, 0x66000000);
             }

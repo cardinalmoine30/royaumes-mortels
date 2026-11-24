@@ -38,7 +38,7 @@ public class Onglet extends AbstractButton {
         int dy = survol ? -2 : 0;
         g.blit(RenderPipelines.GUI_TEXTURED, EcranTaverne.ONGLETS, getX(), getY() + dy, 0, survol ? 24 : 0, L, 24, 256, 64);
         g.blit(RenderPipelines.GUI_TEXTURED, EcranTaverne.ONGLETS, getX() + 4, getY() + 3 + dy, 64 + indice * 16, 0, 16, 16, 256, 64);
-        g.text(Minecraft.getInstance().font, getMessage(), getX() + 21, getY() + 7 + dy, 0xFF3A2414, false);
+        Texte.ligne(g, Minecraft.getInstance().font, getMessage().getString(), getX() + 21, getY() + 7 + dy, L - 23, 0xFF3A2414, false);
     }
 
     @Override
