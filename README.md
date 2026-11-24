@@ -15,6 +15,13 @@ clic droit = sort mineur, accroupi + clic droit = grand sort. L'énergie arcaniq
 2 par seconde, 4 dans le Royaume de sa faction. Chaque sort coûte moitié moins dans le Royaume de son Vent.
 Cristal arcanique : +40. Autel arcanique : recharge complète (une fois par minute).
 
+**Capacité de faction (touche R).** Chaque faction a la sienne : Frappe de foudre (Stormcast), Waaagh ! (Ironjawz,
+deux brutes alliées), Fuite par la Warp (Skaven), Miasme (Nurgle), Piétinement (Behemat)… Gratuite, 25 à 90 s de recharge,
+affichée sur l'écran de serment et dans le HUD.
+
+**Saga des Royaumes.** Un onglet de progrès guide le joueur : serment, pierre des Royaumes, premier bâton et premier sort,
+les huit Royaumes et les Huit-Points, les six seigneurs (Nagash, Archaon, Gordrakk, Skarbrand, Thanquol, Rotigus).
+
 **Les Royaumes.** Huit Royaumes et les Huit-Points, chacun avec ses biomes, ses structures et ses factions.
 On y voyage par les failles du datapack ou par le **Portail des Royaumes** (bloc). En entrant dans un Royaume,
 la barre d'action rappelle quel Vent y souffle.
@@ -38,6 +45,7 @@ Tout le contenu graphique et les listes Java sont générés par des scripts Pyt
 
 | Script | Produit |
 |---|---|
+| `outils/objets/capacites.py`, `saga.py` | capacités des 25 factions, onglet de progrès Saga des Royaumes |
 | `outils/objets/objets.py` | objets, blocs, œufs : textures, modèles, butins, recettes, étiquettes, minerai, traductions, `ContenuGenere.java`, contenu des onglets créatifs |
 | `outils/skins/skins.py` | skins des 25 factions + planche |
 | `outils/gui/aos.py` | blasons, ornements, jauge et icônes des Vents |
