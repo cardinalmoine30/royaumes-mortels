@@ -70,6 +70,7 @@ public final class Reseau {
                 sp.addTag(TAG_MODDE);
                 envoyerFiche(sp);
                 guide(sp);
+                fr.royaumes.rpg.Quetes.rappel(sp);
             }
         });
     }

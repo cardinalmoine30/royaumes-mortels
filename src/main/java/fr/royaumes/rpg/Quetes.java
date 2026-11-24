@@ -29,33 +29,51 @@ public final class Quetes {
     private Quetes() {}
 
     /** Une étape : type de condition, argument, objectif chiffré, gloire et objets offerts. */
-    public record Etape(String titre, String texte, String type, String arg, int but, int gloire, String objets) {}
+    public record Etape(String titre, String texte, String type, String arg, int but, int gloire, String objets, String astuce) {}
 
     public static final Etape[] SAGA = {
-        new Etape("Le Serment", "Prête serment à une faction (touche J).", "score", "rm_faction", 1, 40, ""),
-        new Etape("Le camp de guerre", "Plante l'Étendard de camp dans le monde de base.", "score", "rm_camp_niv", 1, 60, "minecraft:bread*8"),
-        new Etape("Bâtisseur", "Construis un bâtiment de camp (onglet Bâtiments).", "batiment", "", 1, 80, "minecraft:iron_ingot*4"),
-        new Etape("Premier sang", "Abats des guerriers d'une autre Grande Alliance.", "tuer", "", 10, 100, "royaumes:pierre_royaumes_brute*4"),
-        new Etape("Premières armes", "Bâtis une Forge de guerre et forge une pièce Soldat.", "palier", "0", 1, 120, "minecraft:iron_ingot*6"),
-        new Etape("Soldat de ta faction", "Porte les 4 pièces de ton armure Soldat.", "panoplie", "0", 1, 120, ""),
-        new Etape("Le Vent en toi", "Lance un sort avec un bâton de ton Vent.", "evt", "saga:sort", 1, 100, "royaumes:cristal_arcanique*1"),
-        new Etape("Pouvoir de faction", "Utilise ta capacité de faction (touche R).", "evt", "saga:capacite", 1, 100, ""),
-        new Etape("Héros reconnu", "Atteins le niveau 8.", "score", "rm_niveau", 8, 0, "minecraft:diamond*2,royaumes:cristal_arcanique*1"),
-        new Etape("La Voie du héros", "Choisis ta voie : Guerrier, Mage ou Éclaireur (touche K).", "score", "rm_voie", 1, 120, ""),
-        new Etape("Au-delà du voile", "Rejoins un des Royaumes (Portail ou Pierre de Royaume).", "royaume", "", 1, 200, ""),
-        new Etape("Matière étrangère", "Obtiens l'éclat d'un Vent qui n'est pas le tien.", "etranger", "", 1, 150, ""),
-        new Etape("Élite", "Forge une pièce Élite (niveau 8).", "palier", "1", 1, 250, "minecraft:diamond*2"),
-        new Etape("Raid victorieux", "Lance un raid depuis ton camp et reviens vainqueur.", "evt", "saga:raid", 1, 250, ""),
-        new Etape("Fléau de l'ennemi", "Abats des guerriers ennemis.", "tuer", "", 40, 300, "minecraft:diamond*3"),
-        new Etape("Champion", "Atteins le niveau 16.", "score", "rm_niveau", 16, 0, "minecraft:netherite_ingot*1"),
-        new Etape("Sur la piste d'un seigneur", "Fabrique un Œil de seigneur et suis-le.", "objet", "royaumes:oeil_", 1, 300, ""),
-        new Etape("Tueur de légendes", "Invoque un seigneur à son autel et vaincs-le.", "boss", "", 1, 500, ""),
-        new Etape("Légende", "Forge une pièce Légende (niveau 16).", "palier", "2", 1, 500, "minecraft:netherite_ingot*1"),
-        new Etape("Pourfendeur de seigneurs", "Vaincs encore des seigneurs.", "boss", "", 3, 700, ""),
-        new Etape("Mythique", "Forge une pièce Mythique (niveau 25).", "palier", "3", 1, 800, ""),
-        new Etape("Héros mythique", "Atteins le niveau 35.", "score", "rm_niveau", 35, 0, "minecraft:nether_star*1"),
-        new Etape("Divin", "Forge une pièce Divine (niveau 35).", "palier", "4", 1, 1200, ""),
-        new Etape("Ascension", "Éveille ton arme de champion à la Forge de guerre.", "objet", "_ascension", 1, 1500, ""),
+        new Etape("Le Serment", "Prête serment à une faction (touche J).", "score", "rm_faction", 1, 40, "",
+                "25 factions en 4 Grandes Alliances. Tu reçois ton armure Soldat, une arme de départ et une Pierre de Royaume."),
+        new Etape("Soldat de ta faction", "Équipe les 4 pièces de ton armure Soldat.", "panoplie", "0", 1, 60, "",
+                "Panoplie complète d'une même faction = effets permanents, plus forts à chaque palier."),
+        new Etape("Au-delà du voile", "Rejoins un des Royaumes Mortels.", "royaume", "", 1, 120, "minecraft:bread*8",
+                "Clic droit avec la Pierre de Royaume reçue au serment. Plus tard : le Portail des Royaumes."),
+        new Etape("Premier sang", "Abats des guerriers d'une autre Grande Alliance.", "tuer", "", 10, 120, "royaumes:pierre_royaumes_brute*4",
+                "Dans les Royaumes, les créatures deviennent des guerriers de faction. Ceux de ton alliance ne t'attaquent pas."),
+        new Etape("Le camp de guerre", "Plante l'Étendard de camp dans le monde de base.", "score", "rm_camp_niv", 1, 100, "",
+                "Étendard : lingot d'or, bannière et pierre des Royaumes brute, en colonne. Pose-le puis clic droit dessus."),
+        new Etape("Bâtisseur", "Construis un bâtiment de camp.", "batiment", "", 1, 100, "minecraft:iron_ingot*6",
+                "Clic droit sur l'Étendard, onglet Bâtiments. Le Sanctuaire produit les éclats de ton Vent (pour la magie)."),
+        new Etape("Premières armes", "Bâtis une Forge de guerre et forge une pièce Soldat.", "evt", "forge:0", 1, 120, "",
+                "Forge de guerre : 3 lingots d'or, une enclume, 2 obsidiennes, pierre des Royaumes. Elle n'ouvre que TON arsenal."),
+        new Etape("Le Vent en toi", "Lance un sort avec un bâton de ton Vent.", "evt", "saga:sort", 1, 100, "royaumes:cristal_arcanique*1",
+                "Bâton : 2 lingots d'or, 2 bâtons et un éclat du Vent. Clic droit : sort ; accroupi + clic droit : grand sort."),
+        new Etape("Pouvoir de faction", "Utilise ta capacité de faction (touche R).", "evt", "saga:capacite", 1, 100, "",
+                "Chaque faction a la sienne, gratuite mais longue à recharger. Le HUD indique quand elle est prête."),
+        new Etape("Héros reconnu", "Atteins le niveau 8.", "score", "rm_niveau", 8, 0, "minecraft:diamond*2,royaumes:cristal_arcanique*1",
+                "La gloire vient des combats, des quêtes, des contrats et des découvertes. Chaque niveau donne un point de compétence."),
+        new Etape("La Voie du héros", "Choisis ta voie : Guerrier, Mage ou Éclaireur.", "score", "rm_voie", 1, 120, "",
+                "Touche K. Un talent parmi deux aux niveaux 10, 20, 30 et 40."),
+        new Etape("Matière étrangère", "Obtiens l'éclat d'un Vent qui n'est pas le tien.", "etranger", "", 1, 150, "",
+                "Minerais et créatures des autres Royaumes, contrats de chasse, raids, ou échange avec un ami d'une autre faction."),
+        new Etape("Élite", "Forge une pièce Élite (niveau 8).", "palier", "1", 1, 250, "minecraft:diamond*2",
+                "Améliorer consomme la pièce du palier précédent : forge-la d'abord, puis monte-la."),
+        new Etape("Raid victorieux", "Lance un raid depuis ton camp et reviens vainqueur.", "evt", "saga:raid", 1, 250, "",
+                "Recrute des troupes (onglet Camp), puis onglet Raids. Plus le raid est long, plus le butin est gros."),
+        new Etape("Fléau de l'ennemi", "Abats des guerriers ennemis.", "tuer", "", 40, 300, "minecraft:diamond*3", ""),
+        new Etape("Champion", "Atteins le niveau 16.", "score", "rm_niveau", 16, 0, "minecraft:netherite_ingot*1", ""),
+        new Etape("Sur la piste d'un seigneur", "Fabrique un Œil de seigneur.", "objet", "royaumes:oeil_", 1, 300, "",
+                "Œil de l'Ender, 2 éclats du Royaume du seigneur et pierre des Royaumes. Lance-le pour voir la direction de l'antre."),
+        new Etape("Tueur de légendes", "Invoque un seigneur à son autel et vaincs-le.", "boss", "", 1, 500, "",
+                "Forge son sceau (table de forgeron, voir le Codex) et utilise-le sur l'Autel des Seigneurs. Sous 25 % de vie : esquive les cercles !"),
+        new Etape("Légende", "Forge une pièce Légende (niveau 16).", "palier", "2", 1, 500, "minecraft:netherite_ingot*1", ""),
+        new Etape("Pourfendeur de seigneurs", "Vaincs encore des seigneurs.", "boss", "", 3, 700, "",
+                "Chaque seigneur lâche sa relique unique et des âmes de seigneur."),
+        new Etape("Mythique", "Forge une pièce Mythique (niveau 25).", "palier", "3", 1, 800, "", "Il faut des âmes de seigneur."),
+        new Etape("Héros mythique", "Atteins le niveau 35.", "score", "rm_niveau", 35, 0, "minecraft:nether_star*1", ""),
+        new Etape("Divin", "Forge une pièce Divine (niveau 35).", "palier", "4", 1, 1200, "", "Étoile du Nether et âmes de seigneur."),
+        new Etape("Ascension", "Éveille ton arme de champion à la Forge de guerre.", "objet", "_ascension", 1, 1500, "",
+                "Lignée, puis champion, puis ascension : onglet Armes de la Forge de guerre."),
     };
     static final String[] NOMS_ALLIANCES = {"l'Ordre", "le Chaos", "la Mort", "la Destruction"};
     static final String[] ALLIANCES = {"ordre", "chaos", "mort", "destruction"};
@@ -210,11 +228,22 @@ public final class Quetes {
         }
     }
 
+    /** À la connexion : rappelle la quête en cours. */
+    public static void rappel(ServerPlayer p) {
+        int i = etape(p);
+        if (get(p, "rm_quete") > 0 && i < SAGA.length) {
+            annoncer(p, i);
+        }
+    }
+
     static void annoncer(ServerPlayer p, int i) {
         Etape e = SAGA[i];
         p.sendSystemMessage(Component.literal("✦ Saga du Héros " + (i + 1) + "/" + SAGA.length + " : ").withStyle(ChatFormatting.GOLD)
                 .append(Component.literal(e.titre()).withStyle(ChatFormatting.YELLOW))
                 .append(Component.literal(" — " + e.texte() + (e.but() > 1 ? " (" + e.but() + ")" : "")).withStyle(ChatFormatting.GRAY)));
+        if (!e.astuce().isEmpty()) {
+            p.sendSystemMessage(Component.literal("  ➜ " + e.astuce()).withStyle(ChatFormatting.DARK_AQUA));
+        }
     }
 
     static void recompenser(ServerPlayer p, int gloire, String objets) {

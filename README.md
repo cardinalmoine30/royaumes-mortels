@@ -63,9 +63,9 @@ chacun forgé à partir de la pièce du palier précédent (refondue) :
   étoile du Nether et 4 âmes, atout 1 coup sur 2 renforcé). Modèles 3D en main.
 - **Âmes de seigneur** : 2 à 3 par seigneur vaincu, +1 par héros supplémentaire au combat.
 
-**Saga du Héros (0.14).** 24 quêtes qui servent de fil rouge et de tutoriel, affichées en haut à gauche avec leur progrès :
-serment, camp, premier bâtiment, premier sang, armure Soldat, magie, capacité, niveau 8, premier Royaume, éclat étranger, Élite,
-raid, Œil de seigneur, premier seigneur, Légende, Mythique, Divin, jusqu'à l'**Ascension** de ton arme. Chaque étape rapporte de la
+**Saga du Héros (0.14).** 24 quêtes avec une astuce chacune qui servent de fil rouge et de tutoriel, affichées en haut à gauche avec leur progrès :
+serment, armure Soldat, premier Royaume (Pierre de Royaume du kit), premier sang, camp, bâtiment, Forge de guerre, magie, capacité,
+niveau 8, voie, éclat étranger, Élite, raid, Œil de seigneur, premier seigneur, Légende, Mythique, Divin, jusqu'à l'**Ascension** de ton arme. Chaque étape rapporte de la
 gloire et des objets. Ensuite, des **Contrats de chasse** renouvelables (abattre N guerriers d'une alliance ennemie) récompensent
 gloire, éclats et pierre des Royaumes.
 
