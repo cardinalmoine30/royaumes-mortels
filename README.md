@@ -42,6 +42,15 @@ Au cœur de l'antre, l'Autel des Seigneurs éveille le sceau forgé : le seigneu
 Sceptre de Nagash (Armée des Morts, Main de Nagash), Pourfendeuse des Rois d'Archaon, Krokfendeur de Gordrakk, Massacre et
 Carnage de Skarbrand, Bâton de malefeu de Thanquol, Bâton de pluie de Rotigus.
 
+**Arsenal de faction (0.12).** 150 objets : pour chacune des 25 factions, une **arme de champion** (base netherite,
+très puissante, atout une fois sur quatre), une **arme de lignée** (base diamant, plus légère, atout à chaque coup :
+foudre, brasier, venin, flétrissure, vol de vie, entrave, fracas, éclat aveuglant, brise-garde) et une **armure en 4 pièces**
+(défense de netherite, bonus de panoplie complète : force, résistance, vitesse, régénération…). Les armes ont un vrai
+modèle 3D en main et une icône plate en inventaire ; l'armure portée reprend le skin de la faction.
+Rien de tout cela ne se fabrique à l'établi : il faut la **Forge de guerre** (or, enclume, obsidienne, pierre des Royaumes),
+qui n'affiche que l'arsenal de TA faction. Chaque recette exige les éclats de **deux Royaumes étrangers** au tien
+(un Stormcast d'Azyr doit aller chercher de l'Hysh et de l'Ulgu…) : voyage, commerce entre amis ou raids.
+
 **Les Royaumes.** Huit Royaumes et les Huit-Points, chacun avec ses biomes, ses structures et ses factions.
 On y voyage par les failles du datapack ou par le **Portail des Royaumes** (bloc). En entrant dans un Royaume,
 la barre d'action rappelle quel Vent y souffle.
@@ -58,8 +67,11 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | ![Écran de serment](outils/visuels/apercus/maquette_serment_ironjawz.png) | ![HUD](outils/visuels/apercus/maquette_hud.png) |
 | ![Carte des Royaumes](outils/visuels/apercus/carte_royaumes.png) | ![Guide de la magie](outils/visuels/apercus/guide_magie.png) |
 | ![Skins des factions](outils/skins/apercus/planche_skins.png) | ![Onglets créatifs](outils/visuels/apercus/onglets_creatifs.png) |
+| ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Arsenal 2](outils/visuels/apercus/arsenal/arsenal_2.png) |
 
 ## Générateurs (dossier `outils/`)
+
+- `objets/arsenal.py` : arsenal des factions (armes 3D, icônes, armures portées, recettes, `ArsenalGenere.java`).
 
 Tout le contenu graphique et les listes Java sont générés par des scripts Python (Pillow) :
 
