@@ -43,9 +43,10 @@ Sceptre de Nagash (Armée des Morts, Main de Nagash), Pourfendeuse des Rois d'Ar
 Carnage de Skarbrand, Bâton de malefeu de Thanquol, Bâton de pluie de Rotigus.
 
 **Arsenal et Forge de guerre (0.12).** 410 objets, tous forgés à la **Forge de guerre** (or, enclume, obsidienne, pierre
-des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Les recettes exigent les éclats de **deux Royaumes
-étrangers** au tien. Trois paliers, chacun forgé à partir de la pièce du palier précédent (refondue) :
-- **Soldat** (fer + 1 éclat) → **Élite** (pièce Soldat + diamants + éclats) → **Légende** (pièce Élite + netherite + éclats + pierre).
+des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Trois paliers, chacun forgé à partir de la pièce
+du palier précédent (refondue) :
+- **Soldat** (fer + pierre des Royaumes, dès le début) → **Élite** (pièce Soldat + diamants + éclats de **deux Royaumes étrangers**)
+  → **Légende** (pièce Élite + netherite + éclats étrangers + pierre). Le serment donne l'armure Soldat de ta faction.
 - **Armure de faction** en 4 pièces par palier (défense fer / diamant / au-delà de la netherite). Panoplie complète portée par un
   héros de la faction : Soldat = premier effet, Élite = tous les effets, Légende = tous les effets un niveau au-dessus.
 - **Outils d'alliance** (pioche, pelle, hache, houe, épée), communs aux factions d'une Grande Alliance, chacune avec sa forme et ses
@@ -56,6 +57,12 @@ des Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance. Les r
   épée vampirique), Destruction (célérité, vitesse, force, vie bonus ; épée qui projette).
 - **Armes de faction** : arme de lignée (atout à chaque coup) puis arme de champion, forgée à partir de l'arme de lignée
   (très puissante, atout une fois sur quatre). Modèles 3D en main.
+
+**Une seule économie (0.13).** Les matériaux des Royaumes sont les objets du mod : pierre des Royaumes brute (minerai du
+monde de base), éclats des huit Vents (minerais de chaque Royaume, butin des créatures et coffres de ce Royaume, raids) et
+malepierre. Les éclats ne se fabriquent pas : ton camp (sanctuaire) produit ceux de ton Vent, les autres se gagnent en voyageant,
+en échangeant ou en pillant. La Forge des Royaumes (table de forgeron) ne fait plus que consommables, talismans, lingots et
+sceaux ; ses recettes de faction sont réservées à leur faction. Les armes et armures passent toutes par la Forge de guerre.
 
 **Les Royaumes.** Huit Royaumes et les Huit-Points, chacun avec ses biomes, ses structures et ses factions.
 On y voyage par les failles du datapack ou par le **Portail des Royaumes** (bloc). En entrant dans un Royaume,
