@@ -10,13 +10,13 @@ public final class EvenementsCamp {
 
     public static void tickEntite(EntityTickEvent.Post event) {
         if (event.getEntity() instanceof Combattant c && !c.level().isClientSide() && c.tickCount % 20 == 7
-                && c.getTags().contains(Camps.UNITE)) {
+                && c.entityTags().contains(Camps.UNITE)) {
             Camps.tickUnite(c);
         }
     }
 
     public static void mort(LivingDeathEvent event) {
-        if (event.getEntity() instanceof Combattant c && !c.level().isClientSide() && c.getTags().contains(Camps.UNITE)) {
+        if (event.getEntity() instanceof Combattant c && !c.level().isClientSide() && c.entityTags().contains(Camps.UNITE)) {
             Camps.mortUnite(c);
         }
     }

@@ -314,7 +314,7 @@ public final class Camps {
     /** Unités du joueur chargées autour d'un point. */
     static List<Combattant> unites(ServerLevel l, ServerPlayer chef, BlockPos centre, double rayon) {
         String tag = "rm_chef_" + chef.getUUID();
-        return l.getEntitiesOfClass(Combattant.class, new AABB(centre).inflate(rayon), c -> c.isAlive() && c.getTags().contains(tag));
+        return l.getEntitiesOfClass(Combattant.class, new AABB(centre).inflate(rayon), c -> c.isAlive() && c.entityTags().contains(tag));
     }
 
     // ------------------------------------------------------------------ raids
@@ -409,7 +409,7 @@ public final class Camps {
 
     private static void donner(ServerPlayer p, ItemStack s) {
         if (!p.getInventory().add(s)) {
-            p.drop(s, false);
+            p.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(p.level(), p.getX(), p.getY() + 0.5, p.getZ(), s));
         }
     }
 
@@ -482,7 +482,7 @@ public final class Camps {
         }
         UUID chef = null;
         String nom = null;
-        for (String tag : c.getTags()) {
+        for (String tag : c.entityTags()) {
             if (tag.startsWith("rm_chef_")) {
                 try {
                     chef = UUID.fromString(tag.substring(8));
@@ -522,7 +522,7 @@ public final class Camps {
         if (s == null) {
             return;
         }
-        for (String tag : c.getTags()) {
+        for (String tag : c.entityTags()) {
             if (tag.startsWith("rm_nom_")) {
                 ScoreHolder h = ScoreHolder.forNameOnly(tag.substring(7));
                 set(s.getScoreboard(), h, "rm_camp_nb", Math.max(0, get(s.getScoreboard(), h, "rm_camp_nb") - 1));
