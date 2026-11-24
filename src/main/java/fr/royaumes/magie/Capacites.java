@@ -210,14 +210,14 @@ public final class Capacites {
             }
             case "ENVOL" -> {
                 p.push(0, 1.6, 0);
-                p.hurtMarked = true;
+                p.needsSync = true;
                 n.sendParticles(part, pos.x, pos.y, pos.z, 40, 0.6, 0.2, 0.6, 0.05);
                 Sorts.son(n, p, SoundEvents.FIRECHARGE_USE, 0.8F, 1.5F);
             }
             case "CHARGE" -> {
                 Vec3 d = p.getLookAngle().multiply(1, 0, 1).normalize();
                 p.push(d.x * 2.4, 0.35, d.z * 2.4);
-                p.hurtMarked = true;
+                p.needsSync = true;
                 Vec3 devant = pos.add(d.scale(3));
                 n.sendParticles(part, pos.x, pos.y + 0.5, pos.z, 40, 0.8, 0.3, 0.8, 0.05);
                 frapperZone(p, n, f, devant, rayon, true);
