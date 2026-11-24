@@ -81,6 +81,3 @@ net.minecraft.world.item.equipment.ArmorMaterial
 net.minecraft.world.item.equipment.EquipmentAssets
 net.minecraft.world.item.equipment.ArmorType
 net.minecraft.tags.ItemTags
-net.minecraft.world.item.AxeItem
-net.minecraft.world.item.ShovelItem
-net.minecraft.world.item.HoeItem

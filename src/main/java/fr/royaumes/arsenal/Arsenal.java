@@ -27,9 +27,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -88,9 +85,9 @@ public final class Arsenal {
                     float bonus = t == 2 ? 1.0F : 0.0F;
                     DeferredItem<Item> it = switch (outil) {
                         case "pioche" -> ModObjets.OBJETS.registerItem(id, p -> new OutilAlliance(p, al, pal, false), p -> p.pickaxe(m, 1.0F + bonus, -2.8F));
-                        case "pelle" -> ModObjets.OBJETS.registerItem(id, p -> new ShovelItem(m, 1.5F + bonus, -3.0F, p));
-                        case "hache" -> ModObjets.OBJETS.registerItem(id, p -> new AxeItem(m, 5.0F + bonus, -3.0F, p));
-                        case "houe" -> ModObjets.OBJETS.registerItem(id, p -> new HoeItem(m, -2.0F, -1.0F + pal, p));
+                        case "pelle" -> ModObjets.OBJETS.registerItem(id, p -> new OutilAlliance(p, al, pal, false), p -> p.shovel(m, 1.5F + bonus, -3.0F));
+                        case "hache" -> ModObjets.OBJETS.registerItem(id, p -> new OutilAlliance(p, al, pal, false), p -> p.axe(m, 5.0F + bonus, -3.0F));
+                        case "houe" -> ModObjets.OBJETS.registerItem(id, p -> new OutilAlliance(p, al, pal, false), p -> p.hoe(m, -2.0F, -1.0F + pal));
                         default -> ModObjets.OBJETS.registerItem(id, p -> new OutilAlliance(p, al, pal, true), p -> p.sword(m, 3.0F + bonus, -2.4F));
                     };
                     TOUS.add(it);

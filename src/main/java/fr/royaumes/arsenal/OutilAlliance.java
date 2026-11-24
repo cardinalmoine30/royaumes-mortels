@@ -15,7 +15,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.phys.Vec3;
 
-/** Pioche ou épée d'alliance (les autres outils utilisent les classes vanilla pour garder écorçage, chemins et labour). */
+/** Outil d'alliance : effet en main (Arsenal.bonusPanoplie), atout au coup pour l'épée. */
 public class OutilAlliance extends Item {
     private final int alliance;
     private final int palier;
@@ -57,7 +57,8 @@ public class OutilAlliance extends Item {
     @Override
     public void appendHoverText(ItemStack pile, Item.TooltipContext contexte, TooltipDisplay affichage,
                                 Consumer<Component> ajout, TooltipFlag options) {
-        Infos.tooltip(alliance, epee ? 4 : 0, palier, ajout);
+        int[] i = Arsenal.infosOutil(this);
+        Infos.tooltip(alliance, i == null ? 0 : i[1], palier, ajout);
     }
 
     /** Texte commun aux outils d'alliance. */
