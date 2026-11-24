@@ -1,0 +1,138 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "royaumes:block/etendard_de_camp_hampe",
+    "hampe": "royaumes:block/etendard_de_camp_hampe",
+    "drapeau": "royaumes:block/etendard_de_camp"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        2,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hampe"
+        },
+        "south": {
+          "texture": "#hampe"
+        },
+        "east": {
+          "texture": "#hampe"
+        },
+        "west": {
+          "texture": "#hampe"
+        },
+        "up": {
+          "texture": "#hampe"
+        },
+        "down": {
+          "texture": "#hampe"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        2,
+        7
+      ],
+      "to": [
+        9,
+        16,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hampe"
+        },
+        "south": {
+          "texture": "#hampe"
+        },
+        "east": {
+          "texture": "#hampe"
+        },
+        "west": {
+          "texture": "#hampe"
+        },
+        "up": {
+          "texture": "#hampe"
+        },
+        "down": {
+          "texture": "#hampe"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        14,
+        7.5
+      ],
+      "to": [
+        14,
+        15,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#hampe"
+        },
+        "south": {
+          "texture": "#hampe"
+        },
+        "east": {
+          "texture": "#hampe"
+        },
+        "west": {
+          "texture": "#hampe"
+        },
+        "up": {
+          "texture": "#hampe"
+        },
+        "down": {
+          "texture": "#hampe"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        3,
+        7.75
+      ],
+      "to": [
+        13,
+        14,
+        8.25
+      ],
+      "faces": {
+        "north": {
+          "texture": "#drapeau"
+        },
+        "south": {
+          "texture": "#drapeau"
+        },
+        "east": {
+          "texture": "#drapeau"
+        },
+        "west": {
+          "texture": "#drapeau"
+        },
+        "up": {
+          "texture": "#drapeau"
+        },
+        "down": {
+          "texture": "#drapeau"
+        }
+      }
+    }
+  ]
+}

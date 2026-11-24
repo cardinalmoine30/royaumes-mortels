@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "royaumes:etendard_de_camp"
+    },
+    "title": {
+      "text": "Seigneur de guerre"
+    },
+    "description": {
+      "text": "Planter l'étendard de ton camp de guerre."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "camp": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/serment",
+  "rewards": {
+    "experience": 50
+  }
+}

@@ -63,11 +63,11 @@ public final class ContenuGenere {
     };
 
     /** Blocs : id, outil, dureté, lumière, type spécial. */
-    public static final String[] BLOCS = {"marbre_celeste", "marbre_celeste_grave", "basalte_ardent", "brique_de_braise", "os_de_monstre", "pierre_de_croc", "bois_de_vie", "jade_vivant", "pierre_de_lumiere", "cristal_de_hysh", "ardoise_d_ombre", "brume_figee", "pierre_funeraire", "dalle_des_ames", "cuivre_alchimique", "or_vif", "obsidienne_corrompue", "pierre_du_chaos", "minerai_pierre_royaumes", "minerai_pierre_royaumes_profond", "bloc_pierre_royaumes", "autel_arcanique", "portail_des_royaumes"};
-    public static final float[] BLOCS_DURETE = {1.5f, 1.5f, 1.8f, 2.0f, 2.0f, 2.0f, 2.0f, 1.8f, 1.5f, 1.2f, 2.5f, 1.0f, 2.0f, 2.0f, 3.0f, 3.0f, 20.0f, 3.0f, 3.0f, 4.5f, 5.0f, 3.5f, 25.0f};
-    public static final int[] BLOCS_LUMIERE = {0, 0, 7, 4, 0, 0, 0, 3, 15, 12, 0, 2, 0, 5, 0, 2, 3, 6, 4, 4, 9, 10, 11};
-    public static final boolean[] BLOCS_BOIS = {false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-    public static final String[] BLOCS_SPECIAL = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "AUTEL", "PORTAIL"};
+    public static final String[] BLOCS = {"marbre_celeste", "marbre_celeste_grave", "basalte_ardent", "brique_de_braise", "os_de_monstre", "pierre_de_croc", "bois_de_vie", "jade_vivant", "pierre_de_lumiere", "cristal_de_hysh", "ardoise_d_ombre", "brume_figee", "pierre_funeraire", "dalle_des_ames", "cuivre_alchimique", "or_vif", "obsidienne_corrompue", "pierre_du_chaos", "minerai_pierre_royaumes", "minerai_pierre_royaumes_profond", "bloc_pierre_royaumes", "autel_arcanique", "portail_des_royaumes", "etendard_de_camp"};
+    public static final float[] BLOCS_DURETE = {1.5f, 1.5f, 1.8f, 2.0f, 2.0f, 2.0f, 2.0f, 1.8f, 1.5f, 1.2f, 2.5f, 1.0f, 2.0f, 2.0f, 3.0f, 3.0f, 20.0f, 3.0f, 3.0f, 4.5f, 5.0f, 3.5f, 25.0f, 2.0f};
+    public static final int[] BLOCS_LUMIERE = {0, 0, 7, 4, 0, 0, 0, 3, 15, 12, 0, 2, 0, 5, 0, 2, 3, 6, 4, 4, 9, 10, 11, 6};
+    public static final boolean[] BLOCS_BOIS = {false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true};
+    public static final String[] BLOCS_SPECIAL = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "AUTEL", "PORTAIL", "CAMP"};
 
     /** Écran de serment : données des 25 factions (index = numéro rm_faction, 0 = aucune). */
     public static final String[] ALLIANCES = {"", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "chaos", "chaos", "chaos", "chaos", "chaos", "chaos", "chaos", "mort", "mort", "mort", "mort", "destruction", "destruction", "destruction", "destruction", "destruction"};
@@ -89,6 +89,36 @@ public final class ContenuGenere {
     public static final float[] CAP_DEGATS = {0F, 10.0F, 7.0F, 0.0F, 0.0F, 8.0F, 4.0F, 8.0F, 14.0F, 10.0F, 0.0F, 0.0F, 0.0F, 3.0F, 2.0F, 0.0F, 8.0F, 0.0F, 5.0F, 0.0F, 12.0F, 0.0F, 3.0F, 0.0F, 9.0F, 10.0F};
     public static final float[] CAP_RAYONS = {0F, 3.5F, 0.0F, 0.0F, 0.0F, 4.0F, 8.0F, 7.0F, 5.0F, 6.0F, 0.0F, 0.0F, 0.0F, 8.0F, 7.0F, 20.0F, 9.0F, 0.0F, 6.0F, 0.0F, 0.0F, 0.0F, 7.0F, 0.0F, 3.0F, 6.0F};
     public static final int[] CAP_RECHARGES = {0, 45, 25, 60, 40, 30, 45, 45, 60, 50, 60, 60, 30, 45, 45, 30, 35, 50, 45, 60, 50, 90, 40, 90, 30, 40};
+
+    /** Camp de guerre : unités recrutables par faction (de la plus modeste à la plus puissante). */
+    public static final String[][] UNITES_CAMP = {
+        {},
+        {"liberator", "judicator", "prosecutor", "vindictor", "lord_celestant", "stardrake", "dracoth", "gryph_charger"},
+        {"heaumefer", "cavalier_franc", "fusilier", "griffon", "demigryph", "dragon"},
+        {"vulkite", "hearthguard", "auric_hearthguard", "magmadroth", "elementaire_magma", "salamandre"},
+        {"arkanaute", "endrinrigger", "thunderer", "gunhauler", "fregate", "ironclad"},
+        {"furie", "khinerai", "melusai", "avatar_khaine", "medusa", "ombre_khaine"},
+        {"namarti_thrall", "namarti_reaver", "ishlaen", "leviadon", "allopex", "morrsarr"},
+        {"sentinelle_vanari", "garde_vanari", "bladelord", "alarith", "hurakan", "scinari"},
+        {"saurus", "skink", "kroxigor", "carnosaur", "stegadon", "bastiladon"},
+        {"dryade", "revenant", "kurnoth", "treelord", "durthu", "treelord_ancien"},
+        {"guerrier_chaos", "chevalier_chaos", "chosen", "warshrine", "prince_demon", "rejeton_chaos"},
+        {"bloodletter", "blood_warrior", "bloodreaver", "skullreaper", "bloodthirster", "chien_khorne", "juggernaut"},
+        {"tzaangor", "acolyte", "horreur_rose", "seigneur_changement", "char_flammes", "mutalith"},
+        {"demonette", "seeker", "painbringer", "gardien_secrets", "syllesske", "demon_slaanesh"},
+        {"plaguebearer", "blightking", "pusgoyle", "grand_immonde", "bete_nurgle"},
+        {"clanrat", "stormvermin", "jezzail", "abomination", "rat_ogre", "doomwheel"},
+        {"hashut", "bloodletter", "blood_warrior", "bloodreaver"},
+        {"chainrasp", "grimghast", "hote_spirite", "carrosse_noir", "dreadblade", "mourngul"},
+        {"dragon_zombie", "deathrattle", "grave_guard", "blood_knight", "vargheist", "bete_zombie", "vampire"},
+        {"mortek", "kavalos", "immortis", "gothizzar", "morghast_archai", "morghast_harbinger"},
+        {"goule", "horreur_crypte", "morbheg", "terrorgheist", "varghulf"},
+        {"ardboy", "brute", "megaboss", "maw_krusha"},
+        {"gutrippa", "mirebrute", "idole_rogue"},
+        {"shoota", "squig_hopper", "stabba", "squig_mangler", "squig_colossal", "troggoth_dankhold"},
+        {"glutton", "irongut", "leadbelcher", "stonehorn", "thundertusk", "sabre_givre"},
+        {"mancrusher", "mega_gargant", "gatebreaker", "kraken_eater", "warstomper", "beast_smasher"},
+    };
 
     /** Œufs : créature -> couleurs (fond, taches) pour l'aperçu. */
     public static final String[] OEUFS_MOBS = {"liberator", "judicator", "prosecutor", "vindictor", "lord_celestant", "stardrake", "dracoth", "gryph_charger", "heaumefer", "cavalier_franc", "fusilier", "griffon", "demigryph", "dragon", "furie", "khinerai", "melusai", "avatar_khaine", "medusa", "ombre_khaine", "vulkite", "hearthguard", "auric_hearthguard", "magmadroth", "elementaire_magma", "salamandre", "namarti_thrall", "namarti_reaver", "ishlaen", "leviadon", "allopex", "morrsarr", "arkanaute", "endrinrigger", "thunderer", "gunhauler", "fregate", "ironclad", "sentinelle_vanari", "garde_vanari", "bladelord", "alarith", "hurakan", "scinari", "saurus", "skink", "kroxigor", "carnosaur", "stegadon", "bastiladon", "dryade", "revenant", "kurnoth", "treelord", "durthu", "treelord_ancien", "guerrier_chaos", "chevalier_chaos", "chosen", "warshrine", "prince_demon", "rejeton_chaos", "tzaangor", "acolyte", "horreur_rose", "seigneur_changement", "char_flammes", "mutalith", "bloodletter", "blood_warrior", "bloodreaver", "skullreaper", "bloodthirster", "chien_khorne", "juggernaut", "demonette", "seeker", "painbringer", "gardien_secrets", "syllesske", "demon_slaanesh", "plaguebearer", "blightking", "pusgoyle", "grand_immonde", "bete_nurgle", "clanrat", "stormvermin", "jezzail", "abomination", "rat_ogre", "doomwheel", "hashut", "goule", "horreur_crypte", "morbheg", "terrorgheist", "dragon_zombie", "varghulf", "chainrasp", "grimghast", "hote_spirite", "carrosse_noir", "dreadblade", "mourngul", "mortek", "kavalos", "immortis", "gothizzar", "morghast_archai", "morghast_harbinger", "deathrattle", "grave_guard", "blood_knight", "vargheist", "bete_zombie", "vampire", "shoota", "squig_hopper", "stabba", "squig_mangler", "squig_colossal", "troggoth_dankhold", "glutton", "irongut", "leadbelcher", "stonehorn", "thundertusk", "sabre_givre", "ardboy", "brute", "gutrippa", "megaboss", "maw_krusha", "mirebrute", "idole_rogue", "mancrusher", "mega_gargant", "gatebreaker", "kraken_eater", "warstomper", "beast_smasher", "nagash", "archaon", "gordrakk", "skarbrand", "thanquol", "rotigus"};

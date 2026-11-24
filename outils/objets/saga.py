@@ -67,6 +67,8 @@ def main():
        {"entrer": {"trigger": "minecraft:changed_dimension", "conditions": {"to": "royaumes:huit_points"}}}, "goal")
     av("voyageur", "royaume_chamon", "minecraft:recovery_compass", "Voyageur des Royaumes", "Visiter les huit Royaumes Mortels.",
        {v: {"trigger": "minecraft:changed_dimension", "conditions": {"to": DIMS[v]}} for v in VENTS}, "challenge", xp=500)
+    av("camp", "serment", "royaumes:etendard_de_camp", "Seigneur de guerre", "Planter l'étendard de ton camp de guerre.", {"camp": impossible()}, "goal", xp=50)
+    av("raid", "camp", "minecraft:iron_axe", "Raid victorieux", "Revenir victorieux d'un raid lancé depuis ton camp.", {"raid": impossible()}, "goal", xp=100)
     av("premier_boss", "serment", "minecraft:iron_sword", "Tueur de légendes", "Vaincre un des seigneurs des Royaumes.",
        {b[0]: {"trigger": "minecraft:player_killed_entity", "conditions": {"entity": {"type": "minecraft:entity_properties", "entity": "this", "predicate": {"minecraft:entity_type": "royaumes:" + b[0]}}}} for b in BOSS},
        "goal", requis=[[b[0] for b in BOSS]], xp=100)

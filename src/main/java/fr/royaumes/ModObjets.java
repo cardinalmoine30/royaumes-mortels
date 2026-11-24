@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.JsonOps;
 import fr.royaumes.bloc.BlocAutel;
+import fr.royaumes.bloc.BlocEtendard;
 import fr.royaumes.bloc.BlocPortail;
 import fr.royaumes.objet.BatonVent;
 import fr.royaumes.objet.CristalArcanique;
@@ -72,6 +73,7 @@ public final class ModObjets {
             DeferredBlock<Block> bloc = BLOCS.registerBlock(id, props -> switch (special) {
                 case "AUTEL" -> new BlocAutel(props);
                 case "PORTAIL" -> new BlocPortail(props);
+                case "CAMP" -> new BlocEtendard(props);
                 default -> new Block(props);
             }, p -> proprietes(p, durete, lumiere, bois));
             BLOCS_PAR_ID.put(id, bloc);
@@ -124,6 +126,7 @@ public final class ModObjets {
                 .icon(() -> new ItemStack(BLOCS_PAR_ID.get("portail_des_royaumes").get()))
                 .displayItems((params, sortie) -> {
                     sortie.accept(BLOCS_PAR_ID.get("portail_des_royaumes").get());
+                    sortie.accept(BLOCS_PAR_ID.get("etendard_de_camp").get());
                     OEUFS_MONTURES.forEach(o -> sortie.accept(o.get()));
                     depuisDatapack(params, sortie, "montures");
                 }).build());
@@ -132,6 +135,9 @@ public final class ModObjets {
     private ModObjets() {}
 
     private static BlockBehaviour.Properties proprietes(BlockBehaviour.Properties p, float durete, int lumiere, boolean bois) {
+        if (bois && lumiere > 0) {
+            p = p.noOcclusion();
+        }
         p = p.strength(durete, durete >= 20.0F ? 1200.0F : durete * 2.0F)
                 .lightLevel(etat -> lumiere)
                 .sound(bois ? SoundType.WOOD : SoundType.STONE);

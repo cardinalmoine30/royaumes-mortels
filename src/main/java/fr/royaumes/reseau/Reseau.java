@@ -2,6 +2,7 @@ package fr.royaumes.reseau;
 
 import fr.royaumes.ContenuGenere;
 import fr.royaumes.FactionsGenerees;
+import fr.royaumes.camp.Camps;
 import fr.royaumes.magie.Capacites;
 import fr.royaumes.magie.Magie;
 import fr.royaumes.magie.Saga;
@@ -50,6 +51,17 @@ public final class Reseau {
         r.playToServer(UtiliserCapacite.TYPE, UtiliserCapacite.CODEC, (c, contexte) -> {
             if (contexte.player() instanceof ServerPlayer sp) {
                 Capacites.utiliser(sp, score(sp.level().getServer().getScoreboard(), sp, "rm_faction"));
+            }
+        });
+        r.playToClient(FicheCamp.TYPE, FicheCamp.CODEC, (f, contexte) -> {
+            DonneesHeros.camp = f;
+            if (f.ouvrir()) {
+                DonneesHeros.ouvrirCamp = true;
+            }
+        });
+        r.playToServer(ActionCamp.TYPE, ActionCamp.CODEC, (a, contexte) -> {
+            if (contexte.player() instanceof ServerPlayer sp) {
+                Camps.action(sp, a.action(), a.arg());
             }
         });
         r.playToServer(BonjourModde.TYPE, BonjourModde.CODEC, (c, contexte) -> {
@@ -112,6 +124,7 @@ public final class Reseau {
             ids.add(joueur.getUUID());
             factions.add(faction);
             annoncerRoyaume(joueur);
+            Camps.tickJoueur(joueur);
         }
         FactionsVisibles visibles = new FactionsVisibles(ids, factions);
         for (ServerPlayer joueur : serveur.getPlayerList().getPlayers()) {

@@ -81,6 +81,10 @@ public final class ClientRoyaumes {
                 }
             }
         }
+        if (DonneesHeros.ouvrirCamp) {
+            DonneesHeros.ouvrirCamp = false;
+            mc.gui.setScreen(new EcranCamp());
+        }
         // sans faction : l'écran de serment s'ouvre de lui-même (puis toutes les 2 minutes s'il est fermé)
         FicheHeros f = DonneesHeros.actuelle;
         if (f != null && f.faction() == 0 && mc.gui.screen() == null) {

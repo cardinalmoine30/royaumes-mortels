@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_axe"
+    },
+    "title": {
+      "text": "Raid victorieux"
+    },
+    "description": {
+      "text": "Revenir victorieux d'un raid lancé depuis ton camp."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "raid": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "royaumes:saga/camp",
+  "rewards": {
+    "experience": 100
+  }
+}

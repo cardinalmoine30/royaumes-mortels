@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "royaumes:bois_de_vie"
+    "royaumes:bois_de_vie",
+    "royaumes:etendard_de_camp"
   ]
 }

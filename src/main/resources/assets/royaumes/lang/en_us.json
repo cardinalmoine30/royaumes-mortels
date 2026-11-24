@@ -436,5 +436,9 @@
   "key.royaumes.capacite": "Faction ability",
   "royaumes.capacite.attente": "%s: %s s left",
   "royaumes.capacite.sans": "Swear an oath to a faction first (J key).",
-  "royaumes.capacite.pret": "Ability ready (R)"
+  "royaumes.capacite.pret": "Ability ready (R)",
+  "block.royaumes.etendard_de_camp": "War Camp Standard",
+  "royaumes.camp.titre": "War Camp",
+  "royaumes.camp.fonde": "Your war camp is founded here.",
+  "royaumes.camp.pas_a_toi": "This standard belongs to another hero."
 }

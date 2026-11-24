@@ -83,8 +83,9 @@ BLOCS = [
     ("bloc_pierre_royaumes", "Bloc de pierre des Royaumes", "Block of Realmstone", "", "pioche", 5.0, 9, None),
     ("autel_arcanique", "Autel arcanique", "Arcane Altar", "", "pioche", 3.5, 10, None),
     ("portail_des_royaumes", "Portail des Royaumes", "Realmgate", "", "pioche", 25.0, 11, None),
+    ("etendard_de_camp", "Étendard de camp", "War Camp Standard", "", "hache", 2.0, 6, None),
 ]
-SPECIAUX = {"autel_arcanique": "AUTEL", "portail_des_royaumes": "PORTAIL"}
+SPECIAUX = {"autel_arcanique": "AUTEL", "portail_des_royaumes": "PORTAIL", "etendard_de_camp": "CAMP"}
 # objets simples : id, nom fr, nom en, onglet
 OBJETS = [("baton_" + v[0], "Bâton " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1], v[1] + " Staff", "magie") for v in VENTS]
 OBJETS += [("eclat_" + v[0], "Éclat " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1], v[1] + " Shard", "magie") for v in VENTS]
@@ -510,6 +511,21 @@ def tex_bloc(bid):
                 d = abs(x - 7.5) + abs(y - 7.5)
                 if d <= 4:
                     t.p(x, y, mix((120, 90, 255), (80, 220, 255), d / 4))
+    elif bid == "etendard_de_camp":  # drapeau : bleu d'Azyr, bordure d'or, comète
+        for y in range(16):
+            for x in range(16):
+                t.p(x, y, (44, 70, 150) if (x + y) % 7 else (36, 60, 132))
+        for i in range(16):
+            for (x, y) in ((i, 0), (0, i), (15, i)):
+                t.p(x, y, (212, 166, 58))
+        for x in range(16):
+            if x % 4 < 2:
+                t.p(x, 15, (212, 166, 58))
+        for (x, y) in [(8, 3), (7, 4), (8, 4), (9, 4), (6, 5), (7, 5), (8, 5), (9, 5), (10, 5), (7, 6), (8, 6), (9, 6), (8, 7)]:
+            t.p(x, y, (242, 210, 122))
+        for i in range(4):
+            t.p(7 - i, 8 + i, (242, 210, 122))
+            t.p(9 + i, 8 + i, (242, 210, 122))
     elif bid == "portail_des_royaumes":
         for y in range(16):
             for x in range(16):
@@ -535,7 +551,30 @@ def modele_objet(oid, parent="minecraft:item/generated"):
     ecrire(os.path.join(ASSETS, "items", oid + ".json"), {"model": {"type": "minecraft:model", "model": "royaumes:item/" + oid}})
 
 
+def modele_etendard(bid):
+    """Étendard : socle, hampe dorée, traverse et drapeau (modèle à éléments)."""
+    t = T()
+    for y in range(16):
+        for x in range(16):
+            t.p(x, y, (212, 166, 58) if (y // 2) % 3 else (150, 110, 30))
+    t.im.save(os.path.join(ASSETS, "textures", "block", bid + "_hampe.png"))
+    h, d = "#hampe", "#drapeau"
+
+    def el(a, b, tex, cote=None):
+        faces = {f: {"texture": tex} for f in ("north", "south", "east", "west", "up", "down")}
+        return {"from": a, "to": b, "faces": faces}
+    ecrire(os.path.join(ASSETS, "models", "block", bid + ".json"), {
+        "parent": "minecraft:block/block", "textures": {"particle": "royaumes:block/" + bid + "_hampe",
+                                                         "hampe": "royaumes:block/" + bid + "_hampe", "drapeau": "royaumes:block/" + bid},
+        "elements": [el([4, 0, 4], [12, 2, 12], h), el([7, 2, 7], [9, 16, 9], h), el([2, 14, 7.5], [14, 15, 8.5], h),
+                     el([3, 3, 7.75], [13, 14, 8.25], d)]})
+    ecrire(os.path.join(ASSETS, "blockstates", bid + ".json"), {"variants": {"": {"model": "royaumes:block/" + bid}}})
+    ecrire(os.path.join(ASSETS, "items", bid + ".json"), {"model": {"type": "minecraft:model", "model": "royaumes:block/" + bid}})
+
+
 def modele_bloc(bid):
+    if bid == "etendard_de_camp":
+        return modele_etendard(bid)
     ecrire(os.path.join(ASSETS, "models", "block", bid + ".json"), {"parent": "minecraft:block/cube_all", "textures": {"all": "royaumes:block/" + bid}})
     ecrire(os.path.join(ASSETS, "blockstates", bid + ".json"), {"variants": {"": {"model": "royaumes:block/" + bid}}})
     ecrire(os.path.join(ASSETS, "items", bid + ".json"), {"model": {"type": "minecraft:model", "model": "royaumes:block/" + bid}})
@@ -579,6 +618,7 @@ def recettes():
     recette("bloc_pierre_royaumes", forme(["PPP", "PPP", "PPP"], {"P": "royaumes:pierre_royaumes_brute"}, "royaumes:bloc_pierre_royaumes"))
     recette("pierre_royaumes_brute_depuis_bloc", sans_forme(["royaumes:bloc_pierre_royaumes"], "royaumes:pierre_royaumes_brute", 9))
     recette("autel_arcanique", forme(["CCC", "GBG", "OOO"], {"C": "royaumes:cristal_arcanique", "G": "minecraft:gold_ingot", "B": "royaumes:bloc_pierre_royaumes", "O": "minecraft:obsidian"}, "royaumes:autel_arcanique"))
+    recette("etendard_de_camp", forme([" G ", " B ", " P "], {"G": "minecraft:gold_ingot", "B": "#minecraft:banners", "P": "royaumes:pierre_royaumes_brute"}, "royaumes:etendard_de_camp"))
     recette("portail_des_royaumes", forme(["OEO", "EBE", "OEO"], {"O": "minecraft:crying_obsidian", "E": "minecraft:ender_eye", "B": "royaumes:bloc_pierre_royaumes"}, "royaumes:portail_des_royaumes"))
     for b in BLOCS:
         bid, base = b[0], b[7]
@@ -711,6 +751,23 @@ def java(mobs, montures):
     for ligne in java_capacites([f["id"] for f in FACTIONS], jstr):
         a(ligne)
     a("")
+    a("    /** Camp de guerre : unités recrutables par faction (de la plus modeste à la plus puissante). */")
+    a("    public static final String[][] UNITES_CAMP = {")
+    a("        {},")
+    boss = {"nagash", "archaon", "gordrakk", "skarbrand", "thanquol", "rotigus"}
+    alias = {"ironjawz": "orruks", "kruleboyz": "orruks"}
+    for f in FACTIONS:
+        fac = alias.get(f["id"], f["id"])
+        ids = [m["id"] for m in mobs if m["fac"] == fac and m["id"] not in boss]
+        if f["id"] == "kruleboyz":
+            ids = [i for i in ids if i in ("gutrippa", "mirebrute", "idole_rogue")] or ids
+        elif f["id"] == "ironjawz":
+            ids = [i for i in ids if i in ("ardboy", "brute", "megaboss", "maw_krusha")] or ids
+        if len(ids) < 2:
+            ids = ids + [m["id"] for m in mobs if m["fac"] == "khorne" and m["id"] not in boss][:3]
+        a("        {" + ", ".join(jstr(i) for i in ids) + "},")
+    a("    };")
+    a("")
     a("    /** Œufs : créature -> couleurs (fond, taches) pour l'aperçu. */")
     a("    public static final String[] OEUFS_MOBS = {" + ", ".join(jstr(m["id"]) for m in mobs) + "};")
     a("    public static final String[] OEUFS_MONTURES = {" + ", ".join(jstr(m["id"]) for m in montures) + "};")
@@ -773,6 +830,9 @@ def traductions(mobs, montures):
         en[k] = b
     textes2 = {
         "key.royaumes.capacite": ("Capacité de faction", "Faction ability"),
+        "royaumes.camp.titre": ("Camp de guerre", "War Camp"),
+        "royaumes.camp.fonde": ("Ton camp de guerre est fondé ici.", "Your war camp is founded here."),
+        "royaumes.camp.pas_a_toi": ("Cet étendard appartient à un autre héros.", "This standard belongs to another hero."),
         "royaumes.capacite.attente": ("%s : encore %s s", "%s: %s s left"),
         "royaumes.capacite.sans": ("Prête d'abord serment à une faction (touche J).", "Swear an oath to a faction first (J key)."),
         "royaumes.capacite.pret": ("Capacité prête (R)", "Ability ready (R)"),

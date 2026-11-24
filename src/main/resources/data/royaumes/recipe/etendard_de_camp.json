@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    " B ",
+    " P "
+  ],
+  "key": {
+    "G": "minecraft:gold_ingot",
+    "B": "#minecraft:banners",
+    "P": "royaumes:pierre_royaumes_brute"
+  },
+  "result": {
+    "id": "royaumes:etendard_de_camp",
+    "count": 1
+  }
+}

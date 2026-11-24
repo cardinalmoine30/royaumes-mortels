@@ -70,3 +70,9 @@ net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent$LoggingIn
 net.minecraft.sounds.SoundEvents
 net.minecraft.resources.ResourceKey
 net.minecraft.world.entity.projectile.arrow.Arrow
+net.neoforged.neoforge.event.entity.living.LivingDeathEvent
+net.neoforged.neoforge.event.tick.EntityTickEvent$Post
+net.minecraft.world.entity.Mob
+net.minecraft.world.entity.ai.navigation.PathNavigation
+net.minecraft.world.scores.ScoreHolder
+net.minecraft.nbt.CompoundTag

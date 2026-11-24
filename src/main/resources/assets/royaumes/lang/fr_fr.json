@@ -436,5 +436,9 @@
   "key.royaumes.capacite": "Capacité de faction",
   "royaumes.capacite.attente": "%s : encore %s s",
   "royaumes.capacite.sans": "Prête d'abord serment à une faction (touche J).",
-  "royaumes.capacite.pret": "Capacité prête (R)"
+  "royaumes.capacite.pret": "Capacité prête (R)",
+  "block.royaumes.etendard_de_camp": "Étendard de camp",
+  "royaumes.camp.titre": "Camp de guerre",
+  "royaumes.camp.fonde": "Ton camp de guerre est fondé ici.",
+  "royaumes.camp.pas_a_toi": "Cet étendard appartient à un autre héros."
 }
