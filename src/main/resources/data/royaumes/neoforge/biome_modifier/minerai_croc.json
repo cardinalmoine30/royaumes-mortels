@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:ghur_jungle",
+    "royaumes:ghur_savane",
+    "royaumes:ghur_terres"
+  ],
+  "features": "royaumes:minerai_croc",
+  "step": "underground_ores"
+}

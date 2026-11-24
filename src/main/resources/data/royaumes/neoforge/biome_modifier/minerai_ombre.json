@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:ulgu_brumes",
+    "royaumes:ulgu_marais_lune",
+    "royaumes:ulgu_mer"
+  ],
+  "features": "royaumes:minerai_ombre",
+  "step": "underground_ores"
+}

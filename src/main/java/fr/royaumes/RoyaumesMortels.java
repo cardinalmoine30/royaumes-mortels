@@ -24,6 +24,7 @@ public class RoyaumesMortels {
         NeoForge.EVENT_BUS.addListener(fr.royaumes.reseau.Reseau::tickServeur);
         NeoForge.EVENT_BUS.addListener(fr.royaumes.camp.EvenementsCamp::tickEntite);
         NeoForge.EVENT_BUS.addListener(fr.royaumes.camp.EvenementsCamp::mort);
+        NeoForge.EVENT_BUS.addListener(fr.royaumes.camp.EvenementsCamp::degats);
         NeoForge.EVENT_BUS.register(this);
     }
 

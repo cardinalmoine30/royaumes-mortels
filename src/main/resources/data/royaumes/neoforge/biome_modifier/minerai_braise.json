@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:aqshy_cendres",
+    "royaumes:aqshy_volcans"
+  ],
+  "features": "royaumes:minerai_braise",
+  "step": "underground_ores"
+}

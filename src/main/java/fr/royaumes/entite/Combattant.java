@@ -116,6 +116,17 @@ public class Combattant extends PathfinderMob implements GeoEntity {
         if (fr.royaumes.camp.CampsPlus.allies(this, cible)) {
             return false;
         }
+        if (!this.entityTags().contains(fr.royaumes.camp.Camps.UNITE) && !profil().boss()) {
+            // équilibrage : un guerrier ne cherche un héros qu'à 16 blocs, et épargne les novices (niveau < 5)
+            // tant qu'ils ne l'attaquent pas (la riposte passe par HurtByTargetGoal)
+            if (this.distanceTo(cible) > 16) {
+                return false;
+            }
+            if (this.level() instanceof ServerLevel sl && cible instanceof Player j
+                    && fr.royaumes.camp.Camps.niveauJoueur(sl.getServer(), j) < 5) {
+                return false;
+            }
+        }
         String e = equipeDe(cible);
         if ("rm_ordre".equals(profil().equipe())) {
             return e.startsWith("rm_") && !e.equals(profil().equipe());
@@ -143,6 +154,19 @@ public class Combattant extends PathfinderMob implements GeoEntity {
 
     // ------------------------------------------------------------------ boucle principale
 
+    /** Un boss légitime (invoqué, œuf, commande) reçoit la marque rm_appele ; les autres disparaissent. */
+    @Override
+    public net.minecraft.world.entity.SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor monde,
+            net.minecraft.world.DifficultyInstance difficulte, net.minecraft.world.entity.EntitySpawnReason raison,
+            net.minecraft.world.entity.SpawnGroupData donnees) {
+        if (profil().boss() && raison != net.minecraft.world.entity.EntitySpawnReason.NATURAL
+                && raison != net.minecraft.world.entity.EntitySpawnReason.CHUNK_GENERATION
+                && raison != net.minecraft.world.entity.EntitySpawnReason.STRUCTURE) {
+            this.addTag("rm_appele");
+        }
+        return super.finalizeSpawn(monde, difficulte, raison, donnees);
+    }
+
     @Override
     public void tick() {
         super.tick();
@@ -150,6 +174,16 @@ public class Combattant extends PathfinderMob implements GeoEntity {
             return;
         }
         Profil p = profil();
+        if (p.boss() && this.tickCount == 3 && !this.entityTags().contains("rm_appele")) {
+            // boss posé par une structure : il laisse place à l'Autel des Seigneurs, où l'on doit l'invoquer
+            var autel = fr.royaumes.ModObjets.BLOCS_PAR_ID.get("autel_des_seigneurs");
+            net.minecraft.core.BlockPos pos = this.blockPosition();
+            if (autel != null && niveau.getBlockState(pos.below()).isSolid()) {
+                niveau.setBlock(pos, autel.get().defaultBlockState(), 3);
+            }
+            this.discard();
+            return;
+        }
         if (this.getTeam() == null && this.tickCount % 20 == 1) {
             Scoreboard sb = niveau.getScoreboard();
             PlayerTeam equipe = sb.getPlayerTeam(p.equipe());

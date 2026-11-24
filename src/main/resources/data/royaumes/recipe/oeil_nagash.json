@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:ender_eye",
+    "royaumes:eclat_shyish",
+    "royaumes:eclat_shyish",
+    "royaumes:pierre_royaumes_brute"
+  ],
+  "result": {
+    "id": "royaumes:oeil_nagash",
+    "count": 1
+  }
+}

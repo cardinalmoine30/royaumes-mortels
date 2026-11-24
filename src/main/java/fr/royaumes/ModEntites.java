@@ -6,7 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -66,9 +68,25 @@ public final class ModEntites {
         MONTURES.forEach((id, type) -> event.put(type.get(), Monture.creerAttributs(PROFILS_MONTURES.get(id)).build()));
     }
 
+    /**
+     * Apparitions naturelles équilibrées : jamais de boss (ils s'invoquent à leur autel), une chance sur trois
+     * seulement, et pas plus de 6 guerriers de faction dans un rayon de 32 blocs.
+     */
     private static void placements(RegisterSpawnPlacementsEvent event) {
-        ENTITES.values().forEach(type -> event.register(type.get(), SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules,
-                RegisterSpawnPlacementsEvent.Operation.REPLACE));
+        ENTITES.forEach((id, type) -> {
+            boolean boss = PROFILS.get(id) != null && PROFILS.get(id).boss();
+            event.register(type.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    (t, niveau, raison, pos, alea) -> {
+                        if (raison == EntitySpawnReason.NATURAL || raison == EntitySpawnReason.CHUNK_GENERATION) {
+                            if (boss || alea.nextFloat() > 0.33F) {
+                                return false;
+                            }
+                            if (niveau.getEntitiesOfClass(Combattant.class, new AABB(pos).inflate(32)).size() >= 6) {
+                                return false;
+                            }
+                        }
+                        return Mob.checkMobSpawnRules(t, niveau, raison, pos, alea);
+                    }, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        });
     }
 }

@@ -5,7 +5,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.JsonOps;
 import fr.royaumes.bloc.BlocAutel;
+import fr.royaumes.bloc.BlocAutelSeigneurs;
 import fr.royaumes.bloc.BlocEtendard;
+import fr.royaumes.objet.OeilSeigneur;
+import fr.royaumes.objet.ReliqueSeigneur;
 import fr.royaumes.bloc.BlocPortail;
 import fr.royaumes.objet.BatonVent;
 import fr.royaumes.objet.CristalArcanique;
@@ -54,6 +57,10 @@ public final class ModObjets {
     public static final DeferredItem<Item> PIERRE_BRUTE = OBJETS.registerSimpleItem("pierre_royaumes_brute", p -> p.rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> CRISTAL = OBJETS.registerItem("cristal_arcanique", CristalArcanique::new, p -> p.rarity(Rarity.RARE).stacksTo(16));
     public static final DeferredItem<Item> GRIMOIRE = OBJETS.registerItem("grimoire_des_vents", GrimoireVents::new, p -> p.rarity(Rarity.RARE).stacksTo(1));
+    public static final DeferredItem<Item> MALEPIERRE = OBJETS.registerSimpleItem("malepierre", p -> p.rarity(Rarity.RARE));
+    /** Reliques uniques des six seigneurs (lâchées à leur mort) et yeux qui mènent à leurs antres. */
+    public static final Map<String, DeferredItem<Item>> RELIQUES = new LinkedHashMap<>();
+    public static final List<DeferredItem<Item>> YEUX = new ArrayList<>();
     public static final DeferredItem<Item> MARTEAU = OBJETS.registerItem("marteau_tempete", Item::new,
             p -> p.sword(ToolMaterial.NETHERITE, 5.0F, -3.0F).rarity(Rarity.EPIC).fireResistant());
 
@@ -63,6 +70,30 @@ public final class ModObjets {
             String v = ContenuGenere.VENTS[i];
             BATONS.add(OBJETS.registerItem("baton_" + v, p -> new BatonVent(p, vent), p -> p.stacksTo(1).rarity(Rarity.RARE)));
             ECLATS.add(OBJETS.registerSimpleItem("eclat_" + v, p -> p.rarity(Rarity.UNCOMMON)));
+        }
+        RELIQUES.put("nagash", OBJETS.registerItem("relique_nagash", p -> new ReliqueSeigneur(p, "nagash",
+                "Armée des Morts (4 squelettes alliés)", "Main de Nagash (draine la vie autour de toi)"),
+                p -> p.stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+        RELIQUES.put("archaon", OBJETS.registerItem("relique_archaon", p -> new ReliqueSeigneur(p, "archaon",
+                "Œil de Sheerian (aveugle et affaiblit, force et résistance)"),
+                p -> p.sword(ToolMaterial.NETHERITE, 8.0F, -2.4F).rarity(Rarity.EPIC).fireResistant()));
+        RELIQUES.put("gordrakk", OBJETS.registerItem("relique_gordrakk", p -> new ReliqueSeigneur(p, "gordrakk",
+                "Onde du Waaagh ! (projette et écrase tout autour)"),
+                p -> p.sword(ToolMaterial.NETHERITE, 10.0F, -3.2F).rarity(Rarity.EPIC).fireResistant()));
+        RELIQUES.put("skarbrand", OBJETS.registerItem("relique_skarbrand", p -> new ReliqueSeigneur(p, "skarbrand",
+                "Rugissement de rage (cône de feu)"),
+                p -> p.sword(ToolMaterial.NETHERITE, 9.0F, -2.8F).rarity(Rarity.EPIC).fireResistant()));
+        RELIQUES.put("thanquol", OBJETS.registerItem("relique_thanquol", p -> new ReliqueSeigneur(p, "thanquol",
+                "Malefeu (salve de 5 boules de feu)", "Saut par la Warp"),
+                p -> p.stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+        RELIQUES.put("rotigus", OBJETS.registerItem("relique_rotigus", p -> new ReliqueSeigneur(p, "rotigus",
+                "Pluie de pestilence (poison et lenteur, régénération)"),
+                p -> p.stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+        String[][] yeux = {{"nagash", "Nagash", "Shyish (Terres de Shyish)"}, {"archaon", "l'Élu Éternel", "les Huit-Points (Désolation du Chaos)"},
+                {"gordrakk", "Gordrakk", "Ghur (Terres de Ghur)"}, {"skarbrand", "Skarbrand", "Aqshy (Cendres d'Aqshy)"},
+                {"thanquol", "Thanquol", "les Huit-Points (Terres Rongées)"}, {"rotigus", "Rotigus", "Ghyran (Marais de Ghyran)"}};
+        for (String[] y : yeux) {
+            YEUX.add(OBJETS.registerItem("oeil_" + y[0], p -> new OeilSeigneur(p, y[0], y[1], y[2]), p -> p.stacksTo(16).rarity(Rarity.RARE)));
         }
         for (int i = 0; i < ContenuGenere.BLOCS.length; i++) {
             final String id = ContenuGenere.BLOCS[i];
@@ -74,6 +105,7 @@ public final class ModObjets {
                 case "AUTEL" -> new BlocAutel(props);
                 case "PORTAIL" -> new BlocPortail(props);
                 case "CAMP" -> new BlocEtendard(props);
+                case "SEIGNEURS" -> new BlocAutelSeigneurs(props);
                 default -> new Block(props);
             }, p -> proprietes(p, durete, lumiere, bois));
             BLOCS_PAR_ID.put(id, bloc);
@@ -97,6 +129,7 @@ public final class ModObjets {
                 .icon(() -> new ItemStack(MARTEAU.get()))
                 .displayItems((params, sortie) -> {
                     sortie.accept(MARTEAU.get());
+                    RELIQUES.values().forEach(r -> sortie.accept(r.get()));
                     depuisDatapack(params, sortie, "armes");
                 }).build());
         ONGLETS.register("magie", () -> CreativeModeTab.builder()
@@ -108,6 +141,8 @@ public final class ModObjets {
                     sortie.accept(PIERRE_BRUTE.get());
                     sortie.accept(CRISTAL.get());
                     sortie.accept(GRIMOIRE.get());
+                    sortie.accept(MALEPIERRE.get());
+                    YEUX.forEach(y -> sortie.accept(y.get()));
                     sortie.accept(BLOCS_PAR_ID.get("autel_arcanique").get());
                     depuisDatapack(params, sortie, "magie");
                 }).build());

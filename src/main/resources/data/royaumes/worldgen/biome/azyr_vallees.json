@@ -1,254 +1,249 @@
 {
- "attributes": {
-  "minecraft:audio/background_music": {
-   "default": {
-    "max_delay": 24000,
-    "min_delay": 12000,
-    "sound": "minecraft:music.overworld.meadow"
-   }
-  },
-  "minecraft:gameplay/natural_mob_spawns": {
-   "argument": {
-    "spawn_costs": {},
-    "spawns_by_category": {
-     "ambient": [
-      {
-       "type": "minecraft:bat",
-       "count": 8,
-       "weight": 10
+  "attributes": {
+    "minecraft:audio/background_music": {
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.overworld.meadow"
       }
-     ],
-     "creature": [
-      {
-       "type": "minecraft:donkey",
-       "count": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 2,
-        "min_inclusive": 1
-       },
-       "weight": 1
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "ambient": [
+            {
+              "type": "minecraft:bat",
+              "count": 8,
+              "weight": 10
+            }
+          ],
+          "creature": [
+            {
+              "type": "minecraft:donkey",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              },
+              "weight": 1
+            },
+            {
+              "type": "minecraft:rabbit",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 6,
+                "min_inclusive": 2
+              },
+              "weight": 2
+            },
+            {
+              "type": "minecraft:sheep",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 4,
+                "min_inclusive": 2
+              },
+              "weight": 2
+            }
+          ],
+          "monster": [
+            {
+              "type": "royaumes:liberator",
+              "count": 1,
+              "weight": 15
+            },
+            {
+              "type": "royaumes:judicator",
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 3
+              },
+              "weight": 40
+            },
+            {
+              "type": "royaumes:prosecutor",
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 3
+              },
+              "weight": 40
+            },
+            {
+              "type": "royaumes:vindictor",
+              "count": 1,
+              "weight": 15
+            },
+            {
+              "type": "royaumes:lord_celestant",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "type": "royaumes:stardrake",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "type": "royaumes:dracoth",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "type": "royaumes:gryph_charger",
+              "count": 1,
+              "weight": 15
+            },
+            {
+              "type": "royaumes:heaumefer",
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 3
+              },
+              "weight": 40
+            },
+            {
+              "type": "royaumes:cavalier_franc",
+              "count": 1,
+              "weight": 15
+            },
+            {
+              "type": "royaumes:fusilier",
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 3
+              },
+              "weight": 40
+            },
+            {
+              "type": "royaumes:griffon",
+              "count": 1,
+              "weight": 4
+            },
+            {
+              "type": "royaumes:demigryph",
+              "count": 1,
+              "weight": 15
+            },
+            {
+              "type": "royaumes:dragon",
+              "count": 1,
+              "weight": 1
+            }
+          ],
+          "underground_water_creature": [
+            {
+              "type": "minecraft:glow_squid",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 6,
+                "min_inclusive": 4
+              },
+              "weight": 10
+            }
+          ]
+        }
       },
-      {
-       "type": "minecraft:rabbit",
-       "count": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 6,
-        "min_inclusive": 2
-       },
-       "weight": 2
-      },
-      {
-       "type": "minecraft:sheep",
-       "count": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 4,
-        "min_inclusive": 2
-       },
-       "weight": 2
-      }
-     ],
-     "monster": [
-      {
-       "type": "royaumes:liberator",
-       "count": 1,
-       "weight": 15
-      },
-      {
-       "type": "royaumes:judicator",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
-      },
-      {
-       "type": "royaumes:prosecutor",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
-      },
-      {
-       "type": "royaumes:vindictor",
-       "count": 1,
-       "weight": 15
-      },
-      {
-       "type": "royaumes:lord_celestant",
-       "count": 1,
-       "weight": 4
-      },
-      {
-       "type": "royaumes:stardrake",
-       "count": 1,
-       "weight": 1
-      },
-      {
-       "type": "royaumes:dracoth",
-       "count": 1,
-       "weight": 4
-      },
-      {
-       "type": "royaumes:gryph_charger",
-       "count": 1,
-       "weight": 15
-      },
-      {
-       "type": "royaumes:heaumefer",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
-      },
-      {
-       "type": "royaumes:cavalier_franc",
-       "count": 1,
-       "weight": 15
-      },
-      {
-       "type": "royaumes:fusilier",
-       "count": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 1,
-        "max_inclusive": 3
-       },
-       "weight": 40
-      },
-      {
-       "type": "royaumes:griffon",
-       "count": 1,
-       "weight": 4
-      },
-      {
-       "type": "royaumes:demigryph",
-       "count": 1,
-       "weight": 15
-      },
-      {
-       "type": "royaumes:dragon",
-       "count": 1,
-       "weight": 1
-      }
-     ],
-     "underground_water_creature": [
-      {
-       "type": "minecraft:glow_squid",
-       "count": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 6,
-        "min_inclusive": 4
-       },
-       "weight": 10
-      }
-     ]
+      "modifier": "overlay"
+    },
+    "minecraft:visual/sky_color": "#4a8aff",
+    "minecraft:visual/fog_color": "#a8c8ff",
+    "minecraft:visual/water_fog_color": "#1a6a50",
+    "minecraft:gameplay/monsters_burn": false,
+    "minecraft:visual/ambient_particles": {
+      "argument": [
+        {
+          "particle": {
+            "type": "minecraft:electric_spark"
+          },
+          "probability": 0.002
+        }
+      ],
+      "modifier": "append"
     }
-   },
-   "modifier": "overlay"
   },
-  "minecraft:visual/sky_color": "#4a8aff",
-  "minecraft:visual/fog_color": "#a8c8ff",
-  "minecraft:visual/water_fog_color": "#1a6a50",
-  "minecraft:gameplay/monsters_burn": false,
-  "minecraft:visual/ambient_particles": {
-   "argument": [
-    {
-     "particle": {
-      "type": "minecraft:electric_spark"
-     },
-     "probability": 0.002
-    }
-   ],
-   "modifier": "append"
-  }
- },
- "carvers": [
-  "minecraft:cave",
-  "minecraft:cave_extra_underground",
-  "minecraft:canyon"
- ],
- "downfall": 0.9,
- "effects": {
-  "water_color": "#3fbfa0",
-  "grass_color": "#7ac0a0",
-  "foliage_color": "#6ab0c0",
-  "dry_foliage_color": "#6ab0c0"
- },
- "features": [
-  [],
-  [
-   "minecraft:lake_lava_underground",
-   "minecraft:lake_lava_surface"
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
   ],
-  [
-   "minecraft:amethyst_geode"
+  "downfall": 0.9,
+  "effects": {
+    "water_color": "#3fbfa0",
+    "grass_color": "#7ac0a0",
+    "foliage_color": "#6ab0c0",
+    "dry_foliage_color": "#6ab0c0"
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [
+      "royaumes:decor_arbre_esprit",
+      "royaumes:decor_cercle_pierres",
+      "royaumes:decor_sanctuaire_alarielle",
+      "royaumes:decor_arbre_wyldwood_a"
+    ],
+    [],
+    [
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
+      "minecraft:ore_tuff",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_medium",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:underwater_magma",
+      "minecraft:disk_sand",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel",
+      "minecraft:ore_emerald"
+    ],
+    [
+      "minecraft:ore_infested"
+    ],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava"
+    ],
+    [
+      "minecraft:glow_lichen",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:patch_grass_meadow",
+      "minecraft:flower_meadow",
+      "minecraft:trees_meadow",
+      "minecraft:wildflowers_meadow"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ],
-  [
-   "minecraft:monster_room",
-   "minecraft:monster_room_deep"
-  ],
-  [
-   "royaumes:decor_arbre_esprit",
-   "royaumes:decor_cercle_pierres",
-   "royaumes:decor_sanctuaire_alarielle",
-   "royaumes:decor_arbre_wyldwood_a"
-  ],
-  [],
-  [
-   "minecraft:ore_dirt",
-   "minecraft:ore_gravel",
-   "minecraft:ore_granite_upper",
-   "minecraft:ore_granite_lower",
-   "minecraft:ore_diorite_upper",
-   "minecraft:ore_diorite_lower",
-   "minecraft:ore_andesite_upper",
-   "minecraft:ore_andesite_lower",
-   "minecraft:ore_tuff",
-   "minecraft:ore_coal_upper",
-   "minecraft:ore_coal_lower",
-   "minecraft:ore_iron_upper",
-   "minecraft:ore_iron_middle",
-   "minecraft:ore_iron_small",
-   "minecraft:ore_gold",
-   "minecraft:ore_gold_lower",
-   "minecraft:ore_redstone",
-   "minecraft:ore_redstone_lower",
-   "minecraft:ore_diamond",
-   "minecraft:ore_diamond_medium",
-   "minecraft:ore_diamond_large",
-   "minecraft:ore_diamond_buried",
-   "minecraft:ore_lapis",
-   "minecraft:ore_lapis_buried",
-   "minecraft:ore_copper",
-   "minecraft:underwater_magma",
-   "minecraft:disk_sand",
-   "minecraft:disk_clay",
-   "minecraft:disk_gravel",
-   "minecraft:ore_emerald"
-  ],
-  [
-   "minecraft:ore_infested"
-  ],
-  [
-   "minecraft:spring_water",
-   "minecraft:spring_lava"
-  ],
-  [
-   "minecraft:glow_lichen",
-   "minecraft:patch_tall_grass_2",
-   "minecraft:patch_grass_meadow",
-   "minecraft:flower_meadow",
-   "minecraft:trees_meadow",
-   "minecraft:wildflowers_meadow"
-  ],
-  [
-   "minecraft:freeze_top_layer"
-  ]
- ],
- "has_precipitation": true,
- "temperature": 0.7
+  "has_precipitation": true,
+  "temperature": 0.7
 }

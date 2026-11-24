@@ -731,7 +731,8 @@ def gen_boss():
             f'bossbar set {NS}:{bid} visible true',
             "particle minecraft:explosion_emitter ^ ^1 ^7 0 0 0 0 1",
             "playsound minecraft:entity.lightning_bolt.thunder hostile @a[distance=..60] ~ ~ ~ 2 0.6", "return 1"])
-        L.append(f"execute if items entity @s weapon.mainhand {pred} run return run function {NS}:boss/{bid}/invoquer")
+        # les seigneurs ne s'invoquent plus n'importe où : il faut utiliser le sceau sur l'Autel des Seigneurs de leur antre
+        L.append(f'execute if items entity @s weapon.mainhand {pred} run return run tellraw @s {{"text": "Ce sceau ne s\'éveille que sur l\'Autel des Seigneurs, au cœur de l\'antre du seigneur. Suis son Œil pour le trouver.", "color": "gold"}}')
     ppred = 'minecraft:carrot_on_a_stick[minecraft:custom_data~{royaumes:"parchemin"}]'
     L.append(f"execute if items entity @s weapon.mainhand {ppred} run return run function {NS}:rpg/parchemin")
     fn("objets/utiliser", L + ["return 0"])

@@ -76,3 +76,4 @@ net.minecraft.world.entity.Mob
 net.minecraft.world.entity.ai.navigation.PathNavigation
 net.minecraft.world.scores.ScoreHolder
 net.minecraft.nbt.CompoundTag
+net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent

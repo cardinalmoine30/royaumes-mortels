@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:shyish_sables",
+    "royaumes:shyish_terres"
+  ],
+  "features": "royaumes:minerai_ames",
+  "step": "underground_ores"
+}

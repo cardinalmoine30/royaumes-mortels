@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:chaos_desolation",
+    "royaumes:terres_rongees"
+  ],
+  "features": "royaumes:minerai_malepierre",
+  "step": "underground_ores"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:ender_eye",
+    "royaumes:malepierre",
+    "royaumes:malepierre",
+    "royaumes:pierre_royaumes_brute"
+  ],
+  "result": {
+    "id": "royaumes:oeil_thanquol",
+    "count": 1
+  }
+}

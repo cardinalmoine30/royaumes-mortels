@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "royaumes:obsidienne_corrompue",
-    "royaumes:portail_des_royaumes"
+    "royaumes:portail_des_royaumes",
+    "royaumes:autel_des_seigneurs"
   ]
 }

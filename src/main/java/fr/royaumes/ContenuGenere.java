@@ -63,11 +63,11 @@ public final class ContenuGenere {
     };
 
     /** Blocs : id, outil, dureté, lumière, type spécial. */
-    public static final String[] BLOCS = {"marbre_celeste", "marbre_celeste_grave", "basalte_ardent", "brique_de_braise", "os_de_monstre", "pierre_de_croc", "bois_de_vie", "jade_vivant", "pierre_de_lumiere", "cristal_de_hysh", "ardoise_d_ombre", "brume_figee", "pierre_funeraire", "dalle_des_ames", "cuivre_alchimique", "or_vif", "obsidienne_corrompue", "pierre_du_chaos", "minerai_pierre_royaumes", "minerai_pierre_royaumes_profond", "bloc_pierre_royaumes", "autel_arcanique", "portail_des_royaumes", "etendard_de_camp"};
-    public static final float[] BLOCS_DURETE = {1.5f, 1.5f, 1.8f, 2.0f, 2.0f, 2.0f, 2.0f, 1.8f, 1.5f, 1.2f, 2.5f, 1.0f, 2.0f, 2.0f, 3.0f, 3.0f, 20.0f, 3.0f, 3.0f, 4.5f, 5.0f, 3.5f, 25.0f, 2.0f};
-    public static final int[] BLOCS_LUMIERE = {0, 0, 7, 4, 0, 0, 0, 3, 15, 12, 0, 2, 0, 5, 0, 2, 3, 6, 4, 4, 9, 10, 11, 6};
-    public static final boolean[] BLOCS_BOIS = {false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true};
-    public static final String[] BLOCS_SPECIAL = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "AUTEL", "PORTAIL", "CAMP"};
+    public static final String[] BLOCS = {"marbre_celeste", "marbre_celeste_grave", "basalte_ardent", "brique_de_braise", "os_de_monstre", "pierre_de_croc", "bois_de_vie", "jade_vivant", "pierre_de_lumiere", "cristal_de_hysh", "ardoise_d_ombre", "brume_figee", "pierre_funeraire", "dalle_des_ames", "cuivre_alchimique", "or_vif", "obsidienne_corrompue", "pierre_du_chaos", "minerai_pierre_royaumes", "minerai_pierre_royaumes_profond", "bloc_pierre_royaumes", "autel_arcanique", "portail_des_royaumes", "etendard_de_camp", "autel_des_seigneurs", "minerai_azyrite", "minerai_braise", "minerai_croc", "minerai_jade", "minerai_lumineux", "minerai_ombre", "minerai_ames", "minerai_or_vif", "minerai_malepierre"};
+    public static final float[] BLOCS_DURETE = {1.5f, 1.5f, 1.8f, 2.0f, 2.0f, 2.0f, 2.0f, 1.8f, 1.5f, 1.2f, 2.5f, 1.0f, 2.0f, 2.0f, 3.0f, 3.0f, 20.0f, 3.0f, 3.0f, 4.5f, 5.0f, 3.5f, 25.0f, 2.0f, 50.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 4.0f};
+    public static final int[] BLOCS_LUMIERE = {0, 0, 7, 4, 0, 0, 0, 3, 15, 12, 0, 2, 0, 5, 0, 2, 3, 6, 4, 4, 9, 10, 11, 6, 7, 3, 5, 0, 2, 8, 0, 4, 2, 6};
+    public static final boolean[] BLOCS_BOIS = {false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false};
+    public static final String[] BLOCS_SPECIAL = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "AUTEL", "PORTAIL", "CAMP", "SEIGNEURS", "", "", "", "", "", "", "", "", ""};
 
     /** Écran de serment : données des 25 factions (index = numéro rm_faction, 0 = aucune). */
     public static final String[] ALLIANCES = {"", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "ordre", "chaos", "chaos", "chaos", "chaos", "chaos", "chaos", "chaos", "mort", "mort", "mort", "mort", "destruction", "destruction", "destruction", "destruction", "destruction"};

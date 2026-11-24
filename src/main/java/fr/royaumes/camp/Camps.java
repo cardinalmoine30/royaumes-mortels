@@ -93,6 +93,11 @@ public final class Camps {
         return (int) (s.overworld().getGameTime() / 20);
     }
 
+    /** Niveau RPG d'un joueur (rm_niveau du datapack). */
+    public static int niveauJoueur(MinecraftServer s, ScoreHolder j) {
+        return get(s.getScoreboard(), j, "rm_niveau");
+    }
+
     public static int maxUnites(int niveau) {
         return 2 + 2 * niveau;
     }
@@ -175,6 +180,10 @@ public final class Camps {
 
     public static void fonder(ServerPlayer p, BlockPos pos) {
         Scoreboard sb = sb(p);
+        if (!Magie.estDans(p.level(), "minecraft:overworld")) {
+            msg(p, "Un camp de guerre ne se fonde que dans le monde de base (l'Overworld) : les Royaumes sont des terres de conquête.", ChatFormatting.RED);
+            return;
+        }
         set(sb, p, "rm_camp_x", pos.getX());
         set(sb, p, "rm_camp_y", pos.getY());
         set(sb, p, "rm_camp_z", pos.getZ());
@@ -194,6 +203,9 @@ public final class Camps {
         if (!estSonEtendard(p, pos)) {
             if (!aUnCamp(p)) {
                 fonder(p, pos);
+                if (!aUnCamp(p)) {
+                    return;
+                }
             } else {
                 if (!CampsPlus.ouvrirInvite(p, pos)) {
                     p.sendOverlayMessage(Component.translatable("royaumes.camp.pas_a_toi").withStyle(ChatFormatting.GRAY));

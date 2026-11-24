@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:hysh_iles",
+    "royaumes:hysh_plateaux"
+  ],
+  "features": "royaumes:minerai_lumineux",
+  "step": "underground_ores"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:ghyran_jade",
+    "royaumes:ghyran_marais",
+    "royaumes:ghyran_wyldwood"
+  ],
+  "features": "royaumes:minerai_jade",
+  "step": "underground_ores"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:chamon_collines",
+    "royaumes:chamon_desert"
+  ],
+  "features": "royaumes:minerai_or_vif",
+  "step": "underground_ores"
+}

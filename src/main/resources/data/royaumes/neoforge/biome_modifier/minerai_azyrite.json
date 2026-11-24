@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "royaumes:azyr_cimes",
+    "royaumes:azyr_vallees"
+  ],
+  "features": "royaumes:minerai_azyrite",
+  "step": "underground_ores"
+}

@@ -86,6 +86,9 @@ execute if block 3 100 2 royaumes:autel_arcanique run say Autel OK
 execute if block 5 100 2 royaumes:marbre_celeste_grave run say Marbre OK
 setblock 6 100 2 royaumes:etendard_de_camp
 execute if block 6 100 2 royaumes:etendard_de_camp run say Etendard OK
+setblock 7 100 2 royaumes:autel_des_seigneurs
+setblock 8 100 2 royaumes:minerai_malepierre
+execute if block 7 100 2 royaumes:autel_des_seigneurs run say Autel seigneurs OK
 summon item 2 102 2 {Item:{id:"royaumes:baton_azyr",count:1}}
 summon item 2 102 3 {Item:{id:"royaumes:oeuf_liberator",count:1}}
 summon item 2 102 4 {Item:{id:"royaumes:marteau_tempete",count:1}}

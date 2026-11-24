@@ -84,15 +84,51 @@ BLOCS = [
     ("autel_arcanique", "Autel arcanique", "Arcane Altar", "", "pioche", 3.5, 10, None),
     ("portail_des_royaumes", "Portail des Royaumes", "Realmgate", "", "pioche", 25.0, 11, None),
     ("etendard_de_camp", "Étendard de camp", "War Camp Standard", "", "hache", 2.0, 6, None),
+    ("autel_des_seigneurs", "Autel des Seigneurs", "Altar of the Lords", "", "pioche", 50.0, 7, None),
+    ("minerai_azyrite", "Minerai d'azyrite", "Azyrite Ore", "azyr", "pioche", 3.0, 3, None),
+    ("minerai_braise", "Minerai de braise", "Emberstone Ore", "aqshy", "pioche", 3.0, 5, None),
+    ("minerai_croc", "Minerai d'ivoire de croc", "Fang Ivory Ore", "ghur", "pioche", 3.0, 0, None),
+    ("minerai_jade", "Minerai de jade de vie", "Lifejade Ore", "ghyran", "pioche", 3.0, 2, None),
+    ("minerai_lumineux", "Minerai de lumière", "Lightstone Ore", "hysh", "pioche", 3.0, 8, None),
+    ("minerai_ombre", "Minerai d'ombre", "Shadowstone Ore", "ulgu", "pioche", 3.0, 0, None),
+    ("minerai_ames", "Minerai d'âmes", "Soulstone Ore", "shyish", "pioche", 3.0, 4, None),
+    ("minerai_or_vif", "Minerai d'or vif", "Quickgold Ore", "chamon", "pioche", 3.0, 2, None),
+    ("minerai_malepierre", "Minerai de malepierre", "Warpstone Ore", "chaos", "pioche", 4.0, 6, None),
 ]
-SPECIAUX = {"autel_arcanique": "AUTEL", "portail_des_royaumes": "PORTAIL", "etendard_de_camp": "CAMP"}
+# minerai -> (objet donné, min, max, Royaume / dimensions, filon, nombre de filons, hauteur max)
+MINERAIS = {
+    "minerai_azyrite": ("royaumes:eclat_azyr", 1, 2, ["azyr_"], 5, 8, 160),
+    "minerai_braise": ("royaumes:eclat_aqshy", 1, 2, ["aqshy_"], 6, 9, 120),
+    "minerai_croc": ("royaumes:eclat_ghur", 1, 2, ["ghur_"], 6, 9, 120),
+    "minerai_jade": ("royaumes:eclat_ghyran", 1, 2, ["ghyran_"], 5, 8, 120),
+    "minerai_lumineux": ("royaumes:eclat_hysh", 1, 2, ["hysh_"], 5, 8, 200),
+    "minerai_ombre": ("royaumes:eclat_ulgu", 1, 2, ["ulgu_"], 5, 8, 100),
+    "minerai_ames": ("royaumes:eclat_shyish", 1, 2, ["shyish_"], 5, 8, 100),
+    "minerai_or_vif": ("royaumes:eclat_chamon", 1, 2, ["chamon_"], 7, 10, 140),
+    "minerai_malepierre": ("royaumes:malepierre", 1, 3, ["chaos_", "terres_rongees"], 4, 7, 100),
+}
+SPECIAUX = {"autel_arcanique": "AUTEL", "portail_des_royaumes": "PORTAIL", "etendard_de_camp": "CAMP", "autel_des_seigneurs": "SEIGNEURS"}
 # objets simples : id, nom fr, nom en, onglet
 OBJETS = [("baton_" + v[0], "Bâton " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1], v[1] + " Staff", "magie") for v in VENTS]
 OBJETS += [("eclat_" + v[0], "Éclat " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1], v[1] + " Shard", "magie") for v in VENTS]
 OBJETS += [("pierre_royaumes_brute", "Pierre des Royaumes brute", "Raw Realmstone", "magie"),
            ("cristal_arcanique", "Cristal arcanique", "Arcane Crystal", "magie"),
            ("grimoire_des_vents", "Grimoire des Vents", "Grimoire of the Winds", "magie"),
-           ("marteau_tempete", "Marteau-tempête", "Stormhammer", "armes")]
+           ("marteau_tempete", "Marteau-tempête", "Stormhammer", "armes"),
+           ("malepierre", "Malepierre", "Warpstone", "magie")]
+# reliques des six seigneurs, et l'œil qui mène à l'antre de chacun : id, nom, Royaume de l'antre, structure
+SEIGNEURS = [
+    ("nagash", "Sceptre de Nagash", "Zefet-nebtar, sceptre du Grand Nécromancien", "Shyish", "necropole_nagash", (150, 90, 210), (60, 220, 160)),
+    ("archaon", "Pourfendeuse des Rois", "La lame démoniaque d'Archaon, l'Élu Éternel", "les Huit-Points", "trone_archaon", (140, 20, 30), (230, 200, 90)),
+    ("gordrakk", "Krokfendeur de Gordrakk", "La hache-poing de Gordrakk, le Poing de Gork", "Ghur", "arene_gordrakk", (80, 140, 40), (200, 160, 60)),
+    ("skarbrand", "Massacre et Carnage", "Les haches jumelles de Skarbrand l'Exilé", "Aqshy", "autel_skarbrand", (200, 40, 20), (255, 170, 40)),
+    ("thanquol", "Bâton de malefeu de Thanquol", "Le bâton du Prophète Gris, gorgé de malepierre", "les Terres Rongées (Huit-Points)", "tour_thanquol", (90, 200, 60), (40, 40, 40)),
+    ("rotigus", "Bâton de pluie de Rotigus", "Le bâton noueux du Père-Pluie de Nurgle", "Ghyran", "jardin_rotigus", (110, 140, 50), (180, 160, 90)),
+]
+for sid, nom, _, roy, _, _, _ in SEIGNEURS:
+    OBJETS.append(("relique_" + sid, nom, nom, "armes"))
+    OBJETS.append(("oeil_" + sid, "Œil de " + {"nagash": "Nagash", "archaon": "l'Élu", "gordrakk": "Gordrakk", "skarbrand": "Skarbrand",
+                                               "thanquol": "Thanquol", "rotigus": "Rotigus"}[sid], "Eye of " + sid.capitalize(), "magie"))
 
 FAC_COUL = {}
 try:
@@ -333,6 +369,59 @@ def tex_marteau():
     return t.im
 
 
+def tex_oeil(c1, c2):
+    """Œil des Seigneurs : globe sombre à iris de la couleur du seigneur."""
+    t = T()
+    for y in range(2, 14):
+        for x in range(2, 14):
+            d = (x - 7.5) ** 2 + (y - 7.5) ** 2
+            if d <= 30:
+                t.p(x, y, mix((30, 24, 36), c1, 0.25) if d > 12 else (c1 if d > 4 else c2))
+    for y in range(5, 11):
+        t.p(7, y, (10, 6, 10))
+        t.p(8, y, (10, 6, 10))
+    t.p(5, 5, (255, 255, 255))
+    t.contour((10, 8, 12))
+    return t.im
+
+
+def tex_relique(sg):
+    """Armes et sceptres uniques des seigneurs (manche + tête propre à chacun)."""
+    sid, c1, c2 = sg[0], sg[5], sg[6]
+    t = T()
+    manche(t, (40, 30, 40) if sid in ("nagash", "archaon") else (90, 60, 40))
+    if sid == "nagash":  # sceptre à tête de crâne et ailes
+        for (x, y) in [(11, 2), (12, 2), (13, 2), (10, 3), (11, 3), (12, 3), (13, 3), (14, 3), (11, 4), (13, 4), (12, 5)]:
+            t.p(x, y, (230, 226, 210))
+        t.p(11, 4, c2)
+        t.p(13, 4, c2)
+        for i in range(4):
+            t.p(9 - i, 2 + i // 2, c1)
+            t.p(15, 2 + i, c1)
+    elif sid == "archaon":  # longue lame démoniaque
+        for i in range(9):
+            t.p(6 + i, 9 - i, (200, 200, 210))
+            t.p(7 + i, 9 - i, (120, 120, 130))
+            t.p(6 + i, 8 - i, c1 if i % 3 == 0 else (160, 160, 170))
+        for i in range(-2, 3):
+            t.p(6 + i, 10 + i, c2)
+    elif sid in ("gordrakk", "skarbrand"):  # hache massive
+        for y in range(1, 9):
+            for x in range(9, 16):
+                if (x - 12) ** 2 / 9 + (y - 4.5) ** 2 / 14 <= 1 and x >= 11:
+                    t.p(x, y, c1 if x > 13 else mix(c1, (220, 220, 220), 0.4))
+        t.p(15, 2, c2)
+        t.p(15, 7, c2)
+    else:  # bâtons de Thanquol et Rotigus
+        for y in range(1, 7):
+            for x in range(10, 16):
+                if (x - 12.5) ** 2 + (y - 3.5) ** 2 <= 6:
+                    t.p(x, y, c1 if (x + y) % 2 else c2)
+        t.p(12, 3, (255, 255, 200) if sid == "thanquol" else (200, 255, 120))
+    t.contour()
+    return t.im
+
+
 def tex_oeuf(c1, c2, graine):
     t = T()
     r = random.Random(graine)
@@ -511,6 +600,25 @@ def tex_bloc(bid):
                 d = abs(x - 7.5) + abs(y - 7.5)
                 if d <= 4:
                     t.p(x, y, mix((120, 90, 255), (80, 220, 255), d / 4))
+    elif bid in MINERAIS:
+        v = [w for w in VENTS if w[0] == MINERAIS[bid][0].split("_")[-1]]
+        c, cc = (v[0][2], v[0][3]) if v else ((90, 220, 60), (200, 255, 150))
+        t.bruit((122, 122, 126), 0.1, g)
+        r = random.Random(g)
+        for i in range(6):
+            x, y = r.randint(1, 13), r.randint(1, 13)
+            for dx, dy in ((0, 0), (1, 0), (0, 1), (1, 1), (2, 1)):
+                t.p(x + dx, y + dy, cc if (dx, dy) == (0, 0) else mul(c, 0.8 + 0.1 * dx))
+    elif bid == "autel_des_seigneurs":
+        t.bruit((40, 34, 44), 0.12, g)
+        for i in range(16):
+            for (x, y) in ((i, 0), (0, i), (i, 15), (15, i)):
+                t.p(x, y, (150, 110, 30))
+        for a in range(8):
+            ang = a * math.pi / 4
+            ligne(t, [(8, 8), (round(8 + 5 * math.cos(ang)), round(8 + 5 * math.sin(ang)))], (180, 40, 40))
+        for (x, y) in [(7, 7), (8, 7), (7, 8), (8, 8)]:
+            t.p(x, y, (255, 210, 90))
     elif bid == "etendard_de_camp":  # drapeau : bleu d'Azyr, bordure d'or, comète
         for y in range(16):
             for x in range(16):
@@ -581,7 +689,16 @@ def modele_bloc(bid):
 
 
 def butin_bloc(bid):
-    if bid.startswith("minerai_"):
+    if bid in MINERAIS:
+        drop, mn, mx = MINERAIS[bid][:3]
+        entree = {"type": "minecraft:alternatives", "children": [
+            {"type": "minecraft:item", "name": "royaumes:" + bid,
+             "conditions": [{"condition": "minecraft:match_tool", "predicate": {"predicates": {"minecraft:enchantments": [{"enchantments": "minecraft:silk_touch", "levels": {"min": 1}}]}}}]},
+            {"type": "minecraft:item", "name": drop,
+             "functions": [{"function": "minecraft:set_count", "count": {"type": "minecraft:uniform", "min": mn, "max": mx}},
+                           {"function": "minecraft:apply_bonus", "enchantment": "minecraft:fortune", "formula": "minecraft:ore_drops"},
+                           {"function": "minecraft:explosion_decay"}]}]}
+    elif bid.startswith("minerai_"):
         entree = {"type": "minecraft:alternatives", "children": [
             {"type": "minecraft:item", "name": "royaumes:" + bid,
              "conditions": [{"condition": "minecraft:match_tool", "predicate": {"predicates": {"minecraft:enchantments": [{"enchantments": "minecraft:silk_touch", "levels": {"min": 1}}]}}}]},
@@ -618,6 +735,11 @@ def recettes():
     recette("bloc_pierre_royaumes", forme(["PPP", "PPP", "PPP"], {"P": "royaumes:pierre_royaumes_brute"}, "royaumes:bloc_pierre_royaumes"))
     recette("pierre_royaumes_brute_depuis_bloc", sans_forme(["royaumes:bloc_pierre_royaumes"], "royaumes:pierre_royaumes_brute", 9))
     recette("autel_arcanique", forme(["CCC", "GBG", "OOO"], {"C": "royaumes:cristal_arcanique", "G": "minecraft:gold_ingot", "B": "royaumes:bloc_pierre_royaumes", "O": "minecraft:obsidian"}, "royaumes:autel_arcanique"))
+    for sid, _, _, _, struct, _, _ in SEIGNEURS:
+        cle = {"nagash": "royaumes:eclat_shyish", "archaon": "royaumes:malepierre", "gordrakk": "royaumes:eclat_ghur",
+               "skarbrand": "royaumes:eclat_aqshy", "thanquol": "royaumes:malepierre", "rotigus": "royaumes:eclat_ghyran"}[sid]
+        recette("oeil_" + sid, sans_forme(["minecraft:ender_eye", cle, cle, "royaumes:pierre_royaumes_brute"], "royaumes:oeil_" + sid))
+        ecrire(os.path.join(DATA, "tags", "worldgen", "structure", "antre_" + sid + ".json"), {"values": ["royaumes:" + struct]})
     recette("etendard_de_camp", forme([" G ", " B ", " P "], {"G": "minecraft:gold_ingot", "B": "#minecraft:banners", "P": "royaumes:pierre_royaumes_brute"}, "royaumes:etendard_de_camp"))
     recette("portail_des_royaumes", forme(["OEO", "EBE", "OEO"], {"O": "minecraft:crying_obsidian", "E": "minecraft:ender_eye", "B": "royaumes:bloc_pierre_royaumes"}, "royaumes:portail_des_royaumes"))
     for b in BLOCS:
@@ -637,9 +759,10 @@ def etiquettes():
     ecrire(os.path.join(RES, "data", "minecraft", "tags", "block", "mineable", "pickaxe.json"), {"replace": False, "values": pioche})
     ecrire(os.path.join(RES, "data", "minecraft", "tags", "block", "mineable", "axe.json"), {"replace": False, "values": hache})
     ecrire(os.path.join(RES, "data", "minecraft", "tags", "block", "needs_iron_tool.json"), {"replace": False, "values": [
-        "royaumes:minerai_pierre_royaumes", "royaumes:minerai_pierre_royaumes_profond", "royaumes:bloc_pierre_royaumes"]})
+        "royaumes:minerai_pierre_royaumes", "royaumes:minerai_pierre_royaumes_profond", "royaumes:bloc_pierre_royaumes"]
+        + ["royaumes:" + m for m in MINERAIS]})
     ecrire(os.path.join(RES, "data", "minecraft", "tags", "block", "needs_diamond_tool.json"), {"replace": False, "values": [
-        "royaumes:obsidienne_corrompue", "royaumes:portail_des_royaumes"]})
+        "royaumes:obsidienne_corrompue", "royaumes:portail_des_royaumes", "royaumes:autel_des_seigneurs"]})
 
 
 def generation_minerai():
@@ -660,6 +783,18 @@ def generation_minerai():
     ecrire(os.path.join(DATA, "neoforge", "biome_modifier", "minerai_royaumes.json"), {
         "type": "neoforge:add_features", "biomes": ["royaumes:" + b for b in biomes],
         "features": "royaumes:minerai_pierre_royaumes", "step": "underground_ores"})
+    for mid, (_, _, _, prefixes, taille, nb, haut) in MINERAIS.items():
+        ecrire(os.path.join(DATA, "worldgen", "feature", mid + ".json"),
+               {"type": "minecraft:ore", "size": taille, "discard_chance_on_air_exposure": 0.2,
+                "targets": [{"target": cible[0], "state": "royaumes:" + mid}, {"target": cible[1], "state": "royaumes:" + mid}]})
+        ecrire(os.path.join(DATA, "worldgen", "placed_feature", mid + ".json"), {
+            "feature": "royaumes:" + mid,
+            "placement": [{"type": "minecraft:count", "count": nb}, {"type": "minecraft:in_square"},
+                          {"type": "minecraft:height_range", "height": {"type": "minecraft:trapezoid", "min_inclusive": {"absolute": -32}, "max_inclusive": {"absolute": haut}}},
+                          {"type": "minecraft:biome"}]})
+        ecrire(os.path.join(DATA, "neoforge", "biome_modifier", mid + ".json"), {
+            "type": "neoforge:add_features", "biomes": ["royaumes:" + b for b in biomes if any(b.startswith(p) for p in prefixes)],
+            "features": "royaumes:" + mid, "step": "underground_ores"})
     ecrire(os.path.join(DATA, "neoforge", "biome_modifier", "minerai_overworld.json"), {
         "type": "neoforge:add_features", "biomes": "#minecraft:is_overworld",
         "features": "royaumes:minerai_pierre_royaumes_rare", "step": "underground_ores"})
@@ -889,11 +1024,18 @@ def main():
             im = tex_baton([v for v in VENTS if v[0] == oid[6:]][0])
         elif oid.startswith("eclat_"):
             im = tex_eclat([v for v in VENTS if v[0] == oid[6:]][0])
+        elif oid.startswith("relique_"):
+            im = tex_relique([x for x in SEIGNEURS if x[0] == oid[8:]][0])
+        elif oid.startswith("oeil_"):
+            sg = [x for x in SEIGNEURS if x[0] == oid[5:]][0]
+            im = tex_oeil(sg[5], sg[6])
+        elif oid == "malepierre":
+            im = tex_eclat(("chaos", "Chaos", (60, 200, 40), (190, 255, 120)))
         else:
             im = {"pierre_royaumes_brute": tex_pierre_brute, "cristal_arcanique": tex_cristal,
                   "grimoire_des_vents": tex_grimoire, "marteau_tempete": tex_marteau}[oid]()
         im.save(os.path.join(ti, oid + ".png"))
-        modele_objet(oid, "minecraft:item/handheld" if oid.startswith("baton_") or oid == "marteau_tempete" else "minecraft:item/generated")
+        modele_objet(oid, "minecraft:item/handheld" if oid.startswith("baton_") or oid.startswith("relique_") or oid == "marteau_tempete" else "minecraft:item/generated")
         apercu_o.append(im)
     for b in BLOCS:
         im = tex_bloc(b[0])

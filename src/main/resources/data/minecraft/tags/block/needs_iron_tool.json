@@ -3,6 +3,15 @@
   "values": [
     "royaumes:minerai_pierre_royaumes",
     "royaumes:minerai_pierre_royaumes_profond",
-    "royaumes:bloc_pierre_royaumes"
+    "royaumes:bloc_pierre_royaumes",
+    "royaumes:minerai_azyrite",
+    "royaumes:minerai_braise",
+    "royaumes:minerai_croc",
+    "royaumes:minerai_jade",
+    "royaumes:minerai_lumineux",
+    "royaumes:minerai_ombre",
+    "royaumes:minerai_ames",
+    "royaumes:minerai_or_vif",
+    "royaumes:minerai_malepierre"
   ]
 }
