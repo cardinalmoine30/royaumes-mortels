@@ -22,7 +22,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:skarbrand"
+            "minecraft:entity_type": "royaumes:skarbrand"
           }
         }
       }

@@ -22,7 +22,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:nagash"
+            "minecraft:entity_type": "royaumes:nagash"
           }
         }
       }
@@ -34,7 +34,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:archaon"
+            "minecraft:entity_type": "royaumes:archaon"
           }
         }
       }
@@ -46,7 +46,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:gordrakk"
+            "minecraft:entity_type": "royaumes:gordrakk"
           }
         }
       }
@@ -58,7 +58,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:skarbrand"
+            "minecraft:entity_type": "royaumes:skarbrand"
           }
         }
       }
@@ -70,7 +70,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:thanquol"
+            "minecraft:entity_type": "royaumes:thanquol"
           }
         }
       }
@@ -82,7 +82,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type": "royaumes:rotigus"
+            "minecraft:entity_type": "royaumes:rotigus"
           }
         }
       }
