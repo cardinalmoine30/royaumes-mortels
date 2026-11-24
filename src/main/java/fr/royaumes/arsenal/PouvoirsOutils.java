@@ -11,7 +11,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.event.level.BlockEvent;
 
 /**
  * Pouvoirs des outils d'alliance aux hauts paliers (pour les héros de l'alliance, désactivés en restant accroupi) :
@@ -31,11 +30,11 @@ public final class PouvoirsOutils {
         return palier >= 4 ? 96 : palier == 3 ? 24 : 0;
     }
 
-    public static void casser(BlockEvent.BreakEvent e) {
-        if (enCours || !(e.getPlayer() instanceof ServerPlayer p) || p.isShiftKeyDown() || !(p.level() instanceof ServerLevel n)) {
+    /** Appelé par OutilAlliance.mineBlock, après qu'un bloc a été miné avec l'outil. */
+    public static void casser(ServerPlayer p, ItemStack outil, BlockPos pos, BlockState etat) {
+        if (enCours || p.isShiftKeyDown() || !(p.level() instanceof ServerLevel n)) {
             return;
         }
-        ItemStack outil = p.getMainHandItem();
         int[] i = Arsenal.infosOutil(outil.getItem());
         if (i == null || i[0] != Arsenal.alliance(Arsenal.scoreFaction(p))) {
             return;
@@ -43,9 +42,9 @@ public final class PouvoirsOutils {
         enCours = true;
         try {
             if ((i[1] == 0 || i[1] == 1) && ligne(i[2]) > 1) {
-                creuser(n, p, outil, e.getPos(), ligne(i[2]));
-            } else if (i[1] == 2 && arbre(i[2]) > 0 && e.getState().is(BlockTags.LOGS)) {
-                abattre(n, p, outil, e.getPos(), arbre(i[2]));
+                creuser(n, p, outil, pos, ligne(i[2]));
+            } else if (i[1] == 2 && arbre(i[2]) > 0 && etat.is(BlockTags.LOGS)) {
+                abattre(n, p, outil, pos, arbre(i[2]));
             }
         } finally {
             enCours = false;

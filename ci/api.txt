@@ -87,4 +87,3 @@ net.minecraft.server.level.ServerBossEvent
 net.minecraft.world.BossEvent
 net.minecraft.world.entity.ai.attributes.AttributeInstance
 net.minecraft.world.entity.ai.attributes.AttributeModifier
-net.neoforged.neoforge.event.level.BlockEvent$BreakEvent

@@ -79,6 +79,15 @@ public class OutilAlliance extends Item {
         }
     }
 
+    @Override
+    public boolean mineBlock(ItemStack pile, Level niveau, BlockState etat, BlockPos pos, LivingEntity mineur) {
+        boolean r = super.mineBlock(pile, niveau, etat, pos, mineur);
+        if (!niveau.isClientSide() && mineur instanceof net.minecraft.server.level.ServerPlayer sp) {
+            PouvoirsOutils.casser(sp, pile, pos, etat);
+        }
+        return r;
+    }
+
     /** Hache : écorce ; pelle : chemin ; houe : laboure (comme les outils vanilla). */
     @Override
     public InteractionResult useOn(UseOnContext c) {
