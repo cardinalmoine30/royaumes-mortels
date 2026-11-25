@@ -100,6 +100,14 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Visages vivants (0.22, Ordre et humains du Chaos).** Chaque faction a son caractère : couleur des yeux (bleu des
+Cités et des Stormcast, ambre des Fyreslayers, or des Lumineth, rouge des Filles de Khaine…), sourcils expressifs (sévères,
+froncés, arqués, tristes), bouche (pincée, rictus, sourire, cri), et des marques : barbe naissante, cicatrices, peinture
+de guerre, runes lumineuses, cernes, fard. Les yeux ont un iris dégradé à liseré sombre, une pupille, deux reflets et un
+regard parfois de côté. Les yeux **clignent** au repos (paupières cachées dans la tête, poussées devant les yeux par
+l'animation d'attente). Les Sylvaneth ont une bouche creuse et des nœuds de bois. La Destruction et la Mort gardent
+leurs visages de la 0.21.
+
 **Visages, roues et écailles (0.21).** Les visages sont peints directement en HD (orbites ombrées, blanc de l'œil, iris
 et pupille avec reflet, paupières, sourcils épais, ombre du nez, pommettes, lèvres) et les yeux des bêtes et des monstres
 ont une arcade sombre, un iris lumineux dégradé, une pupille fendue et un reflet. Les écailles sont des galets irréguliers

@@ -287,8 +287,200 @@ def _ellipse(I, J, cx, cy, rx, ry):
     return ((I - cx) / max(rx, 0.5)) ** 2 + ((J - cy) / max(ry, 0.5)) ** 2
 
 
-def visage_hd(arr, X, Y, W, H, peau, yeux=(30, 30, 40), bouche=None, sourcils=None):
-    """Visage humain peint en HD sur la peau déjà peinte : orbites, yeux (blanc, iris, pupille, reflet),
+def _trait(reg, masque, pts, couleur, epais=1, k=None):
+    """Trait (polyligne) dessiné pixel par pixel ; k : facteur au lieu d'une couleur."""
+    H, W = reg.shape[:2]
+    for (x0, y0), (x1, y1) in zip(pts[:-1], pts[1:]):
+        n = int(max(abs(x1 - x0), abs(y1 - y0)) * 2) + 1
+        for t in np.linspace(0, 1, n):
+            for e in range(epais):
+                xi, yi = int(round(x0 + (x1 - x0) * t)), int(round(y0 + (y1 - y0) * t)) + e
+                if 0 <= xi < W and 0 <= yi < H:
+                    if k is not None:
+                        reg[yi, xi, :3] = np.clip(reg[yi, xi, :3] * k, 0, 255)
+                    else:
+                        reg[yi, xi, :3] = couleur
+                    masque[yi, xi] = True
+
+
+def _oeil(reg, masque, plat, I, J, ex, ey, lw, lh, iris, sx, regard, peau, lueur=False):
+    """Œil vivant : blanc rosé aux coins, iris à liseré sombre et dégradé, pupille, deux reflets, paupières."""
+    oe = _ellipse(I, J, ex, ey, lw + 0.45, lh + 0.45) <= 1.0
+    coin = np.clip(np.abs(I - ex) / (lw + 0.5), 0, 1)
+    blanc = np.array([236, 230, 222.0])[None, None, :] * (1 - 0.1 * coin[..., None]) + np.array([12, -6, -6.0]) * coin[..., None]
+    reg[oe, :3] = blanc[oe]
+    ix = ex + regard
+    ri = max(1.3, lw * 0.62)
+    di = _ellipse(I, J, ix, ey, ri, lh + 0.7)
+    ir = (di <= 1.0) & oe
+    teinte = iris[None, None, :] * (1.25 - 0.55 * np.sqrt(np.clip(di, 0, 1)))[..., None]
+    reg[ir, :3] = np.clip(teinte[ir], 0, 255)
+    liseré = ir & (di > 0.62)
+    reg[liseré, :3] = iris * 0.45
+    pupille = ir & (_ellipse(I, J, ix, ey, ri * 0.42, lh * 0.55 + 0.3) <= 1.0)
+    reg[pupille, :3] = iris * 0.12 if not lueur else iris * 0.35
+    for (dx, dy, v) in ((-0.8, -0.8, 252), (0.9, 0.6, 205)):
+        r = ir & (np.abs(I - (ix + dx * sx * 0 + dx)) < 0.5) & (np.abs(J - (ey + dy)) < 0.5)
+        reg[r, :3] = v
+    if lueur:
+        plat[ir, :3] = iris
+        plat[ir, 3] = 255
+    haut = (_ellipse(I, J, ex, ey - 0.3, lw + 1.0, lh + 1.0) <= 1.0) & ~oe & (J <= ey)
+    reg[haut, :3] = peau * 0.38
+    bas = (_ellipse(I, J, ex, ey + 0.4, lw + 0.8, lh + 0.9) <= 1.0) & ~oe & (J > ey)
+    reg[bas, :3] = np.clip(peau * 0.92 + 10, 0, 255)
+    masque |= oe | haut | bas
+
+
+def visage_hd(arr, X, Y, W, H, peau, yeux=(30, 30, 40), bouche=None, sourcils=None, style=None):
+    """Visage peint en HD, avec du caractère : regard (iris coloré, deux reflets, regard de côté), sourcils
+    expressifs, bouche (ferme, sourire, rictus, cri, crocs), modelé (front, pommettes, ombre du nez, mâchoire,
+    menton) et marques (cicatrice, peinture de guerre, runes, cernes, maquillage, barbe naissante, rides)."""
+    st = dict(style or {})
+    rng = np.random.default_rng(st.get("graine", 7))
+    reg = arr[Y:Y + H, X:X + W]
+    J, I = np.mgrid[0:H, 0:W].astype(float)
+    peau = np.array(peau[:3], float)
+    pale = peau.mean() > 200
+    # ---- modelé
+    k = np.ones((H, W))
+    ey = H * 0.44
+    k *= 1 + 0.05 * np.clip(1 - _ellipse(I, J, W / 2, H * 0.2, W * 0.4, H * 0.16), 0, 1)                  # front
+    for sx in (-1, 1):
+        ex = W / 2 + sx * W * 0.2 - 0.5
+        k *= 1 - 0.17 * np.clip(1 - _ellipse(I, J, ex, ey + 0.6, W * 0.15, H * 0.11), 0, 1)               # orbite
+        k *= 1 - 0.08 * np.clip(1 - _ellipse(I, J, ex, ey + H * 0.09, W * 0.11, H * 0.04), 0, 1)          # sous l'œil
+        k *= 1 + 0.08 * np.clip(1 - _ellipse(I, J, W / 2 + sx * W * 0.27, H * 0.6, W * 0.11, H * 0.06), 0, 1)   # pommette
+        k *= 1 - 0.1 * np.clip(1 - _ellipse(I, J, W / 2 + sx * W * 0.42, H * 0.72, W * 0.1, H * 0.2), 0, 1)     # mâchoire
+    k *= 1 + 0.06 * np.clip(1 - _ellipse(I, J, W / 2 - 0.5, H * 0.52, W * 0.05, H * 0.1), 0, 1)        # arête du nez
+    k *= 1 - 0.22 * np.clip(1 - _ellipse(I, J, W / 2 - 0.5, H * 0.67, W * 0.1, H * 0.035), 0, 1)       # ombre du nez
+    k *= 1 - 0.07 * np.clip(1 - _ellipse(I, J, W / 2 - 0.5, H * 0.73, W * 0.03, H * 0.035), 0, 1)      # philtrum
+    k *= 1 - 0.1 * np.clip(1 - _ellipse(I, J, W / 2 - 0.5, H * 0.9, W * 0.16, H * 0.05), 0, 1)        # creux du menton
+    reg[..., :3] *= k[..., None]
+    joues = np.clip(1 - np.minimum(_ellipse(I, J, W * 0.27, H * 0.63, W * 0.1, H * 0.06),
+                                   _ellipse(I, J, W * 0.73 - 1, H * 0.63, W * 0.1, H * 0.06)), 0, 1)
+    rougeur = 0.05 if pale else 0.1
+    reg[..., 0] = np.minimum(255, reg[..., 0] * (1 + rougeur * joues))
+    reg[..., 2] = reg[..., 2] * (1 - 0.04 * joues)
+    masque = np.zeros((H, W), bool)
+    plat = np.zeros((H, W, 4))
+    det = set(st.get("details", ()))
+    # ---- marques sous les yeux et le reste du visage (peintes avant les yeux)
+    if "barbe_naissante" in det:
+        zone = (J > H * 0.7) & (rng.random((H, W)) < 0.35) & (np.abs(I - W / 2 + 0.5) < W * 0.42)
+        reg[zone, :3] *= 0.8
+    if "cernes" in det:
+        for sx in (-1, 1):
+            c = np.clip(1 - _ellipse(I, J, W / 2 + sx * W * 0.2 - 0.5, ey + H * 0.08, W * 0.1, H * 0.035), 0, 1)
+            reg[..., :3] *= (1 - 0.2 * c)[..., None]
+            reg[..., 2] = np.minimum(255, reg[..., 2] * (1 + 0.1 * c))
+    if "peinture_guerre" in det:
+        coul = np.array(st.get("peinture", (150, 20, 20)), float)
+        bande = (np.abs(J - (ey + 0.5)) < H * 0.07) & (np.abs(I - W / 2) < W * 0.44)
+        reg[bande, :3] = reg[bande, :3] * 0.35 + coul * 0.65
+        masque |= bande
+    if "griffures" in det:
+        for sx in (-1, 1):
+            for t in range(3):
+                x0 = W / 2 + sx * W * (0.16 + t * 0.06)
+                _trait(reg, masque, [(x0, H * 0.55), (x0 - sx * 1, H * 0.66)], np.array(st.get("peinture", (150, 20, 20)), float))
+    if "runes" in det:
+        lr = np.array(st.get("runes_c", (255, 140, 40)), float)
+        avant = masque.copy()
+        for sx in (-1, 1):
+            cx = W / 2 + sx * W * 0.3
+            _trait(reg, masque, [(cx, H * 0.56), (cx + sx * 1.5, H * 0.62), (cx, H * 0.68)], lr)
+        _trait(reg, masque, [(W / 2 - 2, H * 0.12), (W / 2 - 0.5, H * 0.2), (W / 2 + 1, H * 0.12)], lr)
+        nouveaux = masque & ~avant
+        plat[nouveaux, :3] = lr
+        plat[nouveaux, 3] = 255
+    if "rides" in det:
+        for t in range(2):
+            _trait(reg, masque, [(W * 0.3, H * (0.18 + t * 0.06)), (W * 0.7, H * (0.18 + t * 0.06))], None, k=0.86)
+    if "pustules" in det:
+        for _ in range(4):
+            px_, py_ = rng.uniform(W * 0.15, W * 0.85), rng.uniform(H * 0.55, H * 0.9)
+            b = _ellipse(I, J, px_, py_, 1.2, 1.0) <= 1
+            reg[b, :3] = np.array([170, 175, 80.0]) * np.clip(1.15 - 0.3 * _ellipse(I, J, px_ - 0.4, py_ - 0.4, 1.2, 1.0)[b], 0.7, 1.2)[:, None]
+            masque |= b
+    # ---- yeux
+    iris = np.array(st.get("iris", yeux)[:3], float)
+    if iris.mean() < 50:
+        iris = np.array([88, 62, 40], float)
+    lueur = st.get("yeux_lueur", False)
+    lw, lh = max(2, round(W * 0.09)), max(1, round(H * 0.05))
+    regard = st.get("regard", float(rng.choice((-0.6, 0.0, 0.6))))
+    if "maquillage" in det:
+        fard = np.array(st.get("fard", (90, 30, 110)), float)
+        for sx in (-1, 1):
+            ex = W / 2 + sx * W * 0.2 - 0.5
+            f = (_ellipse(I, J, ex + sx * 0.8, ey - lh - 1.0, lw + 2.0, lh + 1.2) <= 1.0)
+            reg[f, :3] = reg[f, :3] * 0.4 + fard * 0.6
+            masque |= f
+    for sx in (-1, 1):
+        ex = int(round(W / 2 + sx * W * 0.2 - 0.5))
+        _oeil(reg, masque, plat, I, J, ex, int(round(ey)), lw, lh, iris, sx, regard, peau, lueur)
+    # ---- sourcils
+    sour = np.array((sourcils or tuple(peau * 0.42))[:3], float) if not st.get("sourcils_c") else np.array(st["sourcils_c"], float)
+    forme = st.get("sourcils", "neutre")
+    for sx in (-1, 1):
+        ex = W / 2 + sx * W * 0.2 - 0.5
+        yb = ey - lh - 2.4
+        interieur = ex - sx * (lw + 1.0)
+        exterieur = ex + sx * (lw + 1.6)
+        dyi, dye, dym = {"neutre": (0.4, 0.4, -0.4), "colere": (1.8, -0.9, 0.3), "severe": (0.9, 0.6, 0.7),
+                         "triste": (-1.0, 1.0, -0.2), "arque": (0.6, 0.8, -1.4)}.get(forme, (0.4, 0.4, -0.4))
+        pts = [(interieur, yb + dyi), (ex, yb + dym), (exterieur, yb + dye)]
+        _trait(reg, masque, pts, sour, epais=2 if forme in ("colere", "severe") else 1)
+        _trait(reg, masque, [(interieur, yb + dyi - 1), (ex, yb + dym - 1)], sour * 1.15)
+    # ---- bouche
+    my = H * 0.79
+    bw = W * 0.15
+    levre = np.array((bouche or tuple(np.clip(peau * 0.55 + np.array([25, -5, -5]), 0, 255)))[:3], float)
+    if st.get("levres"):
+        levre = np.array(st["levres"], float)
+    type_b = st.get("bouche", "neutre")
+    g, d = W / 2 - bw, W / 2 + bw - 1
+    if type_b in ("neutre", "ferme", "crocs"):
+        coins = 0.0 if type_b == "neutre" else 0.9
+        _trait(reg, masque, [(g, my + coins), (g + 2, my), (d - 2, my), (d, my + coins)], levre * 0.8)
+        _trait(reg, masque, [(g + 1.5, my + 1), (d - 1.5, my + 1)], np.clip(levre * 1.15 + 15, 0, 255))
+        _trait(reg, masque, [(g + 2, my + 2.2), (d - 2, my + 2.2)], None, k=0.85)
+        if type_b == "crocs":
+            for sx in (-1, 1):
+                xx = W / 2 + sx * bw * 0.45
+                _trait(reg, masque, [(xx, my + 0.6), (xx, my + 2.4)], np.array([240, 236, 222.0]))
+    elif type_b in ("sourire", "rictus"):
+        cg = -1.3
+        cd = -1.3 if type_b == "sourire" else 0.4
+        _trait(reg, masque, [(g, my + cg), (g + 2, my + 0.3), (d - 2, my + 0.3), (d, my + cd)], levre * 0.75)
+        _trait(reg, masque, [(g + 2, my + 1.3), (d - 2, my + 1.3)], np.clip(levre * 1.1 + 15, 0, 255))
+        _trait(reg, masque, [(g - 1, my + cg - 1.2), (g, my + cg)], None, k=0.86)                      # fossette
+        if type_b == "sourire":
+            _trait(reg, masque, [(d + 1, my + cd - 1.2), (d, my + cd)], None, k=0.86)
+    elif type_b == "cri":
+        o = _ellipse(I, J, W / 2 - 0.5, my + 0.6, bw + 0.4, 2.4) <= 1.0
+        reg[o, :3] = np.array([60, 14, 14.0])
+        dents = o & (J < my - 0.6)
+        reg[dents, :3] = np.array([236, 228, 206.0])
+        dents2 = o & (J > my + 2.0) & ((I.astype(int) % 2) == 0)
+        reg[dents2, :3] = np.array([220, 210, 186.0])
+        bord = (_ellipse(I, J, W / 2 - 0.5, my + 0.6, bw + 1.4, 3.3) <= 1.0) & ~o
+        reg[bord, :3] = levre * 0.9
+        masque |= o | bord
+    if "cicatrice" in det:
+        sx = 1 if rng.random() < 0.5 else -1
+        ex = W / 2 + sx * W * 0.2
+        pts = [(ex - sx * 1, ey - H * 0.2), (ex + sx * 0.5, ey), (ex + sx * 2, ey + H * 0.2)]
+        _trait(reg, masque, pts, np.clip(peau * 1.12 + np.array([30, 0, 0]), 0, 255))
+        _trait(reg, masque, [(x + 1, y) for x, y in pts], None, k=0.75)
+    reste = masque & (plat[..., 3] == 0)
+    plat[reste] = reg[reste]
+    return masque, plat
+
+
+def visage_simple_hd(arr, X, Y, W, H, peau, yeux=(30, 30, 40), bouche=None, sourcils=None):
+    """Visage de la 0.21 (gardé pour la Destruction et la Mort) : visage humain peint en HD sur la peau déjà peinte : orbites, yeux (blanc, iris, pupille, reflet),
     paupières, sourcils, ombre du nez, pommettes, lèvres, menton."""
     reg = arr[Y:Y + H, X:X + W]
     J, I = np.mgrid[0:H, 0:W].astype(float)
@@ -347,6 +539,52 @@ def visage_hd(arr, X, Y, W, H, peau, yeux=(30, 30, 40), bouche=None, sourcils=No
             reg[my + 2, i, :3] *= 0.86
         masque[my:my + 2, i] = True
     plat[masque] = reg[masque]
+    return masque, plat
+
+
+def trogne_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille, style=None):
+    """Face de bête humanoïde (orruks, démons, skavens, sylvaneth…) : yeux de yeux_hd, plus une bouche
+    expressive et des marques selon le style (défenses, crocs, gueule hurlante, bouche creuse, rides de bois)."""
+    st = dict(style or {})
+    masque, plat = yeux_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille)
+    reg = arr[Y:Y + H, X:X + W]
+    J, I = np.mgrid[0:H, 0:W].astype(float)
+    peau = reg[int(H * 0.6), 1, :3].copy()
+    b = st.get("bouche")
+    my = H * min(0.86, hauteur + 0.42)
+    if b == "machoire":        # mâchoire inférieure avancée et crocs vers le haut (orruks, gitz, ogres)
+        bw = W * 0.3
+        _trait(reg, masque, [(W / 2 - bw, my - 1), (W / 2 - bw + 2, my + 0.6), (W / 2 + bw - 2, my + 0.6), (W / 2 + bw, my - 1)], peau * 0.3, epais=2)
+        for sx in (-1, 1):
+            xx = W / 2 + sx * bw * 0.6
+            _trait(reg, masque, [(xx, my - 2.6), (xx, my)], np.array([236, 228, 200.0]), epais=1)
+            _trait(reg, masque, [(xx + sx, my - 1.8), (xx + sx, my)], np.array([210, 200, 170.0]))
+        for sx in (-1, 1):
+            _trait(reg, masque, [(W / 2 + sx * 1.2 - 0.5, H * (hauteur + 0.22)), (W / 2 + sx * 1.2 - 0.5, H * (hauteur + 0.24))], peau * 0.35)
+    elif b == "gueule":        # gueule hurlante pleine de crocs (démons, goules)
+        o = _ellipse(I, J, W / 2 - 0.5, my - 0.5, W * 0.26, 2.8) <= 1.0
+        reg[o, :3] = np.array([50, 10, 12.0])
+        for i in range(int(W / 2 - W * 0.24), int(W / 2 + W * 0.24), 2):
+            for (j0, j1) in ((my - 3.2, my - 1.4), (my + 1.8, my + 0.4)):
+                _trait(reg, masque, [(i, j0), (i, j1)], np.array([236, 230, 210.0]))
+        masque |= o
+    elif b == "creuse":        # bouche creuse et nœuds du bois (sylvaneth)
+        o = _ellipse(I, J, W / 2 - 0.5, my - 0.5, W * 0.12, 1.8) <= 1.0
+        reg[o, :3] = np.array([24, 16, 10.0])
+        reg[o & (J < my - 1), :3] = np.array([255, 210, 120.0]) * 0.5
+        masque |= o
+        for sx in (-1, 1):
+            _trait(reg, masque, [(W / 2 + sx * W * 0.32, H * 0.15), (W / 2 + sx * W * 0.36, H * 0.32), (W / 2 + sx * W * 0.3, H * 0.5)], None, k=0.7)
+    elif b == "sourire":
+        bw = W * 0.24
+        _trait(reg, masque, [(W / 2 - bw, my - 1.5), (W / 2 - bw + 2, my + 0.3), (W / 2 + bw - 2, my + 0.3), (W / 2 + bw, my - 1.5)], peau * 0.3)
+        _trait(reg, masque, [(W / 2 - bw + 2, my - 0.7), (W / 2 + bw - 2, my - 0.7)], np.array([226, 220, 196.0]))
+    if st.get("balafre"):
+        pts = [(W * 0.3, H * 0.15), (W * 0.42, H * (hauteur + 0.05)), (W * 0.36, H * 0.75)]
+        _trait(reg, masque, pts, np.clip(peau * 1.25 + 20, 0, 255))
+        _trait(reg, masque, [(x + 1, y) for x, y in pts], None, k=0.7)
+    reste = masque & (plat[..., 3] == 0)
+    plat[reste] = reg[reste]
     return masque, plat
 
 

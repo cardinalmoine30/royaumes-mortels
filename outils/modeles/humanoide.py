@@ -79,6 +79,7 @@ def materiaux(P, st, s):
         "blanc": ((240, 236, 228), "peau"),
     }
     pal["rose"] = (P.get("rose", (214, 150, 150)), "peau")
+    pal["paupiere"] = (mul(P["peau"], 0.92), peau_t if peau_t != "ecaille" else "peau")
     pal["gemme"] = ((200, 30, 40), "lueur")
     pal["crete"] = (P.get("crete", (196, 40, 36)), "membrane")
     pal["capuche"] = (P.get("capuche", P["tissu"]), "tissu")
@@ -179,7 +180,63 @@ def f_yeux(c, fond=None, hauteur=0.42, ecart=0.22, taille=1):
     return f
 
 
-def f_visage(peau, yeux=(30, 30, 40), bouche=None, sourcils=None):
+# caractère des visages par faction (yeux, sourcils, bouche, marques) : voir matieres_hd.visage_hd
+VISAGES = {
+    "behemat": dict(iris=(90, 70, 50), sourcils="severe", bouche="ferme", details=("barbe_naissante", "rides")),
+    "cites": dict(iris=(70, 110, 160), sourcils="neutre", bouche="ferme", details=("barbe_naissante", "cicatrice")),
+    "stormcast": dict(iris=(70, 120, 200), sourcils="severe", bouche="ferme", details=("cicatrice",)),
+    "fyreslayers": dict(iris=(220, 130, 40), sourcils="colere", bouche="ferme", details=("runes",)),
+    "hashut": dict(iris=(240, 120, 30), sourcils="colere", bouche="ferme", details=("runes",)),
+    "idoneth": dict(iris=(90, 200, 220), sourcils="triste", bouche="neutre", details=("cernes",)),
+    "khaine": dict(iris=(170, 40, 40), sourcils="colere", bouche="rictus", details=("peinture_guerre",), peinture=(120, 18, 28), levres=(110, 30, 40)),
+    "khorne": dict(iris=(200, 40, 30), sourcils="colere", bouche="cri", details=("griffures", "cicatrice"), peinture=(150, 20, 20)),
+    "lumineth": dict(iris=(220, 180, 80), sourcils="arque", bouche="neutre", details=()),
+    "ogors": dict(iris=(110, 80, 40), sourcils="severe", bouche="sourire", details=("barbe_naissante", "cicatrice")),
+    "slaanesh": dict(iris=(190, 90, 220), sourcils="arque", bouche="rictus", details=("maquillage",), fard=(110, 40, 140), levres=(150, 50, 120)),
+    "soulblight": dict(iris=(235, 40, 40), yeux_lueur=True, sourcils="arque", bouche="crocs", details=("cernes",), levres=(110, 30, 40)),
+    "esclaves": dict(iris=(200, 60, 40), sourcils="colere", bouche="ferme", details=("cicatrice",)),
+    "nurgle": dict(iris=(190, 190, 60), sourcils="triste", bouche="sourire", details=("pustules", "cernes")),
+    "tzeentch": dict(iris=(80, 140, 240), sourcils="arque", bouche="rictus", details=()),
+}
+TROGNES = {"orruks": dict(bouche="machoire"), "gitz": dict(bouche="machoire"), "ogors": dict(bouche="machoire"),
+           "behemat": dict(bouche="machoire"), "khorne": dict(bouche="gueule"), "fec": dict(bouche="gueule"),
+           "esclaves": dict(bouche="gueule"), "soulblight": dict(bouche="gueule"), "nurgle": dict(bouche="sourire"),
+           "slaanesh": dict(bouche="sourire"), "sylvaneth": dict(bouche="creuse")}
+
+
+# visages retravaillés (0.22) : factions de l'Ordre, et visages humains du Chaos ; la Destruction et la Mort gardent les leurs
+ORDRE = {"stormcast", "cites", "khaine", "fyreslayers", "idoneth", "kharadron", "lumineth", "seraphon", "sylvaneth"}
+CHAOS = {"esclaves", "khorne", "tzeentch", "slaanesh", "nurgle", "skaven", "hashut"}
+
+
+def vivant(fac, face):
+    return fac in ORDRE or (fac in CHAOS and face == "visage")
+
+
+def style_visage(fac, nom):
+    st = dict(VISAGES.get(fac, dict(iris=(90, 70, 50), sourcils="neutre", bouche="neutre", details=())))
+    st["graine"] = sum(ord(ch) * (i + 1) for i, ch in enumerate(nom))
+    return st
+
+
+def f_trogne(c, fond, hauteur, ecart, taille=1, style=None):
+    f = f_yeux(c, fond, hauteur, ecart, taille)
+    import matieres_hd as MH
+    f.hd = lambda arr, X, Y, W, H: MH.trogne_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille, style)
+    return f
+
+
+def paupieres(m, peau, yt, hs, hx, cx, cy, demi_l, demi_h):
+    """Paupières qui clignent : cachées dans la tête au repos, poussées devant les yeux une fraction de seconde
+    par l'animation d'attente (os « paupieres », échelle en profondeur autour d'un pivot derrière elles)."""
+    zf = hx                                     # face avant de la tête ; les paupières attendent 0,5 px plus loin dedans
+    m.bone("paupieres", "head", (0, cy, zf + 0.62))
+    for sx in (-1, 1):
+        m.cube("paupieres", (sx * cx - demi_l, cy - demi_h, zf + 0.5), (2 * demi_l, 2 * demi_h, 0.1), "paupiere",
+               north=f_bande(mul(peau, 0.32), "bas"))
+
+
+def f_visage(peau, yeux=(30, 30, 40), bouche=None, sourcils=None, style=None):
     def f(d, x, y, w, h, px):
         yy = y + int(h * 0.42)
         for sx in (-1, 1):
@@ -191,7 +248,10 @@ def f_visage(peau, yeux=(30, 30, 40), bouche=None, sourcils=None):
         d.line((x + w // 2 - 2, y + int(h * 0.78), x + w // 2 + 1, y + int(h * 0.78)), fill=bouche or mul(peau, 0.5))
         d.point((x + w // 2 - 1, y + int(h * 0.62)), fill=mul(peau, 0.75))
     import matieres_hd as MH
-    f.hd = lambda arr, X, Y, W, H: MH.visage_hd(arr, X, Y, W, H, peau, yeux, bouche, sourcils)
+    if style is None:   # Destruction et Mort : visage de la 0.21, inchangé
+        f.hd = lambda arr, X, Y, W, H: MH.visage_simple_hd(arr, X, Y, W, H, peau, yeux, bouche, sourcils)
+    else:
+        f.hd = lambda arr, X, Y, W, H: MH.visage_hd(arr, X, Y, W, H, peau, yeux, bouche, sourcils, style)
     return f
 
 
@@ -535,8 +595,8 @@ def humanoide(nom, s, fac):
     casque = st.get("casque") if face == "heaume" else None
     tm = "armure" if face == "heaume" else ("capuche" if face == "capuche" else "peau")
     fn_face = {
-        "visage": f_visage(P["peau"]),
-        "bete": combine(f_yeux(LU, (12, 12, 14), 0.38, 0.25)),
+        "visage": f_visage(P["peau"], style=style_visage(fac, nom) if vivant(fac, "visage") else None),
+        "bete": f_trogne(LU, (12, 12, 14), 0.38, 0.25, 1, TROGNES.get(fac)) if vivant(fac, "bete") else combine(f_yeux(LU, (12, 12, 14), 0.38, 0.25)),
         "crane": combine(f_yeux(LU, (12, 12, 14), 0.4, 0.22), f_dents((236, 232, 210)) if False else None),
         "capuche": lambda d, x, y, w, h, px: (d.rectangle((x + 2, y + 3, x + w - 3, y + h - 1), fill=(10, 10, 14)),
                                               f_yeux(LU, None, 0.5, 0.2)(d, x, y, w, h, px)),
@@ -559,8 +619,18 @@ def humanoide(nom, s, fac):
                                              d.point((x + w // 2 - 1, y + int(h * 0.62)), fill=mul(P["peau"], 0.7)),
                                              d.line((x + w // 2 - 2, y + int(h * 0.8), x + w // 2 + 1, y + int(h * 0.8)), fill=mul(P["peau"], 0.5)))
     elif "oeil" in P and face == "bete":
-        fn_face = combine(f_yeux(P["oeil"], (12, 12, 14), 0.38, 0.25))
+        fn_face = f_trogne(P["oeil"], (12, 12, 14), 0.38, 0.25, 1, TROGNES.get(fac)) if vivant(fac, "bete") \
+            else combine(f_yeux(P["oeil"], (12, 12, 14), 0.38, 0.25))
     m.cube("head", (hx, yt, hx), (hs, hs, hs), tm, north=fn_face)
+    # clignement des yeux (visages et faces de bêtes à deux yeux)
+    if not vivant(fac, face):
+        pass
+    elif face == "visage" and "cyclope" not in ex and "sans_yeux" not in ex:
+        W4 = 4 * hs
+        paupieres(m, P["peau"], yt, hs, hx, hs * 0.2, yt + hs * 0.56, (max(2, round(W4 * 0.09)) + 1.3) / 4, (max(1, round(W4 * 0.05)) + 1.4) / 4)
+    elif face == "bete" and "cyclope" not in ex:
+        r = 1.6 + 0.6
+        paupieres(m, P["peau"], yt, hs, hx, hs * 0.25, yt + hs * (1 - 0.38), (r + 1.0) / 4, (r * 0.8 + 0.9) / 4)
     if face == "crane":
         m.cube("head", (hx + 1, yt - 1.5, hx - 0.5), (hs - 2, 2, hs - 2), "os", north=f_dents((40, 36, 30)))    # mâchoire
         m.cube("head", (hx - 0.5, yt + 2.5, hx + 1), (0.5, 1.5, 2), "os")
