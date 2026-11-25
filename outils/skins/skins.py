@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 SORTIE = os.path.join(ICI, "..", "..", "src", "main", "resources", "assets", "royaumes", "textures", "skin")
-BAS = os.path.join(ICI, "bas")  # skins 64×64 d'origine (le mod reçoit la version HD de outils/remaster.py)
+BAS = os.path.join(ICI, "bas")  # copie des skins 64×64 (l'armure portée est découpée dedans)
 PARTS = {"head": (0, 0, 8, 8, 8), "hat": (32, 0, 8, 8, 8),
          "body": (16, 16, 8, 12, 4), "jacket": (16, 32, 8, 12, 4),
          "rarm": (40, 16, 4, 12, 4), "rsleeve": (40, 32, 4, 12, 4),
@@ -21,6 +21,122 @@ def faces(part):
     u, v, w, h, d = PARTS[part]
     return {"top": (u + d, v, w, d), "bottom": (u + d + w, v, w, d), "right": (u, v + d, d, h),
             "front": (u + d, v + d, w, h), "left": (u + d + w, v + d, d, h), "back": (u + d + w + d, v + d, w, h)}
+
+
+def accents(im, fid):
+    """Volumes de faction sur les calques extérieurs (qui ressortent en 3D) : épaulières, genouillères, ceinture à
+    boucle, emblème d'alliance, crête/cornes/couronne selon l'alliance. On ne peint que là où le calque est vide,
+    pour ne jamais effacer le dessin de la faction."""
+    import json as _j
+    import numpy as np
+    al = {f["id"]: f["alliance"] for f in _j.load(open(os.path.join(ICI, "..", "donnees_factions.json")))}.get(fid, "ordre")
+    a = np.array(im.convert("RGBA"))
+    px = im.load()
+
+    def couleur(part, face):
+        x, y, w, h = faces(part)[face]
+        z = a[y:y + h, x:x + w].reshape(-1, 4)
+        z = z[z[:, 3] > 0][:, :3].astype(int)
+        return tuple(np.median(z, axis=0).astype(int)) if len(z) else (128, 128, 128)
+    base = couleur("body", "front")
+    sat = lambda c: max(c) - min(c) + max(c) * 0.3
+    tout = a[a[:, :, 3] > 0][:, :3].astype(int)
+    from collections import Counter as _C
+    frequentes = [c for c, n in _C(map(tuple, tout)).items() if n >= 10]   # une vraie couleur du costume, pas un œil
+    vives = sorted(frequentes, key=lambda c: -sat(c))
+    liseré = next((c for c in vives if sum(abs(c[i] - base[i]) for i in range(3)) > 120), mul(base, 1.4))
+    sombre = mul(base, 0.45)
+
+    def poser(part, face, x, y, c):
+        fx, fy, w, h = faces(part)[face]
+        if 0 <= x < w and 0 <= y < h and px[fx + x, fy + y][3] == 0:
+            px[fx + x, fy + y] = tuple(c[:3]) + (255,)
+    # épaulières : 4 rangées en haut des manches, liseré en bas
+    for part in ("rsleeve", "lsleeve"):
+        for f in ("top", "front", "back", "right", "left"):
+            fw, fh = faces(part)[f][2], faces(part)[f][3]
+            for y in range(fh if f == "top" else 4):
+                for x in range(fw):
+                    poser(part, f, x, y, liseré if (f != "top" and y == 3) else mul(base, 1.08 if y == 0 else 1.0))
+    # genouillères
+    for part in ("rpants", "lpants"):
+        for x in range(4):
+            for y in (5, 6):
+                poser(part, "front", x, y, liseré if y == 5 else mul(base, 0.9))
+    # ceinture et boucle
+    for f in ("front", "back", "right", "left"):
+        fw = faces("jacket")[f][2]
+        for x in range(fw):
+            poser("jacket", f, x, 8, sombre)
+    poser("jacket", "front", 3, 8, liseré)
+    poser("jacket", "front", 4, 8, liseré)
+    # emblème d'alliance au centre du plastron
+    motifs = {"ordre": [(3, 2), (4, 2), (2, 3), (5, 3), (3, 4), (4, 4), (3, 3), (4, 3)],      # comète / losange
+              "chaos": [(3, 1), (4, 1), (3, 2), (4, 2), (2, 3), (5, 3), (3, 4), (4, 4), (1, 3), (6, 3)],   # étoile à branches
+              "mort": [(2, 2), (3, 2), (4, 2), (5, 2), (2, 3), (5, 3), (3, 4), (4, 4)],           # crâne
+              "destruction": [(2, 2), (5, 2), (3, 3), (4, 3), (2, 4), (5, 4)]}                    # croc
+    for x, y in motifs[al]:
+        poser("jacket", "front", x, y, liseré)
+    # coiffe d'alliance sur le calque du chapeau
+    if al == "ordre":
+        for y in range(8):
+            poser("hat", "top", 3, y, liseré)
+            poser("hat", "top", 4, y, liseré)
+        poser("hat", "front", 3, 0, liseré)
+        poser("hat", "front", 4, 0, liseré)
+    elif al == "chaos":
+        for f, xs in (("right", (1, 2)), ("left", (5, 6))):
+            for x in xs:
+                for y in (0, 1, 2):
+                    poser("hat", f, x, y, (226, 214, 180) if y < 2 else (180, 168, 140))
+    elif al == "mort":
+        for x in range(8):
+            poser("hat", "front", x, 0, sombre)
+            if x % 2 == 0:
+                poser("hat", "top", x, 0, liseré)
+                poser("hat", "top", x, 7, liseré)
+    else:
+        for y in range(1, 7):
+            poser("hat", "top", 3, y, liseré)
+            poser("hat", "top", 4, y, mul(liseré, 0.8))
+    return im
+
+
+def stylise(im):
+    """Finition « Minecraft stylé » : aplats nets au lieu du grain, modelé par face (dessus clair, dessous sombre,
+    côtés un ton en dessous), lumière en haut de chaque face et ombre en bas, et contour pixel-art sur le bord
+    inférieur/droit de chaque zone de couleur (les pièces d'armure se détachent comme dans un skin dessiné main)."""
+    import numpy as np
+    from scipy import ndimage
+    a = np.array(im.convert("RGBA")).astype(float)
+    out = a.copy()
+    K = {"top": 1.12, "bottom": 0.72, "front": 1.0, "back": 0.9, "right": 0.86, "left": 0.86}
+    for part in PARTS:
+        for f, (x, y, w, h) in faces(part).items():
+            sub = a[y:y + h, x:x + w]
+            op = sub[:, :, 3] > 0
+            if not op.any():
+                continue
+            rgb = sub[:, :, :3]
+            med = np.stack([ndimage.median_filter(rgb[:, :, c], size=3, mode="nearest") for c in range(3)], axis=2)
+            proche = (np.abs(rgb - med).sum(axis=2) < 42)[..., None]
+            net = np.where(proche, med, rgb)                       # aplats : le bruit disparaît, les détails restent
+            net = np.round(net / 6) * 6                            # palette resserrée
+            k = np.full((h, w), K[f])
+            if f in ("front", "back", "right", "left") and h > 2:
+                k[0, :] *= 1.1
+                k[-1, :] *= 0.82
+            lum = net.mean(axis=2)
+            bas = np.zeros((h, w), bool)
+            bas[:-1, :] |= (np.abs(net[:-1] - net[1:]).sum(axis=2) > 60) & (lum[1:] < lum[:-1])
+            droite = np.zeros((h, w), bool)
+            droite[:, :-1] |= (np.abs(net[:, :-1] - net[:, 1:]).sum(axis=2) > 60) & (lum[:, 1:] < lum[:, :-1])
+            k = np.where(bas | droite, k * 0.8, k)                 # contour sur le bord ombré des zones
+            res = np.clip(net * k[..., None], 0, 255)
+            o = out[y:y + h, x:x + w]
+            o[..., :3] = np.where(op[..., None], res, o[..., :3])
+    from PIL import Image as _I
+    return _I.fromarray(out.astype(np.uint8))
 
 
 def cl(v):
@@ -755,6 +871,7 @@ if __name__ == "__main__":
     for i, (fid, fn_) in enumerate(FACTIONS):
         s = Skin(i * 31 + 7)
         fn_(s)
+        s.im = stylise(accents(s.im, fid))
         s.im.save(os.path.join(SORTIE, fid + ".png"))
         os.makedirs(BAS, exist_ok=True)
         s.im.save(os.path.join(BAS, fid + ".png"))

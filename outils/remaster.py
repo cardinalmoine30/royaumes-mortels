@@ -362,6 +362,8 @@ def skin_hd(img):
 
 
 def skins():
+    """Depuis la 0.25, skins et armures portées restent en 64 px au style Minecraft net (outils/skins/skins.py)."""
+    return
     n = 0
     for p in glob.glob(os.path.join(ASSETS, "textures", "skin", "*.png")):
         img = Image.open(p)

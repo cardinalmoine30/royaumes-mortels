@@ -100,6 +100,11 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Skins au style Minecraft (0.25).** Les 25 skins de faction et les 250 armures portées restent en 64 px, nets, sans grain :
+aplats, dessus clair et dessous sombre, contours pixel-art entre les pièces, et des volumes de faction sur les calques
+extérieurs (épaulières, genouillères, ceinture à boucle, emblème d'alliance, crête de l'Ordre, cornes du Chaos,
+couronne de la Mort, crête de la Destruction).
+
 **Publication et finitions (0.24).** Tous les noms déposés par Games Workshop (factions, dieux, Royaumes, unités,
 seigneurs) sont remplacés par des noms originaux (`outils/marque/noms.json`, appliqués par `outils/marque/renommer.py`,
 qui vérifie aussi qu'il n'en reste aucun) : Foudroyés Éternels, Cités d'Aurion, Lames de Sangrath, Hommes-Rats, Hantise
