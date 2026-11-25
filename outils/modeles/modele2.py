@@ -6,11 +6,12 @@
 - rotation de cubes (cornes, ailes, lames inclinées) ;
 - texture « _glowmask » pour les parties lumineuses (yeux, runes, malepierre) ;
 - aperçu 3/4 par rastérisation avec tampon de profondeur."""
-import json, math, os, random
+import json, math, os, random, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 RACINE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(RACINE, "outils"))
 ASSETS = os.path.join(RACINE, "src/main/resources/assets/royaumes")
 D = 2   # texels par unité de modèle
 
@@ -94,6 +95,10 @@ class Modele:
 
     # ---------------------------------------------------------------- peinture
     def peindre(self, mats, graine=11):
+        """Texture en haute définition (2 × D texels par pixel de modèle) et son masque lumineux.
+        La peinture basse résolution (matières + dessins) sert de calque des dessins ; les matières sont
+        repeintes en HD par matieres_hd, les dessins agrandis en Scale2x. Les UV sont ensuite doublées."""
+        import matieres_hd as MH
         rng = random.Random(graine)
         im = Image.new("RGBA", (self.tex, self.tex), (0, 0, 0, 0))
         px = im.load()
@@ -105,26 +110,47 @@ class Modele:
                 peindre_matiere(px, x0, y0, w, h, f, m, rng)
                 if m["type"] == "lueur":
                     lueurs.add((x0, y0, w, h))
+        base = np.array(im)
+        for c in self.cubes:
+            for f, (x0, y0, w, h) in c.uv.items():
                 fn = c.faces.get(f)
                 if fn:
                     fn(d, x0, y0, w, h, px)
-        # masque lumineux : faces « lueur » + pixels de la couleur de lueur
-        glow = Image.new("RGBA", im.size, (0, 0, 0, 0))
-        gp = glow.load()
-        cl = [m["c"] for m in mats.values() if m["type"] == "lueur"]
+        lo = np.array(im)
+        # ---- haute définition
+        T = 2 * self.tex
+        hd = np.zeros((T, T, 4), float)
+        dessins = np.zeros((T, T, 4), float)
+        masque_dessins = np.zeros((T, T), bool)
+        nrng = np.random.default_rng(graine * 7919 + len(self.cubes))
+        for c in self.cubes:
+            m = mats[c.mat]
+            for f, (x0, y0, w, h) in c.uv.items():
+                MH.peindre_face(hd, 2 * x0, 2 * y0, 2 * w, 2 * h, f, m, nrng)
+        for c in self.cubes:
+            for f, (x0, y0, w, h) in c.uv.items():
+                if c.faces.get(f):
+                    r = MH.decors_hd(hd, lo, base, x0, y0, w, h, f, mats[c.mat]["c"])
+                    if r:
+                        mk, couleur = r
+                        masque_dessins[2 * y0:2 * (y0 + h), 2 * x0:2 * (x0 + w)] |= mk
+                        dessins[2 * y0:2 * (y0 + h), 2 * x0:2 * (x0 + w)][mk] = couleur[mk]
+        arr = np.clip(hd, 0, 255).astype(np.uint8)
+        # masque lumineux : faces « lueur » + pixels (dessins compris) de la couleur d'une lueur
+        g = np.zeros_like(arr)
         for (x0, y0, w, h) in lueurs:
-            for i in range(w):
-                for j in range(h):
-                    gp[x0 + i, y0 + j] = px[x0 + i, y0 + j]
-        if cl:
-            arr = np.array(im)
-            g = np.array(glow)
-            for col in cl:
-                dist = np.abs(arr[:, :, :3].astype(int) - np.array(col)).sum(axis=2)
-                masque = (dist < 40) & (arr[:, :, 3] > 0)
-                g[masque] = arr[masque]
-            glow = Image.fromarray(g)
-        return im, glow
+            g[2 * y0:2 * (y0 + h), 2 * x0:2 * (x0 + w)] = arr[2 * y0:2 * (y0 + h), 2 * x0:2 * (x0 + w)]
+        cl = [m["c"] for m in mats.values() if m["type"] == "lueur"]
+        plat = np.where(masque_dessins[..., None], dessins, arr.astype(float))
+        for col in cl:
+            dist = np.abs(plat[:, :, :3] - np.array(col)).sum(axis=2)
+            masque = (dist < 40) & (arr[:, :, 3] > 0)
+            g[masque] = arr[masque]
+        # les UV passent à la haute définition
+        self.tex = T
+        for c in self.cubes:
+            c.uv = {f: (2 * x0, 2 * y0, 2 * w, 2 * h) for f, (x0, y0, w, h) in c.uv.items()}
+        return Image.fromarray(arr), Image.fromarray(g)
 
     # ---------------------------------------------------------------- export
     def geo(self):
@@ -162,8 +188,9 @@ class Modele:
             os.makedirs(os.path.dirname(v), exist_ok=True)
         json.dump(self.geo(), open(p["geo"], "w"), separators=(",", ":"))
         json.dump({"format_version": "1.8.0", "animations": animations}, open(p["anim"], "w"), indent=1)
-        tex.save(p["tex"], optimize=True)
-        glow.save(p["glow"], optimize=True)
+        import remaster  # PNG indexé quand la perte est invisible
+        remaster.sauver(tex, p["tex"])
+        remaster.sauver(glow, p["glow"])
         return tex
 
 

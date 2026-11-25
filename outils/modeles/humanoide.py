@@ -489,6 +489,42 @@ def humanoide(nom, s, fac):
                 m.cube(os_, (x + 0.5 + k * (aw - 1) / 2.5, yt - ah - 2.5, -ad / 2 - 0.5), (0.5, 3, 0.5), "corne",
                        rot=(-25, 0, 0), pivot=(x + aw / 2, yt - ah, -ad / 2))
 
+    # ---------------- finitions (0.20) : petits volumes qui donnent du relief à toutes les silhouettes
+    if corps != "spectre":
+        # bourses et fourreau à la ceinture
+        for sx in (-1, 1):
+            bx = sx * (tw / 2 - 1.2) - (1.6 if sx > 0 else 0)
+            m.cube("body", (bx, lh - 1.2, -td / 2 - 1.4), (1.6, 2.2, 1.0), "cuir", up=f_bande((60, 40, 28), "bas"))
+            m.cube("body", (bx + 0.3, lh + 0.4, -td / 2 - 1.55), (1.0, 0.5, 0.2), "or")                       # fermoir
+        m.cube("body", (tw / 2 + 0.3, lh - 5.5, -0.6), (0.9, 6, 1.2), "cuir", rot=(0, 0, -12), pivot=(tw / 2, lh, 0))   # fourreau
+        m.cube("body", (tw / 2 + 0.1, lh - 0.2, -0.8), (1.3, 1.2, 1.6), "or", rot=(0, 0, -12), pivot=(tw / 2, lh, 0))   # garde
+    if arm:
+        # plastron : arête centrale et rivets
+        if not em:
+            m.cube("body", (-0.25, lh + th * 0.47, -td / 2 - 0.8), (0.5, th * 0.5 - 1, 0.3), "armure2")
+        for sx in (-1, 1):
+            for k in range(2):
+                m.cube("body", (sx * (tw / 2 - 1.8) - 0.25, lh + th * 0.55 + k * th * 0.25, -td / 2 - 0.7), (0.5, 0.5, 0.2), "or")
+        if s.get("epaulieres"):
+            pw, ph, pd = s["epaulieres"]
+            for os_, sx in (("right_arm", -1), ("left_arm", 1)):
+                x = -tw / 2 - pw + 1 if sx < 0 else tw / 2 - 1
+                y = yt - ph + 3
+                # lame inférieure (épaulière à plusieurs étages) et clous de la plaque haute
+                m.cube(os_, (x + 0.3, y + ph * 0.45 - 1.6, -pd / 2 + 0.3), (pw - 0.6, 1.3, pd - 0.6), "armure", toutes=f_bande(A2, "bas"))
+                for k in range(3):
+                    m.cube(os_, (x + 0.8 + k * (pw - 2.1) / 2, y + ph * 0.45 + 0.6, -pd / 2 - 0.25), (0.5, 0.5, 0.25), "or")
+        for os_, x, sx in (("right_arm", -tw / 2 - aw, -1), ("left_arm", tw / 2, 1)):
+            m.cube(os_, (x + 0.2, yt - ah + 0.6, -ad / 2 - 0.4), (aw - 0.4, 0.9, 0.4), "armure2")            # plaque des phalanges
+            m.cube(os_, (x - 0.25, yt - ah * 0.62, -ad / 2 - 0.25), (aw + 0.5, 0.7, ad + 0.5), "armure2")     # bord du canon d'avant-bras
+    if jambe:
+        jw, jh, jd = jambe
+        for os_, x in (("right_leg", -jw), ("left_leg", 0)):
+            hb = max(2, jh * 0.35)
+            m.cube(os_, (x + jw / 2 - 0.5, hb * 0.55, -jd / 2 - 0.9), (1, 0.8, 0.4), "or")                    # boucle de botte
+            if arm:
+                m.cube(os_, (x + jw / 2 - 0.6, jh * 0.42 + 0.3, -jd / 2 - 1.3), (1.2, 1.0, 0.3), "or")        # clou de genouillère
+
     # ---------------- tête
     face = s.get("face", "visage")
     casque = st.get("casque") if face == "heaume" else None

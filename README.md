@@ -100,6 +100,15 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Créatures peintes en HD (0.20).** Les 173 créatures et montures générées ne sont plus agrandies : elles sont peintes
+directement en haute définition avec leur vraie matière (`outils/modeles/matieres_hd.py`) : plaques à liseré et arête
+éclaircie, rivets, rayures et éclats d'usure, gravures en volutes sur l'or, métal brossé, trame et plis des tissus, coutures
+du cuir, écailles arrondies en quinconce, mèches de fourrure, veines et nœuds du bois, fêlures de l'os et de la pierre, mailles
+de chaîne. Les emblèmes et visages sont lissés (Scale2x) et reprennent le grain de la matière. Tous les humanoïdes gagnent
+des volumes : bourses et fourreau à la ceinture, arête et clous du plastron, lame inférieure et clous des épaulières, plaque
+des phalanges, canon d'avant-bras, boucles de bottes et clous de genouillères. Skins et armures portées reçoivent rivets,
+coutures et trame.
+
 **Remaster HD (0.19).** Toutes les textures passent en haute définition, avec un rendu de figurine peinte : créatures et
 montures (2× : 512 px pour la plupart), skins des 25 factions et armures portées (128 px), et 942 icônes d'objets (32 px).
 Chaque face est repeinte avec du relief (plaques bombées, arêtes éclaircies en haut, ombrées en bas, lavis dans les creux),
@@ -161,7 +170,7 @@ Tout le contenu graphique et les listes Java sont générés par des scripts Pyt
 | `outils/remaster.py` | **à lancer en dernier** : passe en HD les textures de créatures, skins, armures portées et icônes (idempotent : seules les textures encore en basse résolution sont traitées) |
 | `outils/gui/aos.py` | blasons, ornements, jauge et icônes des Vents |
 | `outils/gui/taverne.py` | textures de l'inventaire de taverne |
-| `outils/modeles/*.py` | modèles GeckoLib des créatures et montures |
+| `outils/modeles/*.py` | modèles GeckoLib des créatures et montures (`factions.py`), peints en HD par `matieres_hd.py` |
 | `outils/visuels/*.py` | carte, maquettes et guides |
 | `outils/generateur/` | générateur du datapack (factions, Royaumes, structures, Codex) |
 

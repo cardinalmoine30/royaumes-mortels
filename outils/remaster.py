@@ -202,6 +202,26 @@ def face_hd(lo, out, x, y, w, h, orientation=None):
             for c in range(3):
                 canal = sub[:, :, c]
                 canal[m & arete] = (canal + (cible[c] - canal) * filet)[m & arete]
+        if taille >= 12:
+            ys, xs = np.nonzero(lab == z)
+            bx0, bx1, by0, by1 = xs.min() * S, (xs.max() + 1) * S, ys.min() * S, (ys.max() + 1) * S
+            if mat in ("metal", "or") and bx1 - bx0 >= 8 and by1 - by0 >= 8:
+                # rivets aux coins de la plaque : point clair, ombre portée en bas à droite
+                for rx, ry in ((bx0 + 2, by0 + 2), (bx1 - 3, by0 + 2), (bx0 + 2, by1 - 3), (bx1 - 3, by1 - 3)):
+                    if m[ry, rx]:
+                        sub[ry, rx, :3] = np.minimum(255, sub[ry, rx, :3] * 1.45 + 20)
+                        if ry + 1 < H and rx + 1 < W and m[ry + 1, rx + 1]:
+                            sub[ry + 1, rx + 1, :3] *= 0.7
+            elif mat == "cuir" and bx1 - bx0 >= 8 and by1 - by0 >= 8:
+                jj, ii = np.mgrid[0:H, 0:W]
+                couture = m & (np.abs(dist - 2.5) < 0.5) & ((ii + jj) % 3 == 0)
+                sub[couture, :3] = np.minimum(255, sub[couture, :3] * 1.3 + 8)
+            elif mat == "tissu" and moyenne.mean() < 185:  # trame (pas sur les teintes pâles : os, ivoire)
+                jj, ii = np.mgrid[0:H, 0:W]
+                trame = np.where((ii + jj) % 2 == 0, 1.022, 0.978)
+                for c in range(3):
+                    canal = sub[:, :, c]
+                    canal[m] = (canal * trame)[m]
         if mat == "peau":  # la peau rougit légèrement dans les creux
             sub[:, :, 0][m] = np.minimum(255, sub[:, :, 0] * (1 + 0.05 * (1 - np.clip(dist / 4, 0, 1))))[m]
         if mat == "or":  # l'or garde sa chaleur dans les ombres
@@ -271,6 +291,20 @@ def faces_geo(geo):
     return tex_w, fs
 
 
+def densite(geo):
+    """Texels par pixel de modèle (2 pour les textures d'origine, 4 pour celles peintes directement en HD)."""
+    for b in geo["minecraft:geometry"][0]["bones"]:
+        for c in b.get("cubes", []):
+            uv = c.get("uv")
+            if isinstance(uv, dict):
+                for f, ax in (("north", 0), ("east", 2), ("up", 0)):
+                    if f in uv and c["size"][ax] >= 1:
+                        return abs(uv[f]["uv_size"][0]) / c["size"][ax]
+            elif isinstance(uv, list) and c["size"][0] >= 1:
+                return 1.0
+    return 1.0
+
+
 def mobs():
     n = 0
     for g in sorted(glob.glob(os.path.join(ASSETS, "geckolib", "models", "entity", "*.geo.json"))):
@@ -279,6 +313,8 @@ def mobs():
         if not os.path.exists(p):
             continue
         geo = json.load(open(g))
+        if densite(geo) >= 3.5:  # déjà peinte en HD par outils/modeles (matières réelles)
+            continue
         tex_w, fs = faces_geo(geo)
         img = Image.open(p)
         if img.width != tex_w:  # déjà en HD
