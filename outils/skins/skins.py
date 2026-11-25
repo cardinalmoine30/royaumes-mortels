@@ -7,6 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 SORTIE = os.path.join(ICI, "..", "..", "src", "main", "resources", "assets", "royaumes", "textures", "skin")
+BAS = os.path.join(ICI, "bas")  # skins 64×64 d'origine (le mod reçoit la version HD de outils/remaster.py)
 PARTS = {"head": (0, 0, 8, 8, 8), "hat": (32, 0, 8, 8, 8),
          "body": (16, 16, 8, 12, 4), "jacket": (16, 32, 8, 12, 4),
          "rarm": (40, 16, 4, 12, 4), "rsleeve": (40, 32, 4, 12, 4),
@@ -755,6 +756,8 @@ if __name__ == "__main__":
         s = Skin(i * 31 + 7)
         fn_(s)
         s.im.save(os.path.join(SORTIE, fid + ".png"))
+        os.makedirs(BAS, exist_ok=True)
+        s.im.save(os.path.join(BAS, fid + ".png"))
         skins.append(s.im)
     os.makedirs(os.path.join(ICI, "apercus"), exist_ok=True)
     planche(skins, [noms.get(f, f) for f, _ in FACTIONS], os.path.join(ICI, "apercus", "planche_skins.png"))

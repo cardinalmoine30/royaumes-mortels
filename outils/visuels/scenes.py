@@ -72,6 +72,7 @@ class Scene:
     def modele(self, nom, x, y, z, lacet=0, echelle=1.0, pose=None, texture=None):
         g = json.load(open(os.path.join(A, "geckolib", "models", "entity", nom + ".geo.json")))["minecraft:geometry"][0]
         T = self.tex(texture or os.path.join(TEX, "entity", nom + ".png"))
+        k = T.shape[1] / g["description"]["texture_width"]  # texture HD : UV mis à l'échelle
         emis_p = os.path.join(TEX, "entity", nom + "_glowmask.png")
         os_ = {b["name"]: b for b in g["bones"]}
         pose = pose or {}
@@ -95,7 +96,7 @@ class Scene:
                         u, w = u + w, -w
                     if h < 0:
                         v, h = v + h, -h
-                    self.quads.append((pts[0], pts[1], pts[2], T, (u, v, w, h), LUM[f], False))
+                    self.quads.append((pts[0], pts[1], pts[2], T, (u * k, v * k, w * k, h * k), LUM[f], False))
         return self
 
     @staticmethod
@@ -107,6 +108,7 @@ class Scene:
     # --- joueur avec un skin de faction (UV « boîte » des skins 64x64)
     def joueur(self, faction, x, y, z, lacet=0, pose=None):
         T = self.tex(os.path.join(TEX, "skin", faction + ".png"))
+        k = T.shape[1] / 64  # skin HD 128×128
         pose = pose or {}
         parts = [("head", (-4, 24, -4), (8, 8, 8), (0, 0), (32, 0), 0.5, (0, 24, 0)),
                  ("body", (-4, 12, -2), (8, 12, 4), (16, 16), (16, 32), 0.25, (0, 24, 0)),
@@ -122,7 +124,7 @@ class Scene:
                 for f, (u, v, ww, hh) in faces.items():
                     pts = [rot(p, pose.get(nom), piv) for p in coins(o, t, f, g)]
                     pts = [self._monde(p, x, y, z, lacet, 0.94) for p in pts]
-                    self.quads.append((pts[0], pts[1], pts[2], T, (u, v, ww, hh), LUM[f], False))
+                    self.quads.append((pts[0], pts[1], pts[2], T, (u * k, v * k, ww * k, hh * k), LUM[f], False))
         return self
 
     # --- rendu

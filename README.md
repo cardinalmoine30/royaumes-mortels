@@ -100,6 +100,12 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Remaster HD (0.19).** Toutes les textures passent en haute définition, avec un rendu de figurine peinte : créatures et
+montures (2× : 512 px pour la plupart), skins des 25 factions et armures portées (128 px), et 942 icônes d'objets (32 px).
+Chaque face est repeinte avec du relief (plaques bombées, arêtes éclaircies en haut, ombrées en bas, lavis dans les creux),
+une matière devinée par sa couleur (métal brossé et reflets, or chaud, cuir, tissu, os, peau) et des coins et diagonales
+arrondis au lieu d'escaliers. Les silhouettes et les designs restent ceux du mod ; seuls le modelé et la finesse changent.
+
 **Reliques des seigneurs (0.18) : rares mais redoutables.** Une relique ne tombe plus à chaque victoire : 10 % au premier
 combat, +5 % par héros en plus, +8 % par victoire sans relique (la « pitié », comptée pour chaque héros, remise à zéro quand une
 relique tombe). Seul, il faut en moyenne ~4 victoires, au pire 12 ; tout le serveur est prévenu quand une relique apparaît.
@@ -151,7 +157,8 @@ Tout le contenu graphique et les listes Java sont générés par des scripts Pyt
 | `outils/objets/batiments.py` | plans des 5 bâtiments du camp, 3 niveaux, 4 styles d'alliance |
 | `outils/objets/capacites.py`, `saga.py` | capacités des 25 factions, onglet de progrès Saga des Royaumes |
 | `outils/objets/objets.py` | objets, blocs, œufs : textures, modèles, butins, recettes, étiquettes, minerai, traductions, `ContenuGenere.java`, contenu des onglets créatifs |
-| `outils/skins/skins.py` | skins des 25 factions + planche |
+| `outils/skins/skins.py` | skins des 25 factions (64 px, copie d'origine dans `outils/skins/bas/`) + planche |
+| `outils/remaster.py` | **à lancer en dernier** : passe en HD les textures de créatures, skins, armures portées et icônes (idempotent : seules les textures encore en basse résolution sont traitées) |
 | `outils/gui/aos.py` | blasons, ornements, jauge et icônes des Vents |
 | `outils/gui/taverne.py` | textures de l'inventaire de taverne |
 | `outils/modeles/*.py` | modèles GeckoLib des créatures et montures |

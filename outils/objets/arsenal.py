@@ -522,7 +522,8 @@ def retoucher(im, tier, c2):
 
 
 def armure_portee(fid, tier=1):
-    skin = Image.open(os.path.join(ASSETS, "textures", "skin", fid + ".png")).convert("RGBA")
+    # skin 64×64 d'origine : l'armure portée est découpée dedans, puis passée en HD par outils/remaster.py
+    skin = Image.open(os.path.join(ICI, "..", "skins", "bas", fid + ".png")).convert("RGBA")
     c1, c2 = teintes(fid, tier)
     l1 = Image.new("RGBA", (64, 32), (0, 0, 0, 0))
     l1.paste(skin.crop((0, 0, 32, 16)), (0, 0))      # casque (tête)

@@ -22,14 +22,16 @@ def skin_arme(fid, tid):
     sk = Image.open(os.path.join(TEX, "skin", fid + ".png")).convert("RGBA")
     l1 = Image.open(os.path.join(EQ, "humanoid", fid + "_" + tid + ".png")).convert("RGBA")
     l2 = Image.open(os.path.join(EQ, "humanoid_leggings", fid + "_" + tid + ".png")).convert("RGBA")
+    k = sk.width // 64  # 1 en basse résolution, 2 pour les textures HD
+    l1, l2 = (l.resize((64 * k, 32 * k), Image.NEAREST) for l in (l1, l2))
     out = sk.copy()
     for lay in (l2, l1):
-        h = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
+        h = Image.new("RGBA", (64 * k, 64 * k), (0, 0, 0, 0))
         h.paste(lay, (0, 0))
         out.alpha_composite(h)
         # bras et jambe gauches (format 64x64) : copie du côté droit
-        out.alpha_composite(h.crop((40, 16, 56, 32)), (32, 48))
-        out.alpha_composite(h.crop((0, 16, 16, 32)), (16, 48))
+        out.alpha_composite(h.crop((40 * k, 16 * k, 56 * k, 32 * k)), (32 * k, 48 * k))
+        out.alpha_composite(h.crop((0, 16 * k, 16 * k, 32 * k)), (16 * k, 48 * k))
     return np.array(out)
 
 

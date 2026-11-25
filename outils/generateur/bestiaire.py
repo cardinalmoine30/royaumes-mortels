@@ -140,7 +140,8 @@ def item_icone(spec):
     n = mid.split(":")[1]
     for p in (f"{T}/item/{n}.png", f"{T}/block/{n}.png", f"{T}/block/{n}_top.png"):
         if os.path.exists(p):
-            return Image.open(p).convert("RGBA").crop((0, 0, 16, 16))
+            im = Image.open(p).convert("RGBA")
+            return im.crop((0, 0, im.width, im.width)).resize((16, 16), Image.LANCZOS)
     return None
 
 

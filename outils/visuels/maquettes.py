@@ -130,7 +130,7 @@ def serment(choix=0, survol=11):
     f = FACTIONS[survol - 1]
     qx, qy, qw, qh = px + 210, py + 18, 180, PH - 28
     cadre_or(d, qx, qy, qw, qh, fond=(24, 30, 52))
-    skin = Image.open(os.path.join(TEX, "skin", f["id"] + ".png")).convert("RGBA")
+    skin = Image.open(os.path.join(ICI, "..", "skins", "bas", f["id"] + ".png")).convert("RGBA")
     al = [a for a in ALLIANCES if survol in a[2]][0]
     texte(d, qx + qw / 2, qy + 6, f["nom"], 8, OR_C, gras=True, centre=True)
     texte(d, qx + qw / 2, qy + 18, al[0] + " · " + f["royaume"], 6, al[1], centre=True, serif=False)
