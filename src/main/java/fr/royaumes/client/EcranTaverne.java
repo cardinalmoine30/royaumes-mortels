@@ -70,10 +70,10 @@ public class EcranTaverne extends InventoryScreen {
             onglets.get(i).setY(this.topPos - Onglet.H + 3);
         }
         FicheHeros f = DonneesHeros.actuelle;
-        int x0 = this.leftPos - 122;
-        boolean carnet = !livreDeRecettesOuvert() && x0 >= 2 && f != null;
+        int xc = this.leftPos - 122;
+        boolean carnet = !livreDeRecettesOuvert() && xc >= 2 && f != null;
         for (BoutonPlus b : plus) {
-            b.setX(x0 + 103);
+            b.setX(xc + 103);
             b.setY(this.topPos + 92 + b.comp * 10);
             int rang = f != null && b.comp < f.rangs().length ? f.rangs()[b.comp] : 0;
             b.visible = carnet && f.points() > 0 && rang < FactionsGenerees.RANG_MAX;
