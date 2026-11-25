@@ -366,6 +366,44 @@ def poisson(nom, s, fac):
     return m, mats
 
 
+def roue(m, bone, cx, cy, cz, R, e, n=10, jante="bois", bandage="metal", rayon="bois", moyeu="metal", lame=None, sx=1):
+    """Vraie roue en volume dans le plan YZ (elle tourne autour de X) : jante en segments, bandage de fer cloué,
+    rayons, moyeu et chapeau ; lame de faux optionnelle sur le moyeu (côté sx)."""
+    import math
+    t = max(0.8, R * 0.16)
+    seg = 2 * R * math.sin(math.pi / n) + 0.35
+    piv = (cx, cy, cz)
+    for k in range(n):
+        a = k * 360.0 / n
+        m.cube(bone, (cx - e / 2, cy + R - t, cz - seg / 2), (e, t, seg), jante, rot=(a, 0, 0), pivot=piv)
+        m.cube(bone, (cx - e / 2 - 0.15, cy + R - 0.05, cz - seg / 2 + 0.1), (e + 0.3, 0.45, seg - 0.2), bandage, rot=(a, 0, 0), pivot=piv)
+        if k % 2 == 0:
+            m.cube(bone, (cx - e / 2 - 0.3, cy + R - 0.35, cz - 0.3), (e + 0.6, 0.6, 0.6), "or", rot=(a, 0, 0), pivot=piv)   # clou
+    nr = max(3, n // 2)
+    for k in range(nr):
+        a = k * 180.0 / nr
+        m.cube(bone, (cx - e * 0.3, cy - (R - t), cz - 0.4), (e * 0.6, 2 * (R - t), 0.8), rayon, rot=(a, 0, 0), pivot=piv)
+    hm = max(1.6, R * 0.32)
+    m.cube(bone, (cx - e / 2 - 0.6, cy - hm / 2, cz - hm / 2), (e + 1.2, hm, hm), moyeu)
+    m.cube(bone, (cx - e / 2 - 1.2, cy - hm / 4, cz - hm / 4), (e + 2.4, hm / 2, hm / 2), "or")
+    if lame:
+        x = cx + sx * (e / 2 + 1.2) - (0 if sx > 0 else 4)
+        m.cube(bone, (x, cy - 0.3, cz - 0.6), (4, 0.6, 1.2), lame)
+        m.cube(bone, (x + (3 if sx > 0 else 0), cy - 0.3, cz - 2.2), (1, 0.6, 2.2), lame)
+
+
+def rat_coureur(m, bone, x, y, z):
+    """Petit rat qui court dans la grande roue."""
+    m.cube(bone, (x - 1.2, y + 1.2, z - 2), (2.4, 2.2, 4), "poils")
+    m.cube(bone, (x - 1, y + 1.8, z - 3.6), (2, 1.8, 1.8), "poils", north=f_yeux((255, 60, 60), None, 0.35, 0.22))
+    m.cube(bone, (x - 0.4, y + 1.9, z - 4.4), (0.8, 0.8, 0.9), "rose")
+    for sx in (-1, 1):
+        m.cube(bone, (x + sx * 0.7 - 0.3, y + 3.5, z - 3.2), (0.6, 0.8, 0.4), "rose")
+    for (dx, dz) in ((-0.9, -1.5), (0.4, -1.5), (-0.9, 1.0), (0.4, 1.0)):
+        m.cube(bone, (x + dx, y, z + dz), (0.5, 1.3, 0.6), "poils")
+    m.cube(bone, (x - 0.25, y + 1.6, z + 2), (0.5, 0.5, 3.5), "rose", rot=(-20, 0, 0), pivot=(x, y + 1.8, z + 2))
+
+
 def char(nom, s, fac):
     P = s["pal"]
     mats = mats_creature(nom, s, fac)
@@ -379,29 +417,47 @@ def char(nom, s, fac):
                                         d.line((x, y + h // 2, x + w - 1, y + h // 2), fill=P["metal"]),
                                         d.ellipse((x + w // 2 - 2, y + h // 2 - 2, x + w // 2 + 1, y + h // 2 + 1), fill=A2))
     if s.get("roue_geante"):
-        R = 22
-        m.bone("wheel_l", "body", (0, R / 2, 0))
-        for x in (-5, 4):
-            m.cube("wheel_l", (x, 0, -R / 2), (1, R, R), "bois", west=rayons, east=rayons)
-        for k in range(6):
-            import math
-            an = k * math.pi / 3
-            m.cube("wheel_l", (-5, R / 2 + math.sin(an) * (R / 2 - 1) - 0.5, math.cos(an) * (R / 2 - 1) - 0.5), (10, 1, 1), "metal")
-        m.cube("body", (-4, R / 2 - 3, -3), (8, 6, 6), "metal", north=f_eclair(LU), south=f_eclair(LU))
-        m.cube("body", (-3, R / 2 + 3, -2.5), (6, 6, 5), "poils", north=f_yeux((255, 60, 60), None, 0.35, 0.2))
-        m.cube("body", (-1, R - 2, -1), (2, 6, 2), "lueur")
-        m.cube("body", (-1.5, R + 3.5, -1.5), (3, 1, 3), "metal")
+        R = 11
+        m.bone("wheel_l", "body", (0, R, 0))
+        for x in (-4.5, 4.5):
+            roue(m, "wheel_l", x, R, 0, R, 1.2, n=14)
+        import math
+        for k in range(8):                                                        # barreaux de la cage (marches des rats)
+            an = k * math.pi / 4
+            m.cube("wheel_l", (-4.5, R + math.sin(an) * (R - 1.2) - 0.4, math.cos(an) * (R - 1.2) - 0.4), (9, 0.8, 0.8), "metal")
+        m.cube("wheel_l", (-5.5, R - 0.8, -0.8), (11, 1.6, 1.6), "metal")              # essieu
+        # générateur de malefoudre au centre, avec ses bobines et ses plaques rivetées
+        m.cube("body", (-3, R - 3, -3), (6, 6, 6), "metal", north=f_eclair(LU), south=f_eclair(LU))
+        for sx in (-1, 1):
+            m.cube("body", (sx * 3.2 - (0.6 if sx < 0 else 0), R - 2.5, -2.5), (0.6, 5, 5), "armure2")
+        for k in range(3):
+            m.cube("body", (-3.4, R - 2.2 + k * 1.8, -3.4), (6.8, 0.6, 6.8), "or")      # bobines de cuivre
+        m.cube("body", (-1, R + 3, -1), (2, 4, 2), "lueur")                             # malepierre
+        m.cube("body", (-1.6, R + 7, -1.6), (3.2, 0.8, 3.2), "metal")
+        for sx in (-1, 1):                                                              # paratonnerres
+            m.cube("body", (sx * 1.6 - 0.25, R + 7.5, -0.25), (0.5, 4, 0.5), "metal", rot=(0, 0, sx * 18), pivot=(sx * 1.6, R + 7.5, 0))
+            m.cube("body", (sx * 2.6 - 0.5, R + 11, -0.5), (1, 1, 1), "lueur")
+        # canon à malefoudre à l'avant et pilote
+        m.cube("body", (-0.8, R - 1, -10), (1.6, 1.6, 7), "metal")
+        m.cube("body", (-1.2, R - 1.4, -11), (2.4, 2.4, 1.2), "lueur")
+        m.cube("body", (-1.5, R + 3.5, 2.5), (3, 3, 3), "poils", north=f_yeux((255, 60, 60), None, 0.35, 0.2))
+        for x in (-2.2, 2.2):                                                           # rats qui courent au fond
+            rat_coureur(m, "body", x, 1.4, 0)
         return m, mats
     planches = lambda d, x, y, w, h, px: [d.line((x, y + k, x + w - 1, y + k), fill=mul(mats["bois"]["c"], 0.6)) for k in range(2, h, 3)]
     m.cube("body", (-W / 2, 6, -L / 2), (W, H, L), "bois", north=combine(planches, f_bande(A2, "haut", 2)),
            east=combine(planches, f_bande(A2, "haut", 2)), west=combine(planches, f_bande(A2, "haut", 2)))
     m.cube("body", (-W / 2 - 0.5, 6 + H - 1, -L / 2 - 0.5), (W + 1, 1, L + 1), "or")
     m.cube("body", (-1, 4, -L / 2 - 8), (2, 2, 9), "bois")                                                     # timon
-    for nomb, x in (("wheel_l", -W / 2 - 2), ("wheel_r", W / 2)):
-        m.bone(nomb, "body", (x + 1, 5, 0))
-        m.cube(nomb, (x, 0, -5), (2, 10, 10), "bois", east=rayons, west=rayons)
-        m.cube(nomb, (x - 0.5 if x < 0 else x + 1.5, 4, -1), (1, 2, 2), "metal")
-        m.cube(nomb, (x + (-1.5 if x < 0 else 2), 4.5, -0.5), (1.5, 1, 1), "corne")                          # lame de moyeu
+    for nomb, x, sx in (("wheel_l", -W / 2 - 1, -1), ("wheel_r", W / 2 + 1, 1)):
+        m.bone(nomb, "body", (x, 5, 0))
+        roue(m, nomb, x, 5, 0, 5, 1.4, n=10,
+             lame="lame" if fac in ("esclaves", "khorne", "tzeentch", "nurgle", "slaanesh", "skaven") else None, sx=sx)
+    # caisse : coins ferrés, plaque avant rivetée, essieu
+    m.cube("body", (-W / 2 - 1, 4.3, -0.7), (W + 2, 1.4, 1.4), "metal")
+    for (x, z) in ((-W / 2 - 0.4, -L / 2 - 0.4), (W / 2 - 0.6, -L / 2 - 0.4), (-W / 2 - 0.4, L / 2 - 0.6), (W / 2 - 0.6, L / 2 - 0.6)):
+        m.cube("body", (x, 6, z), (1, H, 1), "metal")
+    m.cube("body", (-W / 2 + 1, 6.5, -L / 2 - 0.6), (W - 2, H - 2, 0.6), "armure2", north=f_cadre(mul(A2, 0.7)))
     if s.get("toit"):
         m.cube("body", (-W / 2 + 1, 6 + H, -2), (W - 2, 9, L / 2 + 2), "tissu",
                north=combine(f_yeux(LU, (10, 10, 14), 0.4, 0.25), f_cadre(A2)))

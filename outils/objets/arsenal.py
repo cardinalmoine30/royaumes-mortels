@@ -515,9 +515,12 @@ def retoucher(im, tier, c2):
                 for y in (y0, y0 + h - 1):
                     if px[x, y][3]:
                         px[x, y] = liseré + (255,)
-        if tier >= 3:  # runes / gemmes au centre du torse et sur le front
-            for (x, y) in [(23, 23), (24, 24), (23, 25), (11, 9), (12, 9)]:
-                px[x, y] = ((60, 255, 255) if tier == 3 else (255, 255, 255)) + (255,)
+        if tier >= 3:  # gemme serties au front et au centre du torse (cyan : Mythique, ambre : Divin)
+            gemme = (60, 215, 240) if tier == 3 else (255, 176, 48)
+            for (gx, gy) in ((11, 9), (23, 24)):
+                for (dx, dy) in ((0, 0), (1, 0), (0, 1), (1, 1)):
+                    k = 1.18 if (dx, dy) == (0, 0) else (0.72 if (dx, dy) == (1, 1) else 1.0)
+                    px[gx + dx, gy + dy] = tuple(min(255, int(v * k)) for v in gemme) + (255,)
     return im
 
 

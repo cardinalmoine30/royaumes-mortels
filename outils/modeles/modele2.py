@@ -111,11 +111,16 @@ class Modele:
                 if m["type"] == "lueur":
                     lueurs.add((x0, y0, w, h))
         base = np.array(im)
+        def parties(fn):
+            return getattr(fn, "parties", [fn])
+
         for c in self.cubes:
             for f, (x0, y0, w, h) in c.uv.items():
                 fn = c.faces.get(f)
                 if fn:
-                    fn(d, x0, y0, w, h, px)
+                    for p in parties(fn):
+                        if not hasattr(p, "hd"):   # les dessins qui ont leur version HD ne passent pas par l'agrandissement
+                            p(d, x0, y0, w, h, px)
         lo = np.array(im)
         # ---- haute définition
         T = 2 * self.tex
@@ -129,12 +134,17 @@ class Modele:
                 MH.peindre_face(hd, 2 * x0, 2 * y0, 2 * w, 2 * h, f, m, nrng)
         for c in self.cubes:
             for f, (x0, y0, w, h) in c.uv.items():
-                if c.faces.get(f):
-                    r = MH.decors_hd(hd, lo, base, x0, y0, w, h, f, mats[c.mat]["c"])
+                fn = c.faces.get(f)
+                if not fn:
+                    continue
+                zone = (slice(2 * y0, 2 * (y0 + h)), slice(2 * x0, 2 * (x0 + w)))
+                resultats = [MH.decors_hd(hd, lo, base, x0, y0, w, h, f, mats[c.mat]["c"])]
+                resultats += [p.hd(hd, 2 * x0, 2 * y0, 2 * w, 2 * h) for p in parties(fn) if hasattr(p, "hd")]
+                for r in resultats:
                     if r:
                         mk, couleur = r
-                        masque_dessins[2 * y0:2 * (y0 + h), 2 * x0:2 * (x0 + w)] |= mk
-                        dessins[2 * y0:2 * (y0 + h), 2 * x0:2 * (x0 + w)][mk] = couleur[mk]
+                        masque_dessins[zone] |= mk
+                        dessins[zone][mk] = couleur[mk]
         arr = np.clip(hd, 0, 255).astype(np.uint8)
         # masque lumineux : faces « lueur » + pixels (dessins compris) de la couleur d'une lueur
         g = np.zeros_like(arr)

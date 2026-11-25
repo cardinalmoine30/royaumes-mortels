@@ -34,6 +34,13 @@ RNG = np.random.default_rng(1234)
 def zones(lo, x, y, w, h, seuil=34):
     """Étiquettes des zones de couleur proche, contiguës, dans la face (x, y, w, h) ; -1 = transparent."""
     sub = lo[y:y + h, x:x + w].astype(int)
+    if h >= 3 and w >= 3:
+        # le grain (bruit de ±10) ne doit pas découper une matière en confettis : on compare des couleurs
+        # débruitées, sauf pour les vrais détails (yeux, runes) qui s'écartent nettement de leur voisinage
+        med = ndimage.median_filter(sub[:, :, :3], size=(3, 3, 1), mode="nearest")
+        proche = np.abs(sub[:, :, :3] - med).sum(axis=2) < 45
+        sub = sub.copy()
+        sub[proche, :3] = med[proche]
     lab = -np.ones((h, w), int)
     parent = list(range(w * h))
 
@@ -145,7 +152,7 @@ def epx(lab, col, silhouette=False):
     return labH, colH
 
 
-def face_hd(lo, out, x, y, w, h, orientation=None):
+def face_hd(lo, out, x, y, w, h, orientation=None, rivets=True):
     """Repeint la face (x, y, w, h) de la texture basse résolution lo dans out (HD, flottants)."""
     lab = zones(lo, x, y, w, h)
     if (lab >= 0).sum() == 0:
@@ -175,8 +182,8 @@ def face_hd(lo, out, x, y, w, h, orientation=None):
         clair, sombre_, bombe, bf, bl, reflet, st = REGLAGES[mat]
         if mat == "lumineux":
             continue
-        if taille <= 3:  # yeux, runes, rivets : nets, juste éclairés
-            k = 1.04 + 0.04 * (dh <= S)
+        if taille <= 3:  # yeux, runes, rivets : nets, sans reflet ajouté (sinon le grain se couvre de points clairs)
+            k = np.ones((H, W))
         else:
             rayon = max(2.0, min(7.0, np.sqrt(taille) * S / 2.2))
             r = np.clip(dist / rayon, 0, 1)
@@ -193,8 +200,8 @@ def face_hd(lo, out, x, y, w, h, orientation=None):
         for c in range(3):
             canal = sub[:, :, c]
             canal[m] = (canal * k)[m]
-        if taille > 3:
-            # éclaircissement des arêtes, comme sur une figurine peinte : un filet fin et clair sur les arêtes
+        if taille > 6 and mat in ("metal", "or", "sombre", "cuir"):
+            # éclaircissement des arêtes (pièces d'armure seulement : sur la peau et la fourrure il ferait des points clairs), comme sur une figurine peinte : un filet fin et clair sur les arêtes
             # hautes et gauches, teinté de la couleur de la zone (le noir s'éclaire en gris acier, le rouge en rose)
             filet = {"metal": 0.42, "or": 0.40, "sombre": 0.30, "os": 0.22, "cuir": 0.22}.get(mat, 0.16)
             arete = (np.minimum(dh, dg) == 0) & (np.minimum(db, dd) > 0)
@@ -205,7 +212,7 @@ def face_hd(lo, out, x, y, w, h, orientation=None):
         if taille >= 12:
             ys, xs = np.nonzero(lab == z)
             bx0, bx1, by0, by1 = xs.min() * S, (xs.max() + 1) * S, ys.min() * S, (ys.max() + 1) * S
-            if mat in ("metal", "or") and bx1 - bx0 >= 8 and by1 - by0 >= 8:
+            if rivets and mat in ("metal", "or") and bx1 - bx0 >= 8 and by1 - by0 >= 8:
                 # rivets aux coins de la plaque : point clair, ombre portée en bas à droite
                 for rx, ry in ((bx0 + 2, by0 + 2), (bx1 - 3, by0 + 2), (bx0 + 2, by1 - 3), (bx1 - 3, by1 - 3)):
                     if m[ry, rx]:
@@ -236,7 +243,7 @@ def face_hd(lo, out, x, y, w, h, orientation=None):
     np.clip(sub, 0, 255, out=sub)
 
 
-def remaster_image(img, faces):
+def remaster_image(img, faces, rivets=True):
     """faces : liste de (x, y, w, h, orientation) en coordonnées basse résolution."""
     lo = np.array(img.convert("RGBA"))
     out = np.repeat(np.repeat(lo, S, 0), S, 1).astype(float)
@@ -250,7 +257,7 @@ def remaster_image(img, faces):
             continue
         x, y = max(0, x), max(0, y)
         w, h = min(w, lo.shape[1] - x), min(h, lo.shape[0] - y)
-        face_hd(lo, out, int(x), int(y), int(w), int(h), o)
+        face_hd(lo, out, int(x), int(y), int(w), int(h), o, rivets)
     out[:, :, 3] = np.repeat(np.repeat(lo[:, :, 3], S, 0), S, 1)
     return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
 
@@ -351,7 +358,7 @@ def faces_parties(hauteur):
 
 def skin_hd(img):
     """Skin 64×64 ou texture d'équipement 64×32 -> 128×128 ou 128×64."""
-    return remaster_image(img, faces_parties(img.height))
+    return remaster_image(img, faces_parties(img.height), rivets=False)   # pas de rivets : sur 8 px ils feraient des points
 
 
 def skins():

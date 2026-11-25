@@ -31,6 +31,37 @@ def _bruit(rng, h, w, s=0.0, axe=None):
     return np.clip(n, -3, 3)
 
 
+def _hash(n, graine):
+    v = np.sin(n * 12.9898 + graine * 78.233) * 43758.5453
+    return v - np.floor(v)
+
+
+def _voronoi(I, J, pas, graine):
+    """Distances au germe le plus proche et au suivant, identifiant de cellule, écart vertical au germe."""
+    rang_h = pas * 0.86
+    gy0 = np.floor(J / rang_h).astype(int)
+    d1 = np.full(I.shape, 1e9)
+    d2 = np.full(I.shape, 1e9)
+    ident = np.zeros(I.shape)
+    dy = np.zeros(I.shape)
+    for oy in (-1, 0, 1):
+        gy = gy0 + oy
+        decal = (gy % 2) * 0.5
+        gx0 = np.floor(I / pas - decal).astype(int)
+        for ox in (-1, 0, 1):
+            gx = gx0 + ox
+            n = gx * 157 + gy * 1013
+            cx = (gx + 0.5 + decal) * pas + (_hash(n, graine) - 0.5) * pas * 0.7
+            cy = (gy + 0.5) * rang_h + (_hash(n, graine + 1.3) - 0.5) * rang_h * 0.7
+            d = np.hypot(I - cx, (J - cy) * 1.15)
+            plus_pres = d < d1
+            d2 = np.where(plus_pres, d1, np.minimum(d2, d))
+            ident = np.where(plus_pres, n, ident)
+            dy = np.where(plus_pres, J - cy, dy)
+            d1 = np.where(plus_pres, d, d1)
+    return d1, d2, ident, dy
+
+
 def _marche(rng, k, h, w, n, longueur, facteur, diag=True):
     """Fêlures / rayures : marches aléatoires fines."""
     for _ in range(n):
@@ -110,20 +141,21 @@ def peindre_face(arr, x0, y0, w, h, face, m, rng):
         k = np.where(de == 0, k * 0.86, np.where(de == 1, k * 0.95, k))
         col[..., 0] = np.minimum(255, col[..., 0] * (1 + 0.04 * (de <= 1)))
     elif typ == "ecaille":
-        # écailles arrondies en quinconce (6 × 4 texels) : reflet en haut, liseré sombre en arc en bas
-        rang = J // 4
-        dec = (rang % 2) * 3
-        u, v = (I + dec) % 6, J % 4
-        ident = ((I + dec) // 6) * 131 + rang * 977
-        var = np.sin(ident * 12.9898 + seed) * 43758.5453
-        var = (var - np.floor(var)) - 0.5
-        dist = ((u - 2.5) / 3.0) ** 2 + ((v - 0.6) / 3.2) ** 2
-        k *= 1.1 - 0.42 * np.clip(dist, 0, 1) + 0.12 * var + 0.025 * fin
-        k = np.where((v == 0) & (np.abs(u - 2.5) < 1.6), k * 1.12, k)
-        ventre = np.ones((h, w), bool) if face == "down" else (J > h * 0.62)
-        if c2 is not None and cote or (c2 is not None and face == "down"):
-            col[ventre] = np.array(c2[:3], float)
-            k = np.where(ventre, LUM[face] * (1 + 0.03 * fin) * np.where(J % 3 == 2, 0.88, 1.0), k)
+        # écailles en galets irréguliers (cellules de Voronoï sur une grille décalée) : chaque écaille est bombée,
+        # éclairée en haut, cernée d'un sillon fin ; le ventre porte de larges plaques transversales
+        d1, d2, ident, dy = _voronoi(I, J, 5.5, seed)
+        bombe = np.clip((d2 - d1) / 2.8, 0, 1)
+        var = _hash(ident, seed + 3.7) - 0.5
+        k *= (0.74 + 0.34 * np.sqrt(bombe)) * (1 + 0.12 * var) * (1 + 0.12 * np.clip(-dy / 2.5, -1, 1)) * (1 + 0.02 * fin)
+        k = np.where(d2 - d1 < 0.8, k * 0.8, k)                                    # sillon entre les écailles
+        if c2 is not None:
+            ventre = np.ones((h, w), bool) if face == "down" else ((J > h * 0.62) if cote else np.zeros((h, w), bool))
+            if ventre.any():
+                col[ventre] = np.array(c2[:3], float)
+                bande = (J % 5)
+                kv = LUM[face] * (1 + 0.025 * fin) * np.where(bande == 4, 0.74, np.where(bande == 0, 1.08, 1.0))
+                kv *= 0.92 + 0.08 * np.clip(np.minimum(I, w - 1 - I) / 3, 0, 1)
+                k = np.where(ventre, kv, k)
     elif typ == "os":
         k *= 1 + 0.05 * fin + 0.05 * doux
         k = np.where(rng.random((h, w)) < 0.03, k * 0.74, k)
@@ -248,3 +280,107 @@ def decors_hd(arr, lo, base, x0, y0, w, h, face, couleur_matiere=None):
     region[m, :3] = np.clip(couleur[m, :3] * k[m, None], 0, 255)
     region[m, 3] = couleur[m, 3]
     return m, couleur
+
+
+# ------------------------------------------------------------------ visages et yeux peints en HD
+def _ellipse(I, J, cx, cy, rx, ry):
+    return ((I - cx) / max(rx, 0.5)) ** 2 + ((J - cy) / max(ry, 0.5)) ** 2
+
+
+def visage_hd(arr, X, Y, W, H, peau, yeux=(30, 30, 40), bouche=None, sourcils=None):
+    """Visage humain peint en HD sur la peau déjà peinte : orbites, yeux (blanc, iris, pupille, reflet),
+    paupières, sourcils, ombre du nez, pommettes, lèvres, menton."""
+    reg = arr[Y:Y + H, X:X + W]
+    J, I = np.mgrid[0:H, 0:W].astype(float)
+    peau = np.array(peau[:3], float)
+    k = np.ones((H, W))
+    ey = H * 0.44
+    for sx in (-1, 1):
+        ex = W / 2 + sx * W * 0.2 - 0.5
+        k *= 1 - 0.16 * np.clip(1 - _ellipse(I, J, ex, ey + 0.5, W * 0.15, H * 0.11), 0, 1)       # orbite
+        k *= 1 + 0.07 * np.clip(1 - _ellipse(I, J, ex, H * 0.62, W * 0.13, H * 0.07), 0, 1)       # pommette
+    k *= 1 - 0.2 * np.clip(1 - _ellipse(I, J, W / 2 - 0.5, H * 0.67, W * 0.1, H * 0.035), 0, 1)  # ombre du nez
+    k *= 1 - 0.1 * np.clip(1 - _ellipse(I, J, W / 2 - 0.5, H * 0.9, W * 0.18, H * 0.05), 0, 1)   # creux du menton
+    reg[..., :3] *= k[..., None]
+    rouge = np.clip(1 - np.minimum(_ellipse(I, J, W * 0.27, H * 0.64, W * 0.1, H * 0.06),
+                                   _ellipse(I, J, W * 0.73 - 1, H * 0.64, W * 0.1, H * 0.06)), 0, 1)
+    reg[..., 0] = np.minimum(255, reg[..., 0] * (1 + 0.08 * rouge))
+    masque = np.zeros((H, W), bool)
+    plat = np.zeros((H, W, 4))
+    iris = np.array(yeux[:3], float)
+    if iris.mean() < 50:
+        iris = np.array([88, 62, 40], float)          # iris brun plutôt qu'un trou noir
+    cil = peau * 0.42
+    sour = np.array((sourcils or tuple(peau * 0.45))[:3], float)
+    lw, lh = max(2, round(W * 0.085)), max(1, round(H * 0.05))
+    for sx in (-1, 1):
+        ex = int(round(W / 2 + sx * W * 0.2 - 0.5))
+        eyi = int(round(ey))
+        oe = _ellipse(I, J, ex, eyi, lw + 0.4, lh + 0.4) <= 1.0
+        reg[oe, :3] = np.array([232, 228, 220]) * 0.95
+        ir = _ellipse(I, J, ex - sx * 0.3, eyi, max(1.1, lw * 0.55), lh + 0.6) <= 1.0
+        ir &= oe
+        reg[ir, :3] = iris
+        reg[ir & (np.abs(I - (ex - sx * 0.3)) < 0.6) & (np.abs(J - eyi) < 0.6), :3] = iris * 0.25     # pupille
+        reflet = (I == ex - sx) & (J == eyi - 1) & ir
+        reg[reflet, :3] = 250
+        paupiere = (_ellipse(I, J, ex, eyi - 0.4, lw + 0.9, lh + 0.9) <= 1.0) & ~oe & (J <= eyi)
+        reg[paupiere, :3] = cil
+        # sourcil épais, relevé vers l'extérieur
+        for t in np.linspace(-1, 1, 2 * lw + 3):
+            xx = ex + t * (lw + 1.2)
+            yy = eyi - lh - 2.6 - 0.8 * (t * sx > 0) * abs(t)
+            for e in (0, 1):
+                xi, yi = int(round(xx)), int(round(yy + e))
+                if 0 <= xi < W and 0 <= yi < H:
+                    reg[yi, xi, :3] = sour * (1.0 if e == 0 else 0.85)
+                    masque[yi, xi] = True
+        masque |= oe | paupiere
+    # bouche : lèvre supérieure sombre, lèvre inférieure plus claire, ombre dessous
+    my = int(round(H * 0.79))
+    bw = W * 0.14
+    levre = np.array((bouche or tuple(peau * 0.5))[:3], float)
+    for i in range(int(W / 2 - bw), int(W / 2 + bw)):
+        reg[my, i, :3] = levre
+        reg[my + 1, i, :3] = np.clip(peau * 0.85 + np.array([30, 0, 0]), 0, 255)
+        if my + 2 < H:
+            reg[my + 2, i, :3] *= 0.86
+        masque[my:my + 2, i] = True
+    plat[masque] = reg[masque]
+    return masque, plat
+
+
+def yeux_hd(arr, X, Y, W, H, c, fond=None, hauteur=0.42, ecart=0.22, taille=1):
+    """Yeux de bête ou de monstre : orbite creusée, arcade sombre, iris lumineux dégradé, pupille fendue, reflet."""
+    reg = arr[Y:Y + H, X:X + W]
+    J, I = np.mgrid[0:H, 0:W].astype(float)
+    c = np.array(c[:3], float)
+    masque = np.zeros((H, W), bool)
+    plat = np.zeros((H, W, 4))
+    r = 1.6 * taille + 0.6
+    ey = H * hauteur
+    for sx in (-1, 1):
+        ex = W / 2 + sx * W * ecart - 0.5
+        orb = np.clip(1 - _ellipse(I, J, ex, ey + 0.3, r * 2.0, r * 1.5), 0, 1)
+        reg[..., :3] *= (1 - 0.28 * orb)[..., None]
+        arcade = (np.abs(J - (ey - r - 0.8)) < 0.9) & (np.abs(I - ex) < r * 1.7)
+        reg[arcade, :3] *= 0.7
+        bord = _ellipse(I, J, ex, ey, r + 0.8, r * 0.8 + 0.6) <= 1.0
+        if fond is not None:
+            reg[bord, :3] = np.array(fond[:3], float)
+            masque |= bord
+        oeil = _ellipse(I, J, ex, ey, r, r * 0.8) <= 1.0
+        dg = np.sqrt(np.clip(_ellipse(I, J, ex, ey, r, r * 0.8), 0, 1))
+        teinte = c[None, None, :] * (1.15 - 0.35 * dg[..., None])
+        teinte = teinte + (255 - teinte) * np.clip(0.35 - dg, 0, None)[..., None]
+        reg[oeil, :3] = np.clip(teinte[oeil], 0, 255)
+        plat[oeil, :3] = c
+        plat[oeil, 3] = 255
+        fente = oeil & (np.abs(I - ex) < 0.5) & (np.abs(J - ey) < r * 0.6)
+        reg[fente, :3] = c * 0.15
+        reflet = oeil & (np.abs(I - (ex - r * 0.45)) < 0.5) & (np.abs(J - (ey - r * 0.35)) < 0.5)
+        reg[reflet, :3] = 255
+        masque |= oeil
+    reste = masque & (plat[..., 3] == 0)
+    plat[reste] = reg[reste]
+    return masque, plat

@@ -174,6 +174,8 @@ def f_yeux(c, fond=None, hauteur=0.42, ecart=0.22, taille=1):
             if fond:
                 d.rectangle((xx - taille, yy - taille, xx + taille, yy + taille - 1), fill=fond)
             d.rectangle((xx - taille + 1, yy - taille + 1, xx + taille - 1, yy + taille - 1), fill=c)
+    import matieres_hd as MH
+    f.hd = lambda arr, X, Y, W, H: MH.yeux_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille)
     return f
 
 
@@ -188,6 +190,8 @@ def f_visage(peau, yeux=(30, 30, 40), bouche=None, sourcils=None):
             d.line((xx - 1, yy - 2, xx + 1, yy - 2), fill=sourcils or mul(peau, 0.45))
         d.line((x + w // 2 - 2, y + int(h * 0.78), x + w // 2 + 1, y + int(h * 0.78)), fill=bouche or mul(peau, 0.5))
         d.point((x + w // 2 - 1, y + int(h * 0.62)), fill=mul(peau, 0.75))
+    import matieres_hd as MH
+    f.hd = lambda arr, X, Y, W, H: MH.visage_hd(arr, X, Y, W, H, peau, yeux, bouche, sourcils)
     return f
 
 
@@ -276,6 +280,7 @@ def combine(*fs):
     def f(*a):
         for g in fs:
             g(*a)
+    f.parties = [p for g in fs for p in getattr(g, "parties", [g])]
     return f
 
 

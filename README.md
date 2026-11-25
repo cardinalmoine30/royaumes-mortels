@@ -100,6 +100,14 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Visages, roues et écailles (0.21).** Les visages sont peints directement en HD (orbites ombrées, blanc de l'œil, iris
+et pupille avec reflet, paupières, sourcils épais, ombre du nez, pommettes, lèvres) et les yeux des bêtes et des monstres
+ont une arcade sombre, un iris lumineux dégradé, une pupille fendue et un reflet. Les écailles sont des galets irréguliers
+bombés (cellules de Voronoï) avec de larges plaques sur le ventre. Les chars et la Roue Infernale ont de vraies roues en
+volume (jante en segments, bandage de fer cloué, rayons, moyeu, faux sur les moyeux du Chaos) ; la Roue Infernale a son
+générateur de malefoudre à bobines, ses paratonnerres, son canon et deux rats qui courent dedans. Les petits points clairs
+des skins et des armures portées ont disparu (grain débruité, gemmes serties au lieu de pixels blancs).
+
 **Créatures peintes en HD (0.20).** Les 173 créatures et montures générées ne sont plus agrandies : elles sont peintes
 directement en haute définition avec leur vraie matière (`outils/modeles/matieres_hd.py`) : plaques à liseré et arête
 éclaircie, rivets, rayures et éclats d'usure, gravures en volutes sur l'or, métal brossé, trame et plis des tissus, coutures
