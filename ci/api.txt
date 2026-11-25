@@ -115,3 +115,13 @@ net.neoforged.neoforge.event.entity.living.LivingDeathEvent
 net.minecraft.world.damagesource.DamageSource
 net.minecraft.world.entity.TamableAnimal
 net.minecraft.world.entity.OwnableEntity
+software.bernie.geckolib.animatable.GeoItem
+software.bernie.geckolib.animatable.client.GeoRenderProvider
+software.bernie.geckolib.renderer.GeoArmorRenderer
+software.bernie.geckolib.model.DefaultedItemGeoModel
+software.bernie.geckolib.model.GeoModel
+software.bernie.geckolib.animatable.manager.AnimatableManager$ControllerRegistrar
+software.bernie.geckolib.util.GeckoLibUtil
+net.minecraft.world.item.equipment.Equippable
+net.minecraft.world.item.equipment.Equippable$Builder
+net.minecraft.client.resources.model.EquipmentClientInfo
