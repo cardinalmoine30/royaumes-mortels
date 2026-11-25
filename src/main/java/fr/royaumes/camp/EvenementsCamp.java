@@ -32,7 +32,8 @@ public final class EvenementsCamp {
                 int ames = 2 + c.getRandom().nextInt(2) + Math.max(0, heros.size() - 1);
                 c.level().addFreshEntity(new net.minecraft.world.entity.item.ItemEntity(c.level(), c.getX(), c.getY() + 1.5, c.getZ(),
                         new net.minecraft.world.item.ItemStack(fr.royaumes.arsenal.Arsenal.AME.get(), ames)));
-                if (event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer tueur && !heros.contains(tueur)) {
+                net.minecraft.server.level.ServerPlayer tueur = EvenementsCamp.heros(event.getSource().getEntity());
+                if (tueur != null && !heros.contains(tueur)) {
                     fr.royaumes.rpg.Quetes.seigneur(tueur);
                 }
                 heros.forEach(fr.royaumes.rpg.Quetes::seigneur);
@@ -42,11 +43,36 @@ public final class EvenementsCamp {
                     fr.royaumes.bloc.BlocPortail.executer(h, "function royaumes:rpg/ajouter");
                 }
                 fr.royaumes.entite.Seigneurs.fin(c);
-            } else if (event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer tueur) {
-                String equipe = c.profil().equipe();
-                fr.royaumes.rpg.Quetes.tuer(tueur, equipe.startsWith("rm_") ? equipe.substring(3) : equipe);
+            } else {
+                // le héros, ou une unité alliée (invocation de capacité, relique, sort, troupe du camp) qui travaille pour lui
+                net.minecraft.server.level.ServerPlayer tueur = heros(event.getSource().getEntity());
+                if (tueur != null) {
+                    String equipe = c.profil().equipe();
+                    fr.royaumes.rpg.Quetes.tuer(tueur, equipe.startsWith("rm_") ? equipe.substring(3) : equipe);
+                }
             }
         }
+    }
+
+    /** Héros à qui revient une victime : le joueur lui-même ou le chef d'une unité alliée (tags rm_allie_ / rm_chef_). */
+    static net.minecraft.server.level.ServerPlayer heros(net.minecraft.world.entity.Entity e) {
+        if (e instanceof net.minecraft.server.level.ServerPlayer p) {
+            return p;
+        }
+        if (e == null || e.level().getServer() == null) {
+            return null;
+        }
+        for (String t : e.entityTags()) {
+            String id = t.startsWith("rm_allie_") ? t.substring(9) : t.startsWith("rm_chef_") ? t.substring(8) : null;
+            if (id != null) {
+                try {
+                    return e.level().getServer().getPlayerList().getPlayer(java.util.UUID.fromString(id));
+                } catch (IllegalArgumentException ignore) {
+                    return null;
+                }
+            }
+        }
+        return null;
     }
 
     /** Équilibrage : les guerriers de faction (hors troupes de camp et seigneurs) frappent les héros 25 % moins fort. */

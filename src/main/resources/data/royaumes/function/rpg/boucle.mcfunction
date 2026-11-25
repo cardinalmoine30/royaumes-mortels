@@ -32,6 +32,7 @@ execute as @a[scores={rm_rpg=1..}] run function royaumes:rpg/ouvrir
 execute as @a[scores={rm_comp=1..}] run function royaumes:rpg/depenser
 execute as @a[scores={rm_forge=1..}] run function royaumes:forge/ouvrir
 scoreboard players enable @a rm_rpg
+scoreboard players enable @a rm_comp
 scoreboard players enable @a rm_forge
 execute as @a[scores={rm_mr0=1..}] run function royaumes:rpg/source {obj:"rm_mr0",val:3}
 execute as @a[scores={rm_mr1=1..}] run function royaumes:rpg/source {obj:"rm_mr1",val:3}

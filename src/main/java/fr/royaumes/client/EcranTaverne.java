@@ -31,12 +31,13 @@ public class EcranTaverne extends InventoryScreen {
 
     private static final String[][] DEFS = {
             {"Codex", "Codex des Royaumes Mortels : voyages, gloire, forge, boss, montures", "trigger rm_codex"},
-            {"Forge", "Recettes de la Forge des Royaumes", "trigger rm_forge"},
+            {"Forge", "Hub d'artisanat : toutes les recettes en images, ce que tu as et ce qu'il te manque", ""},
             {"Blocs", "Ressources et blocs des Royaumes", "trigger rm_blocs"},
-            {"Héros", "Fiche du héros : dépenser ses points de compétence", "trigger rm_rpg"},
+            {"Héros", "Ta voie : Guerrier, Mage ou Éclaireur, et ses talents (les points de compétence se dépensent dans le Carnet, à gauche)", ""},
     };
     private static final int ENCRE = 0xFF4A2E14;
     private final List<Onglet> onglets = new ArrayList<>();
+    private final List<BoutonPlus> plus = new ArrayList<>();
 
     public EcranTaverne(Player joueur) {
         super(joueur);
@@ -47,8 +48,16 @@ public class EcranTaverne extends InventoryScreen {
         super.init();
         onglets.clear();
         for (int i = 0; i < DEFS.length; i++) {
+            final int ii = i;
+            Runnable ouvrir = !DEFS[i][2].isEmpty() ? null
+                    : () -> this.minecraft.gui.setScreen(ii == 1 ? new EcranArtisanat() : new EcranVoies());
             onglets.add(this.addRenderableWidget(new Onglet(0, 0, i, Component.literal(DEFS[i][0]),
-                    Component.literal(DEFS[i][1]), DEFS[i][2])));
+                    Component.literal(DEFS[i][1]), DEFS[i][2], ouvrir)));
+        }
+        plus.clear();
+        for (int i = 0; i < FactionsGenerees.NOMS_COMPETENCES.length; i++) {
+            final int comp = i;
+            plus.add(this.addRenderableWidget(new BoutonPlus(comp)));
         }
         placer();
     }
@@ -59,6 +68,49 @@ public class EcranTaverne extends InventoryScreen {
         for (int i = 0; i < onglets.size(); i++) {
             onglets.get(i).setX(x0 + i * (Onglet.L + 2));
             onglets.get(i).setY(this.topPos - Onglet.H + 3);
+        }
+        FicheHeros f = DonneesHeros.actuelle;
+        int x0 = this.leftPos - 122;
+        boolean carnet = !livreDeRecettesOuvert() && x0 >= 2 && f != null;
+        for (BoutonPlus b : plus) {
+            b.setX(x0 + 103);
+            b.setY(this.topPos + 92 + b.comp * 10);
+            int rang = f != null && b.comp < f.rangs().length ? f.rangs()[b.comp] : 0;
+            b.visible = carnet && f.points() > 0 && rang < FactionsGenerees.RANG_MAX;
+        }
+    }
+
+    /** Bouton « + » du Carnet : dépense un point de compétence (trigger silencieux, sans ouvrir la fiche dans le tchat). */
+    private static final class BoutonPlus extends net.minecraft.client.gui.components.AbstractButton {
+        final int comp;
+
+        BoutonPlus(int comp) {
+            super(0, 0, 9, 9, Component.literal("+"));
+            this.comp = comp;
+            this.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal(
+                    "Dépenser un point : " + FactionsGenerees.NOMS_COMPETENCES[comp] + " +1")));
+        }
+
+        @Override
+        public void onPress(net.minecraft.client.input.InputWithModifiers entree) {
+            var c = net.minecraft.client.Minecraft.getInstance().getConnection();
+            if (c != null) {
+                c.sendCommand("trigger rm_comp set " + (11 + comp));
+            }
+        }
+
+        @Override
+        protected void extractContents(GuiGraphicsExtractor g, int sx, int sy, float partiel) {
+            boolean s = this.isHoveredOrFocused();
+            g.fill(getX(), getY(), getX() + 9, getY() + 9, s ? 0xFF7A1E14 : 0xFF5A3A1A);
+            g.fill(getX() + 1, getY() + 1, getX() + 8, getY() + 8, s ? 0xFFD6AA3C : 0xFFB48A3A);
+            g.fill(getX() + 4, getY() + 2, getX() + 5, getY() + 7, 0xFF3A2414);
+            g.fill(getX() + 2, getY() + 4, getX() + 7, getY() + 5, 0xFF3A2414);
+        }
+
+        @Override
+        protected void updateWidgetNarration(net.minecraft.client.gui.narration.NarrationElementOutput sortie) {
+            this.defaultButtonNarrationText(sortie);
         }
     }
 
@@ -139,14 +191,19 @@ public class EcranTaverne extends InventoryScreen {
         g.fill(x0 + 11, y0 + 50, x0 + 11 + plein, y0 + 55, 0xFFD6AA3C);
         g.fill(x0 + 11, y0 + 50, x0 + 11 + plein, y0 + 51, 0xFFF4D27A);
         Texte.ligne(g, this.font, "Gloire " + f.gloire() + " / " + f.besoin(), x0 + 10, y0 + 59, 98, 0xFF6E5028, false);
-        g.text(this.font, "Points : " + f.points(), x0 + 10, y0 + 72, f.points() > 0 ? 0xFF286E28 : 0xFF6E5028, false);
+        Texte.ligne(g, this.font, f.points() > 0 ? "Points : " + f.points() + "  (boutons +)" : "Points : 0", x0 + 10, y0 + 70, 98,
+                f.points() > 0 ? 0xFF286E28 : 0xFF6E5028, false);
+        int voie = f.progres() != null && f.progres().length > 4 ? f.progres()[4] : 0;
+        Texte.ligne(g, this.font, voie > 0 && voie < fr.royaumes.rpg.Voies.NOMS.length ? "Voie : " + fr.royaumes.rpg.Voies.NOMS[voie]
+                : (f.niveau() >= fr.royaumes.rpg.Voies.NIVEAU_VOIE ? "Voie à choisir : onglet Héros" : "Voie : au niveau " + fr.royaumes.rpg.Voies.NIVEAU_VOIE),
+                x0 + 10, y0 + 80, 98, voie > 0 ? 0xFF6E3A8C : 0xFF8C5A28, false);
         int n = Math.min(f.rangs().length, FactionsGenerees.NOMS_COMPETENCES.length);
         for (int i = 0; i < n; i++) {
-            int y = y0 + 90 + i * 10;
-            g.text(this.font, FactionsGenerees.NOMS_COMPETENCES[i], x0 + 8, y, sombre(FactionsGenerees.COULEURS_COMPETENCES[i]), false);
+            int y = y0 + 92 + i * 10;
+            Texte.ligne(g, this.font, FactionsGenerees.NOMS_COMPETENCES[i], x0 + 8, y, 52, sombre(FactionsGenerees.COULEURS_COMPETENCES[i]), false);
             for (int r = 0; r < FactionsGenerees.RANG_MAX; r++) {
-                int px = x0 + 62 + r * 5;
-                g.fill(px, y + 2, px + 4, y + 6, r < f.rangs()[i] ? 0xFF962820 : 0xFFC4B088);
+                int px = x0 + 61 + r * 4;
+                g.fill(px, y + 2, px + 3, y + 6, r < f.rangs()[i] ? 0xFF962820 : 0xFFC4B088);
             }
         }
     }

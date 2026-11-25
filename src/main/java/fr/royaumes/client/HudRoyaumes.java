@@ -44,6 +44,16 @@ public class HudRoyaumes implements GuiLayer {
             String ligne = "Niveau " + f.niveau() + (voie > 0 && voie < fr.royaumes.rpg.Voies.NOMS.length ? " · " + fr.royaumes.rpg.Voies.NOMS[voie] : "")
                     + (lieu >= 0 ? " · Royaume " + de(ContenuGenere.NOMS_VENTS[lieu]) : "");
             Texte.ligne(g, mc.font, ligne, 34, 18, w / 2 - 40, 0xFFF0E6D2, true);
+            // indicateur de terre alliée / ennemie (biome des Royaumes où se trouve le joueur)
+            int rel = f.progres() != null && f.progres().length > 6 ? f.progres()[6] : 0;
+            if (rel == 1 || rel == 2) {
+                String txt = rel == 1 ? "⚑ Terre alliée" : "⚔ Terre ennemie";
+                int bx = Math.min(34 + mc.font.width(ligne) + 6, w / 2 - mc.font.width(txt) - 8);
+                int bw = mc.font.width(txt) + 6;
+                g.fill(bx, 16, bx + bw, 28, rel == 1 ? 0xB0143C1E : 0xB04A1212);
+                g.fill(bx, 16, bx + bw, 17, rel == 1 ? 0xFF5ADC6E : 0xFFFF5A5A);
+                g.text(mc.font, txt, bx + 3, 18, rel == 1 ? 0xFF8CF09A : 0xFFFF9C8C, true);
+            }
             String cap = ContenuGenere.CAP_NOMS[f.faction()] + (f.capacite() > 0 ? " · " + f.capacite() + " s" : " · prête (" + ClientRoyaumes.TOUCHE_CAPACITE.getTranslatedKeyMessage().getString() + ")");
             g.text(mc.font, cap, 34, 29, f.capacite() > 0 ? 0xFF8C8CA0 : 0xFFF2D27A, true);
         }

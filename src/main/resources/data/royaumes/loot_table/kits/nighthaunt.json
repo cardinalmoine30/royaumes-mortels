@@ -1,207 +1,127 @@
 {
-  "pools": [
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_hoe",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Faux d'Esprit",
-                  "color": "dark_aqua",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Elle tranche l'âme avant la chair.",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:attribute_modifiers": [
-                  {
-                    "type": "minecraft:attack_damage",
-                    "amount": 6.0,
-                    "id": "minecraft:base_attack_damage",
-                    "operation": "add_value",
-                    "slot": "mainhand"
-                  },
-                  {
-                    "type": "minecraft:attack_speed",
-                    "amount": -3.0,
-                    "id": "minecraft:base_attack_speed",
-                    "operation": "add_value",
-                    "slot": "mainhand"
-                  }
-                ],
-                "minecraft:enchantments": {
-                  "royaumes:vol_d_ame": 1
-                },
-                "minecraft:item_model": "royaumes:dp/faux_d_esprit"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:soul_lantern",
-          "modifier": [
-            {
-              "type": "minecraft:set_count",
-              "count": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "royaumes:nighthaunt_casque_soldat"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "royaumes:nighthaunt_torse_soldat"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "royaumes:nighthaunt_jambes_soldat"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "royaumes:nighthaunt_bottes_soldat"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:carrot_on_a_stick",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Pierre de Royaume",
-                  "color": "light_purple",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Clic droit : voyager entre ce monde",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "et les Royaumes Mortels.",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:unbreakable": {},
-                "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
-                "minecraft:enchantment_glint_override": true,
-                "minecraft:rarity": "epic",
-                "minecraft:custom_data": {
-                  "royaumes": "pierre"
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:bread",
-          "modifier": [
-            {
-              "type": "minecraft:set_count",
-              "count": 8
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:carrot_on_a_stick",
-          "modifier": [
-            {
-              "type": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_name": {
-                  "text": "Corne d'appel",
-                  "color": "gold",
-                  "italic": false
-                },
-                "minecraft:lore": [
-                  {
-                    "text": "Clic droit : appelle la monture de ta faction",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "et te met en selle. Sneak + clic droit sur",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "la monture : la laisser. Saut : barre de saut,",
-                    "color": "gray",
-                    "italic": true
-                  },
-                  {
-                    "text": "monture volante : regarde où tu veux aller.",
-                    "color": "gray",
-                    "italic": true
-                  }
-                ],
-                "minecraft:unbreakable": {},
-                "minecraft:item_model": "royaumes:dp/corne_d_appel",
-                "minecraft:rarity": "rare",
-                "minecraft:custom_data": {
-                  "royaumes": "monture"
-                }
-              }
-            }
-          ]
-        }
-      ]
+     "type": "minecraft:item",
+     "name": "minecraft:iron_hoe",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Faux d'Esprit",
+         "color": "dark_aqua",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Elle tranche l'âme avant la chair.",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "Arme de départ (niveau fer).",
+          "color": "dark_gray",
+          "italic": true
+         }
+        ],
+        "minecraft:attribute_modifiers": [
+         {
+          "type": "minecraft:attack_damage",
+          "amount": 6.0,
+          "id": "minecraft:base_attack_damage",
+          "operation": "add_value",
+          "slot": "mainhand"
+         },
+         {
+          "type": "minecraft:attack_speed",
+          "amount": -3.0,
+          "id": "minecraft:base_attack_speed",
+          "operation": "add_value",
+          "slot": "mainhand"
+         }
+        ],
+        "minecraft:enchantments": {
+         "royaumes:vol_d_ame": 1
+        },
+        "minecraft:item_model": "royaumes:dp/faux_d_esprit"
+       }
+      }
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:bread",
+     "modifier": [
+      {
+       "type": "minecraft:set_count",
+       "count": 12
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:cooked_beef",
+     "modifier": [
+      {
+       "type": "minecraft:set_count",
+       "count": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:carrot_on_a_stick",
+     "modifier": [
+      {
+       "type": "minecraft:set_components",
+       "components": {
+        "minecraft:custom_name": {
+         "text": "Pierre de Royaume",
+         "color": "light_purple",
+         "italic": false
+        },
+        "minecraft:lore": [
+         {
+          "text": "Clic droit : voyager entre ce monde",
+          "color": "gray",
+          "italic": true
+         },
+         {
+          "text": "et les Royaumes Mortels.",
+          "color": "gray",
+          "italic": true
+         }
+        ],
+        "minecraft:unbreakable": {},
+        "minecraft:item_model": "royaumes:dp/pierre_de_royaume",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:rarity": "epic",
+        "minecraft:custom_data": {
+         "royaumes": "pierre"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

@@ -14,7 +14,9 @@ execute if score #c5 rm_tmp matches 0 run function royaumes:factions/boucle_dons
 # Biomes et habitants des Royaumes
 execute as @a at @s unless dimension minecraft:overworld unless dimension minecraft:the_nether unless dimension minecraft:the_end run function royaumes:monde/biome_joueur
 execute as @a at @s if dimension minecraft:overworld run scoreboard players set @s rm_biome 0
+execute as @a at @s if dimension minecraft:overworld run scoreboard players set @s rm_brel 0
 execute as @a at @s if dimension minecraft:the_nether run scoreboard players set @s rm_biome 0
+execute as @a at @s if dimension minecraft:the_nether run scoreboard players set @s rm_brel 0
 execute in royaumes:royaumes_mortels as @e[type=#royaumes:convertibles,tag=!rm_c,distance=0..] at @s run function royaumes:mobs/convertir
 execute in royaumes:ghyran as @e[type=#royaumes:convertibles,tag=!rm_c,distance=0..] at @s run function royaumes:mobs/convertir
 execute in royaumes:aqshy as @e[type=#royaumes:convertibles,tag=!rm_c,distance=0..] at @s run function royaumes:mobs/convertir

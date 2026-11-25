@@ -21,6 +21,11 @@ public final class RoyaumesClient {
     private RoyaumesClient() {}
 
     @SubscribeEvent
+    static void ecrans(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) {
+        event.register(fr.royaumes.camp.Stockage.TYPE.get(), EcranStockage::new);
+    }
+
+    @SubscribeEvent
     static void rendus(EntityRenderersEvent.RegisterRenderers event) {
         ModEntites.ENTITES.values().forEach(type -> event.registerEntityRenderer(type.get(), ctx -> rendu(ctx, type.get())));
         ModEntites.MONTURES.values().forEach(type -> event.registerEntityRenderer(type.get(), ctx -> renduMonture(ctx, type.get())));

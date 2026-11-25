@@ -5,6 +5,7 @@ scoreboard objectives add rm_codex trigger
 scoreboard objectives add rm_menu dummy
 scoreboard objectives add rm_cd dummy
 scoreboard objectives add rm_biome dummy
+scoreboard objectives add rm_brel dummy
 scoreboard objectives add rm_bnow dummy
 scoreboard objectives add rm_tmp dummy
 scoreboard objectives add rm_const dummy

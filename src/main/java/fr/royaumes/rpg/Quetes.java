@@ -33,27 +33,31 @@ public final class Quetes {
 
     public static final Etape[] SAGA = {
         new Etape("Le Serment", "Prête serment à une faction (touche [serment]).", "score", "rm_faction", 1, 40, "",
-                "25 factions en 4 Grandes Alliances. Tu reçois ton armure Soldat, une arme de départ et une Pierre de Royaume."),
-        new Etape("Soldat de ta faction", "Équipe les 4 pièces de ton armure Soldat.", "panoplie", "0", 1, 60, "",
-                "Panoplie complète d'une même faction = effets permanents, plus forts à chaque palier."),
+                "25 factions en 4 Grandes Alliances. Tu ne reçois que l'essentiel : ton arme de départ, des vivres et la Pierre de Royaume."),
         new Etape("Au-delà du voile", "Rejoins un des Royaumes Mortels.", "royaume", "", 1, 120, "minecraft:bread*8",
-                "Clic droit avec la Pierre de Royaume reçue au serment. Plus tard : le Portail des Royaumes."),
+                "Clic droit avec la Pierre de Royaume. Le tchat annonce chaque terre traversée : alliée (sûre) ou ennemie (on t'y attaque)."),
         new Etape("Premier sang", "Abats des guerriers d'une autre Grande Alliance.", "tuer", "", 10, 120, "royaumes:pierre_royaumes_brute*4",
-                "Dans les Royaumes, les créatures deviennent des guerriers de faction. Ceux de ton alliance ne t'attaquent pas."),
-        new Etape("Le camp de guerre", "Plante l'Étendard de camp dans le monde de base.", "score", "rm_camp_niv", 1, 100, "",
-                "Étendard : lingot d'or, bannière et pierre des Royaumes brute, en colonne. Pose-le puis clic droit dessus."),
+                "Les victimes de tes alliés invoqués comptent aussi. Ceux de ton alliance ne t'attaquent pas."),
+        new Etape("Le camp de guerre", "Plante l'Étendard de camp dans le monde de base.", "score", "rm_camp_niv", 1, 100, "fn:monture/donner",
+                "Étendard : lingot d'or, bannière et pierre des Royaumes brute, en colonne. Pose-le puis clic droit dessus. Récompense : la Corne d'appel de ta monture."),
         new Etape("Bâtisseur", "Construis un bâtiment de camp.", "batiment", "", 1, 100, "minecraft:iron_ingot*6",
                 "Clic droit sur l'Étendard, onglet Bâtiments. Le Sanctuaire produit les éclats de ton Vent (pour la magie)."),
+        new Etape("Trésor de guerre", "Échange des minerais contre du butin dans le Stockage du camp.", "evt", "stockage", 1, 80, "",
+                "Étendard, bouton Stockage : la rangée du bas reçoit minerais, minerais bruts, lingots et gemmes. Ils deviennent du butin à la fermeture."),
+        new Etape("Premier renfort", "Recrute une unité de ta faction au camp.", "evt", "recruter", 1, 100, "",
+                "Onglet Camp de l'Étendard : le butin paie les recrues. Elles gardent le camp ou te suivent, et leurs victimes comptent pour tes quêtes."),
         new Etape("Premières armes", "Bâtis une Forge de guerre et forge une pièce Soldat.", "evt", "forge:0", 1, 120, "",
-                "Forge de guerre : 3 lingots d'or, une enclume, 2 obsidiennes, pierre des Royaumes. Elle n'ouvre que TON arsenal."),
+                "Forge de guerre : 3 lingots d'or, une enclume, 2 obsidiennes, pierre des Royaumes. Chaque pièce affiche ce qu'il te manque."),
+        new Etape("Soldat de ta faction", "Équipe les 4 pièces de ton armure Soldat.", "panoplie", "0", 1, 120, "",
+                "Panoplie complète d'une même faction = effets permanents, plus forts à chaque palier."),
         new Etape("Le Vent en toi", "Lance un sort avec un bâton de ton Vent.", "evt", "saga:sort", 1, 100, "royaumes:cristal_arcanique*1",
                 "Bâton : 2 lingots d'or, 2 bâtons et un éclat du Vent. Clic droit : sort ; accroupi + clic droit : grand sort."),
         new Etape("Pouvoir de faction", "Utilise ta capacité de faction (touche [capacite]).", "evt", "saga:capacite", 1, 100, "",
                 "Chaque faction a la sienne, gratuite mais longue à recharger. Le HUD indique quand elle est prête."),
         new Etape("Héros reconnu", "Atteins le niveau 8.", "score", "rm_niveau", 8, 0, "minecraft:diamond*2,royaumes:cristal_arcanique*1",
-                "La gloire vient des combats, des quêtes, des contrats et des découvertes. Chaque niveau donne un point de compétence."),
+                "Gloire : combats, quêtes, contrats, découvertes, parchemins. Chaque niveau donne un point : bouton + du Carnet (inventaire, à gauche)."),
         new Etape("La Voie du héros", "Choisis ta voie : Guerrier, Mage ou Éclaireur.", "score", "rm_voie", 1, 120, "",
-                "Touche [voie]. Un talent parmi deux aux niveaux 10, 20, 30 et 40."),
+                "Onglet Héros de l'inventaire (ou touche [voie]). Un talent parmi deux aux niveaux 10, 20, 30 et 40."),
         new Etape("Matière étrangère", "Obtiens l'éclat d'un Vent qui n'est pas le tien.", "etranger", "", 1, 150, "",
                 "Minerais et créatures des autres Royaumes, contrats de chasse, raids, ou échange avec un ami d'une autre faction."),
         new Etape("Élite", "Forge une pièce Élite (niveau 8).", "palier", "1", 1, 250, "minecraft:diamond*2",
@@ -268,6 +272,11 @@ public final class Quetes {
         StringBuilder txt = new StringBuilder(gloire > 0 ? "+" + gloire + " gloire" : "");
         if (!objets.isEmpty()) {
             for (String o : objets.split(",")) {
+                if (o.startsWith("fn:")) {   // récompense donnée par une fonction du datapack (ex. la Corne d'appel)
+                    BlocPortail.executer(p, "function royaumes:" + o.substring(3));
+                    txt.append(txt.length() > 0 ? ", " : "").append(o.contains("monture") ? "Corne d'appel" : "un présent");
+                    continue;
+                }
                 String[] a = o.split("\\*");
                 Item it = BuiltInRegistries.ITEM.getValue(Identifier.parse(a[0]));
                 ItemStack s = new ItemStack(it, Integer.parseInt(a[1]));
@@ -357,6 +366,7 @@ public final class Quetes {
         int i = etape(p);
         int prog = i < SAGA.length ? progres(p, SAGA[i]) : 0;
         int but = i < SAGA.length ? SAGA[i].but() : 0;
-        return new int[] {prog, but, get(p, "rm_contrat_n"), get(p, "rm_contrat_but"), Voies.voie(p), get(p, "rm_talents")};
+        return new int[] {prog, but, get(p, "rm_contrat_n"), get(p, "rm_contrat_but"), Voies.voie(p), get(p, "rm_talents"),
+                get(p, "rm_brel")};
     }
 }

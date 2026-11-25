@@ -1,6 +1,5 @@
 execute if function royaumes:forge/r/raffinage run return 1
 execute if function royaumes:forge/r/sigmarite run return 1
-execute if function royaumes:forge/r/pierre run return 1
 execute if function royaumes:forge/r/parchemin run return 1
 execute if function royaumes:forge/r/arc_hysh run return 1
 execute if function royaumes:forge/r/fusil_aether run return 1

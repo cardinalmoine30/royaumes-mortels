@@ -16,16 +16,27 @@ public class Onglet extends AbstractButton {
     public static final int H = 22;
     private final int indice;
     private final String commande;
+    private final Runnable action;
 
     public Onglet(int x, int y, int indice, Component nom, Component aide, String commande) {
+        this(x, y, indice, nom, aide, commande, null);
+    }
+
+    /** Onglet qui ouvre directement un écran du mod (action) au lieu d'envoyer une commande. */
+    public Onglet(int x, int y, int indice, Component nom, Component aide, String commande, Runnable action) {
         super(x, y, L, H, nom);
         this.indice = indice;
         this.commande = commande;
+        this.action = action;
         this.setTooltip(Tooltip.create(aide));
     }
 
     @Override
     public void onPress(InputWithModifiers entree) {
+        if (action != null) {
+            action.run();
+            return;
+        }
         ClientPacketListener connexion = Minecraft.getInstance().getConnection();
         if (connexion != null) {
             connexion.sendCommand(commande);

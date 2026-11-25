@@ -232,6 +232,7 @@ public final class Sorts {
             loup.tame(p);
             loup.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 1200, 1));
             loup.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 1200, 0));
+            loup.addTag("rm_allie_" + p.getUUID());
             n.addFreshEntity(loup);
             n.sendParticles(ParticleTypes.POOF, loup.getX(), loup.getY() + 0.5, loup.getZ(), 12, 0.3, 0.3, 0.3, 0.02);
             INVOQUES.add(new Invoque(n, loup.getUUID(), n.getGameTime() + 1200));

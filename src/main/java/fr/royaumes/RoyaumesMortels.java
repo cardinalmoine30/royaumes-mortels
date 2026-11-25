@@ -20,6 +20,7 @@ public class RoyaumesMortels {
         modBus.addListener(this::commonSetup);
         ModEntites.enregistrer(modBus);
         ModObjets.enregistrer(modBus);
+        fr.royaumes.camp.Stockage.enregistrer(modBus);
         modBus.addListener(fr.royaumes.reseau.Reseau::enregistrer);
         NeoForge.EVENT_BUS.addListener(fr.royaumes.reseau.Reseau::tickServeur);
         NeoForge.EVENT_BUS.addListener(fr.royaumes.camp.EvenementsCamp::tickEntite);

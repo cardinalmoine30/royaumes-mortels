@@ -100,6 +100,24 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
 
+**Prise en main (0.23).**
+- **Départ sobre** : au serment, seulement l'arme de faction (au plus niveau fer), des vivres et la Pierre de Royaume.
+  L'armure se forge ; la Corne d'appel est offerte quand on plante son camp (tutoriel).
+- **Carnet du Héros** (inventaire, à gauche) : boutons **+** pour dépenser les points de compétence ; ligne de la voie.
+  L'onglet **Héros** ouvre directement la Voie (Guerrier, Mage, Éclaireur) et ses talents.
+- **Hub d'artisanat** (onglet **Forge** de l'inventaire) : 65 recettes en images (Table de forgeron, Établi) par
+  catégorie, ingrédients en vert/rouge selon ce que tu portes, détail au survol ; et la progression de l'arsenal de ta
+  faction (Soldat → Divin). Doublon retiré (Pierre de Royaume : seulement à l'établi). La liste texte est réécrite.
+- **Stockage du camp** (Étendard → Stockage) : 5 rangées de rangement et une rangée dorée de **tribut** qui change
+  minerais, minerais bruts, lingots et gemmes en butin à la fermeture (barème affiché à côté). Gardé dans deux tonneaux
+  sous l'Étendard.
+- **Quêtes** : les victimes des alliés (invocations de capacité, reliques, sorts, troupes du camp) comptent pour le héros.
+  Tutoriel réordonné : Serment, Royaumes, Premier sang, Camp (Corne d'appel), Bâtisseur, Trésor de guerre (stockage),
+  Premier renfort (recrue), Premières armes, Soldat de ta faction…
+- **Parchemins de gloire réparés** (ainsi que les sceaux et la Corne d'appel : leur clic droit n'était plus relié).
+- **Biomes** : le nom s'affiche dans le tchat, avec « ⚑ Terre alliée » ou « ⚔ Terre ennemie » (alliance qui tient le
+  biome) ; le HUD garde un badge allié/ennemi à côté du niveau.
+
 **Visages vivants (0.22, Ordre et humains du Chaos).** Chaque faction a son caractère : couleur des yeux (bleu des
 Cités et des Stormcast, ambre des Fyreslayers, or des Lumineth, rouge des Filles de Khaine…), sourcils expressifs (sévères,
 froncés, arqués, tristes), bouche (pincée, rictus, sourire, cri), et des marques : barbe naissante, cicatrices, peinture
@@ -183,6 +201,8 @@ Tout le contenu graphique et les listes Java sont générés par des scripts Pyt
 | `outils/objets/capacites.py`, `saga.py` | capacités des 25 factions, onglet de progrès Saga des Royaumes |
 | `outils/objets/objets.py` | objets, blocs, œufs : textures, modèles, butins, recettes, étiquettes, minerai, traductions, `ContenuGenere.java`, contenu des onglets créatifs |
 | `outils/skins/skins.py` | skins des 25 factions (64 px, copie d'origine dans `outils/skins/bas/`) + planche |
+| `outils/objets/artisanat.py` | données du hub d'artisanat (`ArtisanatGenere.java`) et liste texte de la forge |
+| `outils/objets/kits.py`, `biomes_tchat.py`, `textes_prise_en_main.py` | kits de départ, annonce des biomes, textes du Codex et des fiches |
 | `outils/remaster.py` | **à lancer en dernier** : passe en HD les textures de créatures, skins, armures portées et icônes (idempotent : seules les textures encore en basse résolution sont traitées) |
 | `outils/gui/aos.py` | blasons, ornements, jauge et icônes des Vents |
 | `outils/gui/taverne.py` | textures de l'inventaire de taverne |

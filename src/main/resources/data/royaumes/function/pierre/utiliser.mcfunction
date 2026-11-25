@@ -1,4 +1,5 @@
 scoreboard players set @s rm_pierre 0
+execute if function royaumes:objets/utiliser run return 1
 execute unless items entity @s weapon.* minecraft:carrot_on_a_stick[minecraft:custom_data~{royaumes:"pierre"}] run return 0
 execute if score @s rm_cd matches 1.. run return run title @s actionbar {"text": "La Pierre de Royaume se recharge…", "color": "gray"}
 scoreboard players set @s rm_cd 3

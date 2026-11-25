@@ -108,7 +108,8 @@ public class EcranCamp extends Screen {
         // --- Camp
         bouton(0, x, py + 76, 90, () -> "Garder le camp", () -> envoyer(4, 0, ""), oui, () -> f() != null && f().ordre() == 0, chef);
         bouton(0, x + 94, py + 76, 90, () -> "Me suivre", () -> envoyer(4, 1, ""), oui, () -> f() != null && f().ordre() == 1, chef);
-        bouton(0, x, py + 100, 184, () -> proprio() ? "Déposer le butin" : "Offrir du butin à ce camp", () -> envoyer(3, 0, ""), oui, non, oui);
+        bouton(0, x, py + 100, 184, () -> proprio() ? "Stockage (minerais → butin)" : "Offrir du butin à ce camp",
+                () -> envoyer(proprio() ? 11 : 3, 0, ""), oui, non, oui);
         bouton(0, x, py + 122, 184, () -> f() == null || f().coutNiveau() == 0 ? "Camp au niveau maximum" : "Améliorer le camp — " + f().coutNiveau(),
                 () -> envoyer(2, 0, ""), () -> f() != null && f().coutNiveau() > 0 && f().butin() >= f().coutNiveau(), non, chef);
         for (int i = 0; i < 8; i++) {

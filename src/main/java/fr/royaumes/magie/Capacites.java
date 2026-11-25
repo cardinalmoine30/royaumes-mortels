@@ -251,6 +251,7 @@ public final class Capacites {
                     if (p.getTeam() != null) {
                         n.getScoreboard().addPlayerToTeam(e.getScoreboardName(), n.getScoreboard().getPlayerTeam(p.getTeam().getName()));
                     }
+                    e.addTag("rm_allie_" + p.getUUID());     // ses victimes comptent pour les quêtes du héros
                     n.addFreshEntity(e);
                     n.sendParticles(part, e.getX(), e.getY() + 1, e.getZ(), 30, 0.4, 0.6, 0.4, 0.05);
                     Sorts.INVOQUES.add(new Sorts.Invoque(n, e.getUUID(), n.getGameTime() + 1800));

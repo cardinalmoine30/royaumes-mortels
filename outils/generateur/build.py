@@ -437,6 +437,7 @@ def gen_pierre():
     item = f"minecraft:carrot_on_a_stick[minecraft:custom_data~{{royaumes:\"pierre\"}}]"
     fn("pierre/utiliser", [
         "scoreboard players set @s rm_pierre 0",
+        f"execute if function {NS}:objets/utiliser run return 1",   # parchemins, sceaux, corne d'appel
         f"execute unless items entity @s weapon.* {item} run return 0",
         f"execute if score @s rm_cd matches 1.. run return run title @s actionbar {jtxt(txt('La Pierre de Royaume se recharge…', 'gray'))}",
         "scoreboard players set @s rm_cd 10",

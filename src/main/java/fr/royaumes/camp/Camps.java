@@ -256,6 +256,7 @@ public final class Camps {
                 if (invoquer(p, p.level(), camp, l.get(arg), 1) > 0) {
                     set(sb, p, "rm_butin", get(sb, p, "rm_butin") - c);
                     set(sb, p, "rm_camp_nb", get(sb, p, "rm_camp_nb") + 1);
+                    fr.royaumes.rpg.Quetes.evenement(p, "recruter");
                 }
             }
             case 2 -> { // améliorer
@@ -280,6 +281,13 @@ public final class Camps {
             case 8 -> CampsPlus.retirer(p, texte);
             case 9 -> CampsPlus.explorer(p, arg);
             case 10 -> CampsPlus.raidJoueur(p, texte);
+            case 11 -> {
+                if (pres) {
+                    Stockage.ouvrir(p, camp);
+                } else {
+                    msg(p, "Approche-toi de ton Étendard pour ouvrir le stockage.", ChatFormatting.RED);
+                }
+            }
             default -> {
             }
         }
