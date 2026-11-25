@@ -15,6 +15,11 @@ sys.path.insert(0, os.path.join(RACINE, "outils"))
 ASSETS = os.path.join(RACINE, "src/main/resources/assets/royaumes")
 D = 2   # texels par unité de modèle
 
+# modèles figés (le générateur ne réécrit plus leurs fichiers) : les Séraphons tels qu'à la 0.21, et les bêtes
+# écailleuses de la Mort et du Chaos non humain, qui ne doivent plus changer
+FIGES = {"saurus", "skink", "kroxigor", "carnosaur", "stegadon", "bastiladon", "monture_aggradon",
+         "dragon_zombie", "demon_slaanesh", "pusgoyle"}
+
 DIMS = {"north": (0, 1), "south": (0, 1), "east": (2, 1), "west": (2, 1), "up": (0, 2), "down": (0, 2)}
 
 
@@ -189,6 +194,12 @@ class Modele:
 
     def exporter(self, mats, animations):
         self.placer_uv()
+        if self.nom in FIGES and os.path.exists(f"{ASSETS}/textures/entity/{self.nom}.png"):
+            # modèle figé : ses fichiers ne sont plus réécrits ; on garde l'UV HD pour l'aperçu
+            self.tex *= 2
+            for c in self.cubes:
+                c.uv = {f: (2 * x0, 2 * y0, 2 * w, 2 * h) for f, (x0, y0, w, h) in c.uv.items()}
+            return Image.open(f"{ASSETS}/textures/entity/{self.nom}.png").convert("RGBA")
         tex, glow = self.peindre(mats)
         p = {"geo": f"{ASSETS}/geckolib/models/entity/{self.nom}.geo.json",
              "anim": f"{ASSETS}/geckolib/animations/entity/{self.nom}.animation.json",

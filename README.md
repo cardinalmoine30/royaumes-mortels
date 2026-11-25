@@ -105,8 +105,8 @@ Cités et des Stormcast, ambre des Fyreslayers, or des Lumineth, rouge des Fille
 froncés, arqués, tristes), bouche (pincée, rictus, sourire, cri), et des marques : barbe naissante, cicatrices, peinture
 de guerre, runes lumineuses, cernes, fard. Les yeux ont un iris dégradé à liseré sombre, une pupille, deux reflets et un
 regard parfois de côté. Les yeux **clignent** au repos (paupières cachées dans la tête, poussées devant les yeux par
-l'animation d'attente). Les Sylvaneth ont une bouche creuse et des nœuds de bois. La Destruction et la Mort gardent
-leurs visages de la 0.21.
+l'animation d'attente). Les Sylvaneth ont une bouche creuse et des nœuds de bois. La Destruction, la Mort et les Séraphons
+gardent leur apparence de la 0.21 (modèles figés dans `outils/modeles/modele2.py`, liste `FIGES`).
 
 **Visages, roues et écailles (0.21).** Les visages sont peints directement en HD (orbites ombrées, blanc de l'œil, iris
 et pupille avec reflet, paupières, sourcils épais, ombre du nez, pommettes, lèvres) et les yeux des bêtes et des monstres

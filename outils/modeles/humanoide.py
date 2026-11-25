@@ -205,7 +205,7 @@ TROGNES = {"orruks": dict(bouche="machoire"), "gitz": dict(bouche="machoire"), "
 
 
 # visages retravaillés (0.22) : factions de l'Ordre, et visages humains du Chaos ; la Destruction et la Mort gardent les leurs
-ORDRE = {"stormcast", "cites", "khaine", "fyreslayers", "idoneth", "kharadron", "lumineth", "seraphon", "sylvaneth"}
+ORDRE = {"stormcast", "cites", "khaine", "fyreslayers", "idoneth", "kharadron", "lumineth", "sylvaneth"}   # Séraphons : inchangés
 CHAOS = {"esclaves", "khorne", "tzeentch", "slaanesh", "nurgle", "skaven", "hashut"}
 
 
