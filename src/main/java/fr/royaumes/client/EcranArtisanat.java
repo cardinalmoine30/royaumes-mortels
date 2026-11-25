@@ -61,7 +61,21 @@ public class EcranArtisanat extends Screen {
     }
 
     /** Combien le joueur en porte (objets du datapack reconnus à leur modèle). */
+    private static final java.util.Map<String, Integer> CACHE = new java.util.HashMap<>();
+    private static long cacheTick = -1;
+
+    /** Compte mis en cache pour l'image en cours (le hub interroge plusieurs fois les mêmes ingrédients). */
     static int compte(String code) {
+        var mc = Minecraft.getInstance();
+        long t = mc.level == null ? 0 : mc.level.getGameTime();
+        if (t != cacheTick) {
+            CACHE.clear();
+            cacheTick = t;
+        }
+        return CACHE.computeIfAbsent(code, EcranArtisanat::compter);
+    }
+
+    private static int compter(String code) {
         var p = Minecraft.getInstance().player;
         if (p == null) {
             return 0;
@@ -86,7 +100,13 @@ public class EcranArtisanat extends Screen {
         return n;
     }
 
+    private static final java.util.Map<String, List<String>> CATEGORIES = new java.util.HashMap<>();
+
     static List<String> categories(String p) {
+        return CATEGORIES.computeIfAbsent(p, EcranArtisanat::lister);
+    }
+
+    private static List<String> lister(String p) {
         LinkedHashSet<String> c = new LinkedHashSet<>();
         for (int i = 0; i < ArtisanatGenere.NOMS.length; i++) {
             if (ArtisanatGenere.POSTES[i].equals(p)) {

@@ -204,7 +204,7 @@ public final class CampsPlus {
             int total = 0;
             for (int i = 0; i < inv.getContainerSize(); i++) {
                 ItemStack s = inv.getItem(i);
-                int v = Camps.valeur(s);
+                int v = Stockage.valeur(s);
                 if (v > 0 && !s.isEmpty()) {
                     total += v * s.getCount();
                     inv.setItem(i, ItemStack.EMPTY);

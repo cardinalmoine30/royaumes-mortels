@@ -81,8 +81,21 @@ public final class Stockage {
 
     /** Menu du stockage : coffre de 6 rangées dont la dernière convertit son contenu à la fermeture. */
     public static class Menu extends ChestMenu {
+        private final BlockPos camp;
+
         public Menu(int id, Inventory inv, Container c) {
+            this(id, inv, c, null);
+        }
+
+        Menu(int id, Inventory inv, Container c, BlockPos camp) {
             super(TYPE.get(), id, inv, c, 6);
+            this.camp = camp;
+        }
+
+        /** Les tonneaux sont sous l'Étendard : on reste ouvert tant que le héros est dans son camp (pas à 8 blocs d'eux). */
+        @Override
+        public boolean stillValid(Player joueur) {
+            return camp == null || joueur.blockPosition().closerThan(camp, 16);
         }
 
         @Override
@@ -95,18 +108,25 @@ public final class Stockage {
     }
 
     private static Container tonneau(ServerLevel l, BlockPos pos) {
-        if (!(l.getBlockEntity(pos) instanceof Container)) {
+        if (!(l.getBlockEntity(pos) instanceof Container) && !l.isOutsideBuildHeight(pos)) {
             l.setBlock(pos, Blocks.BARREL.defaultBlockState(), 3);
         }
-        return l.getBlockEntity(pos) instanceof Container c ? c : new SimpleContainer(27);
+        return l.getBlockEntity(pos) instanceof Container c ? c : null;
     }
 
     public static void ouvrir(ServerPlayer p, BlockPos camp) {
         if (!(p.level() instanceof ServerLevel l)) {
             return;
         }
-        Container c = new CompoundContainer(tonneau(l, camp.below(2)), tonneau(l, camp.below(3)));
-        p.openMenu(new SimpleMenuProvider((id, inv, joueur) -> new Menu(id, inv, c),
+        Container a = tonneau(l, camp.below(2));
+        Container b = tonneau(l, camp.below(3));
+        if (a == null || b == null) {   // jamais de coffre temporaire : son contenu serait perdu à la fermeture
+            Camps.msg(p, "Impossible d'installer le stockage sous l'Étendard (trop près du fond du monde) : déplace ton camp.",
+                    ChatFormatting.RED);
+            return;
+        }
+        Container c = new CompoundContainer(a, b);
+        p.openMenu(new SimpleMenuProvider((id, inv, joueur) -> new Menu(id, inv, c, camp),
                 Component.literal("Stockage du camp")));
     }
 

@@ -273,7 +273,6 @@ public final class Camps {
                 ((ServerLevel) p.level()).sendParticles(ParticleTypes.TOTEM_OF_UNDYING, camp.getX() + 0.5, camp.getY() + 1.5, camp.getZ() + 0.5, 60, 0.6, 1, 0.6, 0.3);
                 msg(p, "Le camp passe au niveau " + (niveau + 1) + " : plus de troupes, nouvelles unités et bâtiments.", ChatFormatting.GOLD);
             }
-            case 3 -> deposer(p);
             case 4 -> set(sb, p, "rm_camp_ordre", arg == 1 ? 1 : 0);
             case 5 -> lancerRaid(p, arg);
             case 6 -> CampsPlus.ameliorerBatiment(p, arg);
@@ -281,7 +280,7 @@ public final class Camps {
             case 8 -> CampsPlus.retirer(p, texte);
             case 9 -> CampsPlus.explorer(p, arg);
             case 10 -> CampsPlus.raidJoueur(p, texte);
-            case 11 -> {
+            case 3, 11 -> {   // 3 : ancien « Déposer le butin », remplacé par le stockage
                 if (pres) {
                     Stockage.ouvrir(p, camp);
                 } else {
@@ -296,46 +295,6 @@ public final class Camps {
 
     static void msg(ServerPlayer p, String s, ChatFormatting c) {
         p.sendSystemMessage(Component.literal(s).withStyle(c));
-    }
-
-    /** Valeur en butin des objets qu'on peut déposer au camp. */
-    static int valeur(ItemStack s) {
-        Identifier id = BuiltInRegistries.ITEM.getKey(s.getItem());
-        String n = id.toString();
-        return switch (n) {
-            case "minecraft:iron_ingot", "minecraft:copper_ingot" -> 1;
-            case "minecraft:gold_ingot" -> 4;
-            case "minecraft:emerald" -> 6;
-            case "minecraft:diamond" -> 12;
-            case "minecraft:netherite_ingot" -> 40;
-            case "minecraft:gold_block" -> 36;
-            case "minecraft:iron_block" -> 9;
-            case "minecraft:emerald_block" -> 54;
-            case "royaumes:pierre_royaumes_brute" -> 5;
-            case "royaumes:cristal_arcanique" -> 8;
-            default -> n.startsWith("royaumes:eclat_") ? 6 : 0;
-        };
-    }
-
-    static void deposer(ServerPlayer p) {
-        Inventory inv = p.getInventory();
-        int total = 0;
-        for (int i = 0; i < inv.getContainerSize(); i++) {
-            ItemStack s = inv.getItem(i);
-            int v = valeur(s);
-            if (v > 0 && !s.isEmpty()) {
-                total += v * s.getCount();
-                inv.setItem(i, ItemStack.EMPTY);
-            }
-        }
-        if (total > 0) {
-            Scoreboard sb = sb(p);
-            set(sb, p, "rm_butin", get(sb, p, "rm_butin") + total);
-            p.level().playSound(null, p.blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 0.5F, 1.6F);
-            msg(p, "+" + total + " butin déposé au camp.", ChatFormatting.GOLD);
-        } else {
-            msg(p, "Rien à déposer : lingots, gemmes, pierre des Royaumes, cristaux, éclats.", ChatFormatting.GRAY);
-        }
     }
 
     /** Fait apparaître n unités alliées autour du camp ; renvoie le nombre apparu. */
