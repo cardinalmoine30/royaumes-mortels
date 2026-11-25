@@ -1,0 +1,200 @@
+[25Nov2026 13:48:31.259] [main/INFO] [net.neoforged.fml.startup.Entrypoint/]: JVM Uptime at startup: 72ms
+[25Nov2026 13:48:31.269] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Starting FancyModLoader version 12.0.16 (DEDICATED_SERVER in PROD)
+[25Nov2026 13:48:31.269] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Game directory: /home/runner/work/royaumes-mortels/royaumes-mortels/srv
+[25Nov2026 13:48:31.311] [main/INFO] [net.neoforged.fml.loading.EarlyServiceDiscovery/]: Found 2 early service jars (out of 67) in 19ms
+[25Nov2026 13:48:31.312] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Loading FML Early Services:
+[25Nov2026 13:48:31.313] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/earlydisplay/12.0.16/earlydisplay-12.0.16.jar
+[25Nov2026 13:48:31.313] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]:  - libraries/net/neoforged/fancymodloader/loader/12.0.16/loader-12.0.16.jar
+[25Nov2026 13:48:31.318] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Not loading early display in headless mode.
+[25Nov2026 13:48:31.334] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+[25Nov2026 13:48:31.620] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 3 dependencies adding them to mods collection
+[25Nov2026 13:48:31.624] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		GeckoLib 5 5.5.7 (geckolib)
+		Minecraft 26.3 (minecraft)
+		NeoForge 26.3.0.115 (neoforge)
+		Royaumes Mortels 0.25.0 (royaumes)
+[25Nov2026 13:48:31.852] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/home/runner/work/royaumes-mortels/royaumes-mortels/srv/libraries/net/fabricmc/sponge-mixin/0.17.5+mixin.0.8.7/sponge-mixin-0.17.5+mixin.0.8.7.jar Service=FML Env=SERVER
+[25Nov2026 13:48:31.890] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Loading FML Plugins:
+[25Nov2026 13:48:31.890] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]:  - ~libraries/net/neoforged/neoforge/26.3.0.115/neoforge-26.3.0.115-universal.jar > net.neoforged.neoforge-coremods-26.3.0.115.jar
+[25Nov2026 13:48:32.013] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Building game content classloader:
+ - geckolib (jar(mods/royaumes-0.25.0.jar > geckolib-neoforge-26.3-5.5.7.jar))
+ - minecraft (jar(~libraries/net/neoforged/minecraft-server-patched/26.3.0.115/minecraft-server-patched-26.3.0.115.jar))
+ - mixinextras.neoforge (jar(~libraries/net/neoforged/neoforge/26.3.0.115/neoforge-26.3.0.115-universal.jar > mixinextras-neoforge-0.5.5.jar))
+ - neoforge (jar(~libraries/net/neoforged/neoforge/26.3.0.115/neoforge-26.3.0.115-universal.jar))
+ - net.neoforged.fml.generated (empty(VirtualJar/net.neoforged.fml.generated))
+ - royaumes (jar(mods/royaumes-0.25.0.jar))
+[25Nov2026 13:48:32.035] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Built game content classloader in 33ms
+[25Nov2026 13:48:33.280] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[25Nov2026 13:48:38.499] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 26.3.0.115, for MC 26.3
+[25Nov2026 13:48:39.010] [modloading-worker-0/INFO] [fr.royaumes.RoyaumesMortels/]: [Royaumes Mortels] Initialisation du mod
+[25Nov2026 13:48:39.011] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.VersionChecker/]: No mods enabled for version check
+[25Nov2026 13:48:39.091] [main/INFO] [com.mojang.authlib.services.MinecraftServicesDiscoveryService/]: Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[25Nov2026 13:48:40.590] [Worker-Main-2/INFO] [net.minecraft.server.Main/]: No existing world data, creating new world
+[25Nov2026 13:48:41.301] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_ames@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.302] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_azyrite@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.302] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_braise@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.302] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_croc@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_jade@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_lumineux@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_malepierre@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_ombre@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_or_vif@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_pierre_royaumes@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.304] [Worker-Main-2/WARN] [net.minecraft.server.ReloadableServerRegistries/]: Found loot table element validation problem in {royaumes:blocks/minerai_pierre_royaumes_profond@minecraft:loot_table}.pools[0].entries[0]: Unreachable entry!
+[25Nov2026 13:48:41.808] [Worker-Main-3/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1899 advancements
+[25Nov2026 13:48:42.358] [main/INFO] [net.neoforged.neoforge.common.crafting.RecipePriorityManager/]: Loaded 0 recipe priority overrides
+[25Nov2026 13:48:42.524] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 26.3
+[25Nov2026 13:48:42.525] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
+[25Nov2026 13:48:42.525] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: SURVIVAL
+[25Nov2026 13:48:42.525] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[25Nov2026 13:48:42.640] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on *:25565
+[25Nov2026 13:48:42.741] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[25Nov2026 13:48:42.741] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
+[25Nov2026 13:48:42.741] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[25Nov2026 13:48:42.742] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
+[25Nov2026 13:48:42.810] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "world"
+[25Nov2026 13:48:43.056] [Server thread/INFO] [net.minecraft.server.level.progress.LoggingLevelLoadListener/]: Selecting global world spawn...
+[25Nov2026 13:48:47.041] [Server thread/INFO] [net.minecraft.server.level.progress.LoggingLevelLoadListener/]: Loading 0 persistent chunks...
+[25Nov2026 13:48:47.041] [Server thread/INFO] [net.minecraft.server.level.progress.LoggingLevelLoadListener/]: Preparing spawn area: 100%
+[25Nov2026 13:48:47.042] [Server thread/INFO] [net.minecraft.server.level.progress.LoggingLevelLoadListener/]: Time elapsed: 3987 ms
+[25Nov2026 13:48:47.042] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (4.283s)! For help, type "help"
+[25Nov2026 13:48:47.045] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[25Nov2026 13:48:47.088] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[25Nov2026 13:48:47.097] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:royaumes_mortels
+[25Nov2026 13:48:47.100] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:shyish
+[25Nov2026 13:48:47.103] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:huit_points
+[25Nov2026 13:48:47.106] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:chamon
+[25Nov2026 13:48:47.109] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[25Nov2026 13:48:47.112] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:ulgu
+[25Nov2026 13:48:47.116] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:aqshy
+[25Nov2026 13:48:47.119] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:ghur
+[25Nov2026 13:48:47.121] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:ghyran
+[25Nov2026 13:48:47.123] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:hysh
+[25Nov2026 13:48:47.165] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[25Nov2026 13:48:47.165] [Server thread/INFO] [fr.royaumes.RoyaumesMortels/]: ROYAUMES_OK serveur demarre avec le mod Royaumes Mortels
+[25Nov2026 13:48:47.736] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: There are 2 data pack(s) enabled: [vanilla (built-in)], [mod_data]
+[25Nov2026 13:48:47.742] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: There are no more data packs available
+[25Nov2026 13:48:49.717] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Running function royaumes:load
+[25Nov2026 13:48:56.127] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked 49 chunks in Overworld from [-3, -3] to [3, 3] to be force loaded
+[25Nov2026 13:48:56.172] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 4406ms or 88 ticks behind
+[25Nov2026 13:49:04.039] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Generated structure "royaumes:temple_seraphon" at 0, 90, 0
+[25Nov2026 13:49:05.717] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Running function royaumes:boss/nagash/invoquer
+[25Nov2026 13:49:05.720] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Function royaumes:boss/nagash/invoquer returned 1
+[25Nov2026 13:49:12.724] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Nagash OK
+[25Nov2026 13:49:14.717] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Custom bossbar [Necrath, Dieu de la Mort] has a maximum of 495
+[25Nov2026 13:49:16.717] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Applied 400.0 damage to [Mort] Necrath, Dieu de la Mort
+[25Nov2026 13:49:19.767] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Phase finale OK
+[25Nov2026 13:49:21.771] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Killed [Mort] Necrath, Dieu de la Mort
+[25Nov2026 13:49:24.358] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked chunk [0, 0] in royaumes:royaumes_mortels to be force loaded
+[25Nov2026 13:49:33.772] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:azyr_cimes is at [160, 71, 144] (32 blocks away)
+[25Nov2026 13:49:33.772] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:azyr_cimes took 2 ms
+[25Nov2026 13:49:35.864] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:forteresse_stormcast is at [320, ~, 176] (194 blocks away)
+[25Nov2026 13:49:35.864] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:forteresse_stormcast took 95 ms
+[25Nov2026 13:49:37.769] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:cite_sigmar is at [0, ~, 272] (181 blocks away)
+[25Nov2026 13:49:37.769] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:cite_sigmar took 2 ms
+[25Nov2026 13:49:40.282] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked chunk [0, 0] in royaumes:ghyran to be force loaded
+[25Nov2026 13:49:49.772] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:temple_seraphon is at [-816, ~, -704] (1268 blocks away)
+[25Nov2026 13:49:49.772] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:temple_seraphon took 4 ms
+[25Nov2026 13:49:52.343] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked chunk [0, 0] in royaumes:chamon to be force loaded
+[25Nov2026 13:49:54.274] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked chunk [0, 0] in royaumes:ulgu to be force loaded
+[25Nov2026 13:49:56.318] [Worker-Main-3/WARN] [net.minecraft.world.level.levelgen.heightproviders.UniformHeight/]: Empty height range: [6 above bottom--1 absolute]
+[25Nov2026 13:49:56.634] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked chunk [0, 0] in royaumes:hysh to be force loaded
+[25Nov2026 13:49:58.386] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Marked chunk [0, 0] in royaumes:shyish to be force loaded
+[25Nov2026 13:50:14.820] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:ossuaire_ossiarch is at [240, ~, 48] (147 blocks away)
+[25Nov2026 13:50:14.821] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:ossuaire_ossiarch took 3 ms
+[25Nov2026 13:50:16.817] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:hysh_plateaux is at [96, 71, 208] (71 blocks away)
+[25Nov2026 13:50:16.817] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:hysh_plateaux took 0 ms
+[25Nov2026 13:50:18.817] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: The nearest royaumes:sanctuaire_lumineth is at [144, ~, 128] (22 blocks away)
+[25Nov2026 13:50:18.817] [Server thread/INFO] [net.minecraft.server.commands.LocateCommand/]: Locating element royaumes:sanctuaire_lumineth took 0 ms
+[25Nov2026 13:50:20.816] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Running function royaumes:debug/mobs
+[25Nov2026 13:50:22.818] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Drake Stellaire
+[25Nov2026 13:50:24.818] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Justicier
+[25Nov2026 13:50:26.818] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Guerrier du Chaos
+[25Nov2026 13:50:28.819] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Canonnière des Nuées
+[25Nov2026 13:50:30.818] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Seigneur Vampire
+[25Nov2026 13:50:32.818] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Libérateur
+[25Nov2026 13:50:59.817] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Created new objective [rm_test]
+[25Nov2026 13:51:01.868] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Test passed. Count: 158
+[25Nov2026 13:51:03.867] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: #n has 158 [rm_test]
+[25Nov2026 13:51:05.867] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Running function royaumes:debug/nettoyer
+[25Nov2026 13:51:07.869] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Running function royaumes:debug/objets
+[25Nov2026 13:51:12.871] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: 2, 100, 2 has the following block data: {components: {"minecraft:lore": [{color: "gray", text: "Clic droit : voyager entre ce monde", italic: 1b}, {color: "gray", text: "et les Royaumes Mortels.", italic: 1b}], "minecraft:item_model": "royaumes:dp/pierre_de_royaume", "minecraft:unbreakable": {}, "minecraft:custom_name": {color: "light_purple", text: "Pierre de Royaume", italic: 0b}, "minecraft:rarity": "epic", "minecraft:enchantment_glint_override": 1b, "minecraft:custom_data": {royaumes: "pierre"}}, count: 1, Slot: 0b, id: "minecraft:carrot_on_a_stick"}
+[25Nov2026 13:51:14.868] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: 4, 100, 2 has the following block data: {count: 16, Slot: 0b, id: "royaumes:pierre_royaumes_brute"}
+[25Nov2026 13:51:16.868] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Set [rm_voyage] for 0 entities to 0
+[25Nov2026 13:51:18.867] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Running function royaumes:voyage/aller
+[25Nov2026 13:51:20.868] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Draconid'Célestis
+[25Nov2026 13:51:22.868] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Destrier des Compagnies Franches
+[25Nov2026 13:51:24.869] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Drake de Magma
+[25Nov2026 13:51:26.869] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Canonnière des Nuées
+[25Nov2026 13:51:28.868] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Coursier d'Ombre de Nid-de-Ronces
+[25Nov2026 13:51:30.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Fangmora des Marées
+[25Nov2026 13:51:32.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Destrier de l'Aube
+[25Nov2026 13:51:34.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Raptor de guerre
+[25Nov2026 13:51:36.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Cerf de la Bois-Sauvage
+[25Nov2026 13:51:38.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Destrier du Chaos
+[25Nov2026 13:51:40.919] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Juggernaut de Sangrath
+[25Nov2026 13:51:42.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Disque de Vharys
+[25Nov2026 13:51:44.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Coursier de Lyssara
+[25Nov2026 13:51:46.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Mouche Géante
+[25Nov2026 13:51:48.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Gnaw-beast
+[25Nov2026 13:51:50.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Grand Taurus
+[25Nov2026 13:51:52.919] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Coursier Spectral
+[25Nov2026 13:51:54.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Cauchemar des Chevaliers de Sang
+[25Nov2026 13:51:56.918] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Destrier d'Os
+[25Nov2026 13:51:58.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Chauve-Souris
+[25Nov2026 13:52:00.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Sanglier de Guerre
+[25Nov2026 13:52:02.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Grand Gnashtoof
+[25Nov2026 13:52:04.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Croqueur Bondissant
+[25Nov2026 13:52:06.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Croc-Funèbre
+[25Nov2026 13:52:08.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Mammouth des Plaines
+[25Nov2026 13:52:15.967] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Test passed. Count: 25
+[25Nov2026 13:52:17.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: #m has 25 [rm_test]
+[25Nov2026 13:52:19.970] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Killed 25 entities
+[25Nov2026 13:52:21.970] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 2, 100, 2
+[25Nov2026 13:52:23.967] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 3, 100, 2
+[25Nov2026 13:52:25.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 4, 100, 2
+[25Nov2026 13:52:28.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 5, 100, 2
+[25Nov2026 13:52:30.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Portail OK
+[25Nov2026 13:52:32.019] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Autel OK
+[25Nov2026 13:52:34.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Marbre OK
+[25Nov2026 13:52:36.018] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 6, 100, 2
+[25Nov2026 13:52:38.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Etendard OK
+[25Nov2026 13:52:40.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 7, 100, 2
+[25Nov2026 13:52:42.018] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 8, 100, 2
+[25Nov2026 13:52:44.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Autel seigneurs OK
+[25Nov2026 13:52:46.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Changed the block at 9, 100, 2
+[25Nov2026 13:52:48.017] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Server] Forge de guerre OK
+[25Nov2026 13:52:50.018] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Foudroyés Champion Hammer
+[25Nov2026 13:52:52.019] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Nurglite Chestplate (Legend)
+[25Nov2026 13:52:54.018] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Chaos Pickaxe (Elite)
+[25Nov2026 13:52:56.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Khornate Chestplate (Divine)
+[25Nov2026 13:52:58.069] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Order Pickaxe (Mythic)
+[25Nov2026 13:53:00.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Ascended Sanguinaire Sword
+[25Nov2026 13:53:02.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Lord's Soul
+[25Nov2026 13:53:04.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Célestis Staff
+[25Nov2026 13:53:06.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Libérateur Spawn Egg
+[25Nov2026 13:53:08.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Summoned new Stormhammer
+[25Nov2026 13:53:12.069] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Test passed. Count: 1
+[25Nov2026 13:53:14.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: #o has 1 [rm_test]
+[25Nov2026 13:53:16.070] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Killed 222 entities
+[25Nov2026 13:53:18.066] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: System chat: Stopping the server
+[25Nov2026 13:53:18.117] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[25Nov2026 13:53:18.118] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[25Nov2026 13:53:18.118] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[25Nov2026 13:53:19.467] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[25Nov2026 13:53:20.341] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[25Nov2026 13:53:20.343] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:royaumes_mortels
+[25Nov2026 13:53:20.352] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:shyish
+[25Nov2026 13:53:20.357] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:huit_points
+[25Nov2026 13:53:20.359] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:chamon
+[25Nov2026 13:53:20.363] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[25Nov2026 13:53:20.365] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:ulgu
+[25Nov2026 13:53:20.370] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:aqshy
+[25Nov2026 13:53:20.372] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:ghur
+[25Nov2026 13:53:20.374] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:ghyran
+[25Nov2026 13:53:20.378] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[world]'/royaumes:hysh
+[25Nov2026 13:53:20.421] [main/INFO] [net.neoforged.fml.loading.FMLLoader/]: Closing FML Loader 3d485ad1
+[25Nov2026 13:53:20.422] [main/INFO] [net.neoforged.fml.ModLoader/]: Clearing ModLoader

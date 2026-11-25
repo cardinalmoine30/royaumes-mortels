@@ -1,0 +1,6 @@
+10:[13:48:31] [main/INFO] [ne.ne.fm.lo.mo.lo.GameLocator/]: Failed to find common Minecraft classes and resources on the classpath. Assuming we're launching production.
+64:2026-11-25T13:48:42.657354923Z Server thread ERROR An exception occurred processing Appender DebugFile
+65:org.apache.logging.log4j.core.appender.AppenderLoggingException: java.lang.NoClassDefFoundError: Could not initialize class io.netty.channel.kqueue.Native
+86:Caused by: java.lang.NoClassDefFoundError: Could not initialize class io.netty.channel.kqueue.Native
+109:Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.IllegalStateException: Only supported on OSX/BSD [in thread "Server thread"]
+138:[13:48:47] [Server thread/INFO] [fr.ro.RoyaumesMortels/]: ROYAUMES_OK serveur demarre avec le mod Royaumes Mortels

@@ -1,0 +1,6 @@
+branche: refonte
+commit: 2591b74bf851484b7d74c63754b381b270cf9eec
+execution: https://github.com/cardinalmoine30/royaumes-mortels/actions/runs/45626877799
+compilation: success
+serveur: success
+Wed Nov 25 13:53:21 UTC 2026

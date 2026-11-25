@@ -1,0 +1,8 @@
+net/minecraft/client/KeyMapping.class
+net/minecraft/client/renderer/entity/player/AvatarRenderer.class
+net/minecraft/core/ClientAsset.class
+net/minecraft/world/entity/animal/wolf/Wolf.class
+net/minecraft/world/entity/player/PlayerSkin.class
+net/minecraft/world/entity/projectile/hurtingprojectile/SmallFireball.class
+net/neoforged/neoforge/client/gui/GuiLayer.class
+net/neoforged/neoforge/client/gui/VanillaGuiLayers.class
