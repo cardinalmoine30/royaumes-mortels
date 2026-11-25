@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Charte « or de Sigmar sur bleu nuit » : emblèmes des 25 factions, ornements de cadre, jauge arcanique,
+"""Charte « or de Aurion sur bleu nuit » : emblèmes des 25 factions, ornements de cadre, jauge arcanique,
 icônes des 8 Vents. Sortie : assets/royaumes/textures/gui/aos/*.png"""
 import math
 import os

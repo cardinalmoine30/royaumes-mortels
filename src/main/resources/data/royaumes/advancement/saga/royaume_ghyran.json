@@ -4,10 +4,10 @@
       "id": "royaumes:eclat_ghyran"
     },
     "title": {
-      "text": "Royaume de Ghyran"
+      "text": "Royaume de Sylvéa"
     },
     "description": {
-      "text": "Entrer dans Ghyran, le Royaume de la Vie."
+      "text": "Entrer dans Sylvéa, le Royaume de la Vie."
     },
     "frame": "task",
     "show_toast": true,

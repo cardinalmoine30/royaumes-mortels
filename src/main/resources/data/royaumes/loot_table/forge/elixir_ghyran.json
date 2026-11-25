@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Élixir de Ghyran",
+                  "text": "Élixir de Sylvéa",
                   "color": "green",
                   "italic": false
                 },

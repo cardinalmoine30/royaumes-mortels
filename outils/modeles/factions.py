@@ -143,7 +143,7 @@ def construire(nom, s):
         ecart = 0 if s["corps"] in ("normal", "squelette", "fin", "petit") else 0
         m.cube("right_leg", (-jw - ecart, 0, -jd // 2), (jw, jh, jd), "jambes", north=bande(P["armure2"], "haut") if s.get("armure") else None)
         m.cube("left_leg", (ecart, 0, -jd // 2), (jw, jh, jd), "jambes", north=bande(P["armure2"], "haut") if s.get("armure") else None)
-    elif s.get("serpent"):   # Melusai, Medusa, Syll'Esske : queue de serpent
+    elif s.get("serpent"):   # Serpentine, Medusa, Jumeaux de la Concorde : queue de serpent
         m.bone("tail", "root", (0, lh, 0))
         m.cube("tail", (-4, 4, -3), (8, 7, 6), "peau", north=bande(P["armure2"], "haut"))
         m.cube("tail", (-3, 1, 2), (6, 5, 8), "peau")
@@ -215,7 +215,7 @@ def construire(nom, s):
         m.cube("head", (hx - 5, yt + hs, -1), (2, 6, 2), "corne")
         m.cube("head", (-hx, yt + hs - 2, -1), (4, 2, 2), "corne")
         m.cube("head", (-hx + 3, yt + hs, -1), (2, 6, 2), "corne")
-    if "chapeau" in ex:   # capuche pointue des Gitz
+    if "chapeau" in ex:   # capuche pointue des Gobelins
         m.cube("head", (hx - 1, yt + hs - 2, hz - 1), (hs + 2, 3, hs + 2), "tissu")
         m.cube("head", (-2, yt + hs + 1, -2), (4, 4, 4), "tissu")
         m.cube("head", (-1, yt + hs + 5, -1), (2, 3, 2), "tissu")

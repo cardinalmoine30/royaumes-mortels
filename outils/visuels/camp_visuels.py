@@ -58,8 +58,8 @@ def scene():
     s.modele("vindictor", 0.5, 0, 17, lacet=0)
     s.joueur("stormcast", 0.8, 0, 4, lacet=180)
     img = s.rendre((1.5, 3.4, -2.8), (0, 1.6, 12))
-    hud(img, 1, "Stormcast Eternals", 12, "d'Azyr", "Frappe de foudre · prête (R)", 140, 160, 0)
-    legende(img, "Scène reconstituée · Camp de guerre Stormcast")
+    hud(img, 1, "Foudroyés Éternels", 12, "d'Célestis", "Frappe de foudre · prête (R)", 140, 160, 0)
+    legende(img, "Scène reconstituée · Camp de guerre Foudroyés")
     return img
 
 
@@ -101,8 +101,8 @@ def ecran(fond):
     qx = px + 206
     M.cadre_or(d, qx, py + 14, 184, PH - 22, fond=(24, 30, 52))
     M.texte(d, qx + 92, py + 20, "RECRUTEMENT", 7, M.OR_C, gras=True, centre=True)
-    unites = [("Liberator", 22), ("Judicator", 26), ("Vindictor", 30), ("Prosecutor", 34), ("Lord-Celestant", 70),
-              ("Dracoth", 95), ("Gryph-charger", 110), ("Stardrake", 260)]
+    unites = [("Libérateur", 22), ("Justicier", 26), ("Vengeur", 30), ("Poursuivant", 34), ("Seigneur-Céleste", 70),
+              ("Draconide", 95), ("Griffon-Coursier", 110), ("Drake Stellaire", 260)]
     for i, (n, c) in enumerate(unites):
         y = py + 36 + i * 24
         ouvert = i < 5

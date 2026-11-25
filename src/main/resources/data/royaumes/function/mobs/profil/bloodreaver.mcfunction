@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_chaos @s
-data modify entity @s CustomName set value {"text": "Bloodreaver de Khorne", "color": "dark_red"}
+data modify entity @s CustomName set value {"text": "Pillard de Sang de Sangrath", "color": "dark_red"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 26
 attribute @s minecraft:attack_damage base set 6

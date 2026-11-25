@@ -151,13 +151,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Fusil à Aether",
+                  "text": "Fusil à Éther",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Code Kharadron, article 1 : le profit.",
+                    "text": "Code Nuées, article 1 : le profit.",
                     "color": "gray",
                     "italic": true
                   }
@@ -272,13 +272,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lingot de Sigmarite",
+                  "text": "Lingot de Célestacier",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Métal divin forgé dans le Sigmarabulum.",
+                    "text": "Métal divin forgé dans le Forge-Céleste.",
                     "color": "gray",
                     "italic": true
                   },
@@ -496,7 +496,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Ferraille d'Orruk",
+                  "text": "Ferraille d'Orc",
                   "color": "gray",
                   "italic": false
                 },

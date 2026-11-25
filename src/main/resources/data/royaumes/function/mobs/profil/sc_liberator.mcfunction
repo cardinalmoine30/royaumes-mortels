@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_ordre @s
-data modify entity @s CustomName set value {"text": "Liberator Stormcast", "color": "gold"}
+data modify entity @s CustomName set value {"text": "Libérateur Foudroyés", "color": "gold"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 40
 attribute @s minecraft:attack_damage base set 6

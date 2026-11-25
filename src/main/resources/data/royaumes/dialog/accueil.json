@@ -11,7 +11,7 @@
       "width": 300,
       "contents": [
         {
-          "text": "L'Âge de Sigmar a commencé.\n\n",
+          "text": "L'Âge de Aurion a commencé.\n\n",
           "color": "yellow"
         },
         {
@@ -35,7 +35,7 @@
         "bold": true
       },
       "tooltip": {
-        "text": "Les peuples civilisés unis derrière Sigmar contre les ténèbres."
+        "text": "Les peuples civilisés unis derrière Aurion contre les ténèbres."
       },
       "width": 140,
       "action": {
@@ -65,7 +65,7 @@
         "bold": true
       },
       "tooltip": {
-        "text": "Les légions de Nagash, Grand Nécromancien de Shyish."
+        "text": "Les légions de Necrath, Grand Nécromancien de Nécréa."
       },
       "width": 140,
       "action": {
@@ -80,7 +80,7 @@
         "bold": true
       },
       "tooltip": {
-        "text": "Orruks, grots, ogors et gargants : la loi du plus fort."
+        "text": "Orcs, grots, ogors et géants : la loi du plus fort."
       },
       "width": 140,
       "action": {

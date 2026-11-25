@@ -44,7 +44,7 @@ def forteresse_stormcast():
         s.cone(cx, cz, 3, F + 16, "minecraft:lapis_block")
         s.set(cx, F + 20, cz, "minecraft:lightning_rod")
         s.set(cx, F + 14, cz, "minecraft:sea_lantern")
-    # Donjon central (Temple de Sigmar)
+    # Donjon central (Temple de Aurion)
     c = W // 2
     s.hollow(c - 7, F, c - 7, c + 7, F + 14, c + 7, murs, floor="minecraft:polished_diorite")
     s.walls(c - 7, F + 13, c - 7, c + 7, F + 13, c + 7, "minecraft:gold_block")
@@ -55,7 +55,7 @@ def forteresse_stormcast():
         for i in (c - 4, c, c + 4):
             s.set(i, y, c - 7, "minecraft:light_blue_stained_glass"); s.set(c - 7, y, i, "minecraft:light_blue_stained_glass")
             s.set(c + 7, y, i, "minecraft:light_blue_stained_glass")
-    # Autel et statue de Sigmar (colonne d'or + éclair)
+    # Autel et statue de Aurion (colonne d'or + éclair)
     s.fill(c - 1, F + 1, c - 5, c + 1, F + 1, c - 4, "minecraft:gold_block")
     s.fill(c, F + 2, c - 5, c, F + 6, c - 5, "minecraft:gold_block")
     s.set(c - 1, F + 5, c - 5, "minecraft:gold_block"); s.set(c + 1, F + 5, c - 5, "minecraft:gold_block")
@@ -115,7 +115,7 @@ def cite_sigmar():
         if i % 3 == 0:
             s.chest(x + w - 1, F + 1, z + d - 1, L + "cite_sigmar")
         s.mob(x + 3, F + 1, z + 3, "villager", "habitant")
-    # Temple de Sigmar (au nord de la place)
+    # Temple de Aurion (au nord de la place)
     s.hollow(c - 5, F, 12, c + 5, F + 9, 19, "minecraft:polished_diorite", floor="minecraft:polished_andesite")
     s.pyramid(c - 5, 12, c + 5, 19, F + 9, "minecraft:blue_terracotta")
     s.clear(c - 1, F + 1, 19, c + 1, F + 4, 19)
@@ -181,7 +181,7 @@ def magmahold():
     s.cylinder(c, c, 5, F, F, "minecraft:gold_block", hollow=False)
     s.cylinder(c, c, 3, F, F, "minecraft:lava", hollow=False)
     s.cylinder(c, c, 4, F + 1, F + 1, "minecraft:polished_blackstone_brick_wall", hollow=True, inside=None)
-    # Effigie de Grimnir
+    # Effigie de Brasdur
     s.fill(c, F + 1, 6, c, F + 9, 6, "minecraft:gold_block")
     s.fill(c - 2, F + 7, 6, c + 2, F + 7, 6, "minecraft:gold_block")
     s.set(c, F + 10, 6, "minecraft:magma_block"); s.set(c - 2, F + 8, 6, "minecraft:fire")
@@ -324,7 +324,7 @@ def temple_khaine():
     s.disk(c, c, 2, F, "minecraft:red_concrete")
     s.fill(c - 1, F + 1, c - 1, c + 1, F + 1, c + 1, "minecraft:iron_block")
     s.set(c, F + 2, c, "minecraft:lava_cauldron"); s.set(c - 1, F + 2, c, "minecraft:iron_bars"); s.set(c + 1, F + 2, c, "minecraft:iron_bars")
-    # Statue de Khaine (lames)
+    # Statue de Morvaine (lames)
     s.fill(c, F + 1, 6, c, F + 10, 6, "minecraft:polished_blackstone")
     s.fill(c - 3, F + 8, 6, c + 3, F + 8, 6, "minecraft:iron_block")
     s.set(c - 3, F + 9, 6, "minecraft:iron_bars"); s.set(c + 3, F + 9, 6, "minecraft:iron_bars")
@@ -388,7 +388,7 @@ def ziggurat_hashut():
         s.set(4 + i, y, c, "minecraft:magma_block"); s.set(W - 5 - i, y, c, "minecraft:magma_block")
     for i in range(0, top - F - 1):
         s.fill(c - 1, F + 1 + i, W - 5 - i, c + 1, F + 1 + i, W - 5 - i, "minecraft:polished_blackstone_stairs[facing=north]")
-    # Taureau de Hashut stylisé au sommet
+    # Taureau de Ashkar stylisé au sommet
     s.fill(c - 2, top, c - 1, c + 2, top + 2, c + 1, "minecraft:gilded_blackstone")
     s.set(c - 3, top + 3, c, "minecraft:gold_block"); s.set(c + 3, top + 3, c, "minecraft:gold_block")
     s.set(c - 2, top + 3, c, "minecraft:gold_block"); s.set(c + 2, top + 3, c, "minecraft:gold_block")
@@ -416,7 +416,7 @@ def repaire_skaven():
     s.clear(c, F + 1, c + 4, c + 1, F + 3, c + 4)
     # Cloche hurlante
     s.fill(c + 3, F + 22, c, c + 3, F + 24, c, "minecraft:spruce_fence"); s.set(c + 3, F + 21, c, "minecraft:bell[attachment=ceiling]")
-    # Malepierre (froglight verte) en tas
+    # Fangepierre (froglight verte) en tas
     for (dx, dz) in ((-1, -1), (1, -2), (0, 1), (-2, 0)):
         s.set(c + dx, F + 1, c + dz, "minecraft:verdant_froglight")
     s.set(c, F + 2, c - 1, "minecraft:verdant_froglight")

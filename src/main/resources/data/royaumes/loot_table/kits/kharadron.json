@@ -11,13 +11,13 @@
        "type": "minecraft:set_components",
        "components": {
         "minecraft:custom_name": {
-         "text": "Fusil à Aether",
+         "text": "Fusil à Éther",
          "color": "gold",
          "italic": false
         },
         "minecraft:lore": [
          {
-          "text": "Code Kharadron, article 1 : le profit.",
+          "text": "Code Nuées, article 1 : le profit.",
           "color": "gray",
           "italic": true
          },

@@ -26,12 +26,12 @@
   "actions": [
     {
       "label": {
-        "text": "Azyr",
+        "text": "Célestis",
         "color": "aqua",
         "bold": true
       },
       "tooltip": {
-        "text": "Azyr : pics foudroyés des forteresses Stormcast et Azyrheim, la cité de Sigmar."
+        "text": "Célestis : pics foudroyés des forteresses Foudroyés et Célestheim, la cité de Aurion."
       },
       "width": 150,
       "action": {
@@ -41,12 +41,12 @@
     },
     {
       "label": {
-        "text": "Ghyran",
+        "text": "Sylvéa",
         "color": "green",
         "bold": true
       },
       "tooltip": {
-        "text": "Ghyran : jungles des Seraphon, bois Sylvaneth, marais convoités par Nurgle."
+        "text": "Sylvéa : jungles des Astrosauriens, bois Sylvains, marais convoités par Morbus."
       },
       "width": 150,
       "action": {
@@ -56,12 +56,12 @@
     },
     {
       "label": {
-        "text": "Aqshy",
+        "text": "Pyréa",
         "color": "gold",
         "bold": true
       },
       "tooltip": {
-        "text": "Aqshy : volcans des Fyreslayers, cendres de Khorne et ziggurats de Hashut."
+        "text": "Pyréa : volcans des Tueurs-de-Braise, cendres de Sangrath et ziggurats de Ashkar."
       },
       "width": 150,
       "action": {
@@ -71,12 +71,12 @@
     },
     {
       "label": {
-        "text": "Shyish",
+        "text": "Nécréa",
         "color": "dark_purple",
         "bold": true
       },
       "tooltip": {
-        "text": "Shyish : terres de Nagash, nécropoles Soulblight et déserts d'os Ossiarch."
+        "text": "Nécréa : terres de Necrath, nécropoles Sanguinaire et déserts d'os Faucheurs d'Os."
       },
       "width": 150,
       "action": {
@@ -86,12 +86,12 @@
     },
     {
       "label": {
-        "text": "Ghur",
+        "text": "Féralia",
         "color": "gold",
         "bold": true
       },
       "tooltip": {
-        "text": "Ghur : savanes des mégafaunes, Orruks, Ogors et Gargants."
+        "text": "Féralia : savanes des mégafaunes, Orcs, Ogres et Géants."
       },
       "width": 150,
       "action": {
@@ -101,12 +101,12 @@
     },
     {
       "label": {
-        "text": "Chamon",
+        "text": "Ferrumia",
         "color": "gray",
         "bold": true
       },
       "tooltip": {
-        "text": "Chamon : collines de métal et ports volants Kharadron."
+        "text": "Ferrumia : collines de métal et ports volants Nuées."
       },
       "width": 150,
       "action": {
@@ -116,12 +116,12 @@
     },
     {
       "label": {
-        "text": "Ulgu",
+        "text": "Umbria",
         "color": "dark_gray",
         "bold": true
       },
       "tooltip": {
-        "text": "Ulgu : brumes des Filles de Khaine, mer des Idoneth, marais Gitz."
+        "text": "Umbria : brumes des Filles de Morvaine, mer des Abyssal, marais Gobelins."
       },
       "width": 150,
       "action": {
@@ -131,12 +131,12 @@
     },
     {
       "label": {
-        "text": "Hysh",
+        "text": "Lumina",
         "color": "white",
         "bold": true
       },
       "tooltip": {
-        "text": "Hysh : îles célestes et sanctuaires Lumineth."
+        "text": "Lumina : îles célestes et sanctuaires de Lumière."
       },
       "width": 150,
       "action": {
@@ -146,12 +146,12 @@
     },
     {
       "label": {
-        "text": "Les Huit-Points du Chaos",
+        "text": "Les Huit-Voies du Chaos",
         "color": "dark_red",
         "bold": true
       },
       "tooltip": {
-        "text": "Les Huit-Points : désolation du Chaos et Terres Rongées des Skavens."
+        "text": "Les Huit-Voies : désolation du Chaos et Terres Rongées des Hommes-Rats."
       },
       "width": 150,
       "action": {
@@ -165,7 +165,7 @@
         "color": "white"
       },
       "tooltip": {
-        "text": "Revenir dans le monde de départ."
+        "text": "Revenir dans le monde départ."
       },
       "width": 150,
       "action": {

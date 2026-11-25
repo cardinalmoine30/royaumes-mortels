@@ -27,83 +27,83 @@
           "color": "white"
         },
         {
-          "text": "• Lingot de Sigmarite",
+          "text": "• Lingot de Célestacier",
           "color": "gold"
         },
         {
-          "text": " — Stormcast (Azyr) ; ou Forge : or + lapis + éclat\n",
+          "text": " — Foudroyés (Célestis) ; ou Forge : or + lapis + éclat\n",
           "color": "white"
         },
         {
-          "text": "• Malepierre",
+          "text": "• Fangepierre",
           "color": "green"
         },
         {
-          "text": " — Skaven ; blocs de malepierre verts\n",
+          "text": " — Hommes-Rats ; blocs de fangepierre verts\n",
           "color": "white"
         },
         {
-          "text": "• Éclat de Chamon",
+          "text": "• Éclat de Ferrumia",
           "color": "gold"
         },
         {
-          "text": " — Fyreslayers ; minerai d'or des Royaumes\n",
+          "text": " — Tueurs-de-Braise ; minerai d'or des Royaumes\n",
           "color": "white"
         },
         {
-          "text": "• Éclat de Chamon",
+          "text": "• Éclat de Ferrumia",
           "color": "yellow"
         },
         {
-          "text": " — Kharadron ; or brut de Chamon\n",
+          "text": " — Nuées ; or brut de Ferrumia\n",
           "color": "white"
         },
         {
-          "text": "• Éclat de Shyish",
+          "text": "• Éclat de Nécréa",
           "color": "dark_aqua"
         },
         {
-          "text": " — morts-vivants de Shyish ; blocs d'os de Shyish\n",
+          "text": " — morts-vivants de Nécréa ; blocs d'os de Nécréa\n",
           "color": "white"
         },
         {
-          "text": "• Éclat d'Aqshy",
+          "text": "• Éclat d'Pyréa",
           "color": "red"
         },
         {
-          "text": " — Khorne et Hashut ; magma d'Aqshy\n",
+          "text": " — Sangrath et Ashkar ; magma d'Pyréa\n",
           "color": "white"
         },
         {
-          "text": "• Éclat de Ghur",
+          "text": "• Éclat de Féralia",
           "color": "gold"
         },
         {
-          "text": " — Seraphon, Ogors, Gargants\n",
+          "text": " — Astrosauriens, Ogres, Géants\n",
           "color": "white"
         },
         {
-          "text": "• Éclat de Ghyran",
+          "text": "• Éclat de Sylvéa",
           "color": "green"
         },
         {
-          "text": " — Sylvaneth, Nurgle ; azalées de Ghyran\n",
+          "text": " — Sylvains, Morbus ; azalées de Sylvéa\n",
           "color": "white"
         },
         {
-          "text": "• Éclat d'Ulgu",
+          "text": "• Éclat d'Umbria",
           "color": "dark_gray"
         },
         {
-          "text": " — Filles de Khaine, Idoneth, Gitz\n",
+          "text": " — Filles de Morvaine, Abyssal, Gobelins\n",
           "color": "white"
         },
         {
-          "text": "• Éclat d'Hysh",
+          "text": "• Éclat d'Lumina",
           "color": "white"
         },
         {
-          "text": " — Lumineth ; calcite de Hysh\n",
+          "text": " — de Lumière ; calcite de Lumina\n",
           "color": "white"
         },
         {
@@ -115,19 +115,19 @@
           "color": "white"
         },
         {
-          "text": "• Ferraille d'Orruk",
+          "text": "• Ferraille d'Orc",
           "color": "gray"
         },
         {
-          "text": " — Ironjawz et Kruleboyz\n",
+          "text": " — Mâchefers et Cruelgars\n",
           "color": "white"
         },
         {
-          "text": "• Éclat d'Azyr",
+          "text": "• Éclat d'Célestis",
           "color": "aqua"
         },
         {
-          "text": " — minerai de lapis des Cimes d'Azyr\n",
+          "text": " — minerai de lapis des Cimes d'Célestis\n",
           "color": "white"
         }
       ]

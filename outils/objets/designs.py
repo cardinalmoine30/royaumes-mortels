@@ -23,11 +23,11 @@ RES = os.path.join(ICI, "..", "..", "src", "main", "resources")
 DATA = os.path.join(RES, "data", "royaumes")
 ASSETS = os.path.join(RES, "assets", "royaumes")
 
-TROPHEES = {"Alakanash, Bâton de Nagash", "Couronne de Nagash", "Tueuse de Rois", "Smasha", "Kunnin'", "Massacre",
-            "Bâton de Malefoudre", "Bâton de Pluie Pestilentielle", "Cloche de Pluie"}
+TROPHEES = {"Alakanash, Bâton de Necrath", "Couronne de Necrath", "Tueuse de Rois", "Smasha", "Kunnin'", "Massacre",
+            "Bâton de Fangefoudre", "Bâton de Pluie Pestilentielle", "Cloche de Pluie"}
 RENOMMES = {"Hache Runique d'Ur-Or": "Hachette de Forge-Novice", "Couperet de Boucher": "Couteau de Boucher",
-            "Lame Vampirique": "Dague du Sang Neuf", "Lame du Meurtre": "Dague de l'Initiée", "Gros Choppa": "Choppa Rouillé",
-            "Arc de Lumière": "Arc de Novice Vanari"}
+            "Lame Vampirique": "Dague du Sang Neuf", "Lame du Meurtre": "Dague de l'Initiée", "Gros Hachoir": "Hachoir Rouillé",
+            "Arc de Lumière": "Arc de Novice Lumineux"}
 COULEURS_MC = {"black": (30, 30, 30), "dark_blue": (40, 40, 170), "dark_green": (40, 140, 40), "dark_aqua": (40, 150, 150),
                "dark_red": (170, 30, 30), "dark_purple": (150, 50, 170), "gold": (240, 170, 30), "gray": (170, 170, 170),
                "dark_gray": (85, 85, 85), "blue": (85, 85, 255), "green": (85, 230, 85), "aqua": (85, 230, 230), "red": (240, 85, 85),

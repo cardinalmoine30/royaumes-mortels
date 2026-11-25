@@ -170,7 +170,7 @@ public final class Reseau {
                     + ContenuGenere.NOMS_VENTS[vent] + " souffle ici : ses sorts coûtent moitié moins.")
                     .withColor(ContenuGenere.COULEURS_VENTS[vent]));
         } else if (Magie.estDans(joueur.level(), "royaumes:huit_points")) {
-            joueur.sendOverlayMessage(Component.literal("Les Huit-Points — le Chaos règne ici.").withStyle(ChatFormatting.DARK_RED));
+            joueur.sendOverlayMessage(Component.literal("Les Huit-Voies — le Chaos règne ici.").withStyle(ChatFormatting.DARK_RED));
         }
     }
 

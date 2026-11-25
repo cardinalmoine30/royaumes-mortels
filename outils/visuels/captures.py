@@ -27,7 +27,7 @@ def pilier(s, x, z, h, corps, tete):
         s.bloc(x, y, z, tete if y == h - 1 else corps)
 
 
-# ------------------------------------------------------------------ 1. Azyr : Éclair d'Azyr
+# ------------------------------------------------------------------ 1. Célestis : Éclair d'Célestis
 def azyr():
     s = Scene((70, 120, 210), (205, 222, 245), (205, 222, 245), 46)
     sol(s, -16, 17, -3, 40, [B("marbre_celeste")] * 6 + [B("marbre_celeste_grave")])
@@ -50,13 +50,13 @@ def azyr():
     lueur(img, [tuple(b)], (160, 210, 255), 34)
     rr = random.Random(2)
     lueur(img, [(b[0] + rr.uniform(-60, 60), b[1] + rr.uniform(-60, 20)) for _ in range(14)], (220, 240, 255), 3)
-    hud(img, 1, "Stormcast Eternals", 12, "d'Azyr", "Frappe de foudre · prête (R)", 103, 160, 0,
-        objet=I("baton_azyr"), sort="Éclair d'Azyr — 8 énergie", couleur_sort=(120, 170, 255))
-    legende(img, "Scène reconstituée · Royaume d'Azyr")
+    hud(img, 1, "Foudroyés Éternels", 12, "d'Célestis", "Frappe de foudre · prête (R)", 103, 160, 0,
+        objet=I("baton_azyr"), sort="Éclair d'Célestis — 8 énergie", couleur_sort=(120, 170, 255))
+    legende(img, "Scène reconstituée · Royaume d'Célestis")
     return img
 
 
-# ------------------------------------------------------------------ 2. Ghur : Waaagh !
+# ------------------------------------------------------------------ 2. Féralia : Graaah !
 def ghur():
     s = Scene((200, 120, 70), (245, 200, 140), (235, 190, 140), 44)
     herbe = terrain("herbe_ghur", (120, 110, 60), 0.15, 3, dessus=None)
@@ -80,21 +80,21 @@ def ghur():
     s.modele("saurus", -2, 0, 15, lacet=10)
     s.modele("carnosaur", 3, 0, 20, lacet=-15)
     img = s.rendre((1.2, 3.2, -3), (0, 1.6, 12))
-    hud(img, 21, "Ironjawz", 9, "de Ghur", "Waaagh ! · 87 s", 71, 145, 2, objet=I("marteau_tempete"))
+    hud(img, 21, "Mâchefers", 9, "de Féralia", "Graaah ! · 87 s", 71, 145, 2, objet=I("marteau_tempete"))
     from PIL import ImageDraw, ImageFont
     d = ImageDraw.Draw(img)
     f = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 24)
-    msg = "✦ Waaagh ! ✦"
+    msg = "✦ Graaah ! ✦"
     d.text((W / 2 - d.textlength(msg, font=f) / 2 + 2, H - 202), msg, font=f, fill=(40, 30, 0))
     d.text((W / 2 - d.textlength(msg, font=f) / 2, H - 204), msg, font=f, fill=(255, 190, 40))
     for (x, z) in ((2.8, 5.2), (-2.6, 5.4)):
         p, _ = s._proj((x, 2.4, z))
         lueur(img, [(p[0] + random.uniform(-30, 30), p[1] + random.uniform(-20, 20)) for _ in range(6)], (110, 200, 70), 5)
-    legende(img, "Scène reconstituée · Royaume de Ghur")
+    legende(img, "Scène reconstituée · Royaume de Féralia")
     return img
 
 
-# ------------------------------------------------------------------ 3. Shyish : face à Nagash
+# ------------------------------------------------------------------ 3. Nécréa : face à Necrath
 def shyish():
     s = Scene((30, 20, 50), (110, 80, 140), (90, 70, 120), 40)
     sable = terrain("sable_shyish", (150, 140, 160), 0.1, 5)
@@ -124,13 +124,13 @@ def shyish():
     img.alpha_composite(calque.filter(ImageFilter.GaussianBlur(9)))
     ImageDraw.Draw(img).line([tuple(a), tuple(b)], fill=(255, 255, 240), width=4)
     lueur(img, [tuple(b)], (255, 240, 180), 18)
-    hud(img, 7, "Lumineth Realm-lords", 18, "de Shyish", "Lumière de Teclis · prête (R)", 58, 190, 4,
-        objet=I("baton_hysh"), sort="Rayon de Hysh — 15 énergie", couleur_sort=(255, 245, 190))
-    legende(img, "Scène reconstituée · Royaume de Shyish, boss Nagash")
+    hud(img, 7, "de Lumière Realm-lords", 18, "de Nécréa", "Lumière de Lumarion · prête (R)", 58, 190, 4,
+        objet=I("baton_hysh"), sort="Rayon de Lumina — 15 énergie", couleur_sort=(255, 245, 190))
+    legende(img, "Scène reconstituée · Royaume de Nécréa, boss Necrath")
     return img
 
 
-# ------------------------------------------------------------------ 4. Aqshy : Portail des Royaumes et monture
+# ------------------------------------------------------------------ 4. Pyréa : Portail des Royaumes et monture
 def aqshy():
     s = Scene((90, 30, 20), (230, 120, 60), (180, 90, 60), 40)
     cendre = terrain("cendre", (80, 70, 70), 0.15, 8)
@@ -150,8 +150,8 @@ def aqshy():
     img = s.rendre((0.5, 3.0, -2.5), (0, 2.4, 12))
     p, _ = s._proj((0, 2.8, 12))
     lueur(img, [(p[0] + random.uniform(-80, 80), p[1] + random.uniform(-90, 90)) for _ in range(20)], (160, 120, 255), 4)
-    hud(img, 3, "Fyreslayers", 15, "d'Aqshy", "Rune de fureur · prête (R)", 140, 175, 1)
-    legende(img, "Scène reconstituée · Royaume d'Aqshy, Portail des Royaumes et montures")
+    hud(img, 3, "Tueurs-de-Braise", 15, "d'Pyréa", "Rune de fureur · prête (R)", 140, 175, 1)
+    legende(img, "Scène reconstituée · Royaume d'Pyréa, Portail des Royaumes et montures")
     return img
 
 

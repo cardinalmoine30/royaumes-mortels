@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Crâne de Skarbrand",
+                  "text": "Crâne de Brakhar",
                   "color": "red",
                   "italic": false
                 },

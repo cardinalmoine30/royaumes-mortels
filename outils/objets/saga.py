@@ -8,19 +8,19 @@ import shutil
 ICI = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(ICI, "..", "..", "src", "main", "resources", "data", "royaumes", "advancement", "saga")
 VENTS = ["azyr", "aqshy", "ghur", "ghyran", "hysh", "ulgu", "shyish", "chamon"]
-NOMS = {"azyr": "Azyr", "aqshy": "Aqshy", "ghur": "Ghur", "ghyran": "Ghyran", "hysh": "Hysh", "ulgu": "Ulgu", "shyish": "Shyish", "chamon": "Chamon"}
+NOMS = {"azyr": "Célestis", "aqshy": "Pyréa", "ghur": "Féralia", "ghyran": "Sylvéa", "hysh": "Lumina", "ulgu": "Umbria", "shyish": "Nécréa", "chamon": "Ferrumia"}
 DIMS = {"azyr": "royaumes:royaumes_mortels", "aqshy": "royaumes:aqshy", "ghur": "royaumes:ghur", "ghyran": "royaumes:ghyran",
         "hysh": "royaumes:hysh", "ulgu": "royaumes:ulgu", "shyish": "royaumes:shyish", "chamon": "royaumes:chamon"}
-DESC_ROYAUMES = {"azyr": "Gagner Azyr, le Royaume des Cieux.", "aqshy": "Fouler les cendres d'Aqshy, le Royaume du Feu.",
-                 "ghur": "Survivre à Ghur, le Royaume des Bêtes.", "ghyran": "Entrer dans Ghyran, le Royaume de la Vie.",
-                 "hysh": "Voir la lumière de Hysh, le Royaume de la Lumière.", "ulgu": "Se perdre dans les brumes d'Ulgu, le Royaume des Ombres.",
-                 "shyish": "Descendre en Shyish, le Royaume de la Mort.", "chamon": "Contempler l'or vif de Chamon, le Royaume des Métaux."}
-BOSS = [("nagash", "Le Grand Nécromancien", "Vaincre Nagash, Dieu suprême de la Mort."),
-        ("archaon", "L'Élu Éternel", "Vaincre Archaon, l'Élu Éternel."),
-        ("gordrakk", "Le Poing de Gork", "Vaincre Gordrakk, le Poing de Gork."),
-        ("skarbrand", "L'Exilé", "Vaincre Skarbrand, le Démon Exilé."),
-        ("thanquol", "Le Prophète Gris", "Vaincre le Prophète Gris Thanquol."),
-        ("rotigus", "Le Père-Pluie", "Vaincre Rotigus, Grand Immonde de Nurgle.")]
+DESC_ROYAUMES = {"azyr": "Gagner Célestis, le Royaume des Cieux.", "aqshy": "Fouler les cendres d'Pyréa, le Royaume du Feu.",
+                 "ghur": "Survivre à Féralia, le Royaume des Bêtes.", "ghyran": "Entrer dans Sylvéa, le Royaume de la Vie.",
+                 "hysh": "Voir la lumière de Lumina, le Royaume de la Lumière.", "ulgu": "Se perdre dans les brumes d'Umbria, le Royaume des Ombres.",
+                 "shyish": "Descendre en Nécréa, le Royaume de la Mort.", "chamon": "Contempler l'or vif de Ferrumia, le Royaume des Métaux."}
+BOSS = [("nagash", "Le Grand Nécromancien", "Vaincre Necrath, Dieu suprême de la Mort."),
+        ("archaon", "L'Élu Éternel", "Vaincre Varkhan, l'Élu Éternel."),
+        ("gordrakk", "Le Poing de Brog", "Vaincre Krognak, le Poing de Brog."),
+        ("skarbrand", "L'Exilé", "Vaincre Brakhar, le Démon Exilé."),
+        ("thanquol", "Le Prophète des Cendres", "Vaincre le Prophète des Cendres Skrivel."),
+        ("rotigus", "Le Père-Pluie", "Vaincre Putrefax, Grand Démon de la Peste de Morbus.")]
 P = {}
 
 
@@ -67,7 +67,7 @@ def main():
     for v in VENTS:
         av("royaume_" + v, "portail", "royaumes:eclat_" + v, "Royaume " + ("d'" if NOMS[v][0] in "AEIOUH" else "de ") + NOMS[v], DESC_ROYAUMES[v],
            {"entrer": {"trigger": "minecraft:changed_dimension", "conditions": {"to": DIMS[v]}}})
-    av("huit_points", "portail", "royaumes:pierre_du_chaos", "Aux portes des Huit-Points", "Oser entrer dans les Huit-Points, domaine du Chaos.",
+    av("huit_points", "portail", "royaumes:pierre_du_chaos", "Aux portes des Huit-Voies", "Oser entrer dans les Huit-Voies, domaine du Chaos.",
        {"entrer": {"trigger": "minecraft:changed_dimension", "conditions": {"to": "royaumes:huit_points"}}}, "goal")
     av("voyageur", "royaume_chamon", "minecraft:recovery_compass", "Voyageur des Royaumes", "Visiter les huit Royaumes Mortels.",
        {v: {"trigger": "minecraft:changed_dimension", "conditions": {"to": DIMS[v]}} for v in VENTS}, "challenge", xp=500)

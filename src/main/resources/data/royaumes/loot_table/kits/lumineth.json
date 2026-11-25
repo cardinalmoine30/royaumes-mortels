@@ -11,13 +11,13 @@
        "type": "minecraft:set_components",
        "components": {
         "minecraft:custom_name": {
-         "text": "Arc de Novice Vanari",
+         "text": "Arc de Novice Lumineux",
          "color": "white",
          "italic": false
         },
         "minecraft:lore": [
          {
-          "text": "Ses flèches brillent comme Hysh.",
+          "text": "Ses flèches brillent comme Lumina.",
           "color": "gray",
           "italic": true
          },

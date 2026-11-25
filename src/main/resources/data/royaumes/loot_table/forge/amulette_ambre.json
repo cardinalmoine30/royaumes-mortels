@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Amulette d'Ambre de Ghur",
+                  "text": "Amulette d'Ambre de Féralia",
                   "color": "gold",
                   "italic": false
                 },

@@ -1,6 +1,6 @@
 clear @s minecraft:carrot_on_a_stick[minecraft:custom_data~{royaumes:"sceau_gordrakk"}] 1
 summon royaumes:gordrakk ^ ^1 ^7 {Tags:["rm_boss","rm_boss_gordrakk"],PersistenceRequired:1b}
-bossbar add royaumes:gordrakk {"text": "Gordrakk, le Poing de Gork", "color": "gold"}
+bossbar add royaumes:gordrakk {"text": "Krognak, le Poing de Brog", "color": "gold"}
 bossbar set royaumes:gordrakk max 800
 bossbar set royaumes:gordrakk color yellow
 bossbar set royaumes:gordrakk visible true

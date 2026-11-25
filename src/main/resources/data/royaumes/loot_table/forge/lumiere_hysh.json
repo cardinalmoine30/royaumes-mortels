@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lumière de Hysh",
+                  "text": "Lumière de Lumina",
                   "color": "white",
                   "italic": false
                 },

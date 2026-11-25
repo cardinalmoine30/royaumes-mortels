@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_mort @s
-data modify entity @s CustomName set value {"text": "Squelette Deathrattle", "color": "dark_purple"}
+data modify entity @s CustomName set value {"text": "Squelette Cliquetant", "color": "dark_purple"}
 attribute @s minecraft:max_health base set 22
 data modify entity @s Health set value 22.0f
 loot replace entity @s armor.head loot royaumes:equip/deathrattle/armor_head

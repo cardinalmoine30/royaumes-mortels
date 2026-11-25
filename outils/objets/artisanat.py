@@ -104,9 +104,9 @@ def forge(dp):
         m = re.search(r'"⚒ Forgé : "[^]]*?\{"text": "([^"]+)"', t)
         if m:
             nom_aff = m.group(1)
-        nom_aff = nom_aff.replace("Cœur de Éclat d'Hysh", "Cœur de Hysh")
+        nom_aff = nom_aff.replace("Cœur de Éclat d'Lumina", "Cœur de Lumina")
         if nom == "raffinage":
-            nom_aff = "Lingot de Sigmarite (raffinage d'éclats d'Azyr)"
+            nom_aff = "Lingot de Célestacier (raffinage d'éclats d'Célestis)"
         ing_codes = []
         for (iid, rm), q in ings:
             if rm and rm in dp:

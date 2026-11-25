@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_mort @s
-data modify entity @s CustomName set value {"text": "Chainrasp Nighthaunt", "color": "dark_aqua"}
+data modify entity @s CustomName set value {"text": "Spectre Enchaîné Hantise Nocturne", "color": "dark_aqua"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 20
 attribute @s minecraft:attack_damage base set 5

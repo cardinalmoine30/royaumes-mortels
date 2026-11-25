@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_mort @s
-data modify entity @s CustomName set value {"text": "Garde Mortek Ossiarch", "color": "white"}
+data modify entity @s CustomName set value {"text": "Gard'Os Faucheurs d'Os", "color": "white"}
 attribute @s minecraft:max_health base set 36
 attribute @s minecraft:scale base set 1.15
 attribute @s minecraft:armor base set 6

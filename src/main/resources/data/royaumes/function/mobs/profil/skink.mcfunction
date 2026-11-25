@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_ordre @s
-data modify entity @s CustomName set value {"text": "Skink", "color": "green"}
+data modify entity @s CustomName set value {"text": "Scinque", "color": "green"}
 attribute @s minecraft:max_health base set 16
 attribute @s minecraft:scale base set 0.75
 attribute @s minecraft:movement_speed base set 0.3

@@ -1,4 +1,4 @@
-# Dons de la faction Fils de Behemat
+# Dons de la faction Fils d'Ymorath
 attribute @s minecraft:scale modifier add royaumes:faction 1.0 add_multiplied_base
 attribute @s minecraft:max_health modifier add royaumes:faction 20 add_value
 attribute @s minecraft:attack_damage modifier add royaumes:faction 4 add_value

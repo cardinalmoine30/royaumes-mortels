@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """v5 : un monde par Royaume, biomes et structures fidèles au lore, plus de monstres vanilla.
-La dimension principale royaumes:royaumes_mortels devient Azyr (Royaume des Cieux)."""
+La dimension principale royaumes:royaumes_mortels devient Célestis (Royaume des Cieux)."""
 import copy
 from data_monde import BIOMES, STRUCTURES, SPAWN_MONSTRES
 import data_v4
@@ -25,16 +25,16 @@ def cloner(src, **kw):
 
 
 # --- Nouveaux biomes pour que chaque Royaume en ait au moins deux ---
-cloner("ghyran_jade", id="azyr_vallees", nom="Vallées d'Azyrheim", sous="Royaume des Cieux — terres de Sigmar", c="aqua",
+cloner("ghyran_jade", id="azyr_vallees", nom="Vallées d'Célestheim", sous="Royaume des Cieux — terres de Aurion", c="aqua",
        base="meadow", ciel="#4a8aff", brume="#a8c8ff", herbe="#7ac0a0", feuilles="#6ab0c0", weird=(-1.0, 1.0),
        particules=[("minecraft:electric_spark", 0.002)])
-cloner("ghur_terres", id="ghur_savane", nom="Plaines des Mégafaunes", sous="Royaume des Bêtes — terrains de chasse des Ogors",
+cloner("ghur_terres", id="ghur_savane", nom="Plaines des Mégafaunes", sous="Royaume des Bêtes — terrains de chasse des Ogres",
        base="savanna_plateau", ciel="#e09048", herbe="#c0a038")
-cloner("chamon_desert", id="chamon_collines", nom="Collines de Métal de Chamon", sous="Royaume du Métal — mines des Kharadron",
+cloner("chamon_desert", id="chamon_collines", nom="Collines de Métal de Ferrumia", sous="Royaume du Métal — mines des Nuées",
        base="badlands", ciel="#c8c8d8", brume="#a8a8b8", herbe="#a0a0a8", feuilles="#909098",
        surface={"top": [("minecraft:smooth_basalt", None), ("minecraft:raw_iron_block", (0.55, 0.6)), ("minecraft:tuff", (-0.3, 0.1))],
                 "under": "minecraft:deepslate"})
-cloner("chamon_desert", id="shyish_sables", nom="Sables d'Améthyste de Shyish", sous="Royaume de la Mort — déserts des Ossiarch",
+cloner("chamon_desert", id="shyish_sables", nom="Sables d'Améthyste de Nécréa", sous="Royaume de la Mort — déserts des Faucheurs d'Os",
        base="desert", ciel="#5a4a7a", brume="#3a2a5a", herbe="#7a6a8a", feuilles="#6a5a7a",
        particules=[("minecraft:soul", 0.002), ("minecraft:white_ash", 0.01)],
        surface={"top": [("minecraft:sand", None), ("minecraft:amethyst_block", (0.6, 0.65)), ("minecraft:bone_block", (-0.7, -0.65))],
@@ -42,31 +42,31 @@ cloner("chamon_desert", id="shyish_sables", nom="Sables d'Améthyste de Shyish",
 _par_id["hysh_plateaux"]["special"] = None
 
 # Noms des biomes déplacés
-_par_id["ghur_jungle"].update(nom="Jungles de Ghyran", sous="Royaume de la Vie — cités-temples des Seraphon")
+_par_id["ghur_jungle"].update(nom="Jungles de Sylvéa", sous="Royaume de la Vie — cités-temples des Astrosauriens")
 
 # --- Un monde par Royaume ---
 AZYR = ["azyr_cimes", "azyr_vallees"]       # dimension principale royaumes:royaumes_mortels
 data_v4.DIMENSIONS.clear()
 data_v4.DIMENSIONS.update({
-    "ghyran": dict(nom="Ghyran, Royaume de la Vie", c="green",
+    "ghyran": dict(nom="Sylvéa, Royaume de la Vie", c="green",
                    biomes=["ghyran_jade", "ghyran_wyldwood", "ghyran_marais", "ghur_jungle"]),
-    "aqshy": dict(nom="Aqshy, Royaume du Feu", c="gold", biomes=["aqshy_cendres", "aqshy_volcans"]),
-    "shyish": dict(nom="Shyish, Royaume de la Mort", c="dark_purple", biomes=["shyish_terres", "shyish_sables"]),
-    "ghur": dict(nom="Ghur, Royaume des Bêtes", c="gold", biomes=["ghur_terres", "ghur_savane"]),
-    "chamon": dict(nom="Chamon, Royaume du Métal", c="gray", biomes=["chamon_desert", "chamon_collines"]),
-    "ulgu": dict(nom="Ulgu, Royaume des Ombres", c="dark_gray", biomes=["ulgu_brumes", "ulgu_marais_lune", "ulgu_mer"]),
-    "hysh": dict(nom="Hysh, Royaume de la Lumière", c="white", biomes=["hysh_iles", "hysh_plateaux"], flottant=True),
-    "huit_points": dict(nom="Les Huit-Points du Chaos", c="dark_red", biomes=["chaos_desolation", "terres_rongees"]),
+    "aqshy": dict(nom="Pyréa, Royaume du Feu", c="gold", biomes=["aqshy_cendres", "aqshy_volcans"]),
+    "shyish": dict(nom="Nécréa, Royaume de la Mort", c="dark_purple", biomes=["shyish_terres", "shyish_sables"]),
+    "ghur": dict(nom="Féralia, Royaume des Bêtes", c="gold", biomes=["ghur_terres", "ghur_savane"]),
+    "chamon": dict(nom="Ferrumia, Royaume du Métal", c="gray", biomes=["chamon_desert", "chamon_collines"]),
+    "ulgu": dict(nom="Umbria, Royaume des Ombres", c="dark_gray", biomes=["ulgu_brumes", "ulgu_marais_lune", "ulgu_mer"]),
+    "hysh": dict(nom="Lumina, Royaume de la Lumière", c="white", biomes=["hysh_iles", "hysh_plateaux"], flottant=True),
+    "huit_points": dict(nom="Les Huit-Voies du Chaos", c="dark_red", biomes=["chaos_desolation", "terres_rongees"]),
 })
 
 # --- Structures fidèles au lore ---
 LORE = {
-    "forteresse_stormcast": ["azyr_cimes"],                 # uniquement au sommet des montagnes d'Azyr
+    "forteresse_stormcast": ["azyr_cimes"],                 # uniquement au sommet des montagnes d'Célestis
     "cite_sigmar": ["azyr_vallees"],
     "temple_seraphon": ["ghur_jungle"],
     "bosquet_sylvaneth": ["ghyran_wyldwood", "ghyran_jade"],
     "fort_kruleboyz": ["ghyran_marais"],
-    "jardin_rotigus": ["ghyran_marais"],                    # Nurgle convoite Ghyran
+    "jardin_rotigus": ["ghyran_marais"],                    # Morbus convoite Sylvéa
     "magmahold": ["aqshy_volcans"],
     "autel_skarbrand": ["aqshy_cendres"],
     "ziggurat_hashut": ["aqshy_cendres", "aqshy_volcans"],
@@ -99,7 +99,7 @@ for b in BIOMES:
     SPAWN_MONSTRES[b["id"]] = []
     b["mobs"] = {}
 
-# --- Îles de Hysh : moins nombreuses mais bien plus grandes ---
+# --- Îles de Lumina : moins nombreuses mais bien plus grandes ---
 HYSH_XZ_SCALE = 0.1          # vanilla 0.25 → îles ~2,5× plus larges, ~6× moins nombreuses
 if "ilot_flottant" in data_v4.FLOTTANTS:
     fn, bl, ch = data_v4.FLOTTANTS["ilot_flottant"]

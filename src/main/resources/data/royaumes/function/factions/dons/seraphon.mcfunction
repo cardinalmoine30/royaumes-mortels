@@ -1,4 +1,4 @@
-# Dons de la faction Seraphon
+# Dons de la faction Astrosauriens
 attribute @s minecraft:scale modifier add royaumes:faction 0.2 add_multiplied_base
 attribute @s minecraft:max_health modifier add royaumes:faction 4 add_value
 attribute @s minecraft:armor modifier add royaumes:faction 4 add_value

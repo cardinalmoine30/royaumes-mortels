@@ -11,7 +11,7 @@
        "type": "minecraft:set_components",
        "components": {
         "minecraft:custom_name": {
-         "text": "Lance d'Akhelian",
+         "text": "Lance d'des Marées",
          "color": "dark_aqua",
          "italic": false
         },

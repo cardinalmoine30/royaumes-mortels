@@ -188,7 +188,7 @@ def statue_guerrier(s, x, y, z, corps, tete, arme, socle):
 
 
 def comete(s, x, y, z, plan="x", tete="minecraft:gold_block", queue="minecraft:gold_block"):
-    """Comète à deux queues de Sigmar, dessinée sur un mur vertical (plan x : mur nord/sud ; plan z : mur est/ouest)."""
+    """Comète à deux queues de Aurion, dessinée sur un mur vertical (plan x : mur nord/sud ; plan z : mur est/ouest)."""
     pts_tete = [(0, 0), (1, 0), (0, 1), (1, 1)]
     q1 = [(-1, -1), (-2, -2), (-3, -3), (-4, -4), (-5, -5)]
     q2 = [(1, -2), (1, -3), (0, -4), (0, -5), (-1, -6)]

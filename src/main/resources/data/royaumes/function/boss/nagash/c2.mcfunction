@@ -1,4 +1,4 @@
-title @a[distance=..40] actionbar [{"text": "Nagash : ", "color": "dark_purple"}, {"text": "Main de Nagash", "color": "white", "bold": true}]
+title @a[distance=..40] actionbar [{"text": "Necrath : ", "color": "dark_purple"}, {"text": "Main de Necrath", "color": "white", "bold": true}]
 effect give @a[distance=..12,gamemode=!spectator,gamemode=!creative] minecraft:wither 6 1
 effect give @a[distance=..12,gamemode=!spectator,gamemode=!creative] minecraft:darkness 6 0
 execute as @a[distance=..12,gamemode=!spectator,gamemode=!creative] run damage @s 6 minecraft:magic

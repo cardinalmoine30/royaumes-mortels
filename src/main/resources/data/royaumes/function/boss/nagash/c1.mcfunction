@@ -1,4 +1,4 @@
-title @a[distance=..40] actionbar [{"text": "Nagash : ", "color": "dark_purple"}, {"text": "Invocation des Morts", "color": "white", "bold": true}]
+title @a[distance=..40] actionbar [{"text": "Necrath : ", "color": "dark_purple"}, {"text": "Invocation des Morts", "color": "white", "bold": true}]
 summon royaumes:deathrattle ~2 ~ ~2
 summon royaumes:deathrattle ~-2 ~ ~-2
 summon royaumes:chainrasp ~2 ~ ~-2

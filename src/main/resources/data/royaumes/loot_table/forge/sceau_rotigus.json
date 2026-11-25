@@ -11,13 +11,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Calice de Rotigus",
+                  "text": "Calice de Putrefax",
                   "color": "dark_green",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Grand-Père Nurgle envoie son plus généreux enfant.",
+                    "text": "Grand-Père Morbus envoie son plus généreux enfant.",
                     "color": "gray",
                     "italic": true
                   },

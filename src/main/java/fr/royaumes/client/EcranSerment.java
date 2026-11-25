@@ -22,7 +22,7 @@ import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 import net.minecraft.resources.Identifier;
 
 /**
- * Écran de serment d'allégeance (charte « or de Sigmar sur bleu nuit ») :
+ * Écran de serment d'allégeance (charte « or de Aurion sur bleu nuit ») :
  * à gauche les 25 blasons rangés par Grande Alliance, à droite le skin de la faction, son Royaume,
  * ses dons et son fardeau. « Prêter serment » envoie le choix au serveur (trigger rm_choix du datapack).
  * Mêmes cotes que la maquette outils/visuels/maquettes.py.
@@ -95,7 +95,7 @@ public class EcranSerment extends Screen {
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int sx, int sy, float partiel) {
         g.fillGradient(0, 0, this.width, this.height, 0xF0162648, 0xF8060A16);
-        // éclairs d'Azyr discrets
+        // éclairs d'Célestis discrets
         for (int k = 0; k < 2; k++) {
             int x0 = k == 0 ? px - 20 : px + PW + 20;
             g.fill(x0, 0, x0 + 1, 40, 0x662C5AA0);

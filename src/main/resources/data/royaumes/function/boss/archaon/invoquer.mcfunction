@@ -1,6 +1,6 @@
 clear @s minecraft:carrot_on_a_stick[minecraft:custom_data~{royaumes:"sceau_archaon"}] 1
 summon royaumes:archaon ^ ^1 ^7 {Tags:["rm_boss","rm_boss_archaon"],PersistenceRequired:1b}
-bossbar add royaumes:archaon {"text": "Archaon, l'Élu Éternel", "color": "dark_red"}
+bossbar add royaumes:archaon {"text": "Varkhan, l'Élu Éternel", "color": "dark_red"}
 bossbar set royaumes:archaon max 1000
 bossbar set royaumes:archaon color red
 bossbar set royaumes:archaon visible true

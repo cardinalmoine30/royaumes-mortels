@@ -4,10 +4,10 @@
       "id": "minecraft:wither_skeleton_skull"
     },
     "title": {
-      "text": "Le Poing de Gork"
+      "text": "Le Poing de Brog"
     },
     "description": {
-      "text": "Vaincre Gordrakk, le Poing de Gork."
+      "text": "Vaincre Krognak, le Poing de Brog."
     },
     "frame": "goal",
     "show_toast": true,

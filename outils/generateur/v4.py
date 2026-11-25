@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""v4 : Portails de Royaume façon Nether (aléatoires), tyrolienne Kharadron, foudre et ambiances,
-Sigmarite (minerai céleste, raffinage, textures) et pack de ressources."""
+"""v4 : Portails de Royaume façon Nether (aléatoires), tyrolienne Nuées, foudre et ambiances,
+Célestacier (minerai céleste, raffinage, textures) et pack de ressources."""
 import json, os, math
 from PIL import Image, ImageDraw
 import build as B
@@ -15,8 +15,8 @@ RP = "/home/claude/aos/out/RoyaumesMortels_Textures"
 
 # =========================================================================== PRÉPARATION (avant génération)
 def preparer():
-    X.RES["sigmarite_brute"] = ("Sigmarite Brute", "aqua", "minecraft:raw_iron",
-                                "Minerai céleste d'Azyr, encore chargé de foudre.")
+    X.RES["sigmarite_brute"] = ("Célestacier Brute", "aqua", "minecraft:raw_iron",
+                                "Minerai céleste d'Célestis, encore chargé de foudre.")
     cmd = {"sigmarite": "sigmarite", "sigmarite_brute": "sigmarite_brute"}
     ancien = X.res_spec
 
@@ -31,7 +31,7 @@ def preparer():
             rm = (o.get("custom_data") or {}).get("rm")
             if rm in cmd:
                 o["cmd"] = cmd[rm]
-    X.RECETTES.insert(0, ("raffinage", "Raffinage de Sigmarite", [("res:sigmarite_brute", 3), ("minecraft:gold_ingot", 1)],
+    X.RECETTES.insert(0, ("raffinage", "Raffinage de Célestacier", [("res:sigmarite_brute", 3), ("minecraft:gold_ingot", 1)],
                           [res_spec("sigmarite", 2)]))
     B.EXTRA_FEATURES["minerai_celeste"] = ({"type": "minecraft:ore", "discard_chance_on_air_exposure": 0.0, "size": 7, "targets": [
         {"state": "minecraft:lapis_ore", "target": {"predicate_type": "minecraft:tag_match", "tag": "minecraft:stone_ore_replaceables"}},
@@ -89,7 +89,7 @@ def gen_failles():
     fn("faille/repousser", [
         "execute at @e[type=minecraft:marker,tag=rm_faille,sort=nearest,limit=1] facing entity @s feet run tp @s ^ ^ ^2.5"])
     # Destinations aléatoires
-    dests = [(f"{NS}:royaumes_mortels", "Azyr, Royaume des Cieux", "aqua", 2)]
+    dests = [(f"{NS}:royaumes_mortels", "Célestis, Royaume des Cieux", "aqua", 2)]
     for did, dd in data_v4.DIMENSIONS.items():
         dests.append((f"{NS}:{did}", dd["nom"], dd["c"], 1 if did != "hysh" else 2))
     total = sum(p for *_, p in dests)
@@ -193,7 +193,7 @@ def dessiner(grille):
     return img
 
 
-# Lingot de Sigmarite : or divin, liseré azur et comète à deux queues gravée
+# Lingot de Célestacier : or divin, liseré azur et comète à deux queues gravée
 LINGOT = [
     "................",
     "................",
@@ -212,7 +212,7 @@ LINGOT = [
     "................",
     "................",
 ]
-# Sigmarite brute : roche céleste gris-bleu veinée d'or et de cristaux azur
+# Célestacier brute : roche céleste gris-bleu veinée d'or et de cristaux azur
 BRUTE = [
     "................",
     "................",
@@ -234,7 +234,7 @@ BRUTE = [
 
 
 def lingot():
-    """Lingot trapézoïdal d'or divin, extrémités émaillées d'azur et comète à deux queues de Sigmar."""
+    """Lingot trapézoïdal d'or divin, extrémités émaillées d'azur et comète à deux queues de Aurion."""
     g = [["." for _ in range(16)] for _ in range(16)]
     for r in range(3, 7):                       # face supérieure (trapèze)
         a, b = 5 - (r - 3), 10 + (r - 3)
@@ -290,7 +290,7 @@ def gen_pack_ressources():
             "type": "minecraft:select", "property": "minecraft:custom_model_data", "index": 0,
             "cases": [{"when": nom, "model": {"type": "minecraft:model", "model": f"royaumes:item/{nom}"}}],
             "fallback": {"type": "minecraft:model", "model": f"minecraft:item/{vanilla}"}}})
-    # Icône du pack (comète de Sigmar)
+    # Icône du pack (comète de Aurion)
     ic = Image.new("RGBA", (64, 64), (20, 30, 60, 255))
     d = ImageDraw.Draw(ic)
     d.ellipse((34, 6, 52, 24), fill=(246, 214, 110, 255))
@@ -304,7 +304,7 @@ def gen_pack_ressources():
         big = img.resize((320, 320), Image.NEAREST)
         x0 = 40 + i * 360
         prev.alpha_composite(big, (x0, 40))
-        d.text((x0, 368), {"sigmarite": "Lingot de Sigmarite", "sigmarite_brute": "Sigmarite Brute"}[nom], fill=(240, 220, 150, 255))
+        d.text((x0, 368), {"sigmarite": "Lingot de Célestacier", "sigmarite_brute": "Célestacier Brute"}[nom], fill=(240, 220, 150, 255))
     prev.save("/home/claude/aos/out/apercu_sigmarite.png")
 
 
@@ -315,12 +315,12 @@ def maj_codex():
     cont = d["body"][0]["contents"]
     ajout = [{"text": "Portails de Royaume (comme le Nether)\n", "color": "light_purple", "bold": True},
              {"text": "Construisez un cadre de Blocs d'améthyste de 4×5 (intérieur 2×3), puis lâchez un Éclat de Royaume "
-                      "au fond du cadre. Le portail s'ouvre et mène vers un Royaume au hasard : les Royaumes Mortels, Aqshy, "
-                      "Shyish, Ghur, les Huit-Points ou les îles célestes de Hysh. Un portail de retour se forme à l'arrivée.\n\n",
+                      "au fond du cadre. Le portail s'ouvre et mène vers un Royaume au hasard : les Royaumes Mortels, Pyréa, "
+                      "Nécréa, Féralia, les Huit-Voies ou les îles célestes de Lumina. Un portail de retour se forme à l'arrivée.\n\n",
               "color": "white"},
-             {"text": "Sigmarite\n", "color": "aqua", "bold": True},
-             {"text": "Le minerai de lapis des Cimes d'Azyr donne de la Sigmarite Brute. 3 Sigmarite Brute + 1 lingot d'or "
-                      "à la Forge = 2 Lingots de Sigmarite.\n\n", "color": "white"}]
+             {"text": "Célestacier\n", "color": "aqua", "bold": True},
+             {"text": "Le minerai de lapis des Cimes d'Célestis donne de la Célestacier Brute. 3 Célestacier Brute + 1 lingot d'or "
+                      "à la Forge = 2 Lingots de Célestacier.\n\n", "color": "white"}]
     d["body"][0]["contents"] = cont[:2] + ajout + cont[2:]
     json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 

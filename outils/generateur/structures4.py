@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Version 4 : constructions inspirées des références Age of Sigmar fournies."""
+"""Version 4 : constructions inspirées des références dark fantasy héroïque fournies."""
 import math
 from nbtgen import Struct
 from details import (rempart, meurtrieres, tour, fenetre_arc, lustre, table, tapis, banniere_murale, cheminee,
@@ -59,7 +59,7 @@ def sous_marin(s):
 
 
 def statue_ailee(s, x, y, z, corps="minecraft:gold_block", aile="minecraft:white_wool", socle="minecraft:quartz_bricks"):
-    """Stormcast ailé (Prosecutor) aux ailes déployées, sur un rocher."""
+    """Foudroyés ailé (Poursuivant) aux ailes déployées, sur un rocher."""
     statue_guerrier(s, x, y, z, corps, "minecraft:lapis_block", "minecraft:lightning_rod", socle)
     for side in (-1, 1):
         for k in range(1, 7):
@@ -220,7 +220,7 @@ def temple_seraphon():
         for yy in (F + 2, F + 5):
             glyphe(s, tx - 1, yy, tz + 2, "x", MOTIFS[(yy + dx) % 5], "minecraft:gold_block", "minecraft:stone_bricks")
         s.set(tx, F + 9, tz, "minecraft:gold_block"); s.set(tx, F + 10, tz, "minecraft:end_rod")
-    # Palanquin flottant du Slann (à droite) et Saurus
+    # Palanquin flottant du Sage-Crapaud (à droite) et Écailleux
     px, pz = W - 6, W - 10
     s.disk(px, pz, 3, F + 3, "minecraft:gold_block")
     s.disk(px, pz, 2, F + 4, "minecraft:prismarine_bricks")
@@ -356,9 +356,9 @@ def antre_gitz():
     return s
 
 
-# =================================================================== SYLVANETH : arbres de Wyldwood
+# =================================================================== SYLVANETH : arbres de Bois-Sauvage
 def arbre_wyldwood(s, x, y, z, h=12, seed=0, feuilles=("minecraft:acacia_leaves[persistent=true]", "minecraft:dark_oak_leaves[persistent=true]")):
-    """Arbre tordu aux plateaux de feuilles plates (style Wyldwood Citadel)."""
+    """Arbre tordu aux plateaux de feuilles plates (style Bois-Sauvage Citadel)."""
     import random
     rng = random.Random(seed)
     tronc = ["minecraft:dark_oak_log", "minecraft:dark_oak_wood", "minecraft:mangrove_log"]
@@ -403,7 +403,7 @@ def bosquet_sylvaneth():
     return s
 
 
-# =================================================================== MAGMAHOLD EN RUINE (volcans d'Aqshy)
+# =================================================================== MAGMAHOLD EN RUINE (volcans d'Pyréa)
 def magmahold():
     W = 55
     s = Struct(W, 56, W, 74)
@@ -671,7 +671,7 @@ def temple_khaine():
     # Chaudrons de Sang sur l'estrade
     chaudron_sang(s, c - 9, top + 1, 8)
     chaudron_sang(s, c + 9, top + 1, 8)
-    # Morathi-Khaine : serpent ailé enroulé autour d'une colonne
+    # Morvaine : serpent ailé enroulé autour d'une colonne
     s.fill(c - 1, top + 1, 6, c + 1, top + 2, 8, "minecraft:chiseled_stone_bricks")
     s.fill(c, top + 3, 7, c, top + 15, 7, "minecraft:polished_blackstone")
     for k in range(48):
@@ -703,7 +703,7 @@ def temple_khaine():
     for (x, z) in ((7, 5), (W - 8, 5), (7, 15), (W - 8, 15)):
         s.fill(x, top + 1, z, x, top + 8, z, "minecraft:chiseled_stone_bricks")
         s.set(x, top + 9, z, "minecraft:polished_blackstone"); s.set(x, top + 10, z, "minecraft:campfire")
-    # Statue de Khaine (croix de lames) en haut à droite
+    # Statue de Morvaine (croix de lames) en haut à droite
     kx = W - 9
     s.fill(kx, top + 1, 6, kx, top + 12, 6, "minecraft:iron_block")
     s.fill(kx - 3, top + 9, 6, kx + 3, top + 9, 6, "minecraft:iron_block")
@@ -790,7 +790,7 @@ def ruines_idoneth():
         s.set(x + 1, 2, z, "minecraft:chiseled_quartz_block")
     for (x, z) in ((12, 12), (W - 13, W - 14), (14, W - 10)):
         s.fill(x, 2, z, x, 5, z + 1, "minecraft:smooth_quartz"); s.set(x, 6, z, "minecraft:quartz_slab")
-    # Anguille géante (Allopex) qui s'enroule autour d'une colonne
+    # Anguille géante (Requin de guerre) qui s'enroule autour d'une colonne
     for k in range(40):
         a = k * 0.35
         x = 8 + round(4 * math.cos(a)); z = c + 14 + round(4 * math.sin(a))
@@ -846,7 +846,7 @@ def ziggurat_hashut():
         s.set(x, top + 5, z, "minecraft:netherrack"); s.set(x, top + 6, z, "minecraft:fire")
     s.fill(c - 1, top + 4, c - 1, c + 1, top + 4, c + 1, "minecraft:netherrack")
     s.fill(c - 1, top + 5, c - 1, c + 1, top + 5, c + 1, "minecraft:fire")
-    # Taureau de Hashut sur la façade sud
+    # Taureau de Ashkar sur la façade sud
     fz = c + 20
     s.fill(c - 3, F + 9, fz + 1, c + 3, F + 13, fz + 2, "minecraft:gold_block")
     s.set(c - 1, F + 12, fz + 3, "minecraft:magma_block"); s.set(c + 1, F + 12, fz + 3, "minecraft:magma_block")
@@ -946,7 +946,7 @@ def repaire_skavenblight():
                     s.set(x, y, z, "minecraft:waxed_exposed_copper" if (x + y) % 3 else "minecraft:waxed_copper_bulb[lit=true]")
     for x in range(c + 3, gx - 3):
         s.set(x, 9, gz - 2, "minecraft:waxed_copper_grate")
-    # Cloche hurlante et tas de malepierre
+    # Cloche hurlante et tas de fangepierre
     s.fill(c - 14, 4, c + 14, c - 14, 14, c + 14, "minecraft:spruce_log")
     s.fill(c - 14, 15, c + 14, c - 10, 15, c + 14, "minecraft:spruce_log[axis=x]")
     s.set(c - 10, 14, c + 14, "minecraft:bell[attachment=ceiling]")

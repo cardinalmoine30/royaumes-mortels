@@ -129,7 +129,7 @@ public final class Sorts {
         }
     }
 
-    /** Retire les loups de Ghur arrivés au terme de leur minute. */
+    /** Retire les loups de Féralia arrivés au terme de leur minute. */
     public static void tick(long temps) {
         Iterator<Invoque> it = INVOQUES.iterator();
         while (it.hasNext()) {
@@ -145,7 +145,7 @@ public final class Sorts {
         }
     }
 
-    // ------------------------------------------------------------------ Azyr
+    // ------------------------------------------------------------------ Célestis
 
     private static boolean eclair(ServerPlayer p, ServerLevel n) {
         Vec3 pos = vise(p, 32).getLocation();
@@ -178,7 +178,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Aqshy
+    // ------------------------------------------------------------------ Pyréa
 
     private static boolean trait(ServerPlayer p, ServerLevel n) {
         Vec3 regard = p.getLookAngle();
@@ -211,7 +211,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Ghur
+    // ------------------------------------------------------------------ Féralia
 
     private static boolean fureur(ServerPlayer p, ServerLevel n) {
         p.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 300, 1));
@@ -241,7 +241,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Ghyran
+    // ------------------------------------------------------------------ Sylvéa
 
     private static boolean seve(ServerPlayer p, ServerLevel n) {
         p.heal(8.0F);
@@ -264,7 +264,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Hysh
+    // ------------------------------------------------------------------ Lumina
 
     private static boolean rayon(ServerPlayer p, ServerLevel n) {
         HitResult h = vise(p, 24);
@@ -287,7 +287,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Ulgu
+    // ------------------------------------------------------------------ Umbria
 
     private static boolean pas(ServerPlayer p, ServerLevel n) {
         Vec3 o = p.getEyePosition();
@@ -322,7 +322,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Shyish
+    // ------------------------------------------------------------------ Nécréa
 
     private static boolean main(ServerPlayer p, ServerLevel n) {
         LivingEntity c = cible(p, 20);
@@ -349,7 +349,7 @@ public final class Sorts {
         return true;
     }
 
-    // ------------------------------------------------------------------ Chamon
+    // ------------------------------------------------------------------ Ferrumia
 
     private static boolean peau(ServerPlayer p, ServerLevel n) {
         p.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 400, 1));

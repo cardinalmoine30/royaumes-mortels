@@ -34,5 +34,5 @@ team modify rm_destruction prefix {"text": "[Destruction] ", "color": "dark_gree
 team modify rm_destruction friendlyFire false
 team modify rm_destruction seeFriendlyInvisibles true
 schedule function royaumes:boucle_seconde 20t replace
-tellraw @a [{"text": "[Royaumes Mortels] ", "color": "gold"}, {"text": "Datapack chargé. Pour Sigmar !", "color": "yellow"}]
+tellraw @a [{"text": "[Royaumes Mortels] ", "color": "gold"}, {"text": "Datapack chargé. Pour Aurion !", "color": "yellow"}]
 function royaumes:rpg/load

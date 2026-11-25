@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Carte des Royaumes Mortels (aide visuelle) : Azyr au-dessus, sept Royaumes en anneau, les Huit-Points au centre."""
+"""Carte des Royaumes Mortels (aide visuelle) : Célestis au-dessus, sept Royaumes en anneau, les Huit-Voies au centre."""
 import math, os, random
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -10,16 +10,16 @@ fb = lambda n: ImageFont.truetype(F + "DejaVuSerif-Bold.ttf", n)
 fr = lambda n: ImageFont.truetype(F + "DejaVuSans.ttf", n)
 OR, OR_C, OR_S = (212, 166, 58), (242, 210, 122), (140, 104, 34)
 R = random.Random(3)
-ROY = [  # nom, vent, couleur, dimension, lignes — dans le sens horaire après Azyr
-    ("Hysh", "Royaume de la Lumière", (250, 238, 180), "royaumes:hysh", ["Îles flottantes, plateaux", "Lumineth, Seraphon"]),
-    ("Ulgu", "Royaume de l'Ombre", (120, 110, 160), "royaumes:ulgu", ["Brumes, mer d'ombre", "Khaine, Idoneth"]),
-    ("Shyish", "Royaume de la Mort", (156, 96, 206), "royaumes:shyish", ["Sables d'os, terres mortes", "Vampires, Nighthaunt, Ossiarch"]),
-    ("Chamon", "Royaume du Métal", (224, 184, 56), "royaumes:chamon", ["Collines de métal, désert doré", "Kharadron, Tzeentch"]),
-    ("Aqshy", "Royaume du Feu", (232, 86, 32), "royaumes:aqshy", ["Plaines de cendres, volcans", "Fyreslayers, Khorne"]),
-    ("Ghur", "Royaume des Bêtes", (176, 116, 62), "royaumes:ghur", ["Jungle, savane, terres sauvages", "Orruks, Ogors, Gargants"]),
-    ("Ghyran", "Royaume de la Vie", (86, 196, 86), "royaumes:ghyran", ["Forêts de jade, marais", "Sylvaneth, Nurgle"]),
+ROY = [  # nom, vent, couleur, dimension, lignes — dans le sens horaire après Célestis
+    ("Lumina", "Royaume de la Lumière", (250, 238, 180), "royaumes:hysh", ["Îles flottantes, plateaux", "de Lumière, Astrosauriens"]),
+    ("Umbria", "Royaume de l'Ombre", (120, 110, 160), "royaumes:ulgu", ["Brumes, mer d'ombre", "Morvaine, Abyssal"]),
+    ("Nécréa", "Royaume de la Mort", (156, 96, 206), "royaumes:shyish", ["Sables d'os, terres mortes", "Vampires, Hantise Nocturne, Faucheurs d'Os"]),
+    ("Ferrumia", "Royaume du Métal", (224, 184, 56), "royaumes:chamon", ["Collines de métal, désert doré", "Nuées, Vharys"]),
+    ("Pyréa", "Royaume du Feu", (232, 86, 32), "royaumes:aqshy", ["Plaines de cendres, volcans", "Tueurs-de-Braise, Sangrath"]),
+    ("Féralia", "Royaume des Bêtes", (176, 116, 62), "royaumes:ghur", ["Jungle, savane, terres sauvages", "Orcs, Ogres, Géants"]),
+    ("Sylvéa", "Royaume de la Vie", (86, 196, 86), "royaumes:ghyran", ["Forêts de jade, marais", "Sylvains, Morbus"]),
 ]
-AZYR = ("Azyr", "Royaume des Cieux", (96, 160, 255), "royaumes:royaumes_mortels", ["Cimes et vallées d'Azyr", "Stormcast, Cités de Sigmar"])
+AZYR = ("Célestis", "Royaume des Cieux", (96, 160, 255), "royaumes:royaumes_mortels", ["Cimes et vallées d'Célestis", "Foudroyés, Cités d'Aurion"])
 
 im = Image.new("RGB", (W, H), (10, 18, 38))
 px = im.load()
@@ -87,7 +87,7 @@ def etiquette(cx, y, nom, vent, lignes_, c):
         w = d.textlength(t, font=fr(15))
         d.text((cx - w / 2, y + 62 + k * 20), t, font=fr(15), fill=(190, 196, 215))
 
-# Huit-Points
+# Huit-Voies
 im = Image.alpha_composite(im, disque(CX, CY, 92, (150, 30, 30)))
 d = ImageDraw.Draw(im)
 for k in range(8):
@@ -97,15 +97,15 @@ for k in range(8):
     d.polygon([(CX + math.cos(a) * 82, CY + math.sin(a) * 82), (CX + math.cos(a + 0.25) * 62, CY + math.sin(a + 0.25) * 62),
                (CX + math.cos(a - 0.25) * 62, CY + math.sin(a - 0.25) * 62)], fill=(255, 200, 120))
 d.ellipse((CX - 14, CY - 14, CX + 14, CY + 14), fill=(255, 210, 140))
-etiquette(CX, CY + 112, "Les Huit-Points", "Terre du Chaos, carrefour des Royaumes", ["Forteresses du Chaos, Skaven, boss", "royaumes:huit_points"], None)
-# Azyr
+etiquette(CX, CY + 112, "Les Huit-Voies", "Terre du Chaos, carrefour des Royaumes", ["Forteresses du Chaos, Hommes-Rats, boss", "royaumes:huit_points"], None)
+# Célestis
 im = Image.alpha_composite(im, disque(AZ[0], AZ[1], 78, AZYR[2]))
 d = ImageDraw.Draw(im)
 d.polygon([(AZ[0], AZ[1] - 50), (AZ[0] + 12, AZ[1] - 12), (AZ[0] + 50, AZ[1]), (AZ[0] + 12, AZ[1] + 12), (AZ[0], AZ[1] + 50),
            (AZ[0] - 12, AZ[1] + 12), (AZ[0] - 50, AZ[1]), (AZ[0] - 12, AZ[1] - 12)], fill=(240, 248, 255))
-etiquette(AZ[0], AZ[1] + 92, AZYR[0], AZYR[1] + ", le Royaume de Sigmar", AZYR[4] + [AZYR[3]], None)
+etiquette(AZ[0], AZ[1] + 92, AZYR[0], AZYR[1] + ", le Royaume de Aurion", AZYR[4] + [AZYR[3]], None)
 # sept Royaumes
-SYM = {"Aqshy": "flamme", "Ghur": "croc", "Ghyran": "feuille", "Hysh": "soleil", "Ulgu": "lune", "Shyish": "sablier", "Chamon": "engrenage"}
+SYM = {"Pyréa": "flamme", "Féralia": "croc", "Sylvéa": "feuille", "Lumina": "soleil", "Umbria": "lune", "Nécréa": "sablier", "Ferrumia": "engrenage"}
 for (nom, vent, c, dim, lig), (x, y) in zip(ROY, pos):
     im = Image.alpha_composite(im, disque(x, y, 62, c))
     d = ImageDraw.Draw(im)
@@ -143,7 +143,7 @@ d.rectangle((20, 20, W - 21, H - 21), outline=OR_S, width=2)
 t = "Les Royaumes Mortels"
 d.text((48, 36), t, font=fb(44), fill=OR_C)
 d.text((50, 92), "Neuf mondes à explorer dans le mod", font=fr(20), fill=(210, 215, 230))
-leg = ["— — —  Portail des Royaumes : chaque Royaume relie les Huit-Points",
+leg = ["— — —  Portail des Royaumes : chaque Royaume relie les Huit-Voies",
        "Voyager : Pierre de Royaume, Failles, bloc Portail des Royaumes (carte de voyage)",
        "Dans le Royaume de son Vent, un sort coûte deux fois moins d'énergie"]
 for k, l in enumerate(leg):

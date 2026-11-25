@@ -139,13 +139,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Sceau de Nagash",
+                  "text": "Sceau de Necrath",
                   "color": "dark_purple",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Invoque le Grand Nécromancien. Que Sigmar vous garde.",
+                    "text": "Invoque le Grand Nécromancien. Que Aurion vous garde.",
                     "color": "gray",
                     "italic": true
                   },
@@ -179,7 +179,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Sceau d'Archaon",
+                  "text": "Sceau d'Varkhan",
                   "color": "dark_red",
                   "italic": false
                 },
@@ -219,13 +219,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Totem de Gordrakk",
+                  "text": "Totem de Krognak",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Souffle dedans et le Poing de Gork arrive. WAAAGH !",
+                    "text": "Souffle dedans et le Poing de Brog arrive. GRAAAH !",
                     "color": "gray",
                     "italic": true
                   },
@@ -259,7 +259,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Crâne de Skarbrand",
+                  "text": "Crâne de Brakhar",
                   "color": "red",
                   "italic": false
                 },
@@ -299,13 +299,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Cloche de Thanquol",
+                  "text": "Cloche de Skrivel",
                   "color": "green",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Son tintement attire le Grand Prophète et Boneripper.",
+                    "text": "Son tintement attire le Grand Prophète et Broie-Os.",
                     "color": "gray",
                     "italic": true
                   },
@@ -339,13 +339,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Calice de Rotigus",
+                  "text": "Calice de Putrefax",
                   "color": "dark_green",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Grand-Père Nurgle envoie son plus généreux enfant.",
+                    "text": "Grand-Père Morbus envoie son plus généreux enfant.",
                     "color": "gray",
                     "italic": true
                   },

@@ -51,7 +51,7 @@ def coque(P, r, h):
     """Sol, murs et piliers d'angle propres au style, porte au centre du côté -z."""
     s = P.style
     P.boite(-r, -1, -r, r, -1, r, "sol")
-    if s == "destruction":  # palissade de rondins irrégulière
+    if s == "destruction":  # palissade rondins irrégulière
         for x in range(-r, r + 1):
             for z in range(-r, r + 1):
                 if x in (-r, r) or z in (-r, r):

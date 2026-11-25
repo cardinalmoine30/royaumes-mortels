@@ -273,7 +273,7 @@ def statue_slann():
     socle(s, 1, 1, 9, 9, "minecraft:mossy_stone_bricks")
     s.fill(1, G, 1, 9, G + 1, 9, ["minecraft:mossy_stone_bricks", "minecraft:cracked_stone_bricks"])
     s.disk(c, c, 3, G + 2, "minecraft:gold_block")  # palanquin
-    s.fill(c - 2, G + 3, c - 2, c + 2, G + 5, c + 2, "minecraft:prismarine")  # corps du Slann
+    s.fill(c - 2, G + 3, c - 2, c + 2, G + 5, c + 2, "minecraft:prismarine")  # corps du Sage-Crapaud
     s.fill(c - 1, G + 6, c - 1, c + 1, G + 7, c + 1, "minecraft:prismarine")
     s.set(c, G + 7, c + 2, "minecraft:prismarine_stairs[facing=north]")
     s.set(c - 1, G + 7, c + 1, "minecraft:gold_block"); s.set(c + 1, G + 7, c + 1, "minecraft:gold_block")

@@ -204,20 +204,20 @@ def gen_enchantements():
             "min_cost": {"base": 20, "per_level_above_first": 10},
             "slots": ["mainhand"], "supported_items": f"#{NS}:armes_des_royaumes", "weight": 1})
 
-    ench("foudre_de_sigmar", "Foudre de Sigmar", [{
+    ench("foudre_de_sigmar", "Foudre de Aurion", [{
         "affected": "victim", "enchanted": "attacker",
         "effect": {"type": "minecraft:all_of", "effects": [
             {"type": "minecraft:damage_entity", "damage_type": "minecraft:lightning_bolt", "min_damage": 3.0, "max_damage": 6.0},
             {"type": "minecraft:ignite", "duration": 2.0},
             {"type": "minecraft:play_sound", "sound": "minecraft:item.trident.thunder", "volume": 1.0, "pitch": 1.4}]}}],
         chance=0.25)
-    ench("peste", "Peste de Nurgle", [{
+    ench("peste", "Peste de Morbus", [{
         "affected": "victim", "enchanted": "attacker",
         "effect": {"type": "minecraft:apply_mob_effect", "to_apply": "minecraft:poison",
                    "min_duration": 3.0, "max_duration": {"type": "minecraft:linear", "base": 4.0, "per_level_above_first": 2.0},
                    "min_amplifier": 0.0, "max_amplifier": {"type": "minecraft:linear", "base": 0.0, "per_level_above_first": 1.0}}}],
         max_level=2)
-    ench("malepierre", "Malepierre", [{
+    ench("malepierre", "Fangepierre", [{
         "affected": "victim", "enchanted": "attacker",
         "effect": {"type": "minecraft:apply_mob_effect", "to_apply": "minecraft:wither",
                    "min_duration": 2.0, "max_duration": 4.0, "min_amplifier": 0.0, "max_amplifier": 0.0}}])
@@ -227,13 +227,13 @@ def gen_enchantements():
                    "min_duration": 2.0, "max_duration": 3.0, "min_amplifier": 0.0,
                    "max_amplifier": {"type": "minecraft:linear", "base": 0.0, "per_level_above_first": 1.0}}}],
         max_level=2, chance=0.4)
-    ench("flammes_de_tzeentch", "Flammes de Tzeentch", [{
+    ench("flammes_de_tzeentch", "Flammes de Vharys", [{
         "affected": "victim", "enchanted": "attacker",
         "effect": {"type": "minecraft:all_of", "effects": [
             {"type": "minecraft:ignite", "duration": 4.0},
             {"type": "minecraft:apply_mob_effect", "to_apply": "minecraft:levitation",
              "min_duration": 1.0, "max_duration": 1.5, "min_amplifier": 0.0, "max_amplifier": 0.0}]}}])
-    ench("waaagh", "WAAAGH !", [{
+    ench("waaagh", "GRAAAH !", [{
         "affected": "attacker", "enchanted": "attacker",
         "effect": {"type": "minecraft:apply_mob_effect", "to_apply": "minecraft:speed",
                    "min_duration": 3.0, "max_duration": 4.0, "min_amplifier": 0.0, "max_amplifier": 0.0}}], chance=0.5)
@@ -250,7 +250,7 @@ def gen_dialogues():
         "type": "minecraft:multi_action",
         "title": {"text": "⚔ Les Royaumes Mortels ⚔", "color": "gold", "bold": True},
         "body": [{"type": "minecraft:plain_message", "width": 300, "contents": [
-            {"text": "L'Âge de Sigmar a commencé.\n\n", "color": "yellow"},
+            {"text": "L'Âge de Aurion a commencé.\n\n", "color": "yellow"},
             {"text": "Les huit Royaumes Mortels sont déchirés par la guerre entre les quatre Grandes Alliances. "
                      "Choisis ta Grande Alliance, puis ta faction : elle te donnera des dons, des faiblesses, "
                      "un équipement de départ et des alliés.\n\n", "color": "white"},
@@ -304,9 +304,9 @@ def gen_dialogues():
             {"text": "Clic droit pour passer de ce monde aux Royaumes Mortels et inversement (10 s de recharge). "
                      "Recette : or aux coins, améthyste sur les côtés, perle de l'Ender au centre.\n\n"},
             {"text": "Les Royaumes\n", "color": "gold", "bold": True},
-            {"text": "Azyr (montagnes), Hysh, Ghyran (forêts et marais), Ghur (savanes et jungles), Aqshy (cendres), "
-                     "Chamon (déserts d'or), Shyish (terres funèbres), Ulgu (brumes et mers), les Huit-Points du Chaos "
-                     "et les Terres Rongées des Skaven.\n\n"},
+            {"text": "Célestis (montagnes), Lumina, Sylvéa (forêts et marais), Féralia (savanes et jungles), Pyréa (cendres), "
+                     "Ferrumia (déserts d'or), Nécréa (terres funèbres), Umbria (brumes et mers), les Huit-Voies du Chaos "
+                     "et les Terres Rongées des Hommes-Rats.\n\n"},
             {"text": "Alliances\n", "color": "gold", "bold": True},
             {"text": "Les guerriers de ta Grande Alliance ne t'attaquent pas. Les autres, si.\n\n"},
             {"text": "Commande utile : ", "color": "gray"}, {"text": "/trigger rm_codex", "color": "yellow"}]}],
@@ -356,7 +356,7 @@ def gen_fonctions_factions():
     for f in FACTIONS:
         lines.append(f"execute as @a[scores={{rm_faction={f['num']}}}] run function {NS}:factions/dons/{f['id']}")
     sb = FACTIONS[[x["id"] for x in FACTIONS].index("soulblight")]["num"]
-    lines += ["# Soulblight : faiblesse en plein soleil",
+    lines += ["# Sanguinaire : faiblesse en plein soleil",
               "execute store result score #jour rm_tmp run time query time",
               "scoreboard players operation #jour rm_tmp %= #24000 rm_const",
               f"execute if score #jour rm_tmp matches 0..12000 as @a[scores={{rm_faction={sb}}}] at @s "
@@ -396,7 +396,7 @@ def gen_coeur():
                   f"team modify {a['team']} friendlyFire false",
                   f"team modify {a['team']} seeFriendlyInvisibles true"]
     lines += [f"schedule function {NS}:boucle_seconde 20t replace",
-              f"tellraw @a {jtxt(txt('[Royaumes Mortels] ', 'gold'), txt('Datapack chargé. Pour Sigmar !', 'yellow'))}"]
+              f"tellraw @a {jtxt(txt('[Royaumes Mortels] ', 'gold'), txt('Datapack chargé. Pour Aurion !', 'yellow'))}"]
     fn("load", lines)
     w("data/minecraft/tags/function/load.json", {"values": [f"{NS}:load"]})
     w("data/minecraft/tags/function/tick.json", {"values": [f"{NS}:tick"]})
@@ -818,7 +818,7 @@ def gen_structures():
 def gen_pack():
     w("pack.mcmeta", {"pack": {
         "description": [{"text": "Royaumes Mortels", "color": "gold", "bold": True},
-                        {"text": "\nAge of Sigmar — projet fan non officiel", "color": "gray"}],
+                        {"text": "\nAge of Aurion — projet fan non officiel", "color": "gray"}],
         "min_format": 121, "max_format": 121}})
 
 

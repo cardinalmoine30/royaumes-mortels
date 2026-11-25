@@ -23,7 +23,7 @@ execute as @a[scores={rm_faction=22}] run function royaumes:factions/dons/kruleb
 execute as @a[scores={rm_faction=23}] run function royaumes:factions/dons/gitz
 execute as @a[scores={rm_faction=24}] run function royaumes:factions/dons/ogors
 execute as @a[scores={rm_faction=25}] run function royaumes:factions/dons/behemat
-# Soulblight : faiblesse en plein soleil
+# Sanguinaire : faiblesse en plein soleil
 execute store result score #jour rm_tmp run time query time
 scoreboard players operation #jour rm_tmp %= #24000 rm_const
 execute if score #jour rm_tmp matches 0..12000 as @a[scores={rm_faction=18}] at @s if predicate royaumes:sous_le_ciel run effect give @s minecraft:weakness 6 0 true

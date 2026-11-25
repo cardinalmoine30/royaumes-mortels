@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_boss @s
-data modify entity @s CustomName set value {"text": "Rotigus, le Pluvieux", "color": "dark_green"}
+data modify entity @s CustomName set value {"text": "Putrefax, le Pluvieux", "color": "dark_green"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 950
 attribute @s minecraft:attack_damage base set 16
@@ -21,5 +21,5 @@ tag @s add rm_boss
 tag @s add rm_boss_rotigus
 data modify entity @s PersistenceRequired set value 1b
 data modify entity @s CustomNameVisible set value 1b
-tellraw @a[distance=..96] [{"text": "☠ ", "color": "dark_green"}, {"text": "Rotigus, le Pluvieux", "color": "dark_green", "bold": true}, {"text": " « Mes enfants, recevez la bénédiction de Grand-Père ! »", "color": "gray", "italic": true}]
+tellraw @a[distance=..96] [{"text": "☠ ", "color": "dark_green"}, {"text": "Putrefax, le Pluvieux", "color": "dark_green", "bold": true}, {"text": " « Mes enfants, recevez la bénédiction de Grand-Père ! »", "color": "gray", "italic": true}]
 playsound minecraft:entity.wither.spawn hostile @a[distance=..96] ~ ~ ~ 2 0.6

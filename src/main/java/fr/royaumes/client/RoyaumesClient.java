@@ -15,7 +15,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-/** Partie client : rendus GeckoLib de toutes les créatures du mod (yeux, runes et malepierre lumineux). */
+/** Partie client : rendus GeckoLib de toutes les créatures du mod (yeux, runes et fangepierre lumineux). */
 @EventBusSubscriber(modid = RoyaumesMortels.MODID, value = Dist.CLIENT)
 public final class RoyaumesClient {
     private RoyaumesClient() {}

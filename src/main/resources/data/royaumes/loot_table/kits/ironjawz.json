@@ -11,7 +11,7 @@
        "type": "minecraft:set_components",
        "components": {
         "minecraft:custom_name": {
-         "text": "Choppa Rouillé",
+         "text": "Hachoir Rouillé",
          "color": "gold",
          "italic": false
         },

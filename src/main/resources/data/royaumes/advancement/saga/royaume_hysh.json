@@ -4,10 +4,10 @@
       "id": "royaumes:eclat_hysh"
     },
     "title": {
-      "text": "Royaume d'Hysh"
+      "text": "Royaume d'Lumina"
     },
     "description": {
-      "text": "Voir la lumière de Hysh, le Royaume de la Lumière."
+      "text": "Voir la lumière de Lumina, le Royaume de la Lumière."
     },
     "frame": "task",
     "show_toast": true,

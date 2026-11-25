@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_mort @s
-data modify entity @s CustomName set value {"text": "Glaivewraith Nighthaunt", "color": "dark_aqua"}
+data modify entity @s CustomName set value {"text": "Spectre à Glaive Hantise Nocturne", "color": "dark_aqua"}
 attribute @s minecraft:max_health base set 24
 attribute @s minecraft:attack_damage base set 6
 data modify entity @s Health set value 24.0f

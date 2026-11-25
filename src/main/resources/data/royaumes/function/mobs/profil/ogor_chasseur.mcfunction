@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_destruction @s
-data modify entity @s CustomName set value {"text": "Chasseur Ogor", "color": "gold"}
+data modify entity @s CustomName set value {"text": "Chasseur Ogre", "color": "gold"}
 attribute @s minecraft:max_health base set 40
 attribute @s minecraft:scale base set 1.4
 data modify entity @s Health set value 40.0f

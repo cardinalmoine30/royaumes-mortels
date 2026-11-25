@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_chaos @s
-data modify entity @s CustomName set value {"text": "Tireur de Jezzail Skaven", "color": "green"}
+data modify entity @s CustomName set value {"text": "Tireur de Long-Fusil Hommes-Rats", "color": "green"}
 attribute @s minecraft:max_health base set 18
 attribute @s minecraft:scale base set 0.8
 data modify entity @s Health set value 18.0f

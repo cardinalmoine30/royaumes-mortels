@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_boss @s
-data modify entity @s CustomName set value {"text": "Skarbrand, l'Exilé", "color": "red"}
+data modify entity @s CustomName set value {"text": "Brakhar, l'Exilé", "color": "red"}
 attribute @s minecraft:max_health base set 850
 attribute @s minecraft:attack_damage base set 22
 attribute @s minecraft:scale base set 2.8
@@ -19,6 +19,6 @@ tag @s add rm_boss
 tag @s add rm_boss_skarbrand
 data modify entity @s PersistenceRequired set value 1b
 data modify entity @s CustomNameVisible set value 1b
-tellraw @a[distance=..96] [{"text": "☠ ", "color": "red"}, {"text": "Skarbrand, l'Exilé", "color": "red", "bold": true}, {"text": " « DU SANG ! DU SANG POUR KHORNE ! »", "color": "gray", "italic": true}]
+tellraw @a[distance=..96] [{"text": "☠ ", "color": "red"}, {"text": "Brakhar, l'Exilé", "color": "red", "bold": true}, {"text": " « DU SANG ! DU SANG POUR KHORNE ! »", "color": "gray", "italic": true}]
 playsound minecraft:entity.wither.spawn hostile @a[distance=..96] ~ ~ ~ 2 0.6
 data modify entity @s IsImmuneToZombification set value 1b

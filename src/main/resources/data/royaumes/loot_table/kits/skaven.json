@@ -11,7 +11,7 @@
        "type": "minecraft:set_components",
        "components": {
         "minecraft:custom_name": {
-         "text": "Lame de Malepierre",
+         "text": "Lame de Fangepierre",
          "color": "green",
          "italic": false
         },

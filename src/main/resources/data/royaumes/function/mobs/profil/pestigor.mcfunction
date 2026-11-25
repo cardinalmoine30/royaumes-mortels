@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_chaos @s
-data modify entity @s CustomName set value {"text": "Porte-Peste de Nurgle", "color": "dark_green"}
+data modify entity @s CustomName set value {"text": "Porte-Fléau de Morbus", "color": "dark_green"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 40
 attribute @s minecraft:attack_damage base set 5

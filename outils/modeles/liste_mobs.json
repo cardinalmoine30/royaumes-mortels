@@ -1,57 +1,57 @@
 [
  {
   "id": "liberator",
-  "nom": "Liberator",
+  "nom": "Libérateur",
   "fac": "stormcast"
  },
  {
   "id": "judicator",
-  "nom": "Judicator",
+  "nom": "Justicier",
   "fac": "stormcast"
  },
  {
   "id": "prosecutor",
-  "nom": "Prosecutor",
+  "nom": "Poursuivant",
   "fac": "stormcast"
  },
  {
   "id": "vindictor",
-  "nom": "Vindictor",
+  "nom": "Vengeur",
   "fac": "stormcast"
  },
  {
   "id": "lord_celestant",
-  "nom": "Lord-Celestant",
+  "nom": "Seigneur-Céleste",
   "fac": "stormcast"
  },
  {
   "id": "stardrake",
-  "nom": "Stardrake",
+  "nom": "Drake Stellaire",
   "fac": "stormcast"
  },
  {
   "id": "dracoth",
-  "nom": "Chevalier sur Dracoth",
+  "nom": "Chevalier sur Draconide",
   "fac": "stormcast"
  },
  {
   "id": "gryph_charger",
-  "nom": "Chevalier sur Gryph-charger",
+  "nom": "Chevalier sur Griffon-Coursier",
   "fac": "stormcast"
  },
  {
   "id": "heaumefer",
-  "nom": "Heaumefer des Guildes Franches",
+  "nom": "Heaumefer des Compagnies Franches",
   "fac": "cites"
  },
  {
   "id": "cavalier_franc",
-  "nom": "Cavalier des Guildes Franches",
+  "nom": "Cavalier des Compagnies Franches",
   "fac": "cites"
  },
  {
   "id": "fusilier",
-  "nom": "Fusilier des Guildes Franches",
+  "nom": "Fusilier des Compagnies Franches",
   "fac": "cites"
  },
  {
@@ -61,7 +61,7 @@
  },
  {
   "id": "demigryph",
-  "nom": "Demigryph",
+  "nom": "Demi-Griffon",
   "fac": "cites"
  },
  {
@@ -76,47 +76,47 @@
  },
  {
   "id": "khinerai",
-  "nom": "Khinerai Heartrender",
+  "nom": "Harpie Arrache-Cœur",
   "fac": "khaine"
  },
  {
   "id": "melusai",
-  "nom": "Melusai Blood Sister",
+  "nom": "Sœur de Sang serpentine",
   "fac": "khaine"
  },
  {
   "id": "avatar_khaine",
-  "nom": "Avatar de Khaine",
+  "nom": "Avatar de Morvaine",
   "fac": "khaine"
  },
  {
   "id": "medusa",
-  "nom": "Bloodwrack Medusa",
+  "nom": "Méduse Sanglante",
   "fac": "khaine"
  },
  {
   "id": "ombre_khaine",
-  "nom": "Ombre de Khaine",
+  "nom": "Ombre de Morvaine",
   "fac": "khaine"
  },
  {
   "id": "vulkite",
-  "nom": "Vulkite Berzerker",
+  "nom": "Berserker de Braise",
   "fac": "fyreslayers"
  },
  {
   "id": "hearthguard",
-  "nom": "Hearthguard Berzerker",
+  "nom": "Gardien du Foyer",
   "fac": "fyreslayers"
  },
  {
   "id": "auric_hearthguard",
-  "nom": "Auric Hearthguard",
+  "nom": "Garde du Foyer d'Or",
   "fac": "fyreslayers"
  },
  {
   "id": "magmadroth",
-  "nom": "Magmadroth",
+  "nom": "Drake de Magma",
   "fac": "fyreslayers"
  },
  {
@@ -131,107 +131,107 @@
  },
  {
   "id": "namarti_thrall",
-  "nom": "Namarti Thrall",
+  "nom": "Serf des Abysses",
   "fac": "idoneth"
  },
  {
   "id": "namarti_reaver",
-  "nom": "Namarti Reaver",
+  "nom": "Écumeur des Abysses",
   "fac": "idoneth"
  },
  {
   "id": "ishlaen",
-  "nom": "Garde Ishlaen",
+  "nom": "Garde des Marées",
   "fac": "idoneth"
  },
  {
   "id": "leviadon",
-  "nom": "Akhelian Leviadon",
+  "nom": "Léviathan des Abysses",
   "fac": "idoneth"
  },
  {
   "id": "allopex",
-  "nom": "Akhelian Allopex",
+  "nom": "Requin de guerre",
   "fac": "idoneth"
  },
  {
   "id": "morrsarr",
-  "nom": "Akhelian Morrsarr Guard",
+  "nom": "Garde des Anguilles",
   "fac": "idoneth"
  },
  {
   "id": "arkanaute",
-  "nom": "Arkanaute",
+  "nom": "Aéronaute",
   "fac": "kharadron"
  },
  {
   "id": "endrinrigger",
-  "nom": "Endrinrigger",
+  "nom": "Gréeur d'Éther",
   "fac": "kharadron"
  },
  {
   "id": "thunderer",
-  "nom": "Grundstok Thunderer",
+  "nom": "Tonnerreur des Nuées",
   "fac": "kharadron"
  },
  {
   "id": "gunhauler",
-  "nom": "Grundstok Gunhauler",
+  "nom": "Canonnière des Nuées",
   "fac": "kharadron"
  },
  {
   "id": "fregate",
-  "nom": "Frégate Arkanaute",
+  "nom": "Frégate des Nuées",
   "fac": "kharadron"
  },
  {
   "id": "ironclad",
-  "nom": "Ironclad Arkanaute",
+  "nom": "Cuirassé des Nuées",
   "fac": "kharadron"
  },
  {
   "id": "sentinelle_vanari",
-  "nom": "Vanari Auralan Sentinel",
+  "nom": "Sentinelle de Lumière",
   "fac": "lumineth"
  },
  {
   "id": "garde_vanari",
-  "nom": "Vanari Auralan Warden",
+  "nom": "Gardien de Lumière",
   "fac": "lumineth"
  },
  {
   "id": "bladelord",
-  "nom": "Bladelord",
+  "nom": "Maître-Lame",
   "fac": "lumineth"
  },
  {
   "id": "alarith",
-  "nom": "Alarith, Esprit de la Montagne",
+  "nom": "Esprit de la Montagne",
   "fac": "lumineth"
  },
  {
   "id": "hurakan",
-  "nom": "Hurakan, Esprit du Vent",
+  "nom": "Esprit du Vent",
   "fac": "lumineth"
  },
  {
   "id": "scinari",
-  "nom": "Scinari Enlightener",
+  "nom": "Illuminé",
   "fac": "lumineth"
  },
  {
   "id": "saurus",
-  "nom": "Guerrier Saurus",
+  "nom": "Guerrier Écailleux",
   "fac": "seraphon"
  },
  {
   "id": "skink",
-  "nom": "Skink",
+  "nom": "Scinque",
   "fac": "seraphon"
  },
  {
   "id": "kroxigor",
-  "nom": "Kroxigor",
+  "nom": "Croc-Brute",
   "fac": "seraphon"
  },
  {
@@ -241,12 +241,12 @@
  },
  {
   "id": "stegadon",
-  "nom": "Stegadon",
+  "nom": "Stégodonte",
   "fac": "seraphon"
  },
  {
   "id": "bastiladon",
-  "nom": "Bastiladon",
+  "nom": "Bastionodon",
   "fac": "seraphon"
  },
  {
@@ -256,27 +256,27 @@
  },
  {
   "id": "revenant",
-  "nom": "Tree-Revenant",
+  "nom": "Revenant Sylvestre",
   "fac": "sylvaneth"
  },
  {
   "id": "kurnoth",
-  "nom": "Kurnoth Hunter",
+  "nom": "Chasseur Cornu",
   "fac": "sylvaneth"
  },
  {
   "id": "treelord",
-  "nom": "Treelord",
+  "nom": "Seigneur-Arbre",
   "fac": "sylvaneth"
  },
  {
   "id": "durthu",
-  "nom": "Esprit de Durthu",
+  "nom": "Esprit du Chêne-Roi",
   "fac": "sylvaneth"
  },
  {
   "id": "treelord_ancien",
-  "nom": "Treelord Ancient",
+  "nom": "Ancien Seigneur-Arbre",
   "fac": "sylvaneth"
  },
  {
@@ -311,67 +311,67 @@
  },
  {
   "id": "tzaangor",
-  "nom": "Tzaangor",
+  "nom": "Homme-Bec",
   "fac": "tzeentch"
  },
  {
   "id": "acolyte",
-  "nom": "Acolyte Kairique",
+  "nom": "Acolyte du Changement",
   "fac": "tzeentch"
  },
  {
   "id": "horreur_rose",
-  "nom": "Horreur Rose",
+  "nom": "Horreur Chatoyante",
   "fac": "tzeentch"
  },
  {
   "id": "seigneur_changement",
-  "nom": "Seigneur du Changement",
+  "nom": "Grand Démon du Changement",
   "fac": "tzeentch"
  },
  {
   "id": "char_flammes",
-  "nom": "Char Flamboyant de Tzeentch",
+  "nom": "Char Flamboyant de Vharys",
   "fac": "tzeentch"
  },
  {
   "id": "mutalith",
-  "nom": "Bête du Vortex Mutalith",
+  "nom": "Bête du Vortex",
   "fac": "tzeentch"
  },
  {
   "id": "bloodletter",
-  "nom": "Bloodletter",
+  "nom": "Saigneur Démoniaque",
   "fac": "khorne"
  },
  {
   "id": "blood_warrior",
-  "nom": "Blood Warrior",
+  "nom": "Guerrier de Sang",
   "fac": "khorne"
  },
  {
   "id": "bloodreaver",
-  "nom": "Bloodreaver",
+  "nom": "Pillard de Sang",
   "fac": "khorne"
  },
  {
   "id": "skullreaper",
-  "nom": "Skullreaper",
+  "nom": "Faucheur de Crânes",
   "fac": "khorne"
  },
  {
   "id": "bloodthirster",
-  "nom": "Bloodthirster",
+  "nom": "Grand Démon du Sang",
   "fac": "khorne"
  },
  {
   "id": "chien_khorne",
-  "nom": "Chien de Khorne",
+  "nom": "Chien de Sangrath",
   "fac": "khorne"
  },
  {
   "id": "juggernaut",
-  "nom": "Juggernaut de Khorne",
+  "nom": "Juggernaut de Sangrath",
   "fac": "khorne"
  },
  {
@@ -381,72 +381,72 @@
  },
  {
   "id": "seeker",
-  "nom": "Seeker de Slaanesh",
+  "nom": "Coursier de Lyssara",
   "fac": "slaanesh"
  },
  {
   "id": "painbringer",
-  "nom": "Myrmidesh Painbringer",
+  "nom": "Myrmidon de la Douleur",
   "fac": "slaanesh"
  },
  {
   "id": "gardien_secrets",
-  "nom": "Gardien des Secrets",
+  "nom": "Grand Démon des Plaisirs",
   "fac": "slaanesh"
  },
  {
   "id": "syllesske",
-  "nom": "Syll'Esske, la Concorde Vengeresse",
+  "nom": "Les Jumeaux de la Concorde",
   "fac": "slaanesh"
  },
  {
   "id": "demon_slaanesh",
-  "nom": "Démon de Slaanesh (Fiend)",
+  "nom": "Démon de Lyssara",
   "fac": "slaanesh"
  },
  {
   "id": "plaguebearer",
-  "nom": "Porte-Peste",
+  "nom": "Porte-Fléau",
   "fac": "nurgle"
  },
  {
   "id": "blightking",
-  "nom": "Putrid Blightking",
+  "nom": "Roi Putride",
   "fac": "nurgle"
  },
  {
   "id": "pusgoyle",
-  "nom": "Pusgoyle Blightlord",
+  "nom": "Seigneur des Mouches",
   "fac": "nurgle"
  },
  {
   "id": "grand_immonde",
-  "nom": "Grand Immonde",
+  "nom": "Grand Démon de la Peste",
   "fac": "nurgle"
  },
  {
   "id": "bete_nurgle",
-  "nom": "Bête de Nurgle",
+  "nom": "Bête de Morbus",
   "fac": "nurgle"
  },
  {
   "id": "clanrat",
-  "nom": "Guerrier des Clans",
+  "nom": "Rat de Clan",
   "fac": "skaven"
  },
  {
   "id": "stormvermin",
-  "nom": "Vermine de Choc",
+  "nom": "Rat de Choc",
   "fac": "skaven"
  },
  {
   "id": "jezzail",
-  "nom": "Tireur de Jezzail",
+  "nom": "Tireur de Long-Fusil",
   "fac": "skaven"
  },
  {
   "id": "abomination",
-  "nom": "Abomination du Puits Infernal",
+  "nom": "Abomination des Fosses",
   "fac": "skaven"
  },
  {
@@ -461,7 +461,7 @@
  },
  {
   "id": "hashut",
-  "nom": "Garde Infernale de Hashut",
+  "nom": "Garde Infernale de Ashkar",
   "fac": "hashut"
  },
  {
@@ -476,12 +476,12 @@
  },
  {
   "id": "morbheg",
-  "nom": "Chevalier Morbheg",
+  "nom": "Chevalier Chauve-Souris",
   "fac": "fec"
  },
  {
   "id": "terrorgheist",
-  "nom": "Terrorgheist",
+  "nom": "Spectre-Terreur",
   "fac": "fec"
  },
  {
@@ -491,17 +491,17 @@
  },
  {
   "id": "varghulf",
-  "nom": "Varghulf",
+  "nom": "Vampire-Bête",
   "fac": "fec"
  },
  {
   "id": "chainrasp",
-  "nom": "Chainrasp",
+  "nom": "Spectre Enchaîné",
   "fac": "nighthaunt"
  },
  {
   "id": "grimghast",
-  "nom": "Grimghast Reaper",
+  "nom": "Faucheur Spectral",
   "fac": "nighthaunt"
  },
  {
@@ -516,47 +516,47 @@
  },
  {
   "id": "dreadblade",
-  "nom": "Dreadblade Harrow",
+  "nom": "Cavalier Spectral",
   "fac": "nighthaunt"
  },
  {
   "id": "mourngul",
-  "nom": "Mourngul",
+  "nom": "Dévoreur Lugubre",
   "fac": "nighthaunt"
  },
  {
   "id": "mortek",
-  "nom": "Garde Mortek",
+  "nom": "Gard'Os",
   "fac": "ossiarch"
  },
  {
   "id": "kavalos",
-  "nom": "Kavalos Deathrider",
+  "nom": "Cavalier d'Os",
   "fac": "ossiarch"
  },
  {
   "id": "immortis",
-  "nom": "Garde Immortis",
+  "nom": "Garde Immortelle",
   "fac": "ossiarch"
  },
  {
   "id": "gothizzar",
-  "nom": "Moissonneur Gothizzar",
+  "nom": "Moissonneur d'Os",
   "fac": "ossiarch"
  },
  {
   "id": "morghast_archai",
-  "nom": "Morghast Archai",
+  "nom": "Archange d'Os",
   "fac": "ossiarch"
  },
  {
   "id": "morghast_harbinger",
-  "nom": "Morghast Harbinger",
+  "nom": "Héraut d'Os",
   "fac": "ossiarch"
  },
  {
   "id": "deathrattle",
-  "nom": "Squelette Deathrattle",
+  "nom": "Squelette Cliquetant",
   "fac": "soulblight"
  },
  {
@@ -571,7 +571,7 @@
  },
  {
   "id": "vargheist",
-  "nom": "Vargheist",
+  "nom": "Vampire Ailé",
   "fac": "soulblight"
  },
  {
@@ -586,57 +586,57 @@
  },
  {
   "id": "shoota",
-  "nom": "Moonclan Shoota",
+  "nom": "Archer de la Lune",
   "fac": "gitz"
  },
  {
   "id": "squig_hopper",
-  "nom": "Squig Hopper",
+  "nom": "Croqueur Sauteur",
   "fac": "gitz"
  },
  {
   "id": "stabba",
-  "nom": "Moonclan Stabba",
+  "nom": "Piqueur de la Lune",
   "fac": "gitz"
  },
  {
   "id": "squig_mangler",
-  "nom": "Mangler Squigs",
+  "nom": "Croqueurs Broyeurs",
   "fac": "gitz"
  },
  {
   "id": "squig_colossal",
-  "nom": "Squig Colossal",
+  "nom": "Croqueur Colossal",
   "fac": "gitz"
  },
  {
   "id": "troggoth_dankhold",
-  "nom": "Troggoth de Dankhold",
+  "nom": "Troll des Profondeurs",
   "fac": "gitz"
  },
  {
   "id": "glutton",
-  "nom": "Ogor Glutton",
+  "nom": "Ogre Glouton",
   "fac": "ogors"
  },
  {
   "id": "irongut",
-  "nom": "Irongut",
+  "nom": "Ventre-de-Fer",
   "fac": "ogors"
  },
  {
   "id": "leadbelcher",
-  "nom": "Leadbelcher",
+  "nom": "Crache-Plomb",
   "fac": "ogors"
  },
  {
   "id": "stonehorn",
-  "nom": "Stonehorn",
+  "nom": "Corne-de-Pierre",
   "fac": "ogors"
  },
  {
   "id": "thundertusk",
-  "nom": "Thundertusk",
+  "nom": "Défense-Tonnerre",
   "fac": "ogors"
  },
  {
@@ -646,32 +646,32 @@
  },
  {
   "id": "ardboy",
-  "nom": "Ardboy",
+  "nom": "Dur-à-Cuire",
   "fac": "orruks"
  },
  {
   "id": "brute",
-  "nom": "Brute Ironjawz",
+  "nom": "Brute Mâchefers",
   "fac": "orruks"
  },
  {
   "id": "gutrippa",
-  "nom": "Gutrippa Kruleboyz",
+  "nom": "Étripeur Cruelgars",
   "fac": "orruks"
  },
  {
   "id": "megaboss",
-  "nom": "Mégaboss Ironjawz",
+  "nom": "Grand Chef Mâchefers",
   "fac": "orruks"
  },
  {
   "id": "maw_krusha",
-  "nom": "Maw-Krusha",
+  "nom": "Broyeur-Gueule",
   "fac": "orruks"
  },
  {
   "id": "mirebrute",
-  "nom": "Troggoth Mirebrute",
+  "nom": "Troll des Marais",
   "fac": "orruks"
  },
  {
@@ -681,62 +681,62 @@
  },
  {
   "id": "mancrusher",
-  "nom": "Gargant Mancrusher",
+  "nom": "Géant Broyeur",
   "fac": "behemat"
  },
  {
   "id": "mega_gargant",
-  "nom": "Méga-Gargant",
+  "nom": "Méga-Géant",
   "fac": "behemat"
  },
  {
   "id": "gatebreaker",
-  "nom": "Gatebreaker Méga-Gargant",
+  "nom": "Brise-Porte Méga-Géant",
   "fac": "behemat"
  },
  {
   "id": "kraken_eater",
-  "nom": "Kraken-Eater Méga-Gargant",
+  "nom": "Mange-Kraken Méga-Géant",
   "fac": "behemat"
  },
  {
   "id": "warstomper",
-  "nom": "Warstomper Méga-Gargant",
+  "nom": "Piétine-Guerre Méga-Géant",
   "fac": "behemat"
  },
  {
   "id": "beast_smasher",
-  "nom": "Beast-Smasher Méga-Gargant",
+  "nom": "Broie-Bêtes Méga-Géant",
   "fac": "behemat"
  },
  {
   "id": "nagash",
-  "nom": "Nagash, Dieu de la Mort",
+  "nom": "Necrath, Dieu de la Mort",
   "fac": "soulblight"
  },
  {
   "id": "archaon",
-  "nom": "Archaon l'Élu Éternel",
+  "nom": "Varkhan le Fléau Éternel",
   "fac": "esclaves"
  },
  {
   "id": "gordrakk",
-  "nom": "Gordrakk, le Poing de Gork",
+  "nom": "Krognak, le Poing de Brog",
   "fac": "orruks"
  },
  {
   "id": "skarbrand",
-  "nom": "Skarbrand l'Exilé",
+  "nom": "Brakhar l'Exilé",
   "fac": "khorne"
  },
  {
   "id": "thanquol",
-  "nom": "Thanquol, Prophète Gris",
+  "nom": "Skrivel, Prophète des Cendres",
   "fac": "skaven"
  },
  {
   "id": "rotigus",
-  "nom": "Rotigus le Pluviomancien",
+  "nom": "Putrefax le Pluviomancien",
   "fac": "nurgle"
  }
 ]

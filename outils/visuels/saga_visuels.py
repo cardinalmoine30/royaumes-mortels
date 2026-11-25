@@ -49,7 +49,7 @@ def forge(faction=1, onglet=3):
     coller(img, M.ORN.crop((0, 24, 160, 48)), px + PW / 2 - 80, py - 12)
     texte(d, px + PW / 2, py - 4, "FORGE DE GUERRE", 8, OR_C, gras=True, centre=True, serif=False)
     ids, noms, recettes = tableau("IDS")[faction - 1], tableau("NOMS")[faction - 1], tableau("RECETTES")[faction - 1]
-    texte(d, px + 12, py + 4, "Arsenal : Stormcast Eternals", 7, (255, 170, 0), serif=False)
+    texte(d, px + 12, py + 4, "Arsenal : Foudroyés Éternels", 7, (255, 170, 0), serif=False)
     onglets = ["Soldat", "Élite", "Légende", "Mythique", "Divin", "Armes"]
     for o, t in enumerate(onglets):
         x = px + 10 + o * 74
@@ -85,7 +85,7 @@ def saga():
     import random
     import math
     from PIL import ImageFilter
-    for i in range(H * K):  # ciel d'Aqshy, sol de cendre
+    for i in range(H * K):  # ciel d'Pyréa, sol de cendre
         t = i / (H * K)
         c = tuple(int(a + (b - a) * t) for a, b in zip((120, 40, 30), (230, 120, 60))) if t < 0.55 else (70, 50, 44)
         d.line((0, i, W * K, i), fill=c)
@@ -127,8 +127,8 @@ def saga():
     # emblème, faction, capacité (HudRoyaumes 2)
     d.rectangle((4 * K, 4 * K, 30 * K, 30 * K), fill=(12, 20, 40, 200), outline=OR, width=K)
     coller(img, M.embleme(10), 6, 6, 22, 22)
-    texte(d, 34, 6, "Lames de Khorne", 7, OR_C, gras=True, serif=False)
-    texte(d, 34, 17, "Niveau 27 · Royaume d'Aqshy", 6, (240, 230, 210), serif=False)
+    texte(d, 34, 6, "Lames de Sangrath", 7, OR_C, gras=True, serif=False)
+    texte(d, 34, 17, "Niveau 27 · Royaume d'Pyréa", 6, (240, 230, 210), serif=False)
     texte(d, 34, 28, "Soif de sang · prête (R)", 6, OR_C, serif=False)
     # suivi de la Saga (HudRoyaumes 5)
     l1, l2, l3 = "✦ 17/23 · Tueur de légendes", "Invoque un seigneur à son autel et vaincs-le.", "⚔ Contrat : guerriers de l'Ordre  11/23"
@@ -139,10 +139,10 @@ def saga():
     texte(d, 8, 57, l2, 6, (207, 198, 180), serif=False)
     texte(d, 8, 68, l3, 6, (127, 214, 230), serif=False)
     # barre du seigneur (datapack) et annonce de la phase finale (mod)
-    texte(d, cx, 4, "Skarbrand, l'Exilé", 7, (255, 255, 255), centre=True, serif=False)
+    texte(d, cx, 4, "Brakhar, l'Exilé", 7, (255, 255, 255), centre=True, serif=False)
     d.rectangle(((cx - 91) * K, 13 * K, (cx + 91) * K, 18 * K), fill=(60, 10, 10))
     d.rectangle(((cx - 91) * K, 13 * K, (cx - 91 + 40) * K, 18 * K), fill=(220, 30, 30))
-    texte(d, cx, 50, "Skarbrand", 14, (230, 50, 40), gras=True, centre=True)
+    texte(d, cx, 50, "Brakhar", 14, (230, 50, 40), gras=True, centre=True)
     texte(d, cx, 70, "déchaîne sa puissance ! Esquive les cercles !", 7, (255, 140, 110), centre=True, serif=False)
     for (ox, oy, r) in [(cx - 70, 196, 26), (cx + 80, 206, 22)]:
         for a in range(32):

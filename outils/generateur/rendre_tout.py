@@ -3,17 +3,17 @@ import sys, os
 from rendu import lire_nbt, rendre_blocs
 B = "out/RoyaumesMortels/data/royaumes/structure/"
 NOMS = {
- "forteresse_stormcast": "Forteresse Stormcast (pic d'Azyr)", "temple_seraphon": "Temple-cité Seraphon",
- "camp_orruk": "Forteresse de ferraille Ironjawz", "antre_gitz": "Forteresse de la Mauvaise Lune (Gitz)",
- "bosquet_sylvaneth": "Bosquet Sylvaneth et arbres de Wyldwood", "magmahold": "Magmahold en ruine (volcans d'Aqshy)",
- "port_kharadron": "Port d'Aether Kharadron (tyrolienne)", "sanctuaire_lumineth": "Sanctuaire Lumineth sur île flottante",
- "temple_khaine": "Temple de Khaine", "ruines_idoneth": "Temple antique Idoneth (vue sans l'eau)",
- "ziggurat_hashut": "Ziggurat infernale de Hashut", "repaire_skavenblight": "Repaire de Skavenblight",
- "ossuaire_ossiarch": "Ossuaire des Âmes Ossiarch", "jardin_rotigus": "Jardin putride de Rotigus",
- "repaire_skaven": "Clocher Hurlant Skaven", "cimetiere_nighthaunt": "Cimetière Nighthaunt", "cite_sigmar": "Cité libre de Sigmar",
- "chateau_soulblight": "Château Soulblight", "citadelle_chaos": "Citadelle du Chaos", "necropole_nagash": "Nécropole de Nagash",
- "trone_archaon": "Trône d'Archaon", "arene_gordrakk": "Arène de Gordrakk", "autel_skarbrand": "Autel de Skarbrand",
- "portail": "Portail de Royaume (anneau)", "fort_kruleboyz": "Fort des Kruleboyz", "campement_ogor": "Campement Ogor",
+ "forteresse_stormcast": "Forteresse Foudroyés (pic d'Célestis)", "temple_seraphon": "Temple-cité Astrosauriens",
+ "camp_orruk": "Forteresse de ferraille Mâchefers", "antre_gitz": "Forteresse de la Mauvaise Lune (Gobelins)",
+ "bosquet_sylvaneth": "Bosquet Sylvains et arbres de Bois-Sauvage", "magmahold": "Magmahold en ruine (volcans d'Pyréa)",
+ "port_kharadron": "Port d'Éther Nuées (tyrolienne)", "sanctuaire_lumineth": "Sanctuaire de Lumière sur île flottante",
+ "temple_khaine": "Temple de Morvaine", "ruines_idoneth": "Temple antique Abyssal (vue sans l'eau)",
+ "ziggurat_hashut": "Ziggurat infernale de Ashkar", "repaire_skavenblight": "Repaire de Skavenblight",
+ "ossuaire_ossiarch": "Ossuaire des Âmes Faucheurs d'Os", "jardin_rotigus": "Jardin putride Putrefax",
+ "repaire_skaven": "Clocher Hurlant Hommes-Rats", "cimetiere_nighthaunt": "Cimetière Hantise Nocturne", "cite_sigmar": "Cité libre de Aurion",
+ "chateau_soulblight": "Château Sanguinaire", "citadelle_chaos": "Citadelle du Chaos", "necropole_nagash": "Nécropole de Necrath",
+ "trone_archaon": "Trône d'Varkhan", "arene_gordrakk": "Arène de Krognak", "autel_skarbrand": "Autel de Brakhar",
+ "portail": "Portail de Royaume (anneau)", "fort_kruleboyz": "Fort des Cruelgars", "campement_ogor": "Campement Ogre",
 }
 cibles = sys.argv[1:] or list(NOMS)
 for n in cibles:

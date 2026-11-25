@@ -3,7 +3,7 @@
 
 Chaque biome des Royaumes appartient à l'alliance qui y fait apparaître le plus de troupes (poids d'apparition des
 mobs du bestiaire). En entrant dans un biome, le joueur reçoit une ligne dans le tchat :
-  « ⛰ Forêts de Jade de Ghyran — Royaume de la Vie  ·  ⚑ Terre alliée » (ou « ⚔ Terre ennemie : Chaos »)
+  « ⛰ Forêts de Jade Sylvéa — Royaume de la Vie  ·  ⚑ Terre alliée » (ou « ⚔ Terre ennemie : Chaos »)
 et le score rm_brel (1 alliée, 2 ennemie, 0 sans faction ou hors des Royaumes) alimente l'indicateur du HUD.
 Usage : python3 outils/objets/biomes_tchat.py (relit les noms de biomes_titre.mcfunction, idempotent)."""
 import collections, json, os, re, sys

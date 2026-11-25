@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_destruction @s
-data modify entity @s CustomName set value {"text": "Grot de la Mauvaise Lune", "color": "yellow"}
+data modify entity @s CustomName set value {"text": "Gobelin de la Mauvaise Lune", "color": "yellow"}
 data modify entity @s IsBaby set value 1b
 attribute @s minecraft:max_health base set 10
 attribute @s minecraft:attack_damage base set 3

@@ -405,7 +405,7 @@ def dragon(nom, s, fac):
             z = -L / 2 + 1.5 + k * 3
             hh = (2.6 * (1 - abs(k / max(1, L // 3) - 0.35)) + 0.6) * min(1.0, L / 26)
             m.cube("body", (-0.5, yb + H + 0.4, z), (1, hh, 1.6), "corne", rot=(18, 0, 0), pivot=(0, yb + H + 0.4, z + 0.8))
-    if fac == "stormcast":                                                                     # bardes de sigmarite
+    if fac == "stormcast":                                                                     # bardes de célestacier
         m.cube("body", (-W / 2 - 0.3, yb + H * 0.45, -L / 2 - 0.4), (W + 0.6, H * 0.6, L * 0.3), "armure",
                north=combine(f_cadre(A2), f_comete(A2)), toutes=f_bande(A2, "bas", 2))
     # pattes
@@ -670,7 +670,7 @@ def fauve(nom, s, fac):
     return m, mats
 
 
-# ------------------------------------------------------------------ mastodontes (Stonehorn, Thundertusk, Juggernaut, Stegadon...)
+# ------------------------------------------------------------------ mastodontes (Corne-de-Pierre, Défense-Tonnerre, Juggernaut, Stégodonte...)
 def mastodonte(nom, s, fac):
     P = s["pal"]
     mats = mats_creature(nom, s, fac)
@@ -875,7 +875,7 @@ def squig(nom, s, fac):
     return m, mats
 
 
-# ------------------------------------------------------------------ disque de Tzeentch
+# ------------------------------------------------------------------ disque de Vharys
 def disque(nom, s, fac):
     P = s["pal"]
     mats = mats_creature(nom, s, fac)

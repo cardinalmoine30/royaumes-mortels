@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Grandes constructions détaillées : forteresse Stormcast, cité de Sigmar, château Soulblight, citadelle du Chaos."""
+"""Grandes constructions détaillées : forteresse Foudroyés, cité de Aurion, château Sanguinaire, citadelle du Chaos."""
 from nbtgen import Struct
 from details import (rempart, meurtrieres, tour, tour_carree, fenetre_arc, lustre, table, tapis,
                      banniere_murale, cheminee, bibliotheque, jardiniere, statue_guerrier)
@@ -61,7 +61,7 @@ def forteresse_stormcast():
     s.cylinder(c - 13, c + 13, 3, F + 1, F + 1, "minecraft:quartz_bricks", hollow=True, inside="minecraft:water")
     s.fill(c - 13, F + 1, c + 13, c - 13, F + 3, c + 13, "minecraft:quartz_pillar")
     s.set(c - 13, F + 4, c + 13, "minecraft:gold_block"); s.set(c - 13, F + 5, c + 13, "minecraft:sea_lantern")
-    # statues de Stormcast
+    # statues de Foudroyés
     for (x, z) in ((c + 12, c + 12), (c + 12, c + 18)):
         statue_guerrier(s, x, F + 1, z, "minecraft:gold_block", "minecraft:lapis_block", "minecraft:lightning_rod",
                         "minecraft:quartz_bricks")
@@ -96,7 +96,7 @@ def forteresse_stormcast():
     for z in (17, 18, 19):
         s.barrel(W - 10, F + 1, z, L + "forteresse_stormcast")
     lustre(s, W - 14, F + 8, 14, 2)
-    # ---- Temple-donjon de Sigmar (centre nord)
+    # ---- Temple-donjon de Aurion (centre nord)
     k0, k1, kz0, kz1 = c - 10, c + 10, 9, c + 7
     s.hollow(k0, F, kz0, k1, F + 20, kz1, murs, floor="minecraft:polished_diorite")
     for x in range(k0, k1 + 1, 4):
@@ -128,7 +128,7 @@ def forteresse_stormcast():
             s.set(x, F + 12, z, "minecraft:sea_lantern")
     for z in range(kz0 + 6, kz1 - 1, 6):
         lustre(s, c, F + 20, z, 4, "minecraft:sea_lantern")
-    # choeur : autel, statue de Sigmar, comète à deux queues
+    # choeur : autel, statue de Aurion, comète à deux queues
     s.fill(c - 4, F + 1, kz0 + 1, c + 4, F + 1, kz0 + 4, "minecraft:smooth_quartz")
     s.fill(c - 1, F + 2, kz0 + 3, c + 1, F + 2, kz0 + 3, "minecraft:gold_block")
     statue_guerrier(s, c, F + 2, kz0 + 2, "minecraft:gold_block", "minecraft:gold_block", "minecraft:lightning_rod",
@@ -265,7 +265,7 @@ def cite_sigmar():
         s.set(tx + 1, y, tz + 8, "minecraft:ladder[facing=east]")
     s.chest(tx + 9, F + 1, tz + 1, L + "cite_sigmar", "south")
     s.mob(tx + 4, F + 1, tz + 4, "villager", "habitant", 2)
-    # Grand temple de Sigmar (côté est intérieur)
+    # Grand temple de Aurion (côté est intérieur)
     gx, gz = 35, 17
     s.hollow(gx, F, gz, gx + 11, F + 14, gz + 11, ["minecraft:polished_diorite", "minecraft:calcite"], floor="minecraft:polished_andesite")
     for (xx, zz) in ((gx, gz), (gx + 11, gz), (gx, gz + 11), (gx + 11, gz + 11)):
@@ -477,7 +477,7 @@ def citadelle_chaos():
     for x in range(k0 + 2, k1 - 1, 2):
         s.set(x, F + 9, kz1 - 1, "minecraft:grindstone[face=floor]" if x % 4 == 0 else "minecraft:anvil")
     s.chest(c, F + 9, kz0 + 2, L + "citadelle_chaos", "south")
-    # 2e : sanctum des sorciers de Tzeentch
+    # 2e : sanctum des sorciers de Vharys
     bibliotheque(s, k0 + 1, F + 17, kz0 + 4, k0 + 1, F + 20, kz1 - 2)
     s.set(c, F + 17, c - 10, "minecraft:enchanting_table")
     s.set(c + 2, F + 17, c - 10, "minecraft:brewing_stand")

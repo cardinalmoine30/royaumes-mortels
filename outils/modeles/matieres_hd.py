@@ -2,7 +2,7 @@
 """Peinture HD des matières (4 texels par pixel de modèle), utilisée par modele2.Modele.peindre.
 
 Chaque face est peinte directement à la haute résolution, avec la vraie matière du cube (pas devinée) :
-- métal : biseau (arête claire en haut à gauche, sombre en bas à droite), métal brossé, bande de reflet,
+- métal : biseau (arête claire en haut à gauche, sombre en bas à droite), métal brossé, bande reflet,
   rivets aux coins des grandes plaques, rayures et éclats d'usure sur les bords ;
 - or : comme le métal, plus des gravures en volutes sur les grandes plaques et des ombres chaudes ;
 - tissu : trame, plis verticaux, ourlet cousu ; cuir : grain, taches, coutures, bord roulé ;
@@ -103,7 +103,7 @@ def peindre_face(arr, x0, y0, w, h, face, m, rng):
         k = np.where((de == 1) & ~hg, k * 0.72, k)                                 # arête dans l'ombre
         k = np.where((de == 2) & hg, k * 1.1, k)
         if cote and h >= 8:
-            k *= 1 + 0.18 * np.exp(-((J / h - 0.22) ** 2) / 0.004)               # bande de reflet
+            k *= 1 + 0.18 * np.exp(-((J / h - 0.22) ** 2) / 0.004)               # bande reflet
         if grand:
             for (rx, ry) in ((3, 3), (w - 5, 3), (3, h - 5), (w - 5, h - 5)):  # rivets
                 k[ry, rx] *= 1.5
@@ -543,7 +543,7 @@ def visage_simple_hd(arr, X, Y, W, H, peau, yeux=(30, 30, 40), bouche=None, sour
 
 
 def trogne_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille, style=None):
-    """Face de bête humanoïde (orruks, démons, skavens, sylvaneth…) : yeux de yeux_hd, plus une bouche
+    """Face de bête humanoïde (orcs, démons, hommes-rats, sylvaneth…) : yeux de yeux_hd, plus une bouche
     expressive et des marques selon le style (défenses, crocs, gueule hurlante, bouche creuse, rides de bois)."""
     st = dict(style or {})
     masque, plat = yeux_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille)
@@ -552,7 +552,7 @@ def trogne_hd(arr, X, Y, W, H, c, fond, hauteur, ecart, taille, style=None):
     peau = reg[int(H * 0.6), 1, :3].copy()
     b = st.get("bouche")
     my = H * min(0.86, hauteur + 0.42)
-    if b == "machoire":        # mâchoire inférieure avancée et crocs vers le haut (orruks, gitz, ogres)
+    if b == "machoire":        # mâchoire inférieure avancée et crocs vers le haut (orcs, gitz, ogres)
         bw = W * 0.3
         _trait(reg, masque, [(W / 2 - bw, my - 1), (W / 2 - bw + 2, my + 0.6), (W / 2 + bw - 2, my + 0.6), (W / 2 + bw, my - 1)], peau * 0.3, epais=2)
         for sx in (-1, 1):

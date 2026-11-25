@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Gabarits non humanoïdes : bêtes (et montures avec cavalier), dragons/volants, navires Kharadron,
+"""Gabarits non humanoïdes : bêtes (et montures avec cavalier), dragons/volants, navires Nuées,
 blobs (squigs, rejetons), poissons/tortues de l'Ethersea, chars et roues."""
 from modele import Modele
 from factions import sombre, bande, yeux, dents, eclair, combine, embleme
@@ -53,7 +53,7 @@ def bete(nom, s):
     if s.get("carapace"):
         m.cube("body", (-W // 2 - 1, ys + H - 2, -L // 2 + 1), (W + 2, 4, L - 2), "armure",
                up=combine(bande(P["armure2"], "haut"), bande(P["armure2"], "bas")))
-    if s.get("plaques"):     # Stegadon
+    if s.get("plaques"):     # Stégodonte
         for i in range(0, L - 4, 4):
             m.cube("body", (-1, ys + H, -L // 2 + 2 + i), (2, 3 + (i // 4) % 2 * 2, 3), "armure2b")
     if s.get("caparacon"):
@@ -127,7 +127,7 @@ def bete(nom, s):
 
 
 def navire(nom, s):
-    """Navire volant Kharadron : coque, ballon d'aether-endrin, hélice, canons."""
+    """Navire volant Nuées : coque, ballon d'aether-endrin, hélice, canons."""
     P = s["pal"]
     m = Modele(nom, s.get("tex", 128))
     L, W, H = s.get("coque", (24, 10, 7))
@@ -155,7 +155,7 @@ def navire(nom, s):
 
 
 def blob(nom, s):
-    """Squigs, rejetons du Chaos, Bêtes de Nurgle, Abomination…"""
+    """Croqueurs, rejetons du Chaos, Bêtes de Morbus, Abomination…"""
     P = s["pal"]
     m = Modele(nom, s.get("tex", 128))
     r = s.get("taille", 10)
@@ -187,7 +187,7 @@ def blob(nom, s):
 
 
 def poisson(nom, s):
-    """Allopex, Ishlaen, Morrsarr, Leviadon (tortue)."""
+    """Requin de guerre, des Marées, Anguille, Léviathan (tortue)."""
     P = s["pal"]
     m = Modele(nom, s.get("tex", 128))
     L, W, H = s.get("corps", (16, 6, 6))
@@ -246,7 +246,7 @@ def char(nom, s):
         m.cube("body", (-W // 2, 15 + H, -3), (W, 2, L // 2 + 4), "armure2b")
         if s.get("autel"):
             m.cube("body", (-2, 17 + H, 0), (4, 6, 4), "lueur", north=embleme("etoile", P["armure2"]))
-    if s.get("disque"):        # Char flamboyant de Tzeentch : disque flottant
+    if s.get("disque"):        # Char flamboyant de Vharys : disque flottant
         m.cube("body", (-W // 2 - 2, 4, -L // 2 - 2), (W + 4, 2, L + 4), "lueur")
     cavalier(m, P, 6 + H, -L // 4, s.get("arme_cavalier", "epee"))
     if s.get("betes"):

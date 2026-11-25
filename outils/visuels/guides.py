@@ -55,7 +55,7 @@ def guide_magie():
         im.paste(icone(os.path.join(TEX, "item", "baton_" + v[0] + ".png"), 7), (x + 14, y + 40), icone(os.path.join(TEX, "item", "baton_" + v[0] + ".png"), 7))
         im.paste(icone(os.path.join(TEX, "item", "eclat_" + v[0] + ".png"), 3), (x + 14, y + 10), icone(os.path.join(TEX, "item", "eclat_" + v[0] + ".png"), 3))
         d.text((x + 140, y + 14), v[1], font=police(30, True), fill=c)
-        dim = {"royaumes_mortels": "Azyr"}.get(v[5].split(":")[1], v[5].split(":")[1].capitalize())
+        dim = {"royaumes_mortels": "Célestis"}.get(v[5].split(":")[1], v[5].split(":")[1].capitalize())
         d.text((x + 140, y + 52), "Bâton " + ("d'" if v[1][0] in "AEIOUH" else "de ") + v[1] + " · Royaume : " + dim, font=police(16, False, False), fill=(200, 205, 225))
         s = sorted([z for z in SORTS if z[0] == v[0]], key=lambda z: z[1])
         for k, z in enumerate(s):

@@ -12,7 +12,7 @@ particle minecraft:lava ~ ~0.8 ~ 0.3 0.3 0.3 0 12
 particle minecraft:enchant ~ ~1 ~ 0.4 0.6 0.4 0.5 40
 playsound minecraft:block.anvil.use block @a[distance=..16] ~ ~ ~ 1 0.9
 playsound minecraft:block.smithing_table.use block @a[distance=..16] ~ ~ ~ 1 1
-tellraw @a[distance=..8] [{"text": "⚒ Forgé : ", "color": "gold"}, {"text": "Comète de Sigmar", "color": "yellow"}]
+tellraw @a[distance=..8] [{"text": "⚒ Forgé : ", "color": "gold"}, {"text": "Comète de Aurion", "color": "yellow"}]
 scoreboard players set #gain rm_tmp 5
 execute as @p[distance=..8] run function royaumes:rpg/ajouter
 return 1

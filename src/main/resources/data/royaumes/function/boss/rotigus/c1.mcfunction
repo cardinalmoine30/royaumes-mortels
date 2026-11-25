@@ -1,4 +1,4 @@
-title @a[distance=..40] actionbar [{"text": "Rotigus : ", "color": "dark_green"}, {"text": "Déluge de Nurgle", "color": "white", "bold": true}]
+title @a[distance=..40] actionbar [{"text": "Putrefax : ", "color": "dark_green"}, {"text": "Déluge de Morbus", "color": "white", "bold": true}]
 effect give @a[distance=..12,gamemode=!spectator,gamemode=!creative] minecraft:poison 10 1
 effect give @a[distance=..12,gamemode=!spectator,gamemode=!creative] minecraft:slowness 6 1
 effect give @a[distance=..12,gamemode=!spectator,gamemode=!creative] minecraft:hunger 10 2

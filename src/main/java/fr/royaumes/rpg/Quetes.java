@@ -38,7 +38,7 @@ public final class Quetes {
                 "Clic droit avec la Pierre de Royaume. Le tchat annonce chaque terre traversée : alliée (sûre) ou ennemie (on t'y attaque)."),
         new Etape("Premier sang", "Abats des guerriers d'une autre Grande Alliance.", "tuer", "", 10, 120, "royaumes:pierre_royaumes_brute*4",
                 "Les victimes de tes alliés invoqués comptent aussi. Ceux de ton alliance ne t'attaquent pas."),
-        new Etape("Le camp de guerre", "Plante l'Étendard de camp dans le monde de base.", "score", "rm_camp_niv", 1, 100, "fn:monture/donner",
+        new Etape("Le camp de guerre", "Plante l'Étendard de camp dans le monde base.", "score", "rm_camp_niv", 1, 100, "fn:monture/donner",
                 "Étendard : lingot d'or, bannière et pierre des Royaumes brute, en colonne. Pose-le puis clic droit dessus. Récompense : la Corne d'appel de ta monture."),
         new Etape("Bâtisseur", "Construis un bâtiment de camp.", "batiment", "", 1, 100, "minecraft:iron_ingot*6",
                 "Clic droit sur l'Étendard, onglet Bâtiments. Le Sanctuaire produit les éclats de ton Vent (pour la magie)."),

@@ -117,7 +117,7 @@ if __name__ == "__main__":
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "apercus", "camp")
     camp_complet("ordre", {"forge": 3, "ferme": 2, "sanctuaire": 2, "caserne": 3, "tour": 2}, "stormcast",
                  [("liberator", 3, 3, 200), ("judicator", -3, 2, 160), ("liberator", 2, -4, 20), ("vindictor", -4, -3, -20), ("dracoth", 5, -1, 120)],
-                 os.path.join(out, "camp_ordre_complet.png"), "Camp de guerre Stormcast — forge et caserne niv. 3, ferme, sanctuaire et tour niv. 2")
+                 os.path.join(out, "camp_ordre_complet.png"), "Camp de guerre Foudroyés — forge et caserne niv. 3, ferme, sanctuaire et tour niv. 2")
     camp_complet("destruction", {"forge": 2, "ferme": 1, "sanctuaire": 1, "caserne": 2, "tour": 3}, "ironjawz",
                  [("brute", 3, 3, 200), ("ardboy", -3, 2, 160), ("ardboy", 2, -4, 20), ("megaboss", -4, -3, -20)],
-                 os.path.join(out, "camp_destruction_complet.png"), "Camp de guerre Ironjawz — style Destruction")
+                 os.path.join(out, "camp_destruction_complet.png"), "Camp de guerre Mâchefers — style Destruction")

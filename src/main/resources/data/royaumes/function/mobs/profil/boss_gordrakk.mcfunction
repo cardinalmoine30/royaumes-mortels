@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_boss @s
-data modify entity @s CustomName set value {"text": "Gordrakk, le Poing de Gork", "color": "gold"}
+data modify entity @s CustomName set value {"text": "Krognak, le Poing de Brog", "color": "gold"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 800
 attribute @s minecraft:attack_damage base set 19
@@ -22,5 +22,5 @@ tag @s add rm_boss
 tag @s add rm_boss_gordrakk
 data modify entity @s PersistenceRequired set value 1b
 data modify entity @s CustomNameVisible set value 1b
-tellraw @a[distance=..96] [{"text": "☠ ", "color": "gold"}, {"text": "Gordrakk, le Poing de Gork", "color": "gold", "bold": true}, {"text": " « WAAAAAGH ! »", "color": "gray", "italic": true}]
+tellraw @a[distance=..96] [{"text": "☠ ", "color": "gold"}, {"text": "Krognak, le Poing de Brog", "color": "gold", "bold": true}, {"text": " « GRAAAAAH ! »", "color": "gray", "italic": true}]
 playsound minecraft:entity.wither.spawn hostile @a[distance=..96] ~ ~ ~ 2 0.6

@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Grand Fusil à Aether",
+                  "text": "Grand Fusil à Éther",
                   "color": "yellow",
                   "italic": false
                 },

@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_ordre @s
-data modify entity @s CustomName set value {"text": "Garde du Temple Lumineth", "color": "white"}
+data modify entity @s CustomName set value {"text": "Garde du Temple de Lumière", "color": "white"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 28
 attribute @s minecraft:attack_damage base set 5

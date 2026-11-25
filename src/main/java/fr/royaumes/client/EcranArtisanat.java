@@ -235,7 +235,7 @@ public class EcranArtisanat extends Screen {
         }
         Texte.centre(g, this.font, "Page " + (page + 1) + " / " + pages + "  ·  " + l.size() + " recettes", px + 130 + (PW - 140) / 2,
                 py + PH - 43, 200, 0xFFB4AA96);
-        // explication en bas : la recette survolée, sinon le mode d'emploi du poste
+        // explication en bas : la recette survolée, sinon le mod'emploi du poste
         String bas;
         if (survol >= 0) {
             StringBuilder b = new StringBuilder(ArtisanatGenere.NOMS[survol] + " : ");

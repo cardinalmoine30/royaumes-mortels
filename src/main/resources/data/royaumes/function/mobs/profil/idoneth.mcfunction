@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_ordre @s
-data modify entity @s CustomName set value {"text": "Namarti Thrall", "color": "dark_aqua"}
+data modify entity @s CustomName set value {"text": "Serf des Abysses", "color": "dark_aqua"}
 attribute @s minecraft:max_health base set 30
 attribute @s minecraft:attack_damage base set 6
 data modify entity @s Health set value 30.0f

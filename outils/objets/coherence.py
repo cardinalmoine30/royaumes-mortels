@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Passe de cohérence sur le datapack (à relancer après toute reconstruction du datapack ; idempotente).
 
-1. Une seule économie de matériaux : les anciennes « écailles » du datapack (Braise d'Aqshy, Cristal de Hysh, Malepierre…)
-   deviennent les vrais objets du mod (éclats des Vents, malepierre, pierre des Royaumes brute) partout : butin des mobs,
+1. Une seule économie de matériaux : les anciennes « écailles » du datapack (Braise d'Pyréa, Cristal de Lumina, Fangepierre…)
+   deviennent les vrais objets du mod (éclats des Vents, fangepierre, pierre des Royaumes brute) partout : butin des mobs,
    coffres, kits, recettes de la Forge des Royaumes, textes des menus.
 2. Une seule forge pour les armes et armures : la Forge des Royaumes (table de forgeron) ne fabrique plus que consommables,
    talismans, lingots et sceaux. Armes et armures se forgent à la Forge de guerre. Ses recettes de faction restantes
-   (arc de Hysh, fusil à aether, festin ogor…) sont réservées à leur faction.
+   (arc de Lumina, fusil à aether, festin ogor…) sont réservées à leur faction.
 3. Kits de serment et coffres : les anciennes pièces d'armure de faction sont remplacées par l'armure Soldat de l'arsenal.
 Lancer : python3 outils/objets/coherence.py"""
 import glob
@@ -18,27 +18,27 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ICI, "..", "..", "src", "main", "resources", "data", "royaumes")
 
 ECAILLES = {  # rm de l'ancienne écaille -> (objet du mod, ancien nom, nouveau nom)
-    "malepierre": ("royaumes:malepierre", "Malepierre", "Malepierre"),
-    "braise": ("royaumes:eclat_aqshy", "Braise d'Aqshy", "Éclat d'Aqshy"),
-    "cristal": ("royaumes:eclat_hysh", "Cristal de Hysh", "Éclat d'Hysh"),
-    "ombre": ("royaumes:eclat_ulgu", "Pierre-Ombre", "Éclat d'Ulgu"),
-    "ambre": ("royaumes:eclat_ghur", "Ambre de Ghur", "Éclat de Ghur"),
-    "graine": ("royaumes:eclat_ghyran", "Graine de Vie", "Éclat de Ghyran"),
-    "ame": ("royaumes:eclat_shyish", "Fragment d'Âme", "Éclat de Shyish"),
-    "ur_or": ("royaumes:eclat_chamon", "Ur-Or", "Éclat de Chamon"),
-    "aether_or": ("royaumes:eclat_chamon", "Aether-Or", "Éclat de Chamon"),
-    "sigmarite_brute": ("royaumes:eclat_azyr", "Sigmarite Brute", "Éclat d'Azyr"),
+    "malepierre": ("royaumes:malepierre", "Fangepierre", "Fangepierre"),
+    "braise": ("royaumes:eclat_aqshy", "Braise d'Pyréa", "Éclat d'Pyréa"),
+    "cristal": ("royaumes:eclat_hysh", "Cristal de Lumina", "Éclat d'Lumina"),
+    "ombre": ("royaumes:eclat_ulgu", "Pierre-Ombre", "Éclat d'Umbria"),
+    "ambre": ("royaumes:eclat_ghur", "Ambre de Féralia", "Éclat de Féralia"),
+    "graine": ("royaumes:eclat_ghyran", "Graine de Vie", "Éclat de Sylvéa"),
+    "ame": ("royaumes:eclat_shyish", "Fragment d'Âme", "Éclat de Nécréa"),
+    "ur_or": ("royaumes:eclat_chamon", "Ur-Or", "Éclat de Ferrumia"),
+    "aether_or": ("royaumes:eclat_chamon", "Éther-Or", "Éclat de Ferrumia"),
+    "sigmarite_brute": ("royaumes:eclat_azyr", "Célestacier Brute", "Éclat d'Célestis"),
     "eclat": ("royaumes:pierre_royaumes_brute", "Éclat de Royaume", "Pierre des Royaumes brute"),
 }
 RETIREES = {  # recettes d'armes/armures de l'ancienne forge -> nom dans le menu
-    "panoplie_sigmarite": "Panoplie de Sigmarite (Ordre)", "panoplie_fleau": "Armure du Fléau Noir (Chaos)",
-    "panoplie_nadirite": "Armure de Nadirite (Mort)", "panoplie_ferraille": "Armure de Ferraille Ironjawz (Destruction)",
-    "marteau_sigmar": "Marteau de Sigmar", "lame_demoniaque": "Lame Démoniaque", "faux_ame": "Faux des Âmes",
-    "choppa_gork": "Choppa de Gork", "lame_malepierre": "Lame de Malepierre", "hache_ur_or": "Hache d'Ur-Or",
+    "panoplie_sigmarite": "Panoplie de Célestacier (Ordre)", "panoplie_fleau": "Armure du Fléau Noir (Chaos)",
+    "panoplie_nadirite": "Armure de Néantite (Mort)", "panoplie_ferraille": "Armure de Ferraille Mâchefers (Destruction)",
+    "marteau_sigmar": "Marteau de Aurion", "lame_demoniaque": "Lame Démoniaque", "faux_ame": "Faux des Âmes",
+    "choppa_gork": "Hachoir de Brog", "lame_malepierre": "Lame de Fangepierre", "hache_ur_or": "Hache d'Ur-Or",
 }
 # recettes de faction restantes : (numéros rm_faction min, max, nom affiché)
-RESERVEES = {"arc_hysh": (7, 7, "Lumineth"), "fusil_aether": (4, 4, "Kharadron"), "festin_ogor": (24, 24, "Ogors"),
-             "talisman_grimnir": (3, 3, "Fyreslayers"), "elixir_malepierre": (15, 15, "Skaven"), "oeil_chaos": (10, 16, "Chaos"),
+RESERVEES = {"arc_hysh": (7, 7, "de Lumière"), "fusil_aether": (4, 4, "Nuées"), "festin_ogor": (24, 24, "Ogres"),
+             "talisman_grimnir": (3, 3, "Tueurs-de-Braise"), "elixir_malepierre": (15, 15, "Hommes-Rats"), "oeil_chaos": (10, 16, "Chaos"),
              "rune_sigmar": (1, 9, "Ordre")}
 FACTIONS = ["", "stormcast", "cites", "fyreslayers", "kharadron", "khaine", "idoneth", "lumineth", "seraphon", "sylvaneth", "esclaves",
             "khorne", "tzeentch", "slaanesh", "nurgle", "skaven", "hashut", "nighthaunt", "soulblight", "ossiarch", "fec", "ironjawz",
@@ -184,9 +184,9 @@ def forge():
                 saute = nom in RETIREES.values()
                 if not saute:
                     for k, (a, b, qui) in RESERVEES.items():
-                        base = {"arc_hysh": "Arc de Lumière de Hysh", "fusil_aether": "Fusil à Aether", "festin_ogor": "Festin",
-                                "talisman_grimnir": "Talisman de Grimnir", "elixir_malepierre": "Élixir de Malepierre",
-                                "oeil_chaos": "Œil du Chaos", "rune_sigmar": "Rune de Sigmar"}[k]
+                        base = {"arc_hysh": "Arc de Lumière de Lumina", "fusil_aether": "Fusil à Éther", "festin_ogor": "Festin",
+                                "talisman_grimnir": "Talisman de Brasdur", "elixir_malepierre": "Élixir de Fangepierre",
+                                "oeil_chaos": "Œil du Chaos", "rune_sigmar": "Rune de Aurion"}[k]
                         if nom.startswith(base) and "réservé" not in nom:
                             el = dict(el, text=t + " [réservé : " + qui + "]")
                 neuf.append(el)

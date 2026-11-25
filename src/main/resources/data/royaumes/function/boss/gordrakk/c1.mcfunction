@@ -1,4 +1,4 @@
-title @a[distance=..40] actionbar [{"text": "Gordrakk : ", "color": "gold"}, {"text": "WAAAGH !", "color": "white", "bold": true}]
+title @a[distance=..40] actionbar [{"text": "Krognak : ", "color": "gold"}, {"text": "GRAAAH !", "color": "white", "bold": true}]
 summon royaumes:brute ~2 ~ ~2
 summon royaumes:brute ~-2 ~ ~-2
 summon royaumes:brute ~2 ~ ~-2

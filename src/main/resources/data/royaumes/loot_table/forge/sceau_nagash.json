@@ -11,13 +11,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Sceau de Nagash",
+                  "text": "Sceau de Necrath",
                   "color": "dark_purple",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Invoque le Grand Nécromancien. Que Sigmar vous garde.",
+                    "text": "Invoque le Grand Nécromancien. Que Aurion vous garde.",
                     "color": "gray",
                     "italic": true
                   },

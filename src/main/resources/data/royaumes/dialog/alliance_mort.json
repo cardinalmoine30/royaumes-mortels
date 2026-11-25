@@ -10,7 +10,7 @@
       "type": "minecraft:plain_message",
       "width": 300,
       "contents": {
-        "text": "Les légions de Nagash, Grand Nécromancien de Shyish."
+        "text": "Les légions de Necrath, Grand Nécromancien de Nécréa."
       }
     }
   ],
@@ -19,12 +19,12 @@
   "actions": [
     {
       "label": {
-        "text": "Nighthaunt",
+        "text": "Hantise Nocturne",
         "color": "dark_aqua"
       },
       "tooltip": [
         {
-          "text": "Royaume : Shyish\n",
+          "text": "Royaume : Nécréa\n",
           "color": "gray"
         },
         {
@@ -49,7 +49,7 @@
       },
       "tooltip": [
         {
-          "text": "Royaume : Shyish\n",
+          "text": "Royaume : Nécréa\n",
           "color": "gray"
         },
         {
@@ -69,12 +69,12 @@
     },
     {
       "label": {
-        "text": "Ossiarch Bonereapers",
+        "text": "Faucheurs d'Os",
         "color": "white"
       },
       "tooltip": [
         {
-          "text": "Royaume : Shyish\n",
+          "text": "Royaume : Nécréa\n",
           "color": "gray"
         },
         {
@@ -99,7 +99,7 @@
       },
       "tooltip": [
         {
-          "text": "Royaume : Shyish / Ulgu\n",
+          "text": "Royaume : Nécréa / Umbria\n",
           "color": "gray"
         },
         {

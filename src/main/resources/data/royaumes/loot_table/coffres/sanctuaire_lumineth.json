@@ -151,13 +151,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Arc de Novice Vanari",
+                  "text": "Arc de Novice Lumineux",
                   "color": "white",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Ses flèches brillent comme Hysh.",
+                    "text": "Ses flèches brillent comme Lumina.",
                     "color": "gray",
                     "italic": true
                   }
@@ -179,7 +179,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lame de Hysh",
+                  "text": "Lame de Lumina",
                   "color": "white",
                   "italic": false
                 },
@@ -306,13 +306,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lingot de Sigmarite",
+                  "text": "Lingot de Célestacier",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Métal divin forgé dans le Sigmarabulum.",
+                    "text": "Métal divin forgé dans le Forge-Céleste.",
                     "color": "gray",
                     "italic": true
                   },
@@ -530,7 +530,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Ferraille d'Orruk",
+                  "text": "Ferraille d'Orc",
                   "color": "gray",
                   "italic": false
                 },

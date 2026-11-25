@@ -10,7 +10,7 @@
       "type": "minecraft:plain_message",
       "width": 300,
       "contents": {
-        "text": "Orruks, grots, ogors et gargants : la loi du plus fort."
+        "text": "Orcs, grots, ogors et géants : la loi du plus fort."
       }
     }
   ],
@@ -19,12 +19,12 @@
   "actions": [
     {
       "label": {
-        "text": "Ironjawz",
+        "text": "Mâchefers",
         "color": "gold"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghur\n",
+          "text": "Royaume : Féralia\n",
           "color": "gray"
         },
         {
@@ -44,12 +44,12 @@
     },
     {
       "label": {
-        "text": "Kruleboyz",
+        "text": "Cruelgars",
         "color": "dark_green"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghyran (marais)\n",
+          "text": "Royaume : Sylvéa (marais)\n",
           "color": "gray"
         },
         {
@@ -69,12 +69,12 @@
     },
     {
       "label": {
-        "text": "Gloomspite Gitz",
+        "text": "Gobelins de la Lune Noire",
         "color": "yellow"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ulgu\n",
+          "text": "Royaume : Umbria\n",
           "color": "gray"
         },
         {
@@ -94,12 +94,12 @@
     },
     {
       "label": {
-        "text": "Ogor Mawtribes",
+        "text": "Tribus Ogresses",
         "color": "gold"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghur\n",
+          "text": "Royaume : Féralia\n",
           "color": "gray"
         },
         {
@@ -119,12 +119,12 @@
     },
     {
       "label": {
-        "text": "Fils de Behemat",
+        "text": "Fils d'Ymorath",
         "color": "dark_green"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghur\n",
+          "text": "Royaume : Féralia\n",
           "color": "gray"
         },
         {

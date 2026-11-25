@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_boss @s
-data modify entity @s CustomName set value {"text": "Nagash, Dieu de la Mort", "color": "dark_purple"}
+data modify entity @s CustomName set value {"text": "Necrath, Dieu de la Mort", "color": "dark_purple"}
 attribute @s minecraft:max_health base set 900
 attribute @s minecraft:attack_damage base set 18
 attribute @s minecraft:scale base set 2.6
@@ -21,5 +21,5 @@ tag @s add rm_boss
 tag @s add rm_boss_nagash
 data modify entity @s PersistenceRequired set value 1b
 data modify entity @s CustomNameVisible set value 1b
-tellraw @a[distance=..96] [{"text": "☠ ", "color": "dark_purple"}, {"text": "Nagash, Dieu de la Mort", "color": "dark_purple", "bold": true}, {"text": " « Tout ce qui vit m'appartient. »", "color": "gray", "italic": true}]
+tellraw @a[distance=..96] [{"text": "☠ ", "color": "dark_purple"}, {"text": "Necrath, Dieu de la Mort", "color": "dark_purple", "bold": true}, {"text": " « Tout ce qui vit m'appartient. »", "color": "gray", "italic": true}]
 playsound minecraft:entity.wither.spawn hostile @a[distance=..96] ~ ~ ~ 2 0.6

@@ -6,20 +6,20 @@ import data_v4
 from build import NS, OUT, fn, txt, jtxt
 
 DESC = {
-    "royaumes_mortels": "Azyr : pics foudroyés des forteresses Stormcast et Azyrheim, la cité de Sigmar.",
-    "ghyran": "Ghyran : jungles des Seraphon, bois Sylvaneth, marais convoités par Nurgle.",
-    "aqshy": "Aqshy : volcans des Fyreslayers, cendres de Khorne et ziggurats de Hashut.",
-    "shyish": "Shyish : terres de Nagash, nécropoles Soulblight et déserts d'os Ossiarch.",
-    "ghur": "Ghur : savanes des mégafaunes, Orruks, Ogors et Gargants.",
-    "chamon": "Chamon : collines de métal et ports volants Kharadron.",
-    "ulgu": "Ulgu : brumes des Filles de Khaine, mer des Idoneth, marais Gitz.",
-    "hysh": "Hysh : îles célestes et sanctuaires Lumineth.",
-    "huit_points": "Les Huit-Points : désolation du Chaos et Terres Rongées des Skavens.",
+    "royaumes_mortels": "Célestis : pics foudroyés des forteresses Foudroyés et Célestheim, la cité de Aurion.",
+    "ghyran": "Sylvéa : jungles des Astrosauriens, bois Sylvains, marais convoités par Morbus.",
+    "aqshy": "Pyréa : volcans des Tueurs-de-Braise, cendres de Sangrath et ziggurats de Ashkar.",
+    "shyish": "Nécréa : terres de Necrath, nécropoles Sanguinaire et déserts d'os Faucheurs d'Os.",
+    "ghur": "Féralia : savanes des mégafaunes, Orcs, Ogres et Géants.",
+    "chamon": "Ferrumia : collines de métal et ports volants Nuées.",
+    "ulgu": "Umbria : brumes des Filles de Morvaine, mer des Abyssal, marais Gobelins.",
+    "hysh": "Lumina : îles célestes et sanctuaires de Lumière.",
+    "huit_points": "Les Huit-Voies : désolation du Chaos et Terres Rongées des Hommes-Rats.",
 }
 
 
 def royaumes():
-    l = [("royaumes_mortels", "Azyr, Royaume des Cieux", "aqua")]
+    l = [("royaumes_mortels", "Célestis, Royaume des Cieux", "aqua")]
     l += [(d, v["nom"], v["c"]) for d, v in data_v4.DIMENSIONS.items()]
     return l
 
@@ -30,7 +30,7 @@ def generer():
     for i, (did, nom, c) in enumerate(R, start=1):
         actions.append({"label": {"text": nom.split(",")[0], "color": c, "bold": True}, "tooltip": {"text": DESC[did]},
                         "width": 150, "action": {"type": "run_command", "command": f"trigger rm_voyage set {i}"}})
-    actions.append({"label": {"text": "Monde-Pont (retour)", "color": "white"}, "tooltip": {"text": "Revenir dans le monde de départ."},
+    actions.append({"label": {"text": "Monde-Pont (retour)", "color": "white"}, "tooltip": {"text": "Revenir dans le monde départ."},
                     "width": 150, "action": {"type": "run_command", "command": "trigger rm_voyage set 99"}})
     B.w(f"data/{NS}/dialog/voyage.json", {
         "type": "minecraft:multi_action",

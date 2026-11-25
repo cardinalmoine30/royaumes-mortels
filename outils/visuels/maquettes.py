@@ -102,7 +102,7 @@ def serment(choix=0, survol=11):
     img = fond_nuit(W, H)
     img_courante[0] = img
     d = ImageDraw.Draw(img)
-    # éclairs d'Azyr discrets en fond
+    # éclairs d'Célestis discrets en fond
     for x0 in (60, 400):
         pts = [(x0, 0), (x0 + 8, 40), (x0 - 4, 70), (x0 + 10, 120)]
         d.line([(a * K, b * K) for a, b in pts], fill=(44, 90, 160), width=K)
@@ -162,7 +162,7 @@ def hud(num=21, energie=72, maxi=135, vent=2):
     W, H = 480, 270
     img = Image.new("RGBA", (W * K, H * K))
     d = ImageDraw.Draw(img)
-    # décor : ciel de Ghur et plaine
+    # décor : ciel de Féralia et plaine
     for i in range(H * K):
         t = i / (H * K)
         c = tuple(int(a + (b - a) * t) for a, b in zip((206, 140, 90), (240, 200, 150))) if t < 0.55 else (92, 120, 52)
@@ -205,10 +205,10 @@ def hud(num=21, energie=72, maxi=135, vent=2):
     d.rectangle((4 * K, 4 * K, 30 * K, 30 * K), fill=(12, 20, 40, 200), outline=OR, width=K)
     coller(img, embleme(num - 1), 6, 6, 22, 22)
     texte(d, 34, 6, FACTIONS[num - 1]["nom"], 7, OR_C, gras=True)
-    texte(d, 34, 17, "Niveau 7 · Royaume de Ghur", 6, (240, 230, 210), serif=False)
+    texte(d, 34, 17, "Niveau 7 · Royaume de Féralia", 6, (240, 230, 210), serif=False)
     # 3) titre d'entrée dans un Royaume (titre vanilla stylé)
     texte(d, W // 2, 70, "ROYAUME DE GHUR", 16, (230, 170, 110), gras=True, centre=True)
-    texte(d, W // 2, 92, "Le Royaume des Bêtes — Vent de Ghur : sorts à moitié prix", 7, (250, 240, 220), centre=True, serif=False)
+    texte(d, W // 2, 92, "Le Royaume des Bêtes — Vent de Féralia : sorts à moitié prix", 7, (250, 240, 220), centre=True, serif=False)
     # 4) temps de recharge du sort en cours (barre d'action)
     texte(d, cx, H - 50, "Fureur bestiale — 20 énergie", 7, (255, 220, 160), centre=True, serif=False)
     # légendes

@@ -9,7 +9,7 @@ public final class DonneesHeros {
     private DonneesHeros() {}
 
     public static volatile FicheHeros actuelle = null;
-    /** Dernière fiche du camp de guerre, et demande d'ouverture de son écran. */
+    /** Dernière fiche du camp de guerre, et demand'ouverture de son écran. */
     public static volatile FicheCamp camp = null;
     public static volatile boolean ouvrirCamp = false;
     public static volatile boolean ouvrirForge = false;

@@ -157,7 +157,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Les runes brûlent encore de la colère de Grimnir.",
+                    "text": "Les runes brûlent encore de la colère de Brasdur.",
                     "color": "gray",
                     "italic": true
                   }
@@ -289,13 +289,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lingot de Sigmarite",
+                  "text": "Lingot de Célestacier",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Métal divin forgé dans le Sigmarabulum.",
+                    "text": "Métal divin forgé dans le Forge-Céleste.",
                     "color": "gray",
                     "italic": true
                   },
@@ -513,7 +513,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Ferraille d'Orruk",
+                  "text": "Ferraille d'Orc",
                   "color": "gray",
                   "italic": false
                 },

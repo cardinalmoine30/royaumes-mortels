@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Ferraille d'Orruk",
+                  "text": "Ferraille d'Orc",
                   "color": "gray",
                   "italic": false
                 },

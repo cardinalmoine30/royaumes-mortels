@@ -69,27 +69,27 @@ scoreboard objectives add rm_bd18 dummy
 scoreboard objectives add rm_bd19 dummy
 scoreboard objectives add rm_bd20 dummy
 scoreboard objectives add rm_bd21 dummy
-bossbar add royaumes:nagash {"text": "Nagash, Dieu de la Mort", "color": "dark_purple", "bold": true}
+bossbar add royaumes:nagash {"text": "Necrath, Dieu de la Mort", "color": "dark_purple", "bold": true}
 bossbar set royaumes:nagash color purple
 bossbar set royaumes:nagash style notched_10
 bossbar set royaumes:nagash max 900
-bossbar add royaumes:archaon {"text": "Archaon, l'Élu Éternel", "color": "dark_red", "bold": true}
+bossbar add royaumes:archaon {"text": "Varkhan, l'Élu Éternel", "color": "dark_red", "bold": true}
 bossbar set royaumes:archaon color red
 bossbar set royaumes:archaon style notched_10
 bossbar set royaumes:archaon max 1000
-bossbar add royaumes:gordrakk {"text": "Gordrakk, le Poing de Gork", "color": "gold", "bold": true}
+bossbar add royaumes:gordrakk {"text": "Krognak, le Poing de Brog", "color": "gold", "bold": true}
 bossbar set royaumes:gordrakk color yellow
 bossbar set royaumes:gordrakk style notched_10
 bossbar set royaumes:gordrakk max 800
-bossbar add royaumes:skarbrand {"text": "Skarbrand, l'Exilé", "color": "red", "bold": true}
+bossbar add royaumes:skarbrand {"text": "Brakhar, l'Exilé", "color": "red", "bold": true}
 bossbar set royaumes:skarbrand color red
 bossbar set royaumes:skarbrand style notched_10
 bossbar set royaumes:skarbrand max 850
-bossbar add royaumes:thanquol {"text": "Thanquol & Boneripper", "color": "green", "bold": true}
+bossbar add royaumes:thanquol {"text": "Skrivel & Broie-Os", "color": "green", "bold": true}
 bossbar set royaumes:thanquol color green
 bossbar set royaumes:thanquol style notched_10
 bossbar set royaumes:thanquol max 750
-bossbar add royaumes:rotigus {"text": "Rotigus, le Pluvieux", "color": "dark_green", "bold": true}
+bossbar add royaumes:rotigus {"text": "Putrefax, le Pluvieux", "color": "dark_green", "bold": true}
 bossbar set royaumes:rotigus color green
 bossbar set royaumes:rotigus style notched_10
 bossbar set royaumes:rotigus max 950

@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_destruction @s
-data modify entity @s CustomName set value {"text": "Tireur Kruleboyz", "color": "dark_green"}
+data modify entity @s CustomName set value {"text": "Tireur Cruelgars", "color": "dark_green"}
 attribute @s minecraft:max_health base set 24
 attribute @s minecraft:scale base set 1.1
 data modify entity @s Health set value 24.0f

@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_destruction @s
-data modify entity @s CustomName set value {"text": "Ogor Gutbuster", "color": "gold"}
+data modify entity @s CustomName set value {"text": "Ogre Panse-de-Fer", "color": "gold"}
 data modify entity @s IsBaby set value 0b
 attribute @s minecraft:max_health base set 60
 attribute @s minecraft:attack_damage base set 9

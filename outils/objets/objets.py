@@ -30,26 +30,26 @@ R = random.Random(26)
 # ------------------------------------------------------------------------------------------ données
 # vent : id, nom, couleur principale, couleur claire, catalyseur vanilla de l'éclat, dimension
 VENTS = [
-    ("azyr", "Azyr", (70, 140, 255), (200, 230, 255), "minecraft:lightning_rod", "royaumes:royaumes_mortels"),
-    ("aqshy", "Aqshy", (240, 90, 20), (255, 210, 90), "minecraft:blaze_powder", "royaumes:aqshy"),
-    ("ghur", "Ghur", (160, 100, 50), (230, 200, 150), "minecraft:bone", "royaumes:ghur"),
-    ("ghyran", "Ghyran", (60, 190, 70), (190, 250, 160), "minecraft:moss_block", "royaumes:ghyran"),
-    ("hysh", "Hysh", (240, 230, 160), (255, 255, 240), "minecraft:glowstone_dust", "royaumes:hysh"),
-    ("ulgu", "Ulgu", (100, 90, 140), (190, 180, 220), "minecraft:ink_sac", "royaumes:ulgu"),
-    ("shyish", "Shyish", (150, 90, 210), (220, 190, 250), "minecraft:soul_sand", "royaumes:shyish"),
-    ("chamon", "Chamon", (220, 170, 40), (255, 235, 140), "minecraft:gold_ingot", "royaumes:chamon"),
+    ("azyr", "Célestis", (70, 140, 255), (200, 230, 255), "minecraft:lightning_rod", "royaumes:royaumes_mortels"),
+    ("aqshy", "Pyréa", (240, 90, 20), (255, 210, 90), "minecraft:blaze_powder", "royaumes:aqshy"),
+    ("ghur", "Féralia", (160, 100, 50), (230, 200, 150), "minecraft:bone", "royaumes:ghur"),
+    ("ghyran", "Sylvéa", (60, 190, 70), (190, 250, 160), "minecraft:moss_block", "royaumes:ghyran"),
+    ("hysh", "Lumina", (240, 230, 160), (255, 255, 240), "minecraft:glowstone_dust", "royaumes:hysh"),
+    ("ulgu", "Umbria", (100, 90, 140), (190, 180, 220), "minecraft:ink_sac", "royaumes:ulgu"),
+    ("shyish", "Nécréa", (150, 90, 210), (220, 190, 250), "minecraft:soul_sand", "royaumes:shyish"),
+    ("chamon", "Ferrumia", (220, 170, 40), (255, 235, 140), "minecraft:gold_ingot", "royaumes:chamon"),
 ]
 # sort : (vent, rang, id, nom, coût, recharge en ticks, description)
 SORTS = [
-    ("azyr", 0, "eclair", "Éclair d'Azyr", 15, 20, "La foudre frappe la cible visée."),
-    ("azyr", 1, "comete", "Comète de Sigmar", 60, 200, "Une comète s'abat et foudroie la zone."),
+    ("azyr", 0, "eclair", "Éclair d'Célestis", 15, 20, "La foudre frappe la cible visée."),
+    ("azyr", 1, "comete", "Comète de Aurion", 60, 200, "Une comète s'abat et foudroie la zone."),
     ("aqshy", 0, "trait", "Trait de flamme", 12, 15, "Lance une salve de boules de feu."),
     ("aqshy", 1, "cendres", "Vague de cendres", 45, 160, "Un cône de feu embrase les ennemis devant toi."),
     ("ghur", 0, "fureur", "Fureur bestiale", 20, 40, "Force et vitesse pendant 15 secondes."),
-    ("ghur", 1, "meute", "Meute de Ghur", 50, 400, "Trois loups de Ghur combattent à tes côtés une minute."),
+    ("ghur", 1, "meute", "Meute de Féralia", 50, 400, "Trois loups de Féralia combattent à tes côtés une minute."),
     ("ghyran", 0, "seve", "Sève de vie", 20, 40, "Soigne 8 points de vie et régénère."),
-    ("ghyran", 1, "ronces", "Ronces d'Alarielle", 50, 200, "Des ronces entravent et blessent les ennemis proches."),
-    ("hysh", 0, "rayon", "Rayon de Hysh", 15, 20, "Un rayon de lumière transperce la cible."),
+    ("ghyran", 1, "ronces", "Ronces d'Sylvarine", 50, 200, "Des ronces entravent et blessent les ennemis proches."),
+    ("hysh", 0, "rayon", "Rayon de Lumina", 15, 20, "Un rayon de lumière transperce la cible."),
     ("hysh", 1, "eclat", "Éclat aveuglant", 40, 200, "Aveugle et révèle les ennemis ; brûle les morts-vivants."),
     ("ulgu", 0, "pas", "Pas d'ombre", 15, 30, "Téléporte jusqu'à 16 blocs dans la direction visée."),
     ("ulgu", 1, "voile", "Voile de ténèbres", 45, 300, "Invisibilité ; les ennemis proches sont plongés dans le noir."),
@@ -69,7 +69,7 @@ BLOCS = [
     ("bois_de_vie", "Bois de vie", "Lifewood", "ghyran", "hache", 2.0, 0, "minecraft:oak_planks"),
     ("jade_vivant", "Jade vivant", "Living Jade", "ghyran", "pioche", 1.8, 3, "bois_de_vie"),
     ("pierre_de_lumiere", "Pierre de lumière", "Lightstone", "hysh", "pioche", 1.5, 15, "minecraft:quartz_block"),
-    ("cristal_de_hysh", "Cristal de Hysh", "Hysh Crystal", "hysh", "pioche", 1.2, 12, "pierre_de_lumiere"),
+    ("cristal_de_hysh", "Cristal de Lumina", "Lumina Crystal", "hysh", "pioche", 1.2, 12, "pierre_de_lumiere"),
     ("ardoise_d_ombre", "Ardoise d'ombre", "Shadow Slate", "ulgu", "pioche", 2.5, 0, "minecraft:cobbled_deepslate"),
     ("brume_figee", "Brume figée", "Frozen Mist", "ulgu", "pioche", 1.0, 2, "ardoise_d_ombre"),
     ("pierre_funeraire", "Pierre funéraire", "Gravestone", "shyish", "pioche", 2.0, 0, "minecraft:tuff"),
@@ -89,12 +89,12 @@ BLOCS = [
     ("minerai_azyrite", "Minerai d'azyrite", "Azyrite Ore", "azyr", "pioche", 3.0, 3, None),
     ("minerai_braise", "Minerai de braise", "Emberstone Ore", "aqshy", "pioche", 3.0, 5, None),
     ("minerai_croc", "Minerai d'ivoire de croc", "Fang Ivory Ore", "ghur", "pioche", 3.0, 0, None),
-    ("minerai_jade", "Minerai de jade de vie", "Lifejade Ore", "ghyran", "pioche", 3.0, 2, None),
+    ("minerai_jade", "Minerai de jade vie", "Lifejade Ore", "ghyran", "pioche", 3.0, 2, None),
     ("minerai_lumineux", "Minerai de lumière", "Lightstone Ore", "hysh", "pioche", 3.0, 8, None),
     ("minerai_ombre", "Minerai d'ombre", "Shadowstone Ore", "ulgu", "pioche", 3.0, 0, None),
     ("minerai_ames", "Minerai d'âmes", "Soulstone Ore", "shyish", "pioche", 3.0, 4, None),
     ("minerai_or_vif", "Minerai d'or vif", "Quickgold Ore", "chamon", "pioche", 3.0, 2, None),
-    ("minerai_malepierre", "Minerai de malepierre", "Warpstone Ore", "chaos", "pioche", 4.0, 6, None),
+    ("minerai_malepierre", "Minerai de fangepierre", "Warpstone Ore", "chaos", "pioche", 4.0, 6, None),
 ]
 # minerai -> (objet donné, min, max, Royaume / dimensions, filon, nombre de filons, hauteur max)
 MINERAIS = {
@@ -116,20 +116,20 @@ OBJETS += [("pierre_royaumes_brute", "Pierre des Royaumes brute", "Raw Realmston
            ("cristal_arcanique", "Cristal arcanique", "Arcane Crystal", "magie"),
            ("grimoire_des_vents", "Grimoire des Vents", "Grimoire of the Winds", "magie"),
            ("marteau_tempete", "Marteau-tempête", "Stormhammer", "armes"),
-           ("malepierre", "Malepierre", "Warpstone", "magie")]
+           ("malepierre", "Fangepierre", "Warpstone", "magie")]
 # reliques des six seigneurs, et l'œil qui mène à l'antre de chacun : id, nom, Royaume de l'antre, structure
 SEIGNEURS = [
-    ("nagash", "Sceptre de Nagash", "Zefet-nebtar, sceptre du Grand Nécromancien", "Shyish", "necropole_nagash", (150, 90, 210), (60, 220, 160)),
-    ("archaon", "Pourfendeuse des Rois", "La lame démoniaque d'Archaon, l'Élu Éternel", "les Huit-Points", "trone_archaon", (140, 20, 30), (230, 200, 90)),
-    ("gordrakk", "Krokfendeur de Gordrakk", "La hache-poing de Gordrakk, le Poing de Gork", "Ghur", "arene_gordrakk", (80, 140, 40), (200, 160, 60)),
-    ("skarbrand", "Massacre et Carnage", "Les haches jumelles de Skarbrand l'Exilé", "Aqshy", "autel_skarbrand", (200, 40, 20), (255, 170, 40)),
-    ("thanquol", "Bâton de malefeu de Thanquol", "Le bâton du Prophète Gris, gorgé de malepierre", "les Terres Rongées (Huit-Points)", "tour_thanquol", (90, 200, 60), (40, 40, 40)),
-    ("rotigus", "Bâton de pluie de Rotigus", "Le bâton noueux du Père-Pluie de Nurgle", "Ghyran", "jardin_rotigus", (110, 140, 50), (180, 160, 90)),
+    ("nagash", "Sceptre de Necrath", "Zefet-nebtar, sceptre du Grand Nécromancien", "Nécréa", "necropole_nagash", (150, 90, 210), (60, 220, 160)),
+    ("archaon", "Pourfendeuse des Rois", "La lame démoniaque d'Varkhan, l'Élu Éternel", "les Huit-Voies", "trone_archaon", (140, 20, 30), (230, 200, 90)),
+    ("gordrakk", "Krokfendeur de Krognak", "La hache-poing de Krognak, le Poing de Brog", "Féralia", "arene_gordrakk", (80, 140, 40), (200, 160, 60)),
+    ("skarbrand", "Massacre et Carnage", "Les haches jumelles de Brakhar l'Exilé", "Pyréa", "autel_skarbrand", (200, 40, 20), (255, 170, 40)),
+    ("thanquol", "Bâton de malefeu de Skrivel", "Le bâton du Prophète des Cendres, gorgé de fangepierre", "les Terres Rongées (Huit-Voies)", "tour_thanquol", (90, 200, 60), (40, 40, 40)),
+    ("rotigus", "Bâton de pluie de Putrefax", "Le bâton noueux du Père-Pluie de Morbus", "Sylvéa", "jardin_rotigus", (110, 140, 50), (180, 160, 90)),
 ]
 for sid, nom, _, roy, _, _, _ in SEIGNEURS:
     OBJETS.append(("relique_" + sid, nom, nom, "armes"))
-    OBJETS.append(("oeil_" + sid, "Œil de " + {"nagash": "Nagash", "archaon": "l'Élu", "gordrakk": "Gordrakk", "skarbrand": "Skarbrand",
-                                               "thanquol": "Thanquol", "rotigus": "Rotigus"}[sid], "Eye of " + sid.capitalize(), "magie"))
+    OBJETS.append(("oeil_" + sid, "Œil de " + {"nagash": "Necrath", "archaon": "l'Élu", "gordrakk": "Krognak", "skarbrand": "Brakhar",
+                                               "thanquol": "Skrivel", "rotigus": "Putrefax"}[sid], "Eye of " + sid.capitalize(), "magie"))
 
 FAC_COUL = {}
 try:
@@ -148,7 +148,7 @@ def vent_de_royaume(r):
             return i
     if "huit" in r:
         return 5
-    return 6  # Terres Rongées : Shyish (décrépitude)
+    return 6  # Terres Rongées : Nécréa (décrépitude)
 
 
 def dimension_de_royaume(r):
@@ -413,7 +413,7 @@ def tex_relique(sg):
                     t.p(x, y, c1 if x > 13 else mix(c1, (220, 220, 220), 0.4))
         t.p(15, 2, c2)
         t.p(15, 7, c2)
-    else:  # bâtons de Thanquol et Rotigus
+    else:  # bâtons de Skrivel et Putrefax
         for y in range(1, 7):
             for x in range(10, 16):
                 if (x - 12.5) ** 2 + (y - 3.5) ** 2 <= 6:
@@ -634,7 +634,7 @@ def tex_bloc(bid):
             ligne(t, [(8, 8), (round(8 + 5 * math.cos(ang)), round(8 + 5 * math.sin(ang)))], (180, 40, 40))
         for (x, y) in [(7, 7), (8, 7), (7, 8), (8, 8)]:
             t.p(x, y, (255, 210, 90))
-    elif bid == "etendard_de_camp":  # drapeau : bleu d'Azyr, bordure d'or, comète
+    elif bid == "etendard_de_camp":  # drapeau : bleu d'Célestis, bordure d'or, comète
         for y in range(16):
             for x in range(16):
                 t.p(x, y, (44, 70, 150) if (x + y) % 7 else (36, 60, 132))

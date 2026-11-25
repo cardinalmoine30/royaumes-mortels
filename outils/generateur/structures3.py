@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Version 3 des structures : ambiance Age of Sigmar marquée, portails de royaume et repaires de boss."""
+"""Version 3 des structures : ambiance dark fantasy héroïque marquée, portails de royaume et repaires de boss."""
 import math
 from nbtgen import Struct
 from details import (rempart, meurtrieres, tour, fenetre_arc, lustre, table, tapis, banniere_murale, cheminee,
@@ -24,14 +24,14 @@ def cercle(cx, cz, r, pas=10):
 
 # =================================================================== DESTRUCTION
 def camp_orruk():
-    """Forteresse de ferraille Ironjawz avec idole de Gork, fosse de forge et trône du Mégaboss."""
+    """Forteresse de ferraille Mâchefers avec idole de Brog, fosse de forge et trône du Grand Chef."""
     W = 45
     s = base(W, 30, W, ["minecraft:coarse_dirt", "minecraft:packed_mud", "minecraft:dirt_path", "minecraft:gravel"],
              "minecraft:dirt", 41)
     c = W // 2
     ferraille = ["minecraft:iron_block", "minecraft:waxed_exposed_cut_copper", "minecraft:waxed_weathered_copper",
                  "minecraft:spruce_planks", "minecraft:iron_block", "minecraft:waxed_oxidized_cut_copper", "minecraft:stripped_spruce_log"]
-    # Palissade de ferraille dentelée
+    # Palissade ferraille dentelée
     for (x, z) in [(x, z) for x in range(1, W - 1) for z in (1, W - 2)] + [(x, z) for z in range(1, W - 1) for x in (1, W - 2)]:
         h = 6 + (x * 7 + z * 3) % 3
         s.fill(x, F + 1, z, x, F + h, z, ferraille)
@@ -40,7 +40,7 @@ def camp_orruk():
         if (x + z) % 11 == 0:
             s.set(x, F + h + 1, z, "minecraft:skeleton_skull")
     s.clear(c - 2, F + 1, W - 2, c + 2, F + 7, W - 2)
-    # Porte : mâchoire de Gork (dents d'os)
+    # Porte : mâchoire de Brog (dents d'os)
     s.fill(c - 4, F + 8, W - 2, c + 4, F + 10, W - 2, "minecraft:iron_block")
     for x in range(c - 3, c + 4, 2):
         s.set(x, F + 7, W - 2, "minecraft:bone_block[axis=y]"); s.set(x, F + 6, W - 2, "minecraft:pointed_dripstone[vertical_direction=down]")
@@ -57,7 +57,7 @@ def camp_orruk():
         for y in range(F + 1, F + 12):
             s.set(x, y, z + 1, "minecraft:ladder[facing=north]")
         s.set(x, F + 17, z, "minecraft:yellow_banner[rotation=0]")
-    # Idole géante de Gork (tête verte aux défenses d'os)
+    # Idole géante de Brog (tête verte aux défenses d'os)
     ix, iz = c, 9
     s.fill(ix - 4, F + 1, iz - 2, ix + 4, F + 3, iz + 2, ["minecraft:cobblestone", "minecraft:mossy_cobblestone"])
     s.fill(ix - 3, F + 4, iz - 2, ix + 3, F + 11, iz + 2, ["minecraft:green_terracotta", "minecraft:green_concrete", "minecraft:moss_block"])
@@ -71,7 +71,7 @@ def camp_orruk():
     s.fill(ix - 4, F + 12, iz - 2, ix + 4, F + 12, iz + 2, "minecraft:iron_block")  # casque de ferraille
     s.fill(ix - 1, F + 13, iz, ix + 1, F + 15, iz, "minecraft:pointed_dripstone[vertical_direction=up]")
     s.set(ix - 5, F + 1, iz + 3, "minecraft:campfire"); s.set(ix + 5, F + 1, iz + 3, "minecraft:campfire")
-    # Trône du Mégaboss
+    # Trône du Grand Chef
     s.fill(c - 2, F + 1, c - 3, c + 2, F + 1, c - 1, "minecraft:iron_block")
     s.fill(c - 1, F + 2, c - 3, c + 1, F + 5, c - 3, "minecraft:iron_block")
     s.set(c, F + 2, c - 2, "minecraft:spruce_stairs[facing=south]")
@@ -91,12 +91,12 @@ def camp_orruk():
         s.set(x + 1, F + 1, z + 1, "minecraft:red_bed[facing=north,part=head]"); s.set(x + 1, F + 1, z + 2, "minecraft:red_bed[facing=north,part=foot]")
         s.barrel(x + 6, F + 1, z + 1, L + "camp_orruk")
         s.set(x + 4, F + 4, z + 3, "minecraft:lantern[hanging=true]")
-    # Enclos du Maw-Krusha (os géants)
+    # Enclos du Broyeur-Gueule (os géants)
     s.walls(c + 3, F + 1, c + 4, c + 13, F + 2, c + 14, "minecraft:spruce_fence")
     for z in range(c + 6, c + 13, 2):
         s.fill(c + 8, F + 1, z, c + 8, F + 3, z, "minecraft:bone_block[axis=y]")
     s.set(c + 8, F + 1, c + 9, "minecraft:hay_block")
-    # Bannières Ironjawz (jaune / rouge)
+    # Bannières Mâchefers (jaune / rouge)
     for x in range(4, W - 4, 6):
         s.banner_pole(x, F + 1, c, 4, "yellow" if x % 12 else "red", "minecraft:iron_bars")
     s.mob(c, F + 2, c - 1, "zombie", "megaboss")
@@ -164,7 +164,7 @@ def fort_kruleboyz():
 
 
 def antre_gitz():
-    """Repaire de la Mauvaise Lune : idole lunaire grimaçante, forêt de champignons géants, nid d'Arachnarok."""
+    """Repaire de la Mauvaise Lune : idole lunaire grimaçante, forêt de champignons géants, nid d'Araignée Titanesque."""
     W = 41
     s = base(W, 34, W, ["minecraft:mycelium", "minecraft:podzol", "minecraft:moss_block", "minecraft:coarse_dirt"],
              "minecraft:dirt", 43, haut=14)
@@ -200,7 +200,7 @@ def antre_gitz():
     s.set(c, F + 1, c + 8, "minecraft:campfire")
     s.chest(c - 3, F + 1, c + 8, L + "antre_gitz", "east"); s.barrel(c + 3, F + 1, c + 8, L + "antre_gitz")
     s.set(c, F + 5, c + 8, "minecraft:shroomlight")
-    # Nid d'Arachnarok : toiles et œufs
+    # Nid d'Araignée Titanesque : toiles et œufs
     for (x, z) in cercle(c + 10, c + 11, 4, 30):
         s.set(x, F + 1, z, "minecraft:cobweb"); s.set(x, F + 2, z, "minecraft:cobweb")
     s.set(c + 10, F + 1, c + 11, "minecraft:turtle_egg[eggs=4]")
@@ -215,7 +215,7 @@ def antre_gitz():
 
 
 def campement_ogor():
-    """Campement des Mawtribes : la Grande Gueule (fosse dentée), marmite géante, séchoirs à viande, os de Stonehorn."""
+    """Campement des Tribus : la Grande Gueule (fosse dentée), marmite géante, séchoirs à viande, os de Corne-de-Pierre."""
     W = 41
     s = base(W, 22, W, ["minecraft:coarse_dirt", "minecraft:dirt", "minecraft:rooted_dirt", "minecraft:snow_block"],
              "minecraft:dirt", 44)
@@ -250,7 +250,7 @@ def campement_ogor():
         s.clear(x, F + 1, z + 4, x, F + 2, z + 4)
         s.set(x, F + 1, z, "minecraft:hay_block"); s.barrel(x + 2, F + 1, z, L + "campement_ogor")
         s.fill(x, F + 6, z, x, F + 8, z, "minecraft:spruce_fence"); s.set(x, F + 9, z, "minecraft:skeleton_skull")
-    # Carcasse de Stonehorn
+    # Carcasse de Corne-de-Pierre
     for x in range(c - 8, c + 4):
         s.set(x, F + 5, 4, "minecraft:bone_block[axis=x]")
     for x in range(c - 7, c + 3, 2):
@@ -270,7 +270,7 @@ def campement_ogor():
 
 # =================================================================== ORDRE
 def temple_seraphon():
-    """Temple-cité Seraphon : pyramide à degrés, serpents de Sotek, observatoire céleste du Slann."""
+    """Temple-cité Astrosauriens : pyramide à degrés, serpents de Sotek, observatoire céleste du Sage-Crapaud."""
     W = 47
     s = base(W, 40, W, ["minecraft:mossy_stone_bricks", "minecraft:stone_bricks", "minecraft:mossy_cobblestone"],
              "minecraft:mossy_cobblestone", 45)
@@ -304,7 +304,7 @@ def temple_seraphon():
         s.set(c + dx, top + 9, c + dz, "minecraft:sea_lantern")
     s.fill(c - 4, top + 6, c - 4, c + 4, top + 6, c + 4, "minecraft:gold_block")
     s.clear(c - 1, top + 1, c + 4, c + 1, top + 4, c + 4)
-    s.disk(c, c, 2, top + 1, "minecraft:gold_block")  # palanquin du Slann
+    s.disk(c, c, 2, top + 1, "minecraft:gold_block")  # palanquin du Sage-Crapaud
     s.set(c, top + 2, c, "minecraft:enchanting_table")
     s.set(c, top + 7, c, "minecraft:beacon")
     for k in range(3):
@@ -324,7 +324,7 @@ def temple_seraphon():
 
 
 def bosquet_sylvaneth():
-    """Bosquet de Wyldwood : Arbre-Mère au cœur lumineux, racines de royaume luminescentes, cercle de pierres."""
+    """Bosquet de Bois-Sauvage : Arbre-Mère au cœur lumineux, racines de royaume luminescentes, cercle de pierres."""
     W = 41
     s = base(W, 44, W, ["minecraft:moss_block", "minecraft:grass_block", "minecraft:rooted_dirt"], "minecraft:dirt", 46, haut=14)
     c = W // 2
@@ -376,7 +376,7 @@ def bosquet_sylvaneth():
 
 
 def magmahold():
-    """Magmahold Fyreslayer : butte de basalte, porte runique d'or, rivière de lave, statue de Grimnir."""
+    """Magmahold Fyreslayer : butte de basalte, porte runique d'or, rivière de lave, statue de Brasdur."""
     W = 47
     s = base(W, 34, W, ["minecraft:polished_blackstone_bricks", "minecraft:blackstone", "minecraft:basalt"], "minecraft:blackstone", 47, haut=14)
     c = W // 2
@@ -399,7 +399,7 @@ def magmahold():
     for x in range(c - 3, c + 4, 2):
         s.set(x, F + 10, W - 5, "minecraft:magma_block")
     s.fill(c - 1, F + 12, W - 6, c + 1, F + 14, W - 6, "minecraft:polished_blackstone_bricks")
-    s.set(c, F + 13, W - 5, "minecraft:gold_block")  # rune de Grimnir
+    s.set(c, F + 13, W - 5, "minecraft:gold_block")  # rune de Brasdur
     for dx in (-6, 6):
         s.fill(c + dx, F + 1, W - 5, c + dx, F + 6, W - 5, "minecraft:polished_blackstone_brick_wall")
         s.set(c + dx, F + 7, W - 5, "minecraft:campfire")
@@ -408,7 +408,7 @@ def magmahold():
     s.fill(c - 2, F, c - 1, c + 2, F, c + 1, "minecraft:gilded_blackstone")
     for x in range(4, W - 4, 3):
         s.set(x, F - 1, c, "minecraft:magma_block")
-    # Statue colossale de Grimnir
+    # Statue colossale de Brasdur
     statue_guerrier(s, c, F + 1, 8, "minecraft:gold_block", "minecraft:magma_block", "minecraft:gold_block", "minecraft:polished_blackstone_bricks")
     s.fill(c - 1, F + 8, 7, c + 1, F + 8, 7, "minecraft:orange_terracotta")  # crête orange
     s.set(c, F + 9, 8, "minecraft:orange_terracotta"); s.set(c, F + 10, 8, "minecraft:orange_terracotta")
@@ -428,7 +428,7 @@ def magmahold():
 
 
 def port_kharadron():
-    """Port d'Aether : tour d'amarrage en cuivre, frégate Arkanaut avec endrin, hélices, canons et conduites d'aether."""
+    """Port d'Éther : tour d'amarrage en cuivre, frégate Aéronaute avec endrin, hélices, canons et conduites d'aether."""
     W = 45
     s = Struct(W, 50, W, 48)
     c = W // 2
@@ -499,7 +499,7 @@ def port_kharadron():
 
 
 def sanctuaire_lumineth():
-    """Sanctuaire Lumineth : terrasses de calcite, spire à cristal flottant, arches aelfiques, jardins blancs."""
+    """Sanctuaire de Lumière : terrasses de calcite, spire à cristal flottant, arches aelfiques, jardins blancs."""
     W = 41
     s = base(W, 56, W, ["minecraft:calcite", "minecraft:smooth_quartz", "minecraft:polished_diorite"], "minecraft:calcite", 49, haut=14)
     c = W // 2
@@ -557,7 +557,7 @@ def sanctuaire_lumineth():
 
 
 def temple_khaine():
-    """Temple de Khaine : chaudron de sang géant, Cœur de fer de Khaine, arches de lames, trône de Morathi."""
+    """Temple de Morvaine : chaudron de sang géant, Cœur de fer de Morvaine, arches de lames, trône de Morvaine."""
     W = 41
     s = base(W, 34, W, ["minecraft:red_nether_bricks", "minecraft:nether_bricks", "minecraft:polished_blackstone"],
              "minecraft:nether_bricks", 50, haut=14)
@@ -582,7 +582,7 @@ def temple_khaine():
     for (dx, dz) in ((5, 0), (-5, 0), (0, 5), (0, -5)):
         s.set(c + dx, F + 5, c + dz, "minecraft:iron_bars")
     s.disk(c, c, 3, F, "minecraft:magma_block")
-    # Le Cœur de fer de Khaine (sur l'autel nord)
+    # Le Cœur de fer de Morvaine (sur l'autel nord)
     hx, hz = c, 8
     s.fill(hx - 3, F + 1, hz - 2, hx + 3, F + 2, hz + 2, "minecraft:polished_blackstone_bricks")
     for (dx, dy) in ((-2, 0), (-1, 0), (1, 0), (2, 0), (-2, 1), (-1, 1), (0, 1), (1, 1), (2, 1), (-1, 2), (0, 2), (1, 2), (0, 3),
@@ -594,7 +594,7 @@ def temple_khaine():
     for dx in (-3, 3):
         s.fill(hx + dx, F + 3, hz, hx + dx, F + 9, hz, "minecraft:iron_bars")
         s.set(hx + dx, F + 10, hz, "minecraft:soul_campfire")
-    # Trône de Morathi
+    # Trône de Morvaine
     s.set(c - 8, F + 1, 8, "minecraft:polished_blackstone_stairs[facing=south]")
     s.fill(c - 8, F + 2, 7, c - 8, F + 5, 7, "minecraft:obsidian")
     s.set(c - 9, F + 4, 7, "minecraft:obsidian"); s.set(c - 7, F + 4, 7, "minecraft:obsidian")
@@ -607,7 +607,7 @@ def temple_khaine():
 
 
 def ruines_idoneth():
-    """Enclave Idoneth : dômes de nacre, spires de prismarine, squelette de Léviadon, jardins de corail."""
+    """Enclave Abyssal : dômes de nacre, spires de prismarine, squelette de Léviadon, jardins de corail."""
     W = 41
     s = Struct(W, 26, W, 51)
     c = W // 2
@@ -652,7 +652,7 @@ def ruines_idoneth():
 
 # =================================================================== CHAOS
 def ziggurat_hashut():
-    """Ziggurat de Hashut : gradins d'obsidienne, cornes de taureau, cheminées infernales, enclos d'esclaves."""
+    """Ziggurat de Ashkar : gradins d'obsidienne, cornes de taureau, cheminées infernales, enclos d'esclaves."""
     W = 45
     s = base(W, 42, W, ["minecraft:polished_blackstone", "minecraft:blackstone", "minecraft:basalt"], "minecraft:blackstone", 52)
     c = W // 2
@@ -667,7 +667,7 @@ def ziggurat_hashut():
     for i in range(top - F - 1):
         zz = W - 6 - (i * 3) // 3
         s.fill(c - 2, F + 1 + i, zz, c + 2, F + 1 + i, zz, "minecraft:polished_blackstone_stairs[facing=north]")
-    # Taureau de Hashut
+    # Taureau de Ashkar
     s.fill(c - 3, top, c - 2, c + 3, top + 3, c + 2, "minecraft:gilded_blackstone")
     s.fill(c - 2, top + 4, c - 1, c + 2, top + 5, c + 1, "minecraft:gilded_blackstone")
     for side in (-1, 1):
@@ -697,7 +697,7 @@ def ziggurat_hashut():
 
 
 def repaire_skaven():
-    """Clocher Hurlant : spire penchée de bois et pierre, cloche géante, canon à malefoudre, puits de malepierre."""
+    """Clocher Hurlant : spire penchée de bois et pierre, cloche géante, canon à malefoudre, puits de fangepierre."""
     W = 37
     s = base(W, 52, W, ["minecraft:coarse_dirt", "minecraft:gravel", "minecraft:mud", "minecraft:cobblestone"], "minecraft:dirt", 53)
     c = W // 2
@@ -737,7 +737,7 @@ def repaire_skaven():
     s.fill(5, F + 3, 5, 5, F + 3, 10, "minecraft:waxed_copper_grate")
     s.set(5, F + 3, 11, "minecraft:lime_stained_glass"); s.set(5, F + 4, 5, "minecraft:verdant_froglight")
     s.fill(5, F + 4, 6, 5, F + 4, 9, "minecraft:lightning_rod[facing=south]")
-    # Puits de malepierre et tunnels
+    # Puits de fangepierre et tunnels
     for (x, z) in ((W - 6, 6), (6, W - 6), (W - 7, W - 7)):
         s.fill(x - 1, F - 3, z - 1, x + 1, F, z + 1, "minecraft:air")
         s.walls(x - 2, F + 1, z - 2, x + 2, F + 1, z + 2, "minecraft:spruce_fence")
@@ -774,7 +774,7 @@ def ossuaire_ossiarch():
         s.disk(cx, cz, 3, F + 18, "minecraft:purpur_block")
         s.set(cx, F + 19, cz, "minecraft:wither_skeleton_skull")
         s.set(cx, F + 10, cz, "minecraft:soul_lantern")
-    # Ziggurat central à violet de Nagash
+    # Ziggurat central à violet de Necrath
     top = s.pyramid(c - 9, c - 9, c + 9, c + 9, F + 1, os, step=1)
     for y in range(F + 1, top, 2):
         k = y - F - 1
@@ -914,7 +914,7 @@ def necropole_nagash():
     for (x, z) in cercle(c, c, 9, 45):
         s.fill(x, top, z, x, top + 10, z, ["minecraft:polished_deepslate", "minecraft:bone_block[axis=y]"])
         s.set(x, top + 11, z, "minecraft:soul_campfire")
-    # Trône de Nagash
+    # Trône de Necrath
     s.fill(c - 3, top, c - 8, c + 3, top + 1, c - 6, "minecraft:polished_deepslate")
     s.fill(c - 1, top + 2, c - 8, c + 1, top + 9, c - 8, "minecraft:bone_block[axis=y]")
     s.fill(c - 3, top + 7, c - 8, c + 3, top + 7, c - 8, "minecraft:bone_block[axis=x]")
@@ -964,7 +964,7 @@ def arene_gordrakk():
         s.fill(x, F + 1, z, x, F + 9, z, "minecraft:stripped_spruce_log")
         s.set(x, F + 10, z, "minecraft:skeleton_skull")
     s.clear(c - 2, F + 1, W - 3, c + 2, F + 5, W - 1)
-    # Idole de Gork & Mork (deux têtes)
+    # Idole de Brog & Mog (deux têtes)
     for (hx, col) in ((c - 6, "minecraft:green_terracotta"), (c + 6, "minecraft:lime_terracotta")):
         s.fill(hx - 3, F + 1, 3, hx + 3, F + 9, 6, col)
         s.set(hx - 1, F + 7, 7, "minecraft:redstone_block"); s.set(hx + 1, F + 7, 7, "minecraft:redstone_block")
@@ -982,14 +982,14 @@ def autel_skarbrand():
     W = 45
     s = base(W, 36, W, ["minecraft:basalt", "minecraft:blackstone", "minecraft:magma_block"], "minecraft:blackstone", 64, haut=14)
     c = W // 2
-    # Fosse de sang et pyramide de crânes de Khorne
+    # Fosse de sang et pyramide crânes de Sangrath
     s.cylinder(c, c, 15, F, F, "minecraft:red_concrete", hollow=False)
     s.cylinder(c, c, 16, F + 1, F + 2, ["minecraft:polished_blackstone_bricks", "minecraft:gilded_blackstone"], hollow=True, inside=None)
     for (x, z) in cercle(c, c, 16, 24):
         s.fill(x, F + 3, z, x, F + 7, z, "minecraft:polished_blackstone_brick_wall")
         s.set(x, F + 8, z, "minecraft:campfire")
     s.clear(c - 2, F + 1, W - 7, c + 2, F + 3, W - 3)
-    # Trône de crânes (rune de Khorne en or)
+    # Trône de crânes (rune de Sangrath en or)
     top = s.pyramid(c - 6, 3, c + 6, 15, F + 1, ["minecraft:bone_block", "minecraft:skeleton_skull", "minecraft:bone_block"], step=1)
     s.fill(c - 2, top, 7, c + 2, top + 4, 7, "minecraft:gold_block")
     s.fill(c - 1, top + 1, 7, c + 1, top + 1, 7, "minecraft:red_concrete")
@@ -1059,10 +1059,10 @@ NOUVELLES_STRUCTURES = [
                                                           "chaos_desolation", "terres_rongees", "ghyran_marais"],
          monde=["plains", "meadow", "savanna", "forest", "desert", "taiga", "sunflower_plains", "cherry_grove", "snowy_plains"],
          espacement=30, sep=12),
-    dict(id="necropole_nagash", nom="Nécropole de Nagash", biomes=["shyish_terres"], monde=[], espacement=56, sep=24),
-    dict(id="trone_archaon", nom="Trône d'Archaon", biomes=["chaos_desolation"], monde=[], espacement=56, sep=24),
-    dict(id="arene_gordrakk", nom="Arène de Gordrakk", biomes=["ghur_terres"], monde=[], espacement=56, sep=24),
-    dict(id="autel_skarbrand", nom="Autel de Skarbrand", biomes=["aqshy_cendres"], monde=[], espacement=56, sep=24),
-    dict(id="tour_thanquol", nom="Tour de Thanquol", biomes=["terres_rongees"], monde=[], espacement=56, sep=24),
-    dict(id="jardin_rotigus", nom="Jardin de Rotigus", biomes=["ghyran_marais"], monde=[], espacement=56, sep=24),
+    dict(id="necropole_nagash", nom="Nécropole de Necrath", biomes=["shyish_terres"], monde=[], espacement=56, sep=24),
+    dict(id="trone_archaon", nom="Trône d'Varkhan", biomes=["chaos_desolation"], monde=[], espacement=56, sep=24),
+    dict(id="arene_gordrakk", nom="Arène de Krognak", biomes=["ghur_terres"], monde=[], espacement=56, sep=24),
+    dict(id="autel_skarbrand", nom="Autel de Brakhar", biomes=["aqshy_cendres"], monde=[], espacement=56, sep=24),
+    dict(id="tour_thanquol", nom="Tour de Skrivel", biomes=["terres_rongees"], monde=[], espacement=56, sep=24),
+    dict(id="jardin_rotigus", nom="Jardin de Putrefax", biomes=["ghyran_marais"], monde=[], espacement=56, sep=24),
 ]

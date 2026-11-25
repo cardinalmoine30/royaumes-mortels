@@ -4,7 +4,7 @@
 - matières peintes procéduralement (métal, or, tissu, cuir, peau, écailles, os, bois, fourrure, pierre, éther, corne…)
   avec ombrage (lumière venant du haut), arêtes, rivets, plis, grain ;
 - rotation de cubes (cornes, ailes, lames inclinées) ;
-- texture « _glowmask » pour les parties lumineuses (yeux, runes, malepierre) ;
+- texture « _glowmask » pour les parties lumineuses (yeux, runes, fangepierre) ;
 - aperçu 3/4 par rastérisation avec tampon de profondeur."""
 import json, math, os, random, sys
 import numpy as np

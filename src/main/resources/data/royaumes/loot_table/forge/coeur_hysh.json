@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Cœur de Cristal de Hysh",
+                  "text": "Cœur de Cristal de Lumina",
                   "color": "white",
                   "italic": false
                 },

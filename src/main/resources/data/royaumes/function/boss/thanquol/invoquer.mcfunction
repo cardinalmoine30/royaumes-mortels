@@ -1,6 +1,6 @@
 clear @s minecraft:carrot_on_a_stick[minecraft:custom_data~{royaumes:"sceau_thanquol"}] 1
 summon royaumes:thanquol ^ ^1 ^7 {Tags:["rm_boss","rm_boss_thanquol"],PersistenceRequired:1b}
-bossbar add royaumes:thanquol {"text": "Thanquol & Boneripper", "color": "green"}
+bossbar add royaumes:thanquol {"text": "Skrivel & Broie-Os", "color": "green"}
 bossbar set royaumes:thanquol max 750
 bossbar set royaumes:thanquol color green
 bossbar set royaumes:thanquol visible true

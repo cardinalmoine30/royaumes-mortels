@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_chaos @s
-data modify entity @s CustomName set value {"text": "Tzaangor", "color": "blue"}
+data modify entity @s CustomName set value {"text": "Homme-Bec", "color": "blue"}
 attribute @s minecraft:max_health base set 24
 data modify entity @s Health set value 24.0f
 loot replace entity @s armor.chest loot royaumes:equip/tzaangor/armor_chest

@@ -19,7 +19,7 @@ import net.minecraft.world.phys.Vec3;
 public final class Reliques {
     private Reliques() {}
 
-    /** Effets au combat : la Pourfendeuse des Rois frappe les seigneurs x1,75 ; le malefeu de Thanquol flétrit et brûle plus fort ;
+    /** Effets au combat : la Pourfendeuse des Rois frappe les seigneurs x1,75 ; le malefeu de Skrivel flétrit et brûle plus fort ;
      *  Massacre et Carnage enflamme ; le Krokfendeur projette. */
     public static void degats(net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent event) {
         LivingEntity cible = event.getEntity();
@@ -56,7 +56,7 @@ public final class Reliques {
         Vec3 pos = p.position();
         switch (seigneur) {
             case "nagash" -> {
-                if (accroupi) { // Main de Nagash : drain de vie
+                if (accroupi) { // Main de Necrath : drain de vie
                     float soin = 0;
                     for (LivingEntity e : Sorts.ennemis(p, n, pos, 12)) {
                         Sorts.blesser(p, n, e, 14.0F);
@@ -95,7 +95,7 @@ public final class Reliques {
                 Sorts.son(n, p, SoundEvents.EVOKER_PREPARE_SUMMON, 1.2F, 0.5F);
                 return 500;
             }
-            case "archaon" -> { // Œil de Sheerian
+            case "archaon" -> { // Œil de Sablevif
                 for (LivingEntity e : Sorts.ennemis(p, n, pos, 12)) {
                     e.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0), p);
                     e.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 240, 2), p);
@@ -107,7 +107,7 @@ public final class Reliques {
                 Sorts.son(n, p, SoundEvents.ENDER_DRAGON_GROWL, 0.8F, 1.3F);
                 return 800;
             }
-            case "gordrakk" -> { // Onde du Waaagh
+            case "gordrakk" -> { // Onde du Graaah
                 Sorts.cercle(n, ParticleTypes.EXPLOSION, pos, 5, 20);
                 for (LivingEntity e : Sorts.ennemis(p, n, pos, 8)) {
                     Sorts.blesser(p, n, e, 20.0F);

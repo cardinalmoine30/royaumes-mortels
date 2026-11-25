@@ -72,26 +72,26 @@ public final class ModObjets {
             ECLATS.add(OBJETS.registerSimpleItem("eclat_" + v, p -> p.rarity(Rarity.UNCOMMON)));
         }
         RELIQUES.put("nagash", OBJETS.registerItem("relique_nagash", p -> new ReliqueSeigneur(p, "nagash",
-                "Armée des Morts (6 Gardes des Tombes alliés, 1 min)", "Main de Nagash (draine 14 PV à chaque ennemi proche)"),
+                "Armée des Morts (6 Gardes Tombes alliés, 1 min)", "Main de Necrath (draine 14 PV à chaque ennemi proche)"),
                 p -> p.stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
         RELIQUES.put("archaon", OBJETS.registerItem("relique_archaon", p -> new ReliqueSeigneur(p, "archaon",
-                "Œil de Sheerian (aveugle et affaiblit ; Force III et Résistance II pendant 15 s)"),
+                "Œil de Sablevif (aveugle et affaiblit ; Force III et Résistance II pendant 15 s)"),
                 p -> p.sword(fr.royaumes.arsenal.Arsenal.DIVIN, 9.0F, -2.4F).rarity(Rarity.EPIC).fireResistant()));
         RELIQUES.put("gordrakk", OBJETS.registerItem("relique_gordrakk", p -> new ReliqueSeigneur(p, "gordrakk",
-                "Onde du Waaagh ! (20 dégâts autour, Force et Vitesse pour tes alliés)"),
+                "Onde du Graaah ! (20 dégâts autour, Force et Vitesse pour tes alliés)"),
                 p -> p.sword(fr.royaumes.arsenal.Arsenal.DIVIN, 12.0F, -3.2F).rarity(Rarity.EPIC).fireResistant()));
         RELIQUES.put("skarbrand", OBJETS.registerItem("relique_skarbrand", p -> new ReliqueSeigneur(p, "skarbrand",
                 "Rugissement de rage (cône de feu, 18 dégâts)"),
                 p -> p.sword(fr.royaumes.arsenal.Arsenal.DIVIN, 10.0F, -2.8F).rarity(Rarity.EPIC).fireResistant()));
         RELIQUES.put("thanquol", OBJETS.registerItem("relique_thanquol", p -> new ReliqueSeigneur(p, "thanquol",
-                "Malefeu (salve de 7 boules de malefeu qui flétrissent)", "Saut par la Warp"),
+                "Fangefeu (salve de 7 boules de malefeu qui flétrissent)", "Saut par la Warp"),
                 p -> p.stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
         RELIQUES.put("rotigus", OBJETS.registerItem("relique_rotigus", p -> new ReliqueSeigneur(p, "rotigus",
                 "Pluie de pestilence (poison II, lenteur II, 8 dégâts ; tes alliés régénèrent)"),
                 p -> p.stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-        String[][] yeux = {{"nagash", "Nagash", "Shyish (Terres de Shyish)"}, {"archaon", "l'Élu Éternel", "les Huit-Points (Désolation du Chaos)"},
-                {"gordrakk", "Gordrakk", "Ghur (Terres de Ghur)"}, {"skarbrand", "Skarbrand", "Aqshy (Cendres d'Aqshy)"},
-                {"thanquol", "Thanquol", "les Huit-Points (Terres Rongées)"}, {"rotigus", "Rotigus", "Ghyran (Marais de Ghyran)"}};
+        String[][] yeux = {{"nagash", "Necrath", "Nécréa (Terres de Nécréa)"}, {"archaon", "l'Élu Éternel", "les Huit-Voies (Désolation du Chaos)"},
+                {"gordrakk", "Krognak", "Féralia (Terres de Féralia)"}, {"skarbrand", "Brakhar", "Pyréa (Cendres d'Pyréa)"},
+                {"thanquol", "Skrivel", "les Huit-Voies (Terres Rongées)"}, {"rotigus", "Putrefax", "Sylvéa (Marais de Sylvéa)"}};
         for (String[] y : yeux) {
             YEUX.add(OBJETS.registerItem("oeil_" + y[0], p -> new OeilSeigneur(p, y[0], y[1], y[2]), p -> p.stacksTo(16).rarity(Rarity.RARE)));
         }

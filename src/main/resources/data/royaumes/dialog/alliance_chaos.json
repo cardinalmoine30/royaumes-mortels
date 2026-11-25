@@ -19,12 +19,12 @@
   "actions": [
     {
       "label": {
-        "text": "Esclaves des Ténèbres",
+        "text": "Légions des Ténèbres",
         "color": "dark_gray"
       },
       "tooltip": [
         {
-          "text": "Royaume : Les Huit-Points\n",
+          "text": "Royaume : Les Huit-Voies\n",
           "color": "gray"
         },
         {
@@ -44,12 +44,12 @@
     },
     {
       "label": {
-        "text": "Lames de Khorne",
+        "text": "Lames de Sangrath",
         "color": "dark_red"
       },
       "tooltip": [
         {
-          "text": "Royaume : Aqshy\n",
+          "text": "Royaume : Pyréa\n",
           "color": "gray"
         },
         {
@@ -57,7 +57,7 @@
           "color": "green"
         },
         {
-          "text": "- -2 armure (Khorne méprise la prudence)",
+          "text": "- -2 armure (Sangrath méprise la prudence)",
           "color": "red"
         }
       ],
@@ -69,12 +69,12 @@
     },
     {
       "label": {
-        "text": "Disciples de Tzeentch",
+        "text": "Disciples de Vharys",
         "color": "blue"
       },
       "tooltip": [
         {
-          "text": "Royaume : Hysh / Huit-Points\n",
+          "text": "Royaume : Lumina / Huit-Voies\n",
           "color": "gray"
         },
         {
@@ -94,12 +94,12 @@
     },
     {
       "label": {
-        "text": "Hédonites de Slaanesh",
+        "text": "Hédonites de Lyssara",
         "color": "light_purple"
       },
       "tooltip": [
         {
-          "text": "Royaume : Les Huit-Points\n",
+          "text": "Royaume : Les Huit-Voies\n",
           "color": "gray"
         },
         {
@@ -119,12 +119,12 @@
     },
     {
       "label": {
-        "text": "Maggotkin de Nurgle",
+        "text": "Engeance de Morbus",
         "color": "dark_green"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghyran (marais)\n",
+          "text": "Royaume : Sylvéa (marais)\n",
           "color": "gray"
         },
         {
@@ -144,7 +144,7 @@
     },
     {
       "label": {
-        "text": "Skaven",
+        "text": "Hommes-Rats",
         "color": "green"
       },
       "tooltip": [
@@ -169,12 +169,12 @@
     },
     {
       "label": {
-        "text": "Forgerons de Hashut",
+        "text": "Forgerons d'Ashkar",
         "color": "gold"
       },
       "tooltip": [
         {
-          "text": "Royaume : Aqshy\n",
+          "text": "Royaume : Pyréa\n",
           "color": "gray"
         },
         {

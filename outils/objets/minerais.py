@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Répartition des minerais vanilla selon les Royaumes (à lancer après la génération du datapack).
-Chaque Royaume a sa richesse et ses manques ; son minerai propre (éclats de Vent, malepierre) est ajouté par
-objets.py (biome modifiers). Le monde de base garde la génération vanilla + un peu de pierre des Royaumes."""
+Chaque Royaume a sa richesse et ses manques ; son minerai propre (éclats de Vent, fangepierre) est ajouté par
+objets.py (biome modifiers). Le monde base garde la génération vanilla + un peu de pierre des Royaumes."""
 import glob
 import json
 import os

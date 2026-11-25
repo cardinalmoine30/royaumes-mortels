@@ -157,7 +157,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Forgé dans les forges du Sigmarabulum.",
+                    "text": "Forgé dans les forges du Forge-Céleste.",
                     "color": "gray",
                     "italic": true
                   }
@@ -195,7 +195,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Bouclier d'Azyr",
+                  "text": "Bouclier d'Célestis",
                   "color": "aqua",
                   "italic": false
                 },
@@ -239,7 +239,7 @@
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Poudre noire d'Excelsis.",
+                    "text": "Poudre noire d'Haute-Cité.",
                     "color": "gray",
                     "italic": true
                   }
@@ -261,7 +261,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Épée de Hammerhal",
+                  "text": "Épée de Marteaucité",
                   "color": "aqua",
                   "italic": false
                 },
@@ -388,13 +388,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lingot de Sigmarite",
+                  "text": "Lingot de Célestacier",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Métal divin forgé dans le Sigmarabulum.",
+                    "text": "Métal divin forgé dans le Forge-Céleste.",
                     "color": "gray",
                     "italic": true
                   },
@@ -612,7 +612,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Ferraille d'Orruk",
+                  "text": "Ferraille d'Orc",
                   "color": "gray",
                   "italic": false
                 },

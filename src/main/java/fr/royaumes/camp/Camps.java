@@ -181,7 +181,7 @@ public final class Camps {
     public static void fonder(ServerPlayer p, BlockPos pos) {
         Scoreboard sb = sb(p);
         if (!Magie.estDans(p.level(), "minecraft:overworld")) {
-            msg(p, "Un camp de guerre ne se fonde que dans le monde de base (l'Overworld) : les Royaumes sont des terres de conquête.", ChatFormatting.RED);
+            msg(p, "Un camp de guerre ne se fonde que dans le monde base (l'Overworld) : les Royaumes sont des terres de conquête.", ChatFormatting.RED);
             return;
         }
         set(sb, p, "rm_camp_x", pos.getX());
@@ -485,7 +485,7 @@ public final class Camps {
             l.addFreshEntity(e);
         }
         l.playSound(null, camp, SoundEvents.ENDER_DRAGON_GROWL, SoundSource.HOSTILE, 1.0F, 1.4F);
-        msg(p, "⚠ Une bande de " + FactionsGenerees.NOMS[f] + " attaque ton camp ! (" + n + " guerriers)", ChatFormatting.DARK_RED);
+        msg(p, "⚠ Une bande " + FactionsGenerees.NOMS[f] + " attaque ton camp ! (" + n + " guerriers)", ChatFormatting.DARK_RED);
     }
 
     // ------------------------------------------------------------------ tic serveur et comportement des unités

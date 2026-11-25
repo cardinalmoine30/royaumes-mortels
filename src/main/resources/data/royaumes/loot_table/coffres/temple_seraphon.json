@@ -151,7 +151,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Gourdin de Saurus",
+                  "text": "Gourdin de Écailleux",
                   "color": "green",
                   "italic": false
                 },
@@ -286,13 +286,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Lingot de Sigmarite",
+                  "text": "Lingot de Célestacier",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Métal divin forgé dans le Sigmarabulum.",
+                    "text": "Métal divin forgé dans le Forge-Céleste.",
                     "color": "gray",
                     "italic": true
                   },
@@ -510,7 +510,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Ferraille d'Orruk",
+                  "text": "Ferraille d'Orc",
                   "color": "gray",
                   "italic": false
                 },

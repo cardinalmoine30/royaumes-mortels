@@ -11,13 +11,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Festin d'Ogor",
+                  "text": "Festin d'Ogre",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "De quoi nourrir un Gutbuster.",
+                    "text": "De quoi nourrir un Panse-de-Fer.",
                     "color": "gray",
                     "italic": true
                   }

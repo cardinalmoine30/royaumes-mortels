@@ -10,11 +10,11 @@ from objets import SEIGNEURS, MINERAIS  # noqa: E402
 
 TEX = os.path.join(ICI, "..", "..", "src", "main", "resources", "assets", "royaumes", "textures")
 F = "/usr/share/fonts/truetype/dejavu/"
-POUV = {"nagash": "Armée des Morts · Main de Nagash", "archaon": "Œil de Sheerian · épée légendaire",
-        "gordrakk": "Onde du Waaagh ! · hache géante", "skarbrand": "Rugissement de rage · haches de feu",
-        "thanquol": "Malefeu · Saut par la Warp", "rotigus": "Pluie de pestilence"}
-ROY = {"minerai_azyrite": "Azyr", "minerai_braise": "Aqshy", "minerai_croc": "Ghur", "minerai_jade": "Ghyran", "minerai_lumineux": "Hysh",
-       "minerai_ombre": "Ulgu", "minerai_ames": "Shyish", "minerai_or_vif": "Chamon", "minerai_malepierre": "Huit-Points"}
+POUV = {"nagash": "Armée des Morts · Main de Necrath", "archaon": "Œil de Sablevif · épée légendaire",
+        "gordrakk": "Onde du Graaah ! · hache géante", "skarbrand": "Rugissement de rage · haches de feu",
+        "thanquol": "Fangefeu · Saut par la Warp", "rotigus": "Pluie de pestilence"}
+ROY = {"minerai_azyrite": "Célestis", "minerai_braise": "Pyréa", "minerai_croc": "Féralia", "minerai_jade": "Sylvéa", "minerai_lumineux": "Lumina",
+       "minerai_ombre": "Umbria", "minerai_ames": "Nécréa", "minerai_or_vif": "Ferrumia", "minerai_malepierre": "Huit-Voies"}
 
 
 def img(p, k=6):
@@ -48,7 +48,7 @@ for i, (sid, nom, desc, roy, _, c1, _) in enumerate(SEIGNEURS):
     d.text((x + 170, y + 170), POUV[sid], font=t3, fill=(255, 200, 120))
 y0 = 640
 d.text((750, y0), "Minerais propres à chaque Royaume", font=t1, fill=(242, 210, 122), anchor="mt")
-d.text((750, y0 + 46), "Absents du monde de base : il faut voyager pour obtenir les éclats de Vent et la malepierre.",
+d.text((750, y0 + 46), "Absents du monde base : il faut voyager pour obtenir les éclats de Vent et la fangepierre.",
        font=t3, fill=(230, 211, 168), anchor="mt")
 for i, (mid, val) in enumerate(MINERAIS.items()):
     x, y = 40 + (i % 5) * 290, y0 + 100 + (i // 5) * 210

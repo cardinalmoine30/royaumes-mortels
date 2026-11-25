@@ -40,7 +40,7 @@ authors="cardinalmoine30, Claude"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Mod RPG Warhammer Age of Sigmar : factions, Royaumes Mortels, structures, boss.
+Mod RPG dark fantasy héroïque : factions, Royaumes Mortels, structures, boss.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

@@ -1,7 +1,7 @@
 tag @s add rm_c
 tag @s remove rm_spawn
 team join rm_ordre @s
-data modify entity @s CustomName set value {"text": "Judicator Stormcast", "color": "gold"}
+data modify entity @s CustomName set value {"text": "Justicier Foudroyés", "color": "gold"}
 attribute @s minecraft:max_health base set 30
 attribute @s minecraft:scale base set 1.15
 data modify entity @s Health set value 30.0f

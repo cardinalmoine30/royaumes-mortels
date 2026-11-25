@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Pendentif d'Ombre d'Ulgu",
+                  "text": "Pendentif d'Ombre d'Umbria",
                   "color": "dark_gray",
                   "italic": false
                 },

@@ -11,13 +11,13 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Totem de Gordrakk",
+                  "text": "Totem de Krognak",
                   "color": "gold",
                   "italic": false
                 },
                 "minecraft:lore": [
                   {
-                    "text": "Souffle dedans et le Poing de Gork arrive. WAAAGH !",
+                    "text": "Souffle dedans et le Poing de Brog arrive. GRAAAH !",
                     "color": "gray",
                     "italic": true
                   },

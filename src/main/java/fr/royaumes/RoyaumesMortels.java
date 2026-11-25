@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import org.slf4j.Logger;
 
-/** Point d'entrée du mod Royaumes Mortels (Warhammer Age of Sigmar). */
+/** Point d'entrée du mod Royaumes Mortels (dark fantasy héroïque). */
 @Mod(RoyaumesMortels.MODID)
 public class RoyaumesMortels {
     public static final String MODID = "royaumes";

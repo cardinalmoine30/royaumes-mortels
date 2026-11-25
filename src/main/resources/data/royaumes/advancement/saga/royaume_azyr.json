@@ -4,10 +4,10 @@
       "id": "royaumes:eclat_azyr"
     },
     "title": {
-      "text": "Royaume d'Azyr"
+      "text": "Royaume d'Célestis"
     },
     "description": {
-      "text": "Gagner Azyr, le Royaume des Cieux."
+      "text": "Gagner Célestis, le Royaume des Cieux."
     },
     "frame": "task",
     "show_toast": true,

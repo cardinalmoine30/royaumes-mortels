@@ -115,8 +115,8 @@ def codex():
     cont = d["body"][0]["contents"]
     cont += [
         {"text": "Montures de faction\n", "color": "aqua", "bold": True},
-        {"text": "La Corne d'appel (clic droit) fait venir la monture de ta faction et te met en selle : Dracoth, "
-                 "Destrier, Magmadroth, Gunhauler, Ishlaen, Aggradon, Juggernaut, Disque de Tzeentch, Squig, Mournfang… "
+        {"text": "La Corne d'appel (clic droit) fait venir la monture de ta faction et te met en selle : Draconide, "
+                 "Destrier, Drake de Magma, Canonnière, des Marées, Raptor de guerre, Juggernaut, Disque de Vharys, Croqueur, Croc-Funèbre… "
                  "Barre d'espace : sauter. Montures volantes : avance en regardant vers le haut ou le bas. "
                  "Sneak + clic droit sur la monture : la laisser. Elles amortissent toutes les chutes.\n\n", "color": "white"},
         {"text": "Inventaire de taverne\n", "color": "gold", "bold": True},

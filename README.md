@@ -1,4 +1,4 @@
-# Royaumes Mortels — Warhammer Age of Sigmar pour Minecraft
+# Royaumes Mortels — dark fantasy héroïque pour Minecraft
 
 Mod NeoForge pour **Minecraft Java 26.3** (NeoForge 26.3.0.115, GeckoLib 5.5.7, Java 25).
 Le mod embarque son datapack : il suffit d'installer le `.jar` (ou le modpack `.mrpack`) sur le client et le serveur.
@@ -10,17 +10,17 @@ Alliance (Ordre, Chaos, Mort, Destruction). Le panneau de droite montre le skin 
 ses dons et son fardeau. « Prêter serment » applique la faction **et son skin** (visible par les autres joueurs qui ont le mod).
 Touche **J** : rouvrir l'écran.
 
-**Magie des huit Vents.** Huit bâtons (Azyr, Aqshy, Ghur, Ghyran, Hysh, Ulgu, Shyish, Chamon), deux sorts chacun :
+**Magie des huit Vents.** Huit bâtons (Célestis, Pyréa, Féralia, Sylvéa, Lumina, Umbria, Nécréa, Ferrumia), deux sorts chacun :
 clic droit = sort mineur, accroupi + clic droit = grand sort. L'énergie arcanique (100 + 5 par niveau) se recharge de
 2 par seconde, 4 dans le Royaume de sa faction. Chaque sort coûte moitié moins dans le Royaume de son Vent.
 Cristal arcanique : +40. Autel arcanique : recharge complète (une fois par minute).
 
-**Capacité de faction (touche R).** Chaque faction a la sienne : Frappe de foudre (Stormcast), Waaagh ! (Ironjawz,
-deux brutes alliées), Fuite par la Warp (Skaven), Miasme (Nurgle), Piétinement (Behemat)… Gratuite, 25 à 90 s de recharge,
+**Capacité de faction (touche R).** Chaque faction a la sienne : Frappe de foudre (Foudroyés), Graaah ! (Mâchefers,
+deux brutes alliées), Fuite par la Warp (Hommes-Rats), Miasme (Morbus), Piétinement (Ymorath)… Gratuite, 25 à 90 s de recharge,
 affichée sur l'écran de serment et dans le HUD.
 
 **Saga des Royaumes.** Un onglet de progrès guide le joueur : serment, pierre des Royaumes, premier bâton et premier sort,
-les huit Royaumes et les Huit-Points, les six seigneurs (Nagash, Archaon, Gordrakk, Skarbrand, Thanquol, Rotigus).
+les huit Royaumes et les Huit-Voies, les six seigneurs (Necrath, Varkhan, Krognak, Brakhar, Skrivel, Putrefax).
 
 **Camp de guerre.** Pose un **Étendard de camp** (bannière + lingot d'or + pierre des Royaumes) : il fonde ton camp,
 et un clic droit ouvre l'écran du camp. Dépose ton butin (lingots, gemmes, pierre des Royaumes, cristaux), recrute
@@ -29,9 +29,9 @@ ou de te suivre, et envoie-les en raid : Pillage (2 min), Assaut (5 min) ou Croi
 reviennent victorieuses avec du butin, de la pierre des Royaumes, des cristaux et de la gloire, ou décimées. Dès le
 niveau 2, des bandes d'une alliance ennemie attaquent ton camp toutes les 20 à 30 minutes.
 
-**Monde de base et Royaumes.** Le camp de guerre se fonde dans le monde de base (Overworld), qui garde sa génération et ses
-monstres vanilla. Chaque Royaume a ses richesses et ses manques (Chamon : or, fer, cuivre ; Hysh : diamants, émeraudes ; Aqshy :
-charbon, redstone, or…) et un minerai propre qui donne l'éclat de son Vent (malepierre dans les Huit-Points).
+**Monde base et Royaumes.** Le camp de guerre se fonde dans le monde base (Overworld), qui garde sa génération et ses
+monstres vanilla. Chaque Royaume a ses richesses et ses manques (Ferrumia : or, fer, cuivre ; Lumina : diamants, émeraudes ; Pyréa :
+charbon, redstone, or…) et un minerai propre qui donne l'éclat de son Vent (fangepierre dans les Huit-Voies).
 
 **Équilibrage.** Les guerriers de faction apparaissent une fois sur trois au plus, jamais plus de six à la fois dans un rayon
 de 32 blocs, ne repèrent un héros qu'à 16 blocs, épargnent les héros de niveau inférieur à 5 tant qu'ils ne sont pas
@@ -39,8 +39,8 @@ attaqués, et frappent les joueurs 25 % moins fort. Les seigneurs n'apparaissent
 
 **Les six seigneurs.** Un Œil (œil de l'Ender + deux éclats du Royaume + pierre des Royaumes) montre la direction de l'antre.
 Au cœur de l'antre, l'Autel des Seigneurs éveille le sceau forgé : le seigneur apparaît. Vaincu, il lâche sa relique unique :
-Sceptre de Nagash (Armée des Morts, Main de Nagash), Pourfendeuse des Rois d'Archaon, Krokfendeur de Gordrakk, Massacre et
-Carnage de Skarbrand, Bâton de malefeu de Thanquol, Bâton de pluie de Rotigus.
+Sceptre de Necrath (Armée des Morts, Main de Necrath), Pourfendeuse des Rois d'Varkhan, Krokfendeur de Krognak, Massacre et
+Carnage de Brakhar, Bâton de malefeu de Skrivel, Bâton de pluie de Putrefax.
 
 **Arsenal et Forge de guerre.** 675 objets, tous forgés à la **Forge de guerre** (or, enclume, obsidienne, pierre des
 Royaumes), qui n'ouvre que l'arsenal de TA faction et de TON alliance et exige un **niveau de héros** par palier. Cinq paliers,
@@ -56,9 +56,9 @@ chacun forgé à partir de la pièce du palier précédent (refondue) :
 
 - **Outils d'alliance** (pioche, pelle, hache, houe, épée) sur les mêmes cinq paliers, avec des métaux au-dessus de la netherite
   (Légende 2800 utilisations, Mythique 3800, Divin 5200 et minage 2× plus rapide). Chaque alliance a sa forme et ses métaux
-  (Ordre : acier, sigmarite, or, aether, étoile d'Azyr ; Chaos : fer noir, airain, métal démoniaque, warpfer, feu des Dieux ;
-  Mort : os, fer de tombe, nadirite, âme, pâleur de Nagash ; Destruction : rouille, bronze, ferraille Waaagh, ferraille de feu,
-  or de Gork) et un effet en main qui monte avec le palier.
+  (Ordre : acier, célestacier, or, aether, étoile d'Célestis ; Chaos : fer noir, airain, métal démoniaque, warpfer, feu des Dieux ;
+  Mort : os, fer de tombe, nadirite, âme, pâleur de Necrath ; Destruction : rouille, bronze, ferraille Graaah, ferraille de feu,
+  or de Brog) et un effet en main qui monte avec le palier.
 - **Armes de faction** : lignée (niv. 8, atout à chaque coup) → champion (niv. 16, atout 1 coup sur 4) → **ascension** (niv. 35,
   étoile du Nether et 4 âmes, atout 1 coup sur 2 renforcé). Modèles 3D en main.
 - **Âmes de seigneur** : 2 à 3 par seigneur vaincu, +1 par héros supplémentaire au combat.
@@ -90,8 +90,8 @@ hache qui abat l'arbre entier, houe qui laboure en 3×3 ou 5×5, épée qui fend
 
 **Équilibrage global (0.17).** Trois scripts dans `outils/equilibrage/` : `simulation.py` (coups encaissés), `combat.py` (duels
 complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux). Réglages qui en sortent :
-- **Panoplies** : chaque faction a un budget d'effets comparable (de 3,8 à 5,5 points, contre 1 à 9 avant : Idoneth et Lumineth étaient
-  presque nus, Khorne et Behemat écrasants). Force, Résistance et Régénération plafonnent au niveau I, la vie bonus au niveau II.
+- **Panoplies** : chaque faction a un budget d'effets comparable (de 3,8 à 5,5 points, contre 1 à 9 avant : Abyssal et de Lumière étaient
+  presque nus, Sangrath et Ymorath écrasants). Force, Résistance et Régénération plafonnent au niveau I, la vie bonus au niveau II.
 - **Seigneurs** : leur vie dépend du nombre de héros présents (55 % seul, +30 % par héros en plus, 160 % au plus) ; ils frappent
   +20 % par palier d'armure au-dessus d'Élite ; chaque héros du combat gagne 400 de gloire. Seul, un héros en Légende gagne de
   justesse (59 s pour vaincre, 66 s tenus), en Divin confortablement (41 s / 70 s) ; en Élite, c'est perdu d'avance.
@@ -99,6 +99,13 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
 - **Coûts** : l'équipement complet Divin + outils + ascension demande 24 lingots de netherite (au lieu de 45), 25 âmes (≈ 10 seigneurs
   seul, moins en groupe) et 5 étoiles du Nether.
 - **Gloire** : les minerais du mod en rapportent (3 à 8), comme les minerais vanilla.
+
+**Publication et finitions (0.24).** Tous les noms déposés par Games Workshop (factions, dieux, Royaumes, unités,
+seigneurs) sont remplacés par des noms originaux (`outils/marque/noms.json`, appliqués par `outils/marque/renommer.py`,
+qui vérifie aussi qu'il n'en reste aucun) : Foudroyés Éternels, Cités d'Aurion, Lames de Sangrath, Hommes-Rats, Hantise
+Nocturne, Mâchefers, Necrath, Varkhan… Les identifiants techniques ne changent pas : les mondes existants restent
+compatibles. Les 500 icônes d'armure sont dessinées directement en 32 px (`outils/objets/icones_hd.py`), avec une visière
+par alliance. Les 12 anciens modèles de créatures inutilisés sont supprimés.
 
 **Prise en main (0.23).**
 - **Départ sobre** : au serment, seulement l'arme de faction (au plus niveau fer), des vivres et la Pierre de Royaume.
@@ -119,11 +126,11 @@ complets à chaque étape) et `progression.py` (temps pour atteindre les niveaux
   biome) ; le HUD garde un badge allié/ennemi à côté du niveau.
 
 **Visages vivants (0.22, Ordre et humains du Chaos).** Chaque faction a son caractère : couleur des yeux (bleu des
-Cités et des Stormcast, ambre des Fyreslayers, or des Lumineth, rouge des Filles de Khaine…), sourcils expressifs (sévères,
+Cités et des Foudroyés, ambre des Tueurs-de-Braise, or des de Lumière, rouge des Filles de Morvaine…), sourcils expressifs (sévères,
 froncés, arqués, tristes), bouche (pincée, rictus, sourire, cri), et des marques : barbe naissante, cicatrices, peinture
 de guerre, runes lumineuses, cernes, fard. Les yeux ont un iris dégradé à liseré sombre, une pupille, deux reflets et un
 regard parfois de côté. Les yeux **clignent** au repos (paupières cachées dans la tête, poussées devant les yeux par
-l'animation d'attente). Les Sylvaneth ont une bouche creuse et des nœuds de bois. La Destruction, la Mort et les Séraphons
+l'animation d'attente). Les Sylvains ont une bouche creuse et des nœuds de bois. La Destruction, la Mort et les Séraphons
 gardent leur apparence de la 0.21 (modèles figés dans `outils/modeles/modele2.py`, liste `FIGES`).
 
 **Visages, roues et écailles (0.21).** Les visages sont peints directement en HD (orbites ombrées, blanc de l'œil, iris
@@ -153,8 +160,8 @@ arrondis au lieu d'escaliers. Les silhouettes et les designs restent ceux du mod
 combat, +5 % par héros en plus, +8 % par victoire sans relique (la « pitié », comptée pour chaque héros, remise à zéro quand une
 relique tombe). Seul, il faut en moyenne ~4 victoires, au pire 12 ; tout le serveur est prévenu quand une relique apparaît.
 En échange, elles dépassent l'arsenal Divin : Pourfendeuse des Rois (17 dégâts, x1,75 contre les seigneurs, Force III et
-Résistance II pendant 15 s), Krokfendeur (20 dégâts, onde de 20 dégâts, Force et Vitesse pour les alliés), Massacre et Carnage
-(18 dégâts, enflamme, cône de feu de 18), Sceptre de Nagash (6 Gardes des Tombes, drain de 14 PV par ennemi), Bâton de malefeu
+Résistance II pendant 15 s), Krokfendeur (20 dégâts, onde 20 dégâts, Force et Vitesse pour les alliés), Massacre et Carnage
+(18 dégâts, enflamme, cône de feu de 18), Sceptre de Necrath (6 Gardes Tombes, drain de 14 PV par ennemi), Bâton de malefeu
 (7 boules qui flétrissent), Bâton de pluie (poison II et lenteur II sur 12 blocs, régénération des alliés).
 
 **Objets dessinés (0.16).** Chacun des 58 objets nommés du datapack (armes de départ, sceaux, élixirs, matériaux, Pierre de Royaume,
@@ -162,12 +169,12 @@ Corne d'appel…) a sa propre icône (`outils/objets/designs.py`) ; les doublons
 boss qui faisaient double emploi avec les reliques, armes de départ portant le nom d'une arme de l'arsenal).
 
 **Une seule économie (0.13).** Les matériaux des Royaumes sont les objets du mod : pierre des Royaumes brute (minerai du
-monde de base), éclats des huit Vents (minerais de chaque Royaume, butin des créatures et coffres de ce Royaume, raids) et
+monde base), éclats des huit Vents (minerais de chaque Royaume, butin des créatures et coffres de ce Royaume, raids) et
 malepierre. Les éclats ne se fabriquent pas : ton camp (sanctuaire) produit ceux de ton Vent, les autres se gagnent en voyageant,
 en échangeant ou en pillant. La Forge des Royaumes (table de forgeron) ne fait plus que consommables, talismans, lingots et
 sceaux ; ses recettes de faction sont réservées à leur faction. Les armes et armures passent toutes par la Forge de guerre.
 
-**Les Royaumes.** Huit Royaumes et les Huit-Points, chacun avec ses biomes, ses structures et ses factions.
+**Les Royaumes.** Huit Royaumes et les Huit-Voies, chacun avec ses biomes, ses structures et ses factions.
 On y voyage par les failles du datapack ou par le **Portail des Royaumes** (bloc). En entrant dans un Royaume,
 la barre d'action rappelle quel Vent y souffle.
 
@@ -181,7 +188,7 @@ barre d'objets quand on tient un bâton. L'inventaire de survie reste la « tabl
 | | |
 |---|---|
 | ![Écran de serment](outils/visuels/apercus/maquette_serment_ironjawz.png) | ![HUD](outils/visuels/apercus/maquette_hud.png) |
-| ![Carte des Royaumes](outils/visuels/apercus/carte_royaumes.png) | ![Guide de la magie](outils/visuels/apercus/guide_magie.png) |
+| ![Carte des Royaumes](outils/visuels/apercus/carte_royaumes.png) | ![Guide la magie](outils/visuels/apercus/guide_magie.png) |
 | ![Skins des factions](outils/skins/apercus/planche_skins.png) | ![Onglets créatifs](outils/visuels/apercus/onglets_creatifs.png) |
 | ![Arsenal 1](outils/visuels/apercus/arsenal/arsenal_1.png) | ![Paliers](outils/visuels/apercus/arsenal/paliers.png) |
 | ![Forge de guerre](outils/visuels/apercus/jeu/maquette_forge.png) | ![Saga et seigneur](outils/visuels/apercus/jeu/maquette_saga.png) |

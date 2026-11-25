@@ -45,7 +45,7 @@ import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 
 /**
- * Mob de faction ou boss des Royaumes Mortels. Son profil (stats, alliance, mode de combat,
+ * Mob de faction ou boss des Royaumes Mortels. Son profil (stats, alliance, mode combat,
  * capacités) vient de ProfilsGeneres, choisi d'après l'identifiant de son type.
  * Les mobs de Grandes Alliances différentes se battent entre eux.
  */
@@ -385,7 +385,7 @@ public class Combattant extends PathfinderMob implements GeoEntity {
         }
     }
 
-    /** Onde de choc autour du mob (boss et grandes créatures). */
+    /** Onde choc autour du mob (boss et grandes créatures). */
     private void frappeDeZone(ServerLevel niveau) {
         Profil p = profil();
         double r = 3.5 + p.echelle() * 1.5;
@@ -428,7 +428,7 @@ public class Combattant extends PathfinderMob implements GeoEntity {
             }
             case SAIGNEE -> cible.hurtServer(niveau, this.damageSources().magic(), 3.0F);
             case LUMIERE -> cible.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0), this);
-            case WAAAGH -> this.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 100, 0));
+            case GRAAAH -> this.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 100, 0));
             case SEISME -> cible.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 80, 2), this);
             default -> {
             }

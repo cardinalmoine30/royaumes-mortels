@@ -10,7 +10,7 @@
       "type": "minecraft:plain_message",
       "width": 300,
       "contents": {
-        "text": "Les peuples civilisés unis derrière Sigmar contre les ténèbres."
+        "text": "Les peuples civilisés unis derrière Aurion contre les ténèbres."
       }
     }
   ],
@@ -19,12 +19,12 @@
   "actions": [
     {
       "label": {
-        "text": "Stormcast Eternals",
+        "text": "Foudroyés Éternels",
         "color": "gold"
       },
       "tooltip": [
         {
-          "text": "Royaume : Azyr\n",
+          "text": "Royaume : Célestis\n",
           "color": "gray"
         },
         {
@@ -44,12 +44,12 @@
     },
     {
       "label": {
-        "text": "Cités de Sigmar",
+        "text": "Cités d'Aurion",
         "color": "aqua"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghyran\n",
+          "text": "Royaume : Sylvéa\n",
           "color": "gray"
         },
         {
@@ -69,12 +69,12 @@
     },
     {
       "label": {
-        "text": "Fyreslayers",
+        "text": "Tueurs-de-Braise",
         "color": "gold"
       },
       "tooltip": [
         {
-          "text": "Royaume : Aqshy\n",
+          "text": "Royaume : Pyréa\n",
           "color": "gray"
         },
         {
@@ -94,12 +94,12 @@
     },
     {
       "label": {
-        "text": "Kharadron Overlords",
+        "text": "Seigneurs des Nuées",
         "color": "gold"
       },
       "tooltip": [
         {
-          "text": "Royaume : Chamon\n",
+          "text": "Royaume : Ferrumia\n",
           "color": "gray"
         },
         {
@@ -119,12 +119,12 @@
     },
     {
       "label": {
-        "text": "Filles de Khaine",
+        "text": "Filles de Morvaine",
         "color": "red"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ulgu\n",
+          "text": "Royaume : Umbria\n",
           "color": "gray"
         },
         {
@@ -144,12 +144,12 @@
     },
     {
       "label": {
-        "text": "Idoneth Deepkin",
+        "text": "Peuple des Abysses",
         "color": "dark_aqua"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ulgu (océans)\n",
+          "text": "Royaume : Umbria (océans)\n",
           "color": "gray"
         },
         {
@@ -169,12 +169,12 @@
     },
     {
       "label": {
-        "text": "Seigneurs Lumineth",
+        "text": "Seigneurs de Lumière",
         "color": "white"
       },
       "tooltip": [
         {
-          "text": "Royaume : Hysh\n",
+          "text": "Royaume : Lumina\n",
           "color": "gray"
         },
         {
@@ -194,12 +194,12 @@
     },
     {
       "label": {
-        "text": "Seraphon",
+        "text": "Astrosauriens",
         "color": "green"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghur (jungles)\n",
+          "text": "Royaume : Féralia (jungles)\n",
           "color": "gray"
         },
         {
@@ -219,12 +219,12 @@
     },
     {
       "label": {
-        "text": "Sylvaneth",
+        "text": "Sylvains",
         "color": "dark_green"
       },
       "tooltip": [
         {
-          "text": "Royaume : Ghyran\n",
+          "text": "Royaume : Sylvéa\n",
           "color": "gray"
         },
         {

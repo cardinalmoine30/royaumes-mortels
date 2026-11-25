@@ -11,7 +11,7 @@
               "type": "minecraft:set_components",
               "components": {
                 "minecraft:custom_name": {
-                  "text": "Comète de Sigmar",
+                  "text": "Comète de Aurion",
                   "color": "aqua",
                   "italic": false
                 },

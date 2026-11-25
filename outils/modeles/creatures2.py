@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Créatures détaillées (moteur v2) : bêtes et montures, dragons, navires Kharadron, squigs et rejetons,
+"""Créatures détaillées (moteur v2) : bêtes et montures, dragons, navires Nuées, squigs et rejetons,
 poissons de l'Ethersea, chars et roues. Mêmes clés de spécification que la v1."""
 from modele2 import Modele, mul
 from humanoide import materiaux, STYLE, f_bande, f_cadre, f_yeux, f_dents, f_eclair, f_etoile, f_crane, f_rayures, combine, f_comete
@@ -432,7 +432,7 @@ def char(nom, s, fac):
             m.cube("body", (sx * 3.2 - (0.6 if sx < 0 else 0), R - 2.5, -2.5), (0.6, 5, 5), "armure2")
         for k in range(3):
             m.cube("body", (-3.4, R - 2.2 + k * 1.8, -3.4), (6.8, 0.6, 6.8), "or")      # bobines de cuivre
-        m.cube("body", (-1, R + 3, -1), (2, 4, 2), "lueur")                             # malepierre
+        m.cube("body", (-1, R + 3, -1), (2, 4, 2), "lueur")                             # fangepierre
         m.cube("body", (-1.6, R + 7, -1.6), (3.2, 0.8, 3.2), "metal")
         for sx in (-1, 1):                                                              # paratonnerres
             m.cube("body", (sx * 1.6 - 0.25, R + 7.5, -0.25), (0.5, 4, 0.5), "metal", rot=(0, 0, sx * 18), pivot=(sx * 1.6, R + 7.5, 0))

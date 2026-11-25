@@ -1,4 +1,4 @@
-# Dons de la faction Disciples de Tzeentch
+# Dons de la faction Disciples de Vharys
 attribute @s minecraft:luck modifier add royaumes:faction 2 add_value
 attribute @s minecraft:max_health modifier add royaumes:faction -2 add_value
 effect give @s minecraft:haste infinite 0 true
